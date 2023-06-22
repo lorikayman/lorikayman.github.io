@@ -2,7 +2,6 @@ body {
   font-family: sans-serif;
   padding: .4em .6em;
   background-color: rgb(6, 6, 6);
-  background-image: none;
 }
 
 div.header-vertical {
@@ -84,6 +83,14 @@ div.header-vertical h4 span {
 .card-row:hover :first-child i[discord] {
   color: #7289da;
 }
+i.external-link {
+  transition: 0.02s !important;
+  filter: grayscale(1);
+}
+i.external-link:hover {
+  transition: 0.02s !important;
+  filter: grayscale(1);
+}
 
 .card-row a {
   color: #767b81;
@@ -102,11 +109,11 @@ div.header-vertical h4 span {
 .card-row .foldable {
   transition: 0.42s;
   transition-delay: -0.1s;
-}
-.card-row:not(:hover) .foldable {
-  height: 0;
+  height: 0px;
+  overflow: hidden;
 }
 .card-row:hover .foldable {
-  height: 80;
-  display: inline-block;
+  height: 80px;
+  visibility: visible;
+  text-overflow: ellipsis;
 }
