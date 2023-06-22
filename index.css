@@ -4,8 +4,11 @@ body {
   background-color: rgb(6, 6, 6);
 }
 
-div.header-vertical {
+body * {
   font-family: 'Courier New', Courier, monospace;
+}
+
+div.header-vertical {
   color: #ea9b2c;
   letter-spacing: .15em;
   border-left: .1em solid #ea9b2c;
@@ -48,7 +51,6 @@ div.header-vertical h4 span {
 
 .card-row span {
   margin-top: 20px;
-  font-family: 'Courier New', Courier, monospace;
 }
 
 
@@ -116,4 +118,10 @@ i.external-link:hover {
   height: 80px;
   visibility: visible;
   text-overflow: ellipsis;
+}
+
+.cosmic-malevolence {
+  color: #fe0054;
+  font-weight: bolder;
+  filter: drop-shadow(0 0 0.7rem);
 }
