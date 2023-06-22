@@ -2,6 +2,7 @@ body {
   font-family: sans-serif;
   padding: 2em 1em;
   background-color: rgb(6, 6, 6);
+  background-image: none;
 }
 
 .container-vertical {
@@ -33,7 +34,6 @@ body {
 
 .card-title {
   margin-bottom: 4px;
-  transition: 0.4s;
 }
 
 .card-title span {
@@ -45,7 +45,7 @@ body {
 }
 
 .card-row:hover :first-child i {
-  transition: 0.4s;
+  transition: 0.52s;
 }
 .card-row:hover :first-child i[github] {
   color: #2dba4e;
@@ -60,12 +60,6 @@ body {
   color: #7289da;
 }
 
-
-.card-row:hover .card-title {
-  margin-bottom: 4em;
-  transition: 0.4s;
-}
-
 .card-row a {
   color: #767b81;
   text-decoration: none;
@@ -78,3 +72,24 @@ body {
   opacity: 1;
   transition: 0.022s;
 }
+
+
+.card-row .foldable {
+  transition: 0.42s;
+  transition-delay: -0.1s;
+}
+.card-row:not(:hover) .foldable {
+  height: 0;
+}
+.card-row:hover .foldable {
+  height: 80;
+  display: inline-block;
+}
+
+/* .card-row .foldable img {
+  visibility: hidden;
+}
+.card-row:hover .foldable img {
+  visibility: visible;
+  clip: rect(100 100 100 100);
+} */
