@@ -28,12 +28,11 @@ div.header-vertical h4 span {
 
 
 .container-vertical {
-  display: flex;
-  justify-content: center;
-  align-content: center;
   row-gap: 22px;
-  display: flex;
   flex-direction: column;
+  min-height: 50rem;
+  display: flex;
+  vertical-align: top;
 }
 
 .card-row {
