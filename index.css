@@ -26,6 +26,10 @@ div.header-vertical h4 span {
   font-weight: 600;
 }
 
+.section-two-panes {
+  min-height: 40rem;
+}
+
 .container-cards {
   row-gap: 22px;
   flex-direction: column;
@@ -34,48 +38,30 @@ div.header-vertical h4 span {
 }
 
 .container-selector {
-  display: inline-block;
+  /* overflow: visible; */
+  max-width: fit-content;
+  display: block;
 }
 
-.section-intro {
-  min-height: 80rem;
-}
-
-.basement {
-  min-height: 30rem;
-}
-
-.basement img {
-  margin-top: 6em;
-  width: 95%;
-  height: auto;
-  -webkit-mask-image: -webkit-gradient(
-    linear, left top, left bottom,
-    from(rgba(0,0,0,0)),
-    to(rgba(0,0,0,1)));
-  mask-image: linear-gradient(
-    to bottom,
-    rgba(0,0,0,0),
-    rgba(0,0,0,1));
-}
-
-/* default */
 .container-showoff {
   display: none;
 }
 
-@media(min-width: 980px) {
+@media screen and (min-width: 500px) {
   .container-showoff {
+    --mask-padding: 7%;
     float: right;
-    display: inline-block;
-    background-repeat: no-repeat;
-    margin-left: 1em;
-    margin-right: 1em;
-    width: 24em;
+    display: block;
+    min-width: 8em;
+    width: 38%;
+    /* width: 24em; */
     height: 28em;
     background-size: 48em;
-    background-clip: border-box;
+    clip-path: polygon(var(--mask-padding) 0, var(--mask-padding) 100%, 100% 100%, 100% 0);
+    background-repeat: no-repeat;
+    background-position: left;
   }
+
 }
 
 .card-row {
