@@ -49,11 +49,12 @@ div.header-vertical h4 span {
 
 @media screen and (min-width: 500px) {
   .container-showoff {
+    margin-right: 10%;
     --mask-padding: 7%;
     float: right;
     display: block;
     min-width: 8em;
-    width: 38%;
+    width: 28%;
     /* width: 24em; */
     height: 28em;
     background-size: 48em;
