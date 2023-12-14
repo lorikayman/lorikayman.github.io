@@ -1,0 +1,14 @@
+.DS_Store
+node_modules
+/build
+/.svelte-kit
+/package
+.env
+.env.*
+!.env.example
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
+
+# mdx hierarcher
+tools/mdx_hierarcher/.venv
+tools/mdx_hierarcher/**/__pycache__

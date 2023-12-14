@@ -1,0 +1,147 @@
+:root {
+    /*https://fonts.google.com/specimen/Open+Sans?query=open+sans*/
+    font-family: "Open Sans";
+    color-scheme: dark;
+}
+
+/*https://www.dafont.com/couture.font*/
+@font-face {
+    font-family: 'couture';
+    font-style: normal;
+    src: url('/fonts/couture/couture-bld.otf'); /*format('truetype'); */
+}
+
+/* https://www.dafont.com/familiar-pro.font */
+@font-face {
+    font-family: 'familiar-pro';
+    font-style: normal;
+    src: url('/fonts/familiar_pro/Familiar Pro-Bold.otf') format("opentype");
+}
+
+html {
+    background-color: rgb(24, 26, 27);
+    color: rgb(232, 230, 227)
+}
+
+::selection {
+    /* darkreader override */
+    background-color: rgba(255, 200, 34, 0.558)!important;
+}
+
+h1 {
+    font-family: 'familiar-pro';
+    font-weight: 600;
+    font-size: 4.7rem;
+    padding: 34px 6px;
+    margin: unset;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+@media (max-width: 540px) {
+    h1 {
+        font-size: 1.7em;
+        padding: 14px 6px;
+    }
+}
+
+
+h2 {
+    font-size: 1.8rem;
+}
+
+h3 {
+    font-size: 1.4rem;
+}
+
+p {
+    font-size: 1.1rem;
+}
+
+.container p {
+    text-align: justify;
+}
+
+div.container {
+    padding-left: 3.8rem;
+    padding-right: 0.8rem;
+}
+
+@media only screen and (min-width: 801px) {
+    div.container {
+        max-width: 60%;
+        padding-left: 20%;
+        counter-reset: paragraph;
+    }
+
+    .container > p::before {
+        counter-increment: paragraph;
+        content: counter(paragraph) '.';
+        position: absolute;
+        color: rgb(157, 157, 157);
+        left: 17.7%;
+        font-size: 0.9em;
+    }
+}
+
+.carbon {
+    background-color: rgb(45, 45, 48);
+    border-radius: 4px;
+    padding: .3em;
+}
+
+.main {
+    /* margin-top: 2.7em; */
+    border-radius: 4px;
+    padding: .3em;
+    margin-top: 2.8em;
+    margin-bottom: .2em;
+}
+.main:hover {
+    background-color: rgba(30, 30, 33, 0.5);
+    /* border-radius: 4px; */
+    /* width: 100%; */
+    /* padding: .3em; */
+    /* margin-bottom: .8em; */
+}
+
+.sidebar :is(svg, a):hover {
+    /* transition-property: font-size; */
+    transition-duration: 40ms;
+    /* transition-delay: 0.02s; */
+}
+
+.sidebar a:first-child:hover {
+    color: rgb(245, 181, 5);
+    /* filter: drop-shadow(0px 2px 0.6rem rgb(232, 201, 116)); */
+}
+
+.sidebar a:not(:first-child):hover {
+    color: rgb(164, 164, 164);
+}
+
+
+.sidebar {
+    position: fixed;
+    padding: .5em 0em;
+    width: 3.2em;
+    height: 94%;
+    display: flex;
+    align-items: center;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+
+    /* & a:not(:first) {
+        margin: .3em 0em;
+    } */
+    & span {
+        font-size: 1.4em;
+        padding: 0.3em 0em;
+    }
+}
+
+
+a {
+    color: unset;
+    text-decoration: none; /* no underline */
+}
