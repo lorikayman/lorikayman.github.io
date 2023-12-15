@@ -1,3 +1,7 @@
+install:
+	poetry install
+	npm install
+
 python:
 	poetry run python ./run.py --root-dir ./src/content/maelstrom-compedium --output-dir ./src/lib/mawanet
 
