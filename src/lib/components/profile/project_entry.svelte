@@ -57,11 +57,11 @@
   }
 
   .project-date {
-    font-size: 0.9em;
+    font-size: 1.1em;
     margin-right: -1.7em;
     color: antiquewhite;
     position: absolute;
-    margin-top: 0.6em;
+    margin-top: 0.7em;
     height: fit-content;
     transform: rotate(180deg);
     text-orientation: sideways;
