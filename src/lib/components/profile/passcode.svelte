@@ -74,7 +74,8 @@ center {
 
   & span {
     text-transform: uppercase;
-    font-family: 'familiar-pro';
+    font-family: serif;
+    /* font-family: 'familiar-pro'; */
     font-size: 2.6rem;
     font-weight: 300;
     color: rgb(255, 191, 90);
@@ -106,7 +107,8 @@ center {
 
   & span {
     text-transform: uppercase;
-    font-family: 'familiar-pro';
+    font-family: serif;
+    /* font-family: 'familiar-pro'; */
     font-size: 1.4rem;
     font-weight: 300;
     color: rgb(212, 160, 76);
@@ -133,11 +135,11 @@ center {
   text-align: center;
   margin: 0.9em;
   background-color: hsl(32, 4%, 40%);
-  filter: drop-shadow(0 0 0.3rem #fe4800);
+  /* filter: drop-shadow(0 0 0.3rem #fe4800); */
 
   border-width: 1px;
   border-style: solid;
-  border-color: #fe5500;
+  /* border-color: #fe5500; */
   font-weight: bolder;
   color: white;
   background-color: #353136;
