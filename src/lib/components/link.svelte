@@ -35,7 +35,7 @@
     error = entryProperties.error;
   };
   function mouseLeave() {
-    nextPageName.set($currentPageName); 
+    nextPageName.set($currentPageName);
   }
 
 </script>
