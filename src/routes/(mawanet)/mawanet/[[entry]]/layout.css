@@ -4,13 +4,6 @@
     color-scheme: dark;
 }
 
-/*https://www.dafont.com/couture.font*/
-@font-face {
-    font-family: 'couture';
-    font-style: normal;
-    src: url('/fonts/couture/couture-bld.otf'); /*format('truetype'); */
-}
-
 /* https://www.dafont.com/familiar-pro.font */
 @font-face {
     font-family: 'familiar-pro';
@@ -81,62 +74,6 @@ div.container {
         color: rgb(157, 157, 157);
         left: 17.7%;
         font-size: 0.9em;
-    }
-}
-
-.carbon {
-    background-color: rgb(45, 45, 48);
-    border-radius: 4px;
-    padding: .3em;
-}
-
-.main {
-    /* margin-top: 2.7em; */
-    border-radius: 4px;
-    padding: .3em;
-    margin-top: 2.8em;
-    margin-bottom: .2em;
-}
-.main:hover {
-    background-color: rgba(30, 30, 33, 0.5);
-    /* border-radius: 4px; */
-    /* width: 100%; */
-    /* padding: .3em; */
-    /* margin-bottom: .8em; */
-}
-
-.sidebar :is(svg, a):hover {
-    /* transition-property: font-size; */
-    transition-duration: 40ms;
-    /* transition-delay: 0.02s; */
-}
-
-.sidebar a:first-child:hover {
-    color: rgb(245, 181, 5);
-    /* filter: drop-shadow(0px 2px 0.6rem rgb(232, 201, 116)); */
-}
-
-.sidebar a:not(:first-child):hover {
-    color: rgb(164, 164, 164);
-}
-
-
-.sidebar {
-    position: fixed;
-    padding: .5em 0em;
-    width: 3.2em;
-    height: 94%;
-    display: flex;
-    align-items: center;
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
-
-    /* & a:not(:first) {
-        margin: .3em 0em;
-    } */
-    & span {
-        font-size: 1.4em;
-        padding: 0.3em 0em;
     }
 }
 
