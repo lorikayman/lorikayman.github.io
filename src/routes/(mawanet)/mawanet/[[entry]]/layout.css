@@ -88,18 +88,19 @@ blockquote {
     border-color: hsl(0, 0%, 5%);
     border-width: 1px;
 
+    background:
+        repeating-linear-gradient(
+            hsl(0, 30%, 51%),
+            hsl(25, 68%, 60%))
+        center center;
+    background-size:100%;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+
     & p, li {
         margin: 0px;
         padding: 0em 1.2em;
-        background:
-            repeating-linear-gradient(
-                hsl(0, 30%, 51%),
-                hsl(25, 68%, 60%))
-            center center;
-        background-size:100%;
-        color: transparent;
-        -webkit-background-clip: text;
-        background-clip: text;
 
         &::selection {
             color: hsl(0, 0%, 80%);
