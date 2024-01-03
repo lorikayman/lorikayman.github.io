@@ -143,7 +143,6 @@
         content: '_';
         margin-bottom: 0.67em;
         background-color: hsl(36, 100%, 82%);
-        animation: inline-cursor-blink 500ms infinite;
       }
       &::after {
         margin-top: 0.67rem;
@@ -154,12 +153,8 @@
     & p {
       font-size: 1.1rem;
     }
-    & blockquote {
+    & blockquote,ul:first-of-type {
       display: none;
     }
-  }
-
-  @keyframes inline-cursor-blink {
-    0% { background-color: transparent;}
   }
 </style>
