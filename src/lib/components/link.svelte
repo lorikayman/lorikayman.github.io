@@ -10,7 +10,7 @@
     elements: { trigger, content, arrow }
   } = createLinkPreview({
     openDelay: 10,
-    closeDelay: 20,
+    closeDelay: 50,
     positioning: {placement: 'top'}
   })
 
@@ -139,15 +139,15 @@
 
       padding: 0px;
       margin: 0px;
-      &::before {
+      /* &::before {
         content: '_';
         margin-bottom: 0.67em;
         background-color: hsl(36, 100%, 82%);
-      }
-      &::after {
+      } */
+      /* &::after {
         margin-top: 0.67rem;
         content: '>>';
-      }
+      } */
     }
 
     & p {

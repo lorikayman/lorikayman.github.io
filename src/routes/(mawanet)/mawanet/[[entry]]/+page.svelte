@@ -69,16 +69,3 @@
     <svelte:component this={data.pageComponent}></svelte:component>
   </div>
 </div>
-
-<style>
-
-/* @media (min-width: 890px) {
-  #table-of-contents {
-    position: fixed;
-    top: 5rem;
-    right: 1rem;
-    max-width: 10rem;
-  }
-} */
-
-</style>
