@@ -1,7 +1,7 @@
 <script>
   import { createLinkPreview, melt } from '@melt-ui/svelte';
 
-  import { FileTextFill, FileLock2Fill } from "svelte-bootstrap-icons"
+  import { FileLock2Fill } from "svelte-bootstrap-icons"
 
   import { fetchComponent, nextPageName, currentPageName } from "$lib/stores/mawanet.loader.js"
 
@@ -50,9 +50,9 @@
   class:error403={error === 403}
 >
   {#if !error}
-  <slot/>
+    <slot/>
   {:else}
-  <FileLock2Fill width={16} height={16}/>Access Denied
+    <FileLock2Fill width={16} height={16}/>Access Denied
   {/if}
 </a>
 
@@ -72,6 +72,11 @@
     & > svg {
       margin-bottom: -2px;
       margin-right: 3px;
+    }
+
+    &:hover {
+      color: hsl(36, 100%, 82%);
+      transition: all 60ms;
     }
   }
 
@@ -98,8 +103,6 @@
   }
 
   div.peeker {
-    /* width: 30em;
-    height: 20em; */
     text-align: justify;
     overflow-y: scroll;
     max-height: 14em;
@@ -112,9 +115,51 @@
     padding: 2.2em;
     filter: drop-shadow(0 1em 1.8em black);
 
-    & h1,h2,h3,h4,h5,h6,p,blockquote {
+    & h2,h3,h4,h5,h6 {
       font-size: 1.2rem;
+      letter-spacing: 1px;
       font-family: 'open sans';
     }
+
+    & h1 {
+      color: rgba(232, 230, 227, 0.55);
+      /* background-color: rgba(255, 200, 34, 0.558); */
+      /* color: rgb(36, 36, 36); */
+      position: fixed;
+      left: 2px;
+      top: 24px;
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      white-space: nowrap;
+    
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+      font-family: 'open sans';
+      font-weight: 100;
+
+      padding: 0px;
+      margin: 0px;
+      &::before {
+        content: '_';
+        margin-bottom: 0.67em;
+        background-color: hsl(36, 100%, 82%);
+        animation: inline-cursor-blink 500ms infinite;
+      }
+      &::after {
+        margin-top: 0.67rem;
+        content: '>>';
+      }
+    }
+
+    & p {
+      font-size: 1.1rem;
+    }
+    & blockquote {
+      display: none;
+    }
+  }
+
+  @keyframes inline-cursor-blink {
+    0% { background-color: transparent;}
   }
 </style>
