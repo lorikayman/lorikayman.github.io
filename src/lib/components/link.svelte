@@ -9,9 +9,9 @@
   const {
     elements: { trigger, content, arrow }
   } = createLinkPreview({
-    openDelay: 10,
+    openDelay: 15,
     closeDelay: 50,
-    positioning: {placement: 'top'}
+    positioning: {placement: 'right'}
   })
 
   /**
