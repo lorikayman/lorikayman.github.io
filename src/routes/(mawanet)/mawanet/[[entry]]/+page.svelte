@@ -3,7 +3,7 @@
   import { createTableOfContents } from '@melt-ui/svelte';
 
   import { currentPageName } from "$lib/stores/mawanet.loader";
-  import Tree from '$lib/components/toc.svelte';
+  // import Tree from '$lib/components/toc.svelte';
   import Sidebar from "$lib/components/sidebar.svelte"
   
   export let data;
@@ -50,19 +50,7 @@
   $: currentPageName.set(data.pageName.replace(/\_/g," ").split(' ')[0].toUpperCase());
 </script>
 
-<Sidebar>
-  <div id="table-of-contents">
-    <nav>
-      {#key $headingsTree}
-        <Tree
-          tree={$headingsTree}
-          activeHeadingIdxs={$activeHeadingIdxs}
-          {item}
-        />
-      {/key}
-    </nav>
-  </div>
-</Sidebar>
+<Sidebar/>
 
 <div class="container">
   <div id="toc-builder-preview">
