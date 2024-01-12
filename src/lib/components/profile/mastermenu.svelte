@@ -9,7 +9,7 @@ import { crossfade } from 'svelte/transition';
 import { FileLock2Fill } from "svelte-bootstrap-icons"
 
 import About from '$lib/components/profile/about.mdx'
-import Projects from '$lib/components/profile/projects.svelte'
+import Projects from '$lib/components/profile/projects.mdx'
 import Passcode from "$lib/components/profile/passcode.svelte"
 
 const {
