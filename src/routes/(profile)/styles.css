@@ -1,38 +1,52 @@
 :root {
-  font-family: sans-serif;
   padding: .4em .6em;
   background-color: rgb(6, 6, 6);
   scroll-behavior: smooth;
 }
 
+/* https://www.1001fonts.com/fira-sans-font.html */
+@font-face {
+  font-family: 'fira-sans-ultralight';
+  font-style: normal;
+  src: url('/fonts/Fira_Sans/fira-sans.ultralight.ttf');
+}
 
 body {
+  font-family: sans-serif;
+
   min-height: 40rem;
   scroll-behavior: smooth;
+  & > div:first-child {
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 0;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  /* https://www.publicdomainpictures.net/en/view-image.php?image=338833&picture=armillary-sphere*/
+  & > div::before {
+    content: "";
+    background-image: url("/img/armillary-sphere.jpg");
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    display: block;
+    filter: brightness(3%) grayscale(100%);
+    background-position: 50% 13%;
+    width: 100%;
+    height: 100%;
+  }
 }
 
-body > div:first-child {
-  position: fixed;
-  left: 0;
-  right: 0;
-  z-index: 0;
-  margin-left: 20px;
-  margin-right: 20px;
-}
-
-/* https://www.publicdomainpictures.net/en/view-image.php?image=338833&picture=armillary-sphere*/
-body > div::before {
-  content: "";
-  background-image: url("/img/armillary-sphere.jpg");
-  position: fixed;
-  left: 0;
-  right: 0;
-  z-index: -1;
-  display: block;
-  filter: brightness(3%) grayscale(100%);
-  background-position: 50% 13%;
-  width: 100%;
-  height: 100%;
+p {
+  font-size: 1.12rem;
+  letter-spacing: 0.08mm;
+  /* font-family: 'Fira Sans UltraLight' !important; */
+  font-family: 'fira-sans-ultralight' !important;
+  line-height: 1.6rem;
 }
 
 #master-header {
