@@ -51,7 +51,6 @@ body {
 p {
   font-size: 1.12rem;
   letter-spacing: 0.08mm;
-  /* font-family: 'Fira Sans UltraLight' !important; */
   font-family: 'fira-sans-ultralight' !important;
   line-height: 1.6rem;
 }
@@ -78,44 +77,41 @@ p {
     color: rgb(255, 233, 159);
     text-transform: uppercase;
 
- 
-    /* &:hover { */
-      border-top: 0.3rem solid transparent;
-      border-bottom: 0.3rem solid transparent;  
-      color: rgb(255, 251, 147);
+    border-top: 0.3rem solid transparent;
+    border-bottom: 0.3rem solid transparent;  
+    color: rgb(255, 251, 147);
 
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-      /* Author: Stefan Judis (stefanjudis)
-      https://codepen.io/alphardex/pen/vYEYGzp */
-      &::after {
-        position: absolute;
-        content: "";
-        top: calc(-1 * var(--border-width));
-        left: calc(-1 * var(--border-width));
-        z-index: -1;
-        width: 100%;
-        height: 40%;
-        background: linear-gradient(
-          60deg,
-          hsl(224, 85%, 66%),
-          hsl(269, 85%, 66%),
-          hsl(314, 85%, 66%),
-          hsl(359, 85%, 66%),
-          hsl(34, 85%, 66%),
-          hsl(89, 85%, 66%),
-          hsl(134, 85%, 66%),
-          hsl(179, 85%, 66%)
-        );
-        background-size: 300% 300%;
-        background-position: 0 50%;
-        border-radius: calc(2 * var(--border-width));
-        animation: moveGradient 3s alternate infinite;
-      }
-    /* } */
+    /* Author: Stefan Judis (stefanjudis)
+    https://codepen.io/alphardex/pen/vYEYGzp */
+    &::after {
+      position: absolute;
+      content: "";
+      top: calc(-1 * var(--border-width));
+      left: calc(-1 * var(--border-width));
+      z-index: -1;
+      width: 100%;
+      height: 40%;
+      background: linear-gradient(
+        60deg,
+        hsl(224, 85%, 66%),
+        hsl(269, 85%, 66%),
+        hsl(314, 85%, 66%),
+        hsl(359, 85%, 66%),
+        hsl(34, 85%, 66%),
+        hsl(89, 85%, 66%),
+        hsl(134, 85%, 66%),
+        hsl(179, 85%, 66%)
+      );
+      background-size: 300% 300%;
+      background-position: 0 50%;
+      border-radius: calc(2 * var(--border-width));
+      animation: moveGradient 3s alternate infinite;
+    }
   }
 
   & h2 {

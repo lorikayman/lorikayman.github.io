@@ -21,23 +21,25 @@
 
 <div slot="participation">
 
-- UI/UX design
-- transition to git from mercurial workflow,
-- local dev/build environment development cycle based on Mozilla Mach,
-- various privacy enhancements including telemetry removal and Remote Settings/Kinto decoupling from hosred by Mozilla services
+- UI/UX design, icons, main window composition,
+proportions and layouts, lesser customisation
+in favour of opinionated design and workflow
+- Mozilla Mach toolchain functionality and network transparency R&D,
+additional features for self-hosted-oriented approach
+- Various privacy enhancements and security hardening including
+telemetry removal and Remote Settings/Kinto decoupling from hosted by Mozilla Foundation services
+- Reimplementaion of DEB and MSI packaging pipelines in place of Mach's
 
 </div>
 <div slot="technologies">
 
 - XPCOM
 - VanillaJS
-- CSS
-  - css functions, mostly color-related
+- CSS, that is theming and overall look/feel alterations
+  - css functions, mostly color/theming-related
 - Python
-  - mozilla mach
-  - poetry
-  - ruff
-- Rust
+  - Mozilla Mach
+  - Poetry, Ruff
 
 </div>
 </ProjectEntry>
@@ -52,31 +54,40 @@
 >
 <div slot="participation">
 
-- Analysis, deployment, and finalised selection of MTA/MDA components,
-that are Postfix and Dovecot,
-architecture, approach and development of Proof-Of-Concept and
-additional development up until release 2.0,
-UI and UX design and development of VanillaJS-KnockoutJS 3 components-backed Bootstrap 4 administraction panel,
-selection, coordination and analysis of admin panel migration process to a different UI framework, settling with React/MobX
-
-Additional research and deployment of various infrastructure components:
-Exim, Postfix, Dovecot, LMTP and LDAP authentication setup,
-Amavis, Active Directory, FreeIPA
-
-Development of YAML-based (strict yaml derivation)
-templating and abstraction engine/mapper for unified
-translation and representation of every individual
-mailflow component configuration files' syntax
-(and it's admin guide/user manual) - i.e. postfix's master.conf, main.conf,
-it started as INI-file configuration and finalised as strict YAML,
-the latter being Service's current confuguration file spec
+- Deployment and finalised selection of MTA/MDA components,
+that are Postfix and Dovecot
+  - Additional research, deployment and cross-integration of
+  various infrastructure components: Exim, Amavis, mailcow, iRedMail,
+  MS AD, FreeIPA, OpenLDAP
+- Developemnt of Proof-Of-Concept and architecture of the Service,
+further refactoring as project gained more features
+  - Development of YAML-based (StrictYAML derivation of YAML 1.1)
+  configuration markup syntax,
+  it's engine/mapper for unified interpretation, translation and
+  representation of every individual mailflow component
+  configuration files' syntax
+  (i.e. postfix's master.conf, main.conf, etc.)
+  - As amounts of mailflow components increased,
+  discussion and implimentation of interpreters of said componets'
+  configuration files' syntaxes
+- UI and UX research, study, composition and development of VanillaJS and
+KnockoutJS 3 components-backed Bootstrap 4 administraction panel based on
+industries WebUI best practices
+  - Migration from WTForms to hybrid application and then to a regular KnockoutJS SPA
+  - Coordination of research and migration to a different UI framework, that is React/MobX
 
 </div>
 <div slot="technologies">
 
-- Python (Flask, SQLAlchemy, postgreSQL, poetry + ruff + flake8)
-- VanillaJS native web components
-- KnockoutJS 3 + SPA Router
+- Python
+  - Flask, WTForms, SQLAlchemy, SQL
+- VanillaJS
+- KnockoutJS 3 components
+  - KnockoutJS SPA Router
+- AdminLTE 3
+  - Bootstrap 4 
+  - Bootstrap-based plugins
+- Webpack, ESbuild, Babel
 
 </div>
 </ProjectEntry>
@@ -91,17 +102,16 @@ the latter being Service's current confuguration file spec
 >
 <div slot="participation">
 
-- Application architecture,
-- processing algorithm,
-- core feature-set
-- Utilisation of Pandas/JypiterNB in order to capture avarage
-grammar usage and patterns
-- Utilisation of NumPy for in-memory processing of high-order tokens
+- Implimentation of architecture of parser and business-logic
+  - Further development of additional features with
+  user-defined custom dictionaries
+- Utilisation of Pandas and Jupyter Notebooks in order to measure avarage
+grammar statistics, usage and patterns
 
 </div>
 <div slot="technologies">
 
-  Python (Tornado)
+- Python, Tornado framework
 
 </div>
 </ProjectEntry>
@@ -113,9 +123,10 @@ grammar usage and patterns
 >
 <div slot="participation">
 
-- IOMMU groups setup
-- Additional Kernel patching
-- KVM/QEMU VM generation through virsh interfaces with python
+- Selection of required hardware
+- Arch-based and Debian-based systems' configuration
+  - IOMMU groups setup
+- KVM/QEMU VM generation over virsh interfaces with python
 
 </div>
 <div slot="technologies">
@@ -123,7 +134,7 @@ grammar usage and patterns
 - KVM/QEMU
 - Virsh
 - Python
-- Debian-packaged shell scripts
+- Debian-packaged shell scripting
 
 </div>
 </ProjectEntry>
@@ -140,10 +151,14 @@ grammar usage and patterns
 <div slot="technologies">
 
 - MS Windows Server Nano
-- Powershell 5.1 automation-oriented scripting
+  - Powershell 5.1 automation-oriented scripting
+  - MS IIS
+  - MS Hyper-V
+- MS VMM
+- MS AD
+- MS ADFS
 - VEEAM Backup and replication
-- Kerberos authentication setup
-- MS VMM integration with HYPER-V cluster
+- Kerberos
 
 </div>
 </ProjectEntry>

@@ -2,7 +2,7 @@
   export let name, description, link, date;
   export let type;
 
-  import { BoxArrowUpRight } from "svelte-bootstrap-icons"
+  import { BoxArrowUpRight, ChevronExpand, ChevronBarContract } from "svelte-bootstrap-icons"
 
   import { slide } from 'svelte/transition'
   import { createCollapsible, melt } from '@melt-ui/svelte'
@@ -25,8 +25,16 @@
     <div class="project-description">
       {description}
     </div>
-    <div class="details-trigger">
-      <b use:melt={$trigger}>Show details</b>
+    <div use:melt={$trigger} class="details-trigger">
+      <b>
+        {#if $open}
+          <ChevronBarContract width={20} height={20}/>
+          <span>Hide details</span>
+        {:else}
+          <ChevronExpand width={20} height={20}/>
+          <span>Show details</span>
+        {/if}
+      </b>
     </div>
     {#if $open}
     <div class="project-details" transition:slide>
@@ -38,7 +46,7 @@
       {/if}
       {#if $$slots.technologies}
         <p>
-          <b>Technologies used:</b>
+          <b>Technologies and products used:</b>
           <slot name="technologies"/>
         </p>
       {/if}
@@ -83,9 +91,18 @@
   margin-bottom: 0.6em;
 }
 
-.project-description {
+.project-description, .details-trigger {
   color: hsl(13, 10%, 66%);
   margin-top: 0.8em;
+}
+
+.details-trigger {
+  cursor: pointer;
+  font-size: 0.9rem;
+
+  & svg {
+    margin-bottom: -5px;
+  }
 }
 
 ul {
@@ -99,11 +116,16 @@ ul {
   }
 }
 
-.details-trigger {
-  margin-top: 1rem;
-}
 .project-details {
-  font-family: 'fira-sans-ultralight';
+  color: hsl(13, 10%, 66%);
+
+  & b {
+    font-family: sans-serif !important;
+    font-size: 0.9rem;
+  }
+  & ul {
+    list-style-type: '› ';
+  }
 }
 
 .link-out {
