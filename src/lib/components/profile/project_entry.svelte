@@ -105,17 +105,6 @@
   }
 }
 
-ul {
-  margin-bottom: 2.3rem;
-  margin-top: -1rem;
-
-  & li {
-    list-style-type: square;
-    padding-top: 12px;
-    color: hsl(13, 10%, 66%);
-  }
-}
-
 .project-details {
   color: hsl(13, 10%, 66%);
 
