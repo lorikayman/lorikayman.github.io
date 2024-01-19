@@ -4,7 +4,7 @@ install:
 
 python:
 	poetry run python ./run.py \
-		--root-dir ./mawanet-sixth-chamber/doc \
+		--root-dir ./src/lib/sixth-chamber/doc \
 		--output-dir ./src/lib/mawanet
 		# --whitelist ./mawanet-sixth-chamber/whitelist.json
 

@@ -73,7 +73,7 @@ class Globber:
     )
 
     _MDX_COMPONENT_LINK_TEMPLATE = '<Link path="/mawanet/{}">{}</Link>'
-    _MDX_IMPORTS = '<script>import Link from "$lib/components/link.svelte"</script>\n\n' 
+    _MDX_IMPORTS = '<script>import Link from "$lib/components/link.svelte";\nimport SecureEnclaveA from "$lib/components/niem_enclaves/a.svelte"\n</script>\n' 
 
     def __init__(self, glob_root: Path, output_dir: Path, whitelist: None | Path) -> None:
         """
