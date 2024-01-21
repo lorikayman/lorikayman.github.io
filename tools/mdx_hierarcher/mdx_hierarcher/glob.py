@@ -142,7 +142,11 @@ class Globber:
                 spans: tuple = mpair[0]
                 string = mpair[1]
                 contents_new = contents_new[:spans[0]] + string + contents_new[spans[1]:]
-            mdx.write_text(self._MDX_IMPORTS + contents_new)
+            # process existing script tag
+            if 'script' in contents_new:
+                mdx.write_text(self._MDX_IMPORTS[:-10] + contents_new[9:])
+            else:
+                mdx.write_text(self._MDX_IMPORTS + contents_new)
 
     def generate_js_imports(self) -> None:
         imports = []

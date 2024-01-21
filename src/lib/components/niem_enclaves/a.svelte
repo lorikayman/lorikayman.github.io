@@ -1,4 +1,8 @@
 <script>
+    /**
+     * @module SecureEnclaveA
+     */
+
     import { slide } from 'svelte/transition'
     import { createCollapsible, melt } from '@melt-ui/svelte'
     const {
@@ -37,14 +41,15 @@
 
         background-color: rgb(40,40,45);
         margin: 0em;
-        border-width: 2px;
+        border-width: 1px;
         border-style: solid;
         border-radius: 5px;
         border-color: rgb(80,80,85);
+        cursor: pointer;
 
-        &:active {
-            background-color: rgb(60,60,65);
-            border-color: rgb(85,85,90);
+        &:hover {
+            background-color: rgb(50,50,55);
+            /* border-color: rgb(75,75,80); */
         }
     }
 }
