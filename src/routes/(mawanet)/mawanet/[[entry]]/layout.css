@@ -90,8 +90,12 @@ p {
     }
 }
 
-.container p {
-    text-align: justify;
+.container {
+    margin-bottom: 4rem;
+
+    & p {
+       text-align: justify;
+    }
 }
 
 blockquote {
