@@ -5,7 +5,7 @@ from typing import Any
 from json import loads
 from os import mkdir
 from shutil import rmtree
-from re import Pattern, compile as re_compile, VERBOSE
+from re import Pattern, compile as re_compile, VERBOSE, DOTALL
 
 _LOADER_BEGIN = """
 import { derived, writable } from "svelte/store";
@@ -75,6 +75,8 @@ class Globber:
     _MDX_COMPONENT_LINK_TEMPLATE = '<Link path="/mawanet/{}">{}</Link>'
     _MDX_IMPORTS = '<script>import Link from "$lib/components/link.svelte";\nimport SecureEnclaveA from "$lib/components/niem_enclaves/a.svelte"\n</script>\n' 
 
+    _RE_COMMENT = re_compile(r"(?P<comm_start><!--).+?(?P<comm_end>-->)", DOTALL)
+
     def __init__(self, glob_root: Path, output_dir: Path, whitelist: None | Path) -> None:
         """
         Parameters
@@ -142,11 +144,22 @@ class Globber:
                 spans: tuple = mpair[0]
                 string = mpair[1]
                 contents_new = contents_new[:spans[0]] + string + contents_new[spans[1]:]
+            
+            # comments cleanup
+            content_commentless = contents_new
+            matches = []
+            for match in self._RE_COMMENT.finditer(contents_new):
+                matches.append(match.span())
+            for section in reversed(matches):
+                st, end = section
+                content_commentless = content_commentless[:st] + content_commentless[end:]
+
+ 
             # process existing script tag
-            if 'script' in contents_new:
-                mdx.write_text(self._MDX_IMPORTS[:-10] + contents_new[9:])
+            if 'script' in content_commentless:
+                mdx.write_text(self._MDX_IMPORTS[:-10] + content_commentless[9:])
             else:
-                mdx.write_text(self._MDX_IMPORTS + contents_new)
+                mdx.write_text(self._MDX_IMPORTS + content_commentless)
 
     def generate_js_imports(self) -> None:
         imports = []
