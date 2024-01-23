@@ -23,6 +23,14 @@ export async function fetchComponent (componentName) {
     let error = undefined;
     try {
       switch (componentName) {
+        case 'index':
+          EntryComponent = (await import('$lib/mawanet/maelstrom_encyclopedia.mdx')).default;
+          break;
+
+        case 'maelstrom_encyclopedia':
+          EntryComponent = (await import('$lib/mawanet/maelstrom_encyclopedia.mdx')).default;
+          break;
+
         default:
           EntryComponent = Error403;
           break;
