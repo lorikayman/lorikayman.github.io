@@ -16,7 +16,6 @@ parser.add_argument(
   '--output-dir',
   dest='output_dir',
   required=True,
-  # default=None,
   help="Relative path to the output directory here MDXs will be placed",
 )
 
@@ -24,5 +23,5 @@ parser.add_argument(
   '--whitelist',
   dest='whitelist',
   required=False,
-  help="Whitelist of allowed to process filenames",
+  help="Whitelist of allowed to process markdown entry filenames",
 )
