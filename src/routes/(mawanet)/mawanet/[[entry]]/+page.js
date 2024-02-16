@@ -31,6 +31,7 @@
     { entry: 'unbound' },
     { entry: 'paraexhumed' },
     { entry: 'superimposition_event' },
+    { entry: 'gap_ammunition' },
         ];
     }
 
