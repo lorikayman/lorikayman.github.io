@@ -9,13 +9,13 @@ make install
 
 Create local development build (watching changes):
 ```sh
-make dev
+npm run dev
 ```
 
 Create production-ready build:
 ```sh
-make build
-make preview
+npm run build
+npm run preview
 ```
 
 ## Credits
