@@ -1,10 +1,12 @@
-# Profile Site Overview
+# What is this?
+
+A personal site and an unficton wiki for a wordbuilding/writing project **"Maelstrom Takes Toll"** using SvelteKit, [MDsveX](https://mdsvex.pngwn.io/) and [melt-ui](https://melt-ui.com/).
 
 ### Build
 
 Install dependencies:
 ```sh
-make install
+npm install
 ```
 
 Create local development build (watching changes):
