@@ -1,5 +1,5 @@
 import { defineMDSveXConfig as defineConfig } from "mdsvex";
-import { wikiLinkPlugin } from "remark-wiki-link";
+import { wikilink as wikiLinkPlugin } from "./src/lib/wikilink-transformer/src/index.js";
 
 const config = defineConfig({
   extensions: [".mdx", ".md",],
@@ -8,7 +8,18 @@ const config = defineConfig({
     dashes: "oldschool",
   },
 
-  remarkPlugins: [wikiLinkPlugin],
+  remarkPlugins: [
+    [wikiLinkPlugin, {test: true}],
+    // remark-less interface
+    // [
+    //   (a, p)=>{
+    //     return (e,r) => {
+    //       console.log(e,r);
+    //       e,r;
+    //     }
+    //   }, {}
+    // ]
+  ],
   rehypePlugins: [],
 });
 

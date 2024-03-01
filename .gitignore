@@ -12,3 +12,6 @@ vite.config.ts.timestamp-*
 # mdx hierarcher
 tools/mdx_hierarcher/.venv
 tools/mdx_hierarcher/**/__pycache__
+
+# wikilink parser logs
+logs/wt.log
