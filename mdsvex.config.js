@@ -9,7 +9,7 @@ const config = defineConfig({
   },
 
   remarkPlugins: [
-    [wikiLinkPlugin, {test: true}],
+    [wikiLinkPlugin, {logging: true}],
     // remark-less interface
     // [
     //   (a, p)=>{

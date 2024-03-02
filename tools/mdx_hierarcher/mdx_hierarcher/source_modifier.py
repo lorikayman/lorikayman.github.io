@@ -92,7 +92,7 @@ class SourceModifier:
 
         print(f'{count} files processed')
 
-        self.replace_wikilinks()
+        # self.replace_wikilinks()
         self.generate_js_imports()
 
 
