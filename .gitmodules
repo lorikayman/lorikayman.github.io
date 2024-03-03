@@ -1,3 +1,6 @@
 [submodule "src/lib/sixth-chamber"]
 	path = src/lib/sixth-chamber
 	url = git@github.com:ironkayman/mtt-sixth-chamber.git
+[submodule "tools/remark_wikilink_resolver"]
+	path = tools/remark_wikilink_resolver
+	url = git@github.com:ironkayman/remark-wikilink-resolver.git

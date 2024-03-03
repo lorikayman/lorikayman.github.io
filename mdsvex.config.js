@@ -1,5 +1,5 @@
 import { defineMDSveXConfig as defineConfig } from "mdsvex";
-import { wikilink as wikiLinkPlugin } from "./src/lib/wikilink-transformer/src/index.js";
+import { wikilink as wikiLinkPlugin } from "./tools/remark_wikilink_resolver/src/index.js";
 
 const config = defineConfig({
   extensions: [".mdx", ".md",],
