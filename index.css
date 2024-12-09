@@ -1,9 +1,29 @@
 body {
   font-family: sans-serif;
-  padding: 2em 1em;
+  padding: .4em .6em;
   background-color: rgb(6, 6, 6);
   background-image: none;
 }
+
+div.header-vertical {
+  font-family: 'Courier New', Courier, monospace;
+  color: #ea9b2c;
+  letter-spacing: .15em;
+  border-left: .1em solid #ea9b2c;
+  padding-left: .3em;
+  margin-bottom: 2.15em;
+}
+div.header-vertical h2 {
+  margin: .15em 0;
+}
+div.header-vertical h4 {
+  margin-top: 0.3em;
+}
+div.header-vertical h4 span {
+  color: #d9c68d;
+  font-weight: 600;
+}
+
 
 .container-vertical {
   display: flex;
@@ -29,6 +49,7 @@ body {
 
 .card-row span {
   margin-top: 20px;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 
@@ -42,6 +63,7 @@ body {
 
 .card-title :first-child i {
   margin: 0.3em;
+  margin-right: .08em;
 }
 
 .card-row :first-child i {
@@ -88,11 +110,3 @@ body {
   height: 80;
   display: inline-block;
 }
-
-/* .card-row .foldable img {
-  visibility: hidden;
-}
-.card-row:hover .foldable img {
-  visibility: visible;
-  clip: rect(100 100 100 100);
-} */
