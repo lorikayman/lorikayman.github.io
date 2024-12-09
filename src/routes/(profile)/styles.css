@@ -11,6 +11,13 @@
   src: url('/fonts/Fira_Sans/fira-sans.ultralight.ttf');
 }
 
+/* https://fonts.google.com/specimen/Fira+Sans */
+@font-face {
+  font-family: 'fira-sans-extralight';
+  font-style: normal;
+  src: url('/fonts/Fira_Sans/FiraSans-ExtraLight.ttf');
+}
+
 body {
   font-family: sans-serif;
 
