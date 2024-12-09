@@ -3,7 +3,7 @@ name = "mdx-hierarcher"
 version = "0.1.0"
 description = "Formatting tool used on md to transform them to mdx with components"
 authors = ["ironkayman <kostya.orlik@outlook.com>"]
-license = "MIT"
+license = "CC BY-NC-SA 4.0 Deed"
 readme = "README.md"
 packages = [{include = "tools/mdx_hierarcher/mdx_hierarcher"}]
 
