@@ -91,6 +91,10 @@
         EntryComponent = (await import('$lib/mawanet/superimposition_event.mdx')).default;
         break;
 
+    case 'gap_ammunition':
+        EntryComponent = (await import('$lib/mawanet/gap_ammunition.mdx')).default;
+        break;
+
             default:
             EntryComponent = Error403;
             break;
