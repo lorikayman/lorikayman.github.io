@@ -3,18 +3,24 @@
     import { nextPageName, doesPageDiffer, currentPageName } from "$lib/stores/mawanet.loader";
 </script>
 
-<div class="sidebar" class:nextpage={$doesPageDiffer}>
-    <div class="main">
-    <a class='index' href="/mawanet/index">
-        <List width={34} height={34}/>
-    </a>
+<div class="sidebar-container">
+    <div class="sidebar" >
+        <div class="main">
+        <a class='index' href="/mawanet/index">
+            <List width={34} height={34}/>
+        </a>
+        </div>
+        <a class='index' href="/mawanet/index"><span class="sidebar-span">CENTRAL</span></a>
+        <span class="sidebar-span">//</span>
+        <span class="sidebar-span" class:nextpagetext={$doesPageDiffer}>{$nextPageName}</span>
     </div>
-    <a class='index' href="/mawanet/index"><span class="sidebar-span">CENTRAL</span></a>
-    <span class="sidebar-span">//</span>
-    <span class="sidebar-span" class:nextpagetext={$doesPageDiffer}>{$nextPageName}</span>
 </div>
 
 <style>
+    .sidebar-container {
+        position: fixed;
+    }
+
     .main {
         border-radius: 4px;
         padding: .3em;
@@ -26,11 +32,10 @@
 
     .sidebar {
         background-color: rgb(45, 45, 48);
-        
-        position: fixed;
+
         padding: 3.4em 0em;
         width: 3.2em;
-        height: fit-content;
+        min-height: 78%;
         display: flex;
         align-items: center;
         writing-mode: vertical-rl;
@@ -78,8 +83,8 @@
     }
 
     .nextpagetext {
-        color: hsl(187, 90%, 60%);
-        filter: drop-shadow(0 2mm 3mm hsla(187, 90%, 60%, 0.7));
+        color: hsl(16, 90%, 60%);
+        filter: drop-shadow(0 2mm 3mm hsla(16, 90%, 60%, 0.7));
     }
 
     @keyframes floating {
