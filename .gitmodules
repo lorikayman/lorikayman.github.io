@@ -1,0 +1,3 @@
+[submodule "mawanet-sixth-chamber"]
+	path = mawanet-sixth-chamber
+	url = git@github.com:ironkayman/mtt-sixth-chamber.git
