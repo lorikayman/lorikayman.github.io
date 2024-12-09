@@ -4,6 +4,7 @@
 
   import { currentPageName } from "$lib/stores/mawanet.loader";
   import Tree from '$lib/components/toc.svelte';
+  import Sidebar from "$lib/components/sidebar.svelte"
   
   export let data;
 
@@ -49,31 +50,35 @@
   $: currentPageName.set(data.pageName.replace(/\_/g," ").split(' ')[0].toUpperCase());
 </script>
 
-<div id="toc-builder-preview">
-  <svelte:component this={data.pageComponent}></svelte:component>
-</div>
+<Sidebar>
+  <div id="table-of-contents">
+    <nav>
+      {#key $headingsTree}
+        <Tree
+          tree={$headingsTree}
+          activeHeadingIdxs={$activeHeadingIdxs}
+          {item}
+        />
+      {/key}
+    </nav>
+  </div>
+</Sidebar>
 
-<div id="table-of-contents">
-  <nav>
-    {#key $headingsTree}
-      <Tree
-        tree={$headingsTree}
-        activeHeadingIdxs={$activeHeadingIdxs}
-        {item}
-      />
-    {/key}
-  </nav>
+<div class="container">
+  <div id="toc-builder-preview">
+    <svelte:component this={data.pageComponent}></svelte:component>
+  </div>
 </div>
 
 <style>
 
-@media (min-width: 890px) {
+/* @media (min-width: 890px) {
   #table-of-contents {
     position: fixed;
     top: 5rem;
     right: 1rem;
     max-width: 10rem;
   }
-}
+} */
 
 </style>
