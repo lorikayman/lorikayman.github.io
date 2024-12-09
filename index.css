@@ -44,6 +44,9 @@ body {
   margin: 0.3em;
 }
 
+.card-row :first-child i {
+  transition: 0.2s;
+}
 .card-row:hover :first-child i {
   transition: 0.52s;
 }
