@@ -1,0 +1,40 @@
+<script>
+  import { Discord, Twitter, Mailbox2, Github } from 'svelte-bootstrap-icons'
+</script>
+<center>
+
+---
+
+[<Github height="32" width="32"/>](https://github.com/ironkayman)
+[<Twitter height="32" width="32"/>](https://twitter.com/ironkayman)
+[<Discord height="32" width="32"/>](https://discord.com/users/ironkayman)
+[<Mailbox2 height="32" width="32"/>](mailto:lori.j.kayman@gmail.com)
+
+</center>
+
+<style>
+
+center {
+  position: relative;
+  bottom: 0;
+}
+
+a {
+  margin: 0.6em;
+  color: rgb(245, 245, 220);
+
+  & svg.bi-github:hover {
+    color: rgb(84, 214, 114);
+  }
+  & svg.bi-twitter:hover {
+    color: rgb(49, 169, 243);
+  }
+  & svg.bi-discord:hover {
+    color: rgb(116, 162, 218);
+  }
+  & svg.bi-mailbox2:hover {
+    color: rgb(244, 78, 75);
+  }
+}
+
+</style>

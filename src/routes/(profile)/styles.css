@@ -1,0 +1,206 @@
+:root {
+  font-family: sans-serif;
+  padding: .4em .6em;
+  background-color: rgb(6, 6, 6);
+  scroll-behavior: smooth;
+}
+
+
+body {
+  min-height: 40rem;
+  scroll-behavior: smooth;
+}
+
+#content {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 0;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+/* https://www.publicdomainpictures.net/en/view-image.php?image=338833&picture=armillary-sphere*/
+#content:before {
+  content: "";
+  background-image: url("/img/armillary-sphere.jpg");
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  display: block;
+  filter: brightness(3%) grayscale(100%);
+  background-position: 50% 13%;
+  width: 100%;
+  height: 100%;
+}
+
+#master-header {
+  text-align: center;
+  color: #ea9b2c;
+  letter-spacing: .15em;
+  border-left: 1.2rem solid #de9835;
+  border-right: 1.2rem solid #de9835;
+  padding: .4rem .3rem;
+  padding-top: .8rem;
+  margin-bottom: 2.15rem;
+  border-radius: 8px;
+  filter: drop-shadow(0 -2mm 4mm rgba(183, 112, 11, 0.844));
+
+  & h1 {
+    margin: .15em 0;
+    padding: 0.1rem 1.2rem;
+    border-top: 0.3rem solid transparent;
+    border-bottom: 0.3rem solid transparent;
+    margin: 0rem 1rem;
+    transition: color 1s;
+    color: rgb(255, 233, 159);
+    text-transform: uppercase;
+
+ 
+    /* &:hover { */
+      border-top: 0.3rem solid transparent;
+      border-bottom: 0.3rem solid transparent;  
+      color: rgb(255, 251, 147);
+
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      /* Author: Stefan Judis (stefanjudis)
+      https://codepen.io/alphardex/pen/vYEYGzp */
+      &::after {
+        position: absolute;
+        content: "";
+        top: calc(-1 * var(--border-width));
+        left: calc(-1 * var(--border-width));
+        z-index: -1;
+        width: 100%;
+        height: 40%;
+        background: linear-gradient(
+          60deg,
+          hsl(224, 85%, 66%),
+          hsl(269, 85%, 66%),
+          hsl(314, 85%, 66%),
+          hsl(359, 85%, 66%),
+          hsl(34, 85%, 66%),
+          hsl(89, 85%, 66%),
+          hsl(134, 85%, 66%),
+          hsl(179, 85%, 66%)
+        );
+        background-size: 300% 300%;
+        background-position: 0 50%;
+        border-radius: calc(2 * var(--border-width));
+        animation: moveGradient 3s alternate infinite;
+      }
+    /* } */
+  }
+
+  & h2 {
+    margin-top: 0.3em; 
+
+    & span {
+      color: #d9c68d;
+      font-weight: 600;
+    }
+  }
+}
+
+@media (max-width: 540px) {
+  #master-header h1::after {
+    width: 80%;
+    height: 70%;
+  }
+}
+
+@media (min-width: 980px) {
+  #master-header h1::after {
+    height: 30%;
+    margin-top: 1.8em;
+  }
+}
+
+@keyframes moveGradient {
+  30% {
+    background-position: 59% 100%;
+  }
+  60% {
+    background-position: 40% 100%;
+  }
+}
+
+.align {
+  display: inline-block;
+}
+
+
+.floating {
+  animation-name: floating;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-duration: 8s;
+}
+
+@keyframes floating {
+  0% { transform: translate(0px, 0px); }
+  50%  { transform: translate(0px, 10px); }
+  100%   { transform: translate(0px, -0px); }
+}
+
+#connectivity {
+  margin-top: -3.8rem;
+  min-width: fit-content;
+  display: flex;
+  justify-content: center;
+  color: #de9835;
+  letter-spacing: .1em;
+
+  animation-name: floating-menu;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-duration: 5s;
+  filter: drop-shadow(0 -2mm 4mm rgba(183, 112, 11, 0.15));
+
+  & .online {
+    font-size: 1.1em;
+    color: rgb(82, 215, 122);
+    filter: drop-shadow(0 0 1mm rgb(82, 215, 122));
+  }
+
+  & .check {
+    font-size: 1.1em;
+    padding: 3px;
+    color: aqua;
+    filter: drop-shadow(0 0 1mm aqua);
+  }
+}
+
+@keyframes floating-menu {
+  0% { transform: translate(0px, 0px); }
+  50%  { transform: translate(0px, -6px); }
+  100%   { transform: translate(0px, -0px); }
+}
+
+/* .cosmic-malevolence {
+  color: #fe0054;
+  font-weight: bolder;
+  filter: drop-shadow(0 0 0.7rem);
+} */
+
+#header-spacer {
+  min-height: 14rem;
+  max-height: 15rem;
+  padding-top: 7rem;
+  margin-bottom: 5em;
+}
+
+@media (max-width: 540px) {
+  #header-spacer {
+    margin-bottom: 8em;
+  }
+}
+
+.footer {
+  height: 4em;
+}
