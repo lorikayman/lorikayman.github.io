@@ -47,8 +47,8 @@
 </ProjectEntry>
 
 <ul>
-  <li>Additional reserch and deployment of various email flow components:
-    Exim, Postfix, Dovecot, Amavis
+  <li>Additional reserch and deployment of various infrastructure components:
+    Exim, Postfix, Dovecot, Amavis, Active Directory, FreeIPA
   </li>
   <li>
     Development of YAML-based (strict yaml derivation)
@@ -56,6 +56,10 @@
     trnaslation and representation of every individual
     component configuration files' syntax
     (i.e. master.conf, main.conf of Postfix)
+  </li>
+  <li>
+    Organisation of migration from KnockoutJS to a different framework,
+    settling with React + MobX
   </li>
 </ul>
 
@@ -76,11 +80,11 @@
 
 <ul>
   <li>
-    Utilisation of Pandas in order to capture statistics
-    of avarage grammar usage
+    Utilisation of Pandas/JypiterNB in order to capture avarage
+    grammar usage and patterns
   </li>
   <li>
-    Utilisation of NumPy for in-memmory processing of high-order tokens
+    Utilisation of NumPy for in-memory processing of high-order tokens
   </li>
 </ul>
 
