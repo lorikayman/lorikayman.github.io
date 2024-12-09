@@ -45,7 +45,7 @@ function clickHandler(e) {
 
   window.scrollTo({
     behavior: "smooth",
-    top: window.visualViewport.height * 0.7,
+    top: window.visualViewport.height * 0.6,
   })
 }
 
@@ -110,10 +110,6 @@ onMount(() => {
   width: 70%;
   background-color: #353136;
   border-radius: 8px;
-  /* border-color: #b8b8b857; */
-  /* border-style: solid; */
-  /* border-color: hsl(350, 57%, 50%); */
-  /* border-color: hsl(350, 57%, 50%); */
   filter: drop-shadow(0 0 3em rgb(45, 45, 45, 0.6));
 
   &[data-current-active-tab="gateway"] {
@@ -161,7 +157,7 @@ onMount(() => {
 
   border-width: 2px;
   border-style: solid;
-  color: rgb(217, 198, 140);
+  color: hsl(45, 50%, 70%);
 
   &[data-state="active"] {
     background-color: #353136;
@@ -170,9 +166,9 @@ onMount(() => {
 
 .trigger-indicator {
   position: absolute;
-  width: 1.4em;
-  height: 0.2em;
-  margin-top: 1.5em;
+  width: 1.38em;
+  height: 0.18em;
+  margin-top: 2.38em;
   border-radius: 8px;
   background-color: hsl(355, 100%, 62%);
 }
