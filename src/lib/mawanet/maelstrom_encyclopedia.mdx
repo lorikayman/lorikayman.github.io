@@ -1,0 +1,276 @@
+<script>import Link from "$lib/components/link.svelte";
+import SecureEnclaveA from "$lib/components/niem_enclaves/a.svelte"
+import { createTabs, melt } from '@melt-ui/svelte';
+
+import { onMount } from 'svelte';
+
+import { cubicInOut } from 'svelte/easing';
+import { crossfade } from 'svelte/transition';
+
+import Error511 from "$lib/components/error.511.svelte"
+
+const {
+  elements: { root, list, content, trigger },
+  states: { value },
+} = createTabs({
+  defaultValue: 'a',
+});
+
+const triggers = [
+  { id: 'a', title: 'I' },
+  { id: 'b', title: 'II' },
+  { id: 'c', title: 'III' },
+  { id: 'd', title: 'IV' },
+  { id: 'e', title: 'V' },
+  { id: 'f', title: 'VI' },
+  { id: 'g', title: 'VII' },
+];
+
+const [send, receive] = crossfade({
+  duration: 250,
+  easing: cubicInOut,
+});
+</script>
+
+
+# Maelstrom Encyclopedia Central
+
+**Maelstrom Encyclopedia Central** (MAEC, reads as _Mace_) is a database (more precisely it's snapshot) with a wiki-like frontend containing structured information extracted and compiled from Transcribers Arrays <Link path="/mawanet/maelstrom_watchtowers_network">ATA</Link> and <Link path="/mawanet/maelstrom_watchtowers_network">RWTA</Link> of the <Link path="/mawanet/maelstrom_watchtowers_network">Watchtower</Link>.
+
+It's informational/memetic/narrativistic and conceptual payload is compartmentalised by the snapshot and kept isolated within the <Link path="/mawanet/narraphysic_isolation_environment">narraphysic isolation environments</Link>. The knowledge obtained from the database and subsequently awareness of it is realised only within the confinements of said <Link path="/mawanet/narraphysic_isolation_environment">narraphysic isolation environment</Link> wherein you are currectly located.
+
+In case of a security breach, your <Link path="/mawanet/conceptual_configuration">conceptual configuration</Link> will be forcefully altered in order to purge any signs of narrativistic/narraphysic/memetic/conceptual awareness of the database, it's narremes, and corresponding concepts.
+
+## Structure
+
+The MAEC database consists of interconnected sections each corresponding to a time period or an age retroactively defined by a paramount change within <Link path="/mawanet/erkholl">Erkholl's</Link> <Link path="/mawanet/narraphysic_realm">narraphysic realm</Link>. These changes are required to be proven to be present casually **or** paracasually within planet's altered chronology. They are refered to as *paradigms changes/shifts*.
+
+An age between two adjacent *paradigm changes* is named after suspected potential <Link path="/mawanet/narrative">metanarrative</Link> whose <Link path="/mawanet/conceptual_configuration">potential to exist</Link> is defined by an accumulation of history within said age and culminating as the next adjecent paradigm change. As with any <Link path="/mawanet/retroactive_refractory_feedback_loop">retroactive positive feedback loop</Link>, these <Link path="/mawanet/narrative">narratives</Link> are discovered *post factum* but are predicted and corrected before their potential <Link path="/mawanet/conceptual_configuration">conceptual configuration</Link> had fully arrived into present -- that is before the narrative is completed it could be redefined by an Actor aware of it's imminent completion within observable futures.
+
+Database snapshots are generated periodically as well as automatically when <Link path="/mawanet/maelstrom_watchtowers_network">the Watchtower</Link> detects a sign of any significant <Link path="/mawanet/superimposition_event">superimposition event</Link> or a <Link path="/mawanet/narrative">narrative</Link> taking place across <Link path="/mawanet/narraphysic_realm">narraphysic realm</Link> of the <Link path="/mawanet/standard_reality">standard reality</Link>.
+
+
+<div
+  use:melt={$root}
+  data-current-active-tab="{$value}"
+>
+  <div
+    use:melt={$list}
+    aria-label="The Spaces"
+    class="menu-space"
+  >
+  {#each triggers as triggerItem}
+    <button id={triggerItem.id}
+      class="section-trigger-button"
+      use:melt={$trigger(triggerItem.id)}
+    >
+      {triggerItem.title}
+      {#if $value === triggerItem.id}
+        <div class="section-trigger-indicator"
+          in:send={{ key: 'trigger' }}
+          out:receive={{ key: 'trigger' }}
+        />
+      {/if}
+    </button>
+  {/each}
+  </div>
+<div use:melt={$content('a')} class="section-tabbed-content">
+
+
+## I. Paradigmea
+
+**Codename**: `PRDG`
+
+**Timeline article**: <Link path="/mawanet/paradigmea">paradigmea</Link>
+
+Paradigmea is a reconstruction of an hypothetical timeline of an unobservable Universe which attempts to explain the phenomenon of the <Link path="/mawanet/narraphysic_realm">narraphysic realm</Link>.
+
+### Paradigm Changes
+
+- Launch of the <Link path="/mawanet/acropolis">Acropolis</Link> and it's <Link path="/mawanet/engine_of_narraphysic_gliding">engine of narraphysic gliding</Link>
+    
+</div>
+<div use:melt={$content('b')} class="section-tabbed-content">
+
+
+## II. High-Frequency Heaven of Fixed Stars
+
+**Codename**: `HFH`
+
+**Timeline article**: <Link path="/mawanet/high_fequency_heaven_of_fixed_stars">high fequency heaven of fixed stars</Link>
+
+High-Frequency Heaven of Fixed Stars represents a timeline preceeding formation of <Link path="/mawanet/ekhinill">Ekhinill</Link> based of a knowledge obtained through historical records, <Link path="/mawanet/narraphysics">narraphysic means</Link>, and research of <Link path="/mawanet/armillary_sphere">armillary spheres</Link>.
+
+### Paradigm Changes
+
+- Construction of the original <Link path="/mawanet/astrolab">Astrolab</Link>
+- <Link path="/mawanet/astrolab">Astrolab</Link> is invaded by a <Link path="/mawanet/malevelent_presence">Malevelent Presence</Link> which causes a vacuum decay to happen. A new vacuum while existing under a lesser influence of <Link path="/mawanet/malevelent_presence">Malevelent Presence</Link> leads to a cosmic reoccurence of an approximately same timeline with the original <Link path="/mawanet/astrolab">Astrolab</Link> now being present as a possible <Link path="/mawanet/narraphysic_realm">narraphysic</Link> <Link path="/mawanet/dark_astrolabe">entity</Link>
+- New vacuum's <Link path="/mawanet/astrolab">Astrolab</Link> is successfully constructed and launched
+- <Link path="/mawanet/astrolab">Astrolab</Link> is invaded by a <Link path="/mawanet/dark_astrolabe">possibly defective vacuum's agent</Link> of <Link path="/mawanet/malevelent_presence">Malevelent Presence</Link>. Emergence of the <Link path="/mawanet/ultracomplex">Ultracomplex</Link>
+
+</div>
+<div use:melt={$content('c')} class="section-tabbed-content">
+
+
+## III. Stone Fleet Conquest
+
+**Codename**: `SFC`
+
+**Timeline article**: <Link path="/mawanet/stone_fleet_conquest">stone fleet conquest</Link>
+
+
+
+As civilisations of <Link path="/mawanet/ekhinill">Ekhinill</Link> develop they unwillingly uncover remains of the <Link path="/mawanet/astrolab">Astrolab</Link> -- the <Link path="/mawanet/armillary_sphere">armillary spheres</Link> from <Link path="/mawanet/azit_faron">Azit Faron</Link> after an arrival of <Link path="/mawanet/ultracomplex">Ultracomplex</Link>.
+
+Introduction of this technology as well as actions on <Link path="/mawanet/astrolab">Astrolab's</Link> part leaves rippling effect upon natural development of planet's many aspects including geological, ecological and social. All of this actions accumulate in an emergence of a system of high-order physical laws imposed upon the the planet, manifesting through applied <Link path="/mawanet/narraphysics">narraphysics</Link> of an <Link path="/mawanet/accursed_framework">accursed framework</Link>.
+
+### Paradigm Changes
+
+- Reinstatement of an <Link path="/mawanet/armillary_iteration">armillary iteration</Link>
+- Continious formation of the <Link path="/mawanet/doomsphere">Doomsphere</Link>
+
+</div>
+<div use:melt={$content('d')} class="section-tabbed-content">
+
+
+## IV. Armillary Revolvement Breaker
+
+**Codename**: `ARB`
+
+**Timeline article**: <Link path="/mawanet/armillary_revolvement_breaker">armillary revolvement breaker</Link>
+
+
+
+
+
+<Error511/>
+
+</div>
+<div use:melt={$content('e')} class="section-tabbed-content">
+
+
+## V. Shivers Upon Resurging Frontiers
+
+**Codename**: `SURF`
+
+**Timeline article**: <Link path="/mawanet/shivers_upon_resurging_frontiers">shivers upon resurging frontiers</Link>
+
+
+
+
+
+<Error511/>
+
+### Paradigm Changes
+
+- Summoning of Earth's surface in a process of purging the <Link path="/mawanet/doomsphere">Doomsphere</Link> though a <Link path="/mawanet/superimposition_event">superimposition event</Link>
+
+</div>
+<div use:melt={$content('f')} class="section-tabbed-content">
+
+
+## VI. Empires Under Alchemical Sun
+
+**Codename**: `EUDAS`
+
+**Timeline article**: <Link path="/mawanet/empires_under_alchemical_sun">empires under alchemical sun</Link>
+
+
+
+Place's <Link path="/mawanet/erkholl">Erkholl</Link>, -- a coalition of suspended planets held together through accumulated energy of <Link path="/mawanet/armillary_sphere">armillary spheres'</Link> <Link path="/mawanet/entropy_engine">entropy engines</Link>, attemps to form itself into an entity resembling structurally and functionally the <Link path="/mawanet/astrolab">Astrolab</Link>.
+
+
+
+### Paradigm Changes
+
+- Core of the <Link path="/mawanet/doomsphere">Doomsphere</Link>  performs a local <Link path="/mawanet/vacuum_ascention">vacuum ascention</Link> upon itself below <Link path="/mawanet/ekhinill">Ekhinill's</Link> lithosphere, causing a formation of a <Link path="/mawanet/breach">breach</Link> of paramount internal stability at planet's outer orbit in a form of <Link path="/mawanet/death_artillery_crown">Death Artillery Crown</Link>, -- <Link path="/mawanet/erkholl_mercurial">Erkholl Mercurial</Link>
+
+
+</div>
+<div use:melt={$content('g')} class="section-tabbed-content">
+
+
+## VII. Mercurial Perpetuation
+
+**Codename**: `MCPT`
+
+**Timeline article**: <Link path="/mawanet/mercurial_perpetuation">mercurial perpetuation</Link>
+
+
+
+Current age, also refered to as the Mercurial Age.
+
+</div>
+</div>
+
+
+<SecureEnclaveA>
+
+#### Database iteration
+
+Currently there are at least 2 known previous attempts to document history of <Link path="/mawanet/ekhinill">Ekhinill</Link> accounting presence of <Link path="/mawanet/narraphysic_realm">narraphysic realm</Link>:
+
+1. An inner <Link path="/mawanet/stonework_shell">basins</Link> of the <Link path="/mawanet/stonework_shell">stonework shell</Link>
+
+
+</SecureEnclaveA>
+
+<style>
+
+.menu-space {
+  display: flex;
+  overflow-x: auto;
+  border-radius: 12px;
+
+  /* border-top-left-radius: 12px;
+  border-top-right-radius: 12px; */
+}
+
+.section-tabbed-content {
+  margin: 1.6rem 0rem;
+  border-radius: 12px;
+  border-color: rgb(45, 45, 48);
+  border-style: solid;
+  border-width: 2px;
+  padding: 0rem 1rem;
+}
+
+.section-trigger-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  font-family: sans-serif;
+  font-weight: 230;
+
+  cursor: pointer;
+  user-select: none;
+  font-size: 1.4rem;
+  padding: 0.9em;
+
+  font-weight: 500;
+  line-height: 1;
+
+  flex: 1;
+  border-color: transparent;
+  background-color: rgb(45, 45, 48);
+
+  border-width: 2px;
+  border-style: solid;
+  color: hsl(45, 50%, 70%);
+
+  &[data-state="active"] {
+    background-color: #353136;
+  }
+}
+
+.section-trigger-indicator {
+  position: absolute;
+  width: 1.38em;
+  height: 0.18em;
+  margin-top: 2.2em;
+  border-radius: 8px;
+  background-color: hsl(36, 100%, 56%);
+}
+
+</style>
