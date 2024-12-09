@@ -35,45 +35,63 @@
     flex-direction: column;
     justify-content: space-between;
     flex-wrap: wrap;
-    width: 13.3rem;
-    margin-left: 1.5rem;
-    position: absolute;
-    z-index: 2;
+    /* position: absolute; */
+    /* z-index: 2; */
 
     align-items: center;
-    width: 100%;
-    margin-left: 0px;
+    /* width: 100%; */
+    /* margin-left: 0px; */
 }
 
 .link-array-wrapper {
-    background-color: black;
     /* background-image: url("/img/hll.png"); */
     /* animation: show 140s infinite;
     -webkit-animation: show 140s infinite; */
     min-height: 64.8vh;
+    /* background: linear-gradient(to right, rgba(0%, 0%, 0%, 0.86), rgba(0%, 0%, 0%, 0.66)); */
+    /* background-size: 31% 100%; */
+    /* background-repeat: no-repeat; */
 }
+
+/* .wrapper-blur-buttons {
+    background: linear-gradient(to right, rgba(0%, 0%, 0%, 0.86), rgba(0%, 0%, 0%, 0.66));
+} */
+
+
+/* .link-array-wrapper::before {
+    content: '';
+    background-image: url('/img/banner_lg.png');
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    z-index: 1;
+    left: 50%;
+    margin-top: 1rem;
+    display: block;
+    position: absolute;
+} */
 
 .wrapper-blur {
     position: absolute;
+    z-index: -1;
     opacity: 0.98;
-    z-index: 1;
     top: -20px;
     margin-left: -10px;
-    background-color: hsla(1, 1%, 1%, 0.7);
-    background-image: url("/img/hll.png");
-    --effect: blur(0px) brightness(40%);
+
+    /* background-image: url("/img/hll.png"); */
+
+    /* --effect: blur(0px) brightness(90%);
     -webkit-filter: var(--effect);
     -moz-filter: var(--effect);
     -o-filter: var(--effect);
     -ms-filter: var(--effect);
     filter: var(--effect);
-    height: 110%;
-    width: 16.1rem;
-    position: absolute;
-    animation: show 140s infinite;
-    -webkit-animation: show 140s infinite;
 
-    width: 110%;
+    animation: show 140s infinite;
+    -webkit-animation: show 120s infinite; */
+
+    width: 100vi;
+    height: 100vi;
 }
 
 @keyframes show {

@@ -27,18 +27,25 @@ const {
 });
 
 var triggers = [
-  { id: 'links', title: '∷ LINKS ∷' },
-  { id: 'about', title: '∷ ABOUT ∷' },
-  { id: 'projects', title: '∷ RESUME ∷' },
+  { id: 'links', title: 'LINKS' },
+  { id: 'about', title: 'ABOUT' },
+  { id: 'projects', title: 'RKHL' },
 ];
+if (document.documentElement.clientWidth > 824) {
+  triggers = [
+    { id: 'links', title: '∷ LINKS ∷' },
+    { id: 'about', title: '∷ ABOUT ∷' },
+    { id: 'projects', title: '∷ PROJECTS ∷' },
+  ];
+}
 
 if (tabName == 'gateway') {
   triggers = [
-    { id: 'links', title: 'Ⅰ LINKS Ⅰ' },
-    { id: 'about', title: 'Ⅱ ABOUT Ⅱ' },
-    { id: 'projects', title: 'Ⅲ RESUME Ⅲ' },
+    { id: 'links', title: 'CONNECTIONS' },
+    { id: 'about', title: 'ABATEMENT' },
+    { id: 'projects', title: 'PROJECTS' },
   ];
-  triggers.push({ id: 'gateway', title: '-' });
+  triggers.push({ id: 'gateway', title: 'THE GATES' });
 }
 
 const [send, receive] = crossfade({
@@ -46,14 +53,16 @@ const [send, receive] = crossfade({
   easing: cubicInOut,
 });
 
-let userHasScrolled;
+let userHasScrolled = false;
 
 afterNavigate(() => {
-  // let tabElement = document.getElementById(tabName);
+  // let tabElement = document.querySelector('.scroll-anchor');
   // console.log('tabElement after nav:', tabElement)
   let y = window.visualViewport.height * 0.7;
-  // let y = tabElement.getBoundingClientRect().top
+  // let y = tabElement.getBoundingClientRect().bottom;
+  // if (userHasScrolled == true) {
   window.scrollTo(0, y);
+  // }
   // disableScrollHandling();
 });
 
@@ -85,11 +94,7 @@ onMount(() => {
           use:melt={$trigger(triggerItem.id)}
           on:click={() => goto("/" + triggerItem.id, {noScroll: true})}
         >
-          {#if triggerItem.id != 'gateway'}
-            {triggerItem.title}
-          {:else}
-            ▣
-          {/if}
+          {triggerItem.title}
           {#if $value === triggerItem.id}
             <div class="trigger-indicator"
               in:send={{ key: 'trigger' }}
@@ -99,16 +104,16 @@ onMount(() => {
         </button>
       {/each}
     </div>
-    <div use:melt={$content('links')} class="tabbed-content">
+    <div use:melt={$content('links')} class="tabbed-content scroll-anchor">
       <Links/>
     </div>
-    <div use:melt={$content('about')} class="tabbed-content">
+    <div use:melt={$content('about')} class="tabbed-content scroll-anchor">
       <About/>
     </div>
-    <div use:melt={$content('projects')} class="tabbed-content">
+    <div use:melt={$content('projects')} class="tabbed-content scroll-anchor">
       <Projects/>
     </div>
-    <div use:melt={$content('gateway')} class="tabbed-content">
+    <div use:melt={$content('gateway')} class="tabbed-content scroll-anchor">
       <Passcode/>
     </div>
   </div>
@@ -208,7 +213,7 @@ onMount(() => {
   /* padding: 0em 1.6em; */
 
   /* https://stackoverflow.com/questions/28652571/dotted-background-overlay-effect-in-css */
-  &[aria-labelledby="about"] {
+  &:not([aria-labelledby="projects"]) {
     background: transparent;
       background-position-x: 0%;
       background-position-y: 0%;

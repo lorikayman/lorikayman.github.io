@@ -115,7 +115,7 @@
   display: none;
 }
 
-@media only screen and (min-width: 1001px) {
+@media only screen and (min-width: 1024px) {
   .toc {
     display: flex;
     position: fixed;

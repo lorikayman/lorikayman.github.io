@@ -17,9 +17,9 @@
   <div class="project-summary" data-type={type ?? ''} use:melt={$root}>
     <h3 class="project-name">
       <slot name="name"/>
-      {#if link}
+      <!-- {#if link}
         <a target="_blank" rel="noopener noreferrer" class="link-out" href="{link}"><BoxArrowUpRight/></a>
-      {/if}
+      {/if} -->
     </h3>
     <div class="project-description">
       <slot name="desc"/>
@@ -74,15 +74,22 @@
     color: hsla(20, 88%, 70%, 0.9);
   }
 }
+
 .project-summary {
   font-family: sans-serif;
-  margin: 1.2rem;
+  margin: 1.8rem 0.2rem;
   padding: 0.6rem;
   border-width: 1px;
   border-radius: 4px;
   border-color: hsl(13, 7%, 60%);
   border-style: solid;
   background-color: hsla(13, 80%, 60%, 4%);
+}
+
+@media only screen and (min-width: 1024px) {
+  .project-summary {
+    margin: 1.8rem 8rem;
+  }
 }
 
 .project-name {
@@ -94,6 +101,7 @@
 .project-description, .details-trigger {
   color: hsl(13, 10%, 66%);
   margin-top: 0.8em;
+  text-align: justify;
 }
 
 .details-trigger {
@@ -107,6 +115,9 @@
 
 .project-details {
   color: hsl(13, 10%, 66%);
+
+  padding-right: 2rem;
+  text-align: justify;
 
   & b {
     font-family: sans-serif !important;

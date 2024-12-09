@@ -219,8 +219,13 @@ p {
 } */
 
 @media (max-width: 540px) {
+  #master-header {
+    border: unset;
+    padding-top: 0px;
+  }
+
   #header-spacer {
-    display: none;
+    padding-bottom: 50%;
   }
 }
 
