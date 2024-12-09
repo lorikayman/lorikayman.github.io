@@ -11,7 +11,7 @@ body {
   scroll-behavior: smooth;
 }
 
-#content {
+body > div:first-child {
   position: fixed;
   left: 0;
   right: 0;
@@ -21,7 +21,7 @@ body {
 }
 
 /* https://www.publicdomainpictures.net/en/view-image.php?image=338833&picture=armillary-sphere*/
-#content:before {
+body > div::before {
   content: "";
   background-image: url("/img/armillary-sphere.jpg");
   position: fixed;

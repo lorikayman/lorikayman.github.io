@@ -7,12 +7,4 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({
 	plugins: [sveltekit()],
-	build: {
-		outDir: 'public/build/',
-		// rollupOptions: {
-		// 	output: {
-		// 		;
-		// 	}
-		// }
-	}
 });
