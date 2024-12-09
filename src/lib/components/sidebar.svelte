@@ -1,8 +1,9 @@
 <script>
+  import { onMount } from "svelte";
   import { createCollapsible, melt } from "@melt-ui/svelte";
 
   import { List, ArrowUpSquare } from "svelte-bootstrap-icons";
-  import { nextPageName, doesPageDiffer } from "$lib/stores/mawanet.loader";
+  import { currentPageName } from "$lib/stores/mawanet.loader";
 
   const {
     elements: { root, content, trigger },
@@ -10,22 +11,43 @@
   } = createCollapsible({
     forceVisible: true,
   });
+
+  /**
+   * Scrolls do a designated div end
+   * 
+   * @param {Event} e
+   */
+  function clickHandler(e) {
+    e.preventDefault();
+    window.scrollTo({
+      behavior: "smooth",
+      top: 0,
+    })
+  }
+
+  onMount(() => {
+    const button = document.querySelector("#scroll-on-top");
+    button.addEventListener("click", clickHandler);
+  })
 </script>
 
 <div class="sidebar" use:melt={$root}>
 
-  <div class="header">
-    <div class="header-item header-start" use:melt={$trigger}>
+  <div class="header" class:header-open={$open}>
+    <!-- <div class="header-item header-start" use:melt={$trigger}> -->
+    <div class="header-item header-start">
       <List width={34} height={34} />
     </div>
-    <a class="header-item" href="/mawanet/index">
-      <span class="sidebar-span">CENTRAL</span>
-    </a>
-    <span class="header-item sidebar-span">//</span>
-    <span class="header-item sidebar-span" class:nextpagetext={$doesPageDiffer}>
-      {$nextPageName}
-    </span>
-    <div class="header-item">
+    {#if !$open}
+      <a class="header-item" data-sveltekit-preload-data="tap" href="/mawanet/index">
+        <span class="sidebar-span">CENTRAL</span>
+      </a>
+      <span class="header-item sidebar-span">//</span>
+      <span class="header-item sidebar-span">
+        {$currentPageName}
+      </span>
+    {/if}
+    <div class="header-item" id="scroll-on-top">
       <ArrowUpSquare width={24} height={24} />
     </div>
   </div>
@@ -41,9 +63,10 @@
 
 .sidebar {
   position: fixed;
+  /* z-index: 3; */
 
   background-color: rgb(45, 45, 48);
-  width: 3.2rem;
+  min-width: 3.2rem;
 
   height: calc(100% - 1rem);
 
@@ -93,8 +116,9 @@
 
 .header-start {
   border-radius: 4px;
-  padding: 0.3em;
+  padding: 0.3rem;
   margin-bottom: 0.2em;
+  /* z-index: 4; */
 
   &:hover {
     background-color: rgba(30, 30, 33, 0.5);
@@ -102,48 +126,34 @@
   }
 }
 
-.sidebar-header-hide {
-  visibility: hidden;
-}
+.header-open {
+  flex-direction: row;
+  width: 40vh;
 
-.sidebar-open {
-  width: 30rem;
+  & .header-item {
+    margin-left: 0.3rem;
+  }
 }
 
 .sidebar-content {
-  width: 15rem;
-  padding: 16px;
-  writing-mode: horizontal-tb;
+  position: fixed;
+  padding: 0.3rem;
+  top: 7rem;
   text-orientation: upright;
+  width: 38vh;
+  /* margin: 0px 8px; */
+
+  height: 70vh;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  background-color: rgb(36, 36, 36);
+
+  border-radius: 2px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: rgba(184, 184, 184, 0.289);
 }
 
-/* .sidebar.nextpage {
-      width: 3em !important;
-      border-style: solid;
-      border-image-source: linear-gradient(
-          -40deg,
-          hsl(357, 90%, 60%),
-          hsl(16, 90%, 60%),
-          hsl(25, 90%, 60%)
-      );
-      border-image-slice: 12;
-      filter: drop-shadow(0 0 2mm hsla(48, 91%, 60%, 0.2));
-
-      animation-name: floating;
-      animation-iteration-count: infinite;
-      animation-timing-function: ease-in-out;
-      animation-duration: 800ms;
-  } */
-
-.nextpagetext {
-  color: hsl(16, 90%, 60%);
-  /* filter: drop-shadow(0 2mm 3mm hsla(16, 90%, 60%, 0.7)); */
-}
-
-/* @keyframes floating {
-      0% { transform: translate(0px, 0px); }
-      25%  { transform: translate(1px, 0px); }
-      50%  { transform: translate(1px, 1px); }
-      100%   { transform: translate(0px, 0px); }
-  } */
 </style>
