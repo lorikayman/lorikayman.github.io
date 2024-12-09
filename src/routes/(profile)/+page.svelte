@@ -11,7 +11,7 @@ document.title = "ironkayman"
 
 let userHasScrolled;
 window.onscroll = function() {
-  if (!userHasScrolled) window.scrollTo(0, window.visualViewport.height * 0.8);
+  if (!userHasScrolled) window.scrollTo(0, window.visualViewport.height * 0.6);
   userHasScrolled = true;
 }
 
