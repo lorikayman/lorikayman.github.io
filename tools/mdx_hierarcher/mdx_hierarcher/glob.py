@@ -56,7 +56,7 @@ _LOADER_END = """
 _LOADER_IMPORT = """
         case '{}':
           EntryComponent = (await import('$lib/mawanet/{}.mdx')).default;
-          break;\n
+          break;
 """
 
 class Globber:
@@ -64,8 +64,8 @@ class Globber:
     _RE_WIKILINK: Pattern = re_compile(
         r"""\[{2}   # openning doubles
             (?P<filename>[\w\s]+?) # filename
-            (?:\#[\w\s\.\d\(\)\[\]]+?)?    # wont capture, we ignore ids
-            (?:\|(?P<alias>[\w\s\.\d\(\)\[\]]+?))?    # visible alias
+            (?:\#(?P<id>[\w\s\-\'\.\d\(\)\[\]]+))?    # wont capture, we ignore ids
+            (?:[\|\:](?P<alias>[\w\s\-\'\.\d\(\)]+))?    # visible alias
             \]{2}""", VERBOSE,
     )
 
@@ -110,9 +110,10 @@ class Globber:
             mappings_cache = []
             for m in self._RE_WIKILINK.finditer(contents_old):
                 filename = m.group('filename')
+                id = m.group('id')
                 alias = m.group('alias')
                 link = self._MDX_COMPONENT_LINK_TEMPLATE.format(
-                    filename.lower().replace(' ', '_'), alias or filename   
+                    filename.lower().replace(' ', '_'), alias or filename
                 )
                 mappings_cache.append((m.span(), link))
             contents_new = contents_old

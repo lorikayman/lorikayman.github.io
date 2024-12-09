@@ -49,14 +49,10 @@
   use:melt={$trigger}
   class:error403={error === 403}
 >
-  {#if false}
-    {#if error !== 403}
-    <FileTextFill width={16} height={16}/><slot/>
-    {:else}
-    <FileLock2Fill width={16} height={16}/>Access Denied
-    {/if}
-  {:else}
+  {#if !error}
   <slot/>
+  {:else}
+  <FileLock2Fill width={16} height={16}/>Access Denied
   {/if}
 </a>
 
@@ -116,7 +112,7 @@
     padding: 2.2em;
     filter: drop-shadow(0 1em 1.8em black);
 
-    & h1,h2,h3,h4,h5,h6,p {
+    & h1,h2,h3,h4,h5,h6,p,blockquote {
       font-size: 1.2rem;
       font-family: 'open sans';
     }
