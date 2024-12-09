@@ -1,24 +1,77 @@
 body {
   font-family: sans-serif;
   padding: 2em 1em;
-  background-color: black;
+  background-color: rgb(6, 6, 6);
 }
 
 .container-vertical {
   display: flex;
   justify-content: center;
+  align-content: center;
+  row-gap: 22px;
+  display: flex;
+  flex-direction: column;
 }
 
-.card-greet {
-  width: 60%;
-  height: 80%;
-  min-height: 420px;
-  padding: 22px;
-  outline: solid 2px whitesmoke;
-}
-
-.resource {
+.card-row {
+  min-height: 22px;
+  max-width: 420px;
+  padding: 14px 20px;
+  outline: solid 2px rgb(242, 192, 63);
+  color: rgb(228, 227, 227);
+  background-color: rgb(0, 0, 0);
+  align-items: center;
   display: inline;
-  font-size: 1.3em;
+  font-size: 1.0em;
   font-family: sans-serif;
+}
+
+.card-row span {
+  margin-top: 20px;
+}
+
+
+.card-title {
+  margin-bottom: 4px;
+  transition: 0.4s;
+}
+
+.card-title span {
+  font-weight: bold;
+}
+
+.card-title :first-child i {
+  margin: 0.3em;
+}
+
+.card-row:hover :first-child i {
+  transition: 0.4s;
+}
+.card-row:hover :first-child i[email] {
+  color: #f34542;
+}
+.card-row:hover :first-child i[twitter] {
+  color: #1DA1F2;
+}
+.card-row:hover :first-child i[discord] {
+  color: #7289da;
+}
+
+
+.card-row:hover .card-title {
+  margin-bottom: 4em;
+  transition: 0.4s;
+}
+
+.card-row a {
+  color: #767b81;
+  text-decoration: none;
+}
+
+.card-row a:hover {
+  color: #ea9b2c; 
+  text-decoration: none; 
+  cursor: pointer;
+  opacity: 1;
+  transition: 0.022s;
 }
