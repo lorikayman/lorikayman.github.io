@@ -44,7 +44,9 @@ div.header-vertical h4 span {
 }
 
 .container-showoff {
-  display: none;
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 6em;
 }
 
 .showoff-floating {
