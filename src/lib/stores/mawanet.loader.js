@@ -31,6 +31,50 @@ export async function fetchComponent (componentName) {
           EntryComponent = (await import('$lib/mawanet/maelstrom_encyclopedia.mdx')).default;
           break;
 
+        case 'engine_of_narraphysic_gliding':
+          EntryComponent = (await import('$lib/mawanet/engine_of_narraphysic_gliding.mdx')).default;
+          break;
+
+        case 'resonance':
+          EntryComponent = (await import('$lib/mawanet/resonance.mdx')).default;
+          break;
+
+        case 'vacuum_ascention':
+          EntryComponent = (await import('$lib/mawanet/vacuum_ascention.mdx')).default;
+          break;
+
+        case 'accursed_framework':
+          EntryComponent = (await import('$lib/mawanet/accursed_framework.mdx')).default;
+          break;
+
+        case 'conceptual_configuration':
+          EntryComponent = (await import('$lib/mawanet/conceptual_configuration.mdx')).default;
+          break;
+
+        case 'altered_field_presence':
+          EntryComponent = (await import('$lib/mawanet/altered_field_presence.mdx')).default;
+          break;
+
+        case 'narraphysic_realm':
+          EntryComponent = (await import('$lib/mawanet/narraphysic_realm.mdx')).default;
+          break;
+
+        case 'narrative':
+          EntryComponent = (await import('$lib/mawanet/narrative.mdx')).default;
+          break;
+
+        case 'narraphysic_isolation_environment':
+          EntryComponent = (await import('$lib/mawanet/narraphysic_isolation_environment.mdx')).default;
+          break;
+
+        case 'retroactive_refractory_feedback_loop':
+          EntryComponent = (await import('$lib/mawanet/retroactive_refractory_feedback_loop.mdx')).default;
+          break;
+
+        case 'superimposition_event':
+          EntryComponent = (await import('$lib/mawanet/superimposition_event.mdx')).default;
+          break;
+
         default:
           EntryComponent = Error403;
           break;
