@@ -1,6 +1,8 @@
+<img src="./docs/preview.png">
+
 # What is this?
 
-A personal site and an unficton wiki for a wordbuilding/writing project **"Maelstrom Takes Toll"** using SvelteKit, [MDsveX](https://mdsvex.pngwn.io/) and [melt-ui](https://melt-ui.com/).
+~~A personal site and~~ A wiki of a wordbuilding/writing project **"Maelstrom Takes Toll"** using SvelteKit, [MDsveX](https://mdsvex.pngwn.io/) and [melt-ui](https://melt-ui.com/).
 
 ### Build
 
