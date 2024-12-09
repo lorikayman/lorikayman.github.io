@@ -1,3 +1,4 @@
+
 import { fetchComponent } from "$lib/stores/mawanet.loader.js"
 
 export async function load({ params }) {
@@ -8,3 +9,25 @@ export async function load({ params }) {
     error: entryProperties.error,
   };
 }
+
+
+/** @type {import('./$types').EntryGenerator} */
+export function entries() {
+	return [
+
+		{ entry: 'maelstrom_encyclopedia' },
+		{ entry: 'engine_of_narraphysic_gliding' },
+		{ entry: 'resonance' },
+		{ entry: 'vacuum_ascention' },
+		{ entry: 'accursed_framework' },
+		{ entry: 'conceptual_configuration' },
+		{ entry: 'altered_field_presence' },
+		{ entry: 'narraphysic_realm' },
+		{ entry: 'retroactive_refractory_feedback_loop' },
+		{ entry: 'narraphysic_isolation_environment' },
+		{ entry: 'narrative' },
+		{ entry: 'superimposition_event' },
+	];
+}
+
+export const prerender = true;

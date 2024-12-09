@@ -62,6 +62,37 @@ _LOADER_IMPORT = """
           break;
 """
 
+
+_PAGE_JS_PATH = "src/routes/(mawanet)/mawanet/[[entry]]/+page.js"
+
+_PAGE_JS_BEGIN = """
+import { fetchComponent } from "$lib/stores/mawanet.loader.js"
+
+export async function load({ params }) {
+  let entryProperties = await fetchComponent(params.entry ?? 'index')
+	return {
+    pageName: entryProperties.componentName,
+    pageComponent: entryProperties.entryComponent,
+    error: entryProperties.error,
+  };
+}
+
+
+/** @type {import('./$types').EntryGenerator} */
+export function entries() {
+	return [
+"""
+
+_PAGE_JS_ENTRY_PATTERN = """
+		{ entry: '%s' },"""
+
+_PAGE_JS_END = """
+	];
+}
+
+export const prerender = true;
+"""
+
 class Globber:
 
     _RE_WIKILINK: Pattern = re_compile(
@@ -106,12 +137,16 @@ class Globber:
 
         glob_result: Generator = self._glob_root.glob('**/*.md')
         count = 0
+
+        entry_names = []
+
         for count, md in enumerate(glob_result):
             if self._whitelist and md.stem not in whileisted_file_stems:
                 continue
             print('processing:', md.stem)
 
             name_normalised: str = md.stem.replace(' ', '_')
+            entry_names.append(name_normalised)
             contents = md.read_text()
             with open(
                 self._output_dir / (name_normalised + '.mdx'),
@@ -119,7 +154,15 @@ class Globber:
                 encoding='utf-8'
             ) as mdx:
                 mdx.write(contents)
+    
+        with open(Path().cwd() / _PAGE_JS_PATH, mode='w', encoding='utf-8') as pjs:
+            pjs.write(_PAGE_JS_BEGIN)
+            for name in entry_names:
+                pjs.write(_PAGE_JS_ENTRY_PATTERN % name)
+            pjs.write(_PAGE_JS_END)
+
         print(f'{count} files processed')
+
 
     def replace_wikilinks(self):
         """
