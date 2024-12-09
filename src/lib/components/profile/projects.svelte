@@ -18,10 +18,10 @@
   date="02.2022 - ..."
   participation="
     UI/UX design,
-    transition to git,
-    local dev/build environment development and integration into Mozilla Mach,
-    various privacy enhancements,
-    application-level network communications analysis and reduction"
+    transition to git from mercurial workflow,
+    local dev/build environment development cycle based on Mozilla Mach,
+    various privacy enhancements including telemetry removal and Remote Settings/Kinto decoupling from hosred by Mozilla services
+    "
 >
   XPCOM | VanillaJS (native web components) | CSS | Python (mozilla mach, poetry + ruff) | Rust
 </ProjectEntry>
@@ -34,12 +34,12 @@
     IMAP/SMTP/CalDAV/CardDAV on-premise email
     server solution based on Postfix and Dovecot"
   participation="
-    Analysis and finalised selection MTA/MDA components,
-    that were Postfix + Dovecot,
-    development of product's POC and additional development up to release v2.0,
-    design, mockups and finalised web interface:
-    first revision based on vanillaJS and
-    second revision based on knockoutJS SPA"
+    Analysis, deployment, and finalised selection of MTA/MDA components,
+    that are Postfix and Dovecot,
+    architecture, approach and development of Proof-Of-Concept and
+    additional development up until release 2.0,
+    UI and UX design and development of VanillaJS-KnockoutJS 3 components-backed Bootstrap 4 administraction panel,
+    selection, coordination and analysis of admin panel migration process to a different UI framework, settling with React/MobX"
 >
   Python (Flask, SQLAlchemy, postgreSQL, poetry + ruff + flake8) |
   VanillaJS native web components |
@@ -47,19 +47,18 @@
 </ProjectEntry>
 
 <ul>
-  <li>Additional reserch and deployment of various infrastructure components:
-    Exim, Postfix, Dovecot, Amavis, Active Directory, FreeIPA
+  <li>Additional research and deployment of various infrastructure components:
+    Exim, Postfix, Dovecot, LMTP and LDAP authentication setup,
+    Amavis, Active Directory, FreeIPA
   </li>
   <li>
     Development of YAML-based (strict yaml derivation)
     templating and abstraction engine/mapper for unified
-    trnaslation and representation of every individual
-    component configuration files' syntax
-    (i.e. master.conf, main.conf of Postfix)
-  </li>
-  <li>
-    Organisation of migration from KnockoutJS to a different framework,
-    settling with React + MobX
+    translation and representation of every individual
+    mailflow component configuration files' syntax
+    (and it's admin guide/user manual) - i.e. postfix's master.conf, main.conf,
+    it started as INI-file configuration and finalised as strict YAML,
+    the latter being Service's current confuguration file spec
   </li>
 </ul>
 
