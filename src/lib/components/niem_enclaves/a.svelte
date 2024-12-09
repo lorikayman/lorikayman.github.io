@@ -26,7 +26,7 @@
             {:else}
                 <span class="nier-access-point-access"><Fullscreen/> Access</span>
             {/if}
-            NIER | Secure Enclave <span class="nier-access-enclave">A</span>
+            NIER | Secure Enclave <span class="nier-access-enclave">A2</span>
         </button>
         <div class="warning-stripes"/>
     </center>
@@ -90,7 +90,7 @@ center {
 }
 
 .nier-access-point-access {
-    color: hsl(49, 71%, 74%);
+    color: hsl(41, 86%, 64%);
     font-weight: bolder;
 }
 .nier-access-point-close {
@@ -99,26 +99,26 @@ center {
 }
 
 .nier-access-enclave {
-    color: hsl(145, 60%, 70%);
+    color: hsl(41, 86%, 64%);
     font-weight: bold;
 }
 
 .warning-stripes {
     height: 2rem;
-    background-color: hsl(50, 66%, 66%);
+    background-color: hsl(36, 80%, 56%);
     background-image: repeating-linear-gradient(120deg, transparent, transparent 22px, rgb(0,0,0) 1px 50px);
-    box-shadow: 0 0 6mm hsla(38, 57%, 69%, 0.36);
+    box-shadow: 0 0 6mm hsla(36, 80%, 56%, 0.36);
 }
 
 .nier-enclave-a {
     border-radius: 4px;
-    border-color: hsl(145, 30%, 60%);
-    border-width: 3px;
-    border-style: solid;
+    /* border-color: hsl(0 0% 52%); */
+    /* border-width: 3px; */
+    /* border-style: solid; */
     padding: 1rem;
 
-    background-color: hsl(145, 30%, 60%);
-    box-shadow: 0 15mm 4mm hsla(145, 30%, 60%, 0.26);
+    background-color: hsl(0 0% 52%);
+    /* box-shadow: 0 1mm 4mm hsla(0, 30%, 60%, 0.26); */
 
     & span,ul,li,p,h2,h3,h4,h5 {
         color: rgb(35, 35, 40);
@@ -126,7 +126,7 @@ center {
     }
 
     & a {
-        color: rgb(100, 100, 110);
+        color: rgb(70, 60, 65);
     }
 }
 
