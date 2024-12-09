@@ -47,6 +47,20 @@ div.header-vertical h4 span {
   display: none;
 }
 
+.showoff-floating {
+  animation-name: showoff-floating;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-duration: 9s;
+}
+
+@keyframes showoff-floating {
+  0% { transform: translate(0px, 0px); }
+  50%  { transform: translate(0px, 8px); }
+  100%   { transform: translate(0px, -0px); }   
+}
+
+
 @media screen and (min-width: 500px) {
   .container-showoff {
     margin-right: 10%;
