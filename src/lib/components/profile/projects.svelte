@@ -16,9 +16,14 @@
   description="A desktop email and calendar client based on
     Mozilla Thunderbird Supernova"
   date="02.2022 - ..."
-  participation="UI/UX design, transition to git, local dev/build environment development and integration into Mozilla Mach, various privacy enhancements, network communications analysis and reduction"
+  participation="
+    UI/UX design,
+    transition to git,
+    local dev/build environment development and integration into Mozilla Mach,
+    various privacy enhancements,
+    application-level network communications analysis and reduction"
 >
-  js | css | python | rust
+  XPCOM | VanillaJS (native web components) | CSS | Python (mozilla mach, poetry + ruff) | Rust
 </ProjectEntry>
 
 <ProjectEntry
@@ -26,43 +31,91 @@
   link="https://rupost.ru"
   date="12.2020 - 02.2022"
   description="An out-of-the-box batteries-included
-    IMAP/SMTP/CalDAV/CardDAV on-premise email server solution based on Postfix and Dovecot"
+    IMAP/SMTP/CalDAV/CardDAV on-premise email
+    server solution based on Postfix and Dovecot"
   participation="
-    IMAP/SMPT-server components analysis and finalised selection,
-    development of POC and additional development up to release v2.0,
-    web interface (vanillaJS and knockoutJS iteration)"
+    Analysis and finalised selection MTA/MDA components,
+    that were Postfix + Dovecot,
+    development of product's POC and additional development up to release v2.0,
+    design, mockups and finalised web interface:
+    first revision based on vanillaJS and
+    second revision based on knockoutJS SPA"
 >
-  Python | JS | KnockoutJS
+  Python (Flask, SQLAlchemy, postgreSQL, poetry + ruff + flake8) |
+  VanillaJS native web components |
+  KnockoutJS 3 + SPA Router
 </ProjectEntry>
+
+<ul>
+  <li>Additional reserch and deployment of various email flow components:
+    Exim, Postfix, Dovecot, Amavis
+  </li>
+  <li>
+    Development of YAML-based (strict yaml derivation)
+    templating and abstraction engine/mapper for unified
+    trnaslation and representation of every individual
+    component configuration files' syntax
+    (i.e. master.conf, main.conf of Postfix)
+  </li>
+</ul>
 
 <ProjectEntry
   name="RuNER"
   link="https://runer.workspad.com/"
   date="07.2019 - 12.2020"
-  description="Russian language NLP/NLU solution designed to be integrated with chat bot platforms"
-  participation="application architecture, processing algorithm, core feature-set"
+  description="
+    Russian language NLP/NLU solution designed
+    to be integrated with chat bot platforms"
+  participation="
+    Application architecture,
+    processing algorithm,
+    core feature-set"
 >
-  Python
+  Python (Tornado)
 </ProjectEntry>
+
+<ul>
+  <li>
+    Utilisation of Pandas in order to capture statistics
+    of avarage grammar usage
+  </li>
+  <li>
+    Utilisation of NumPy for in-memmory processing of high-order tokens
+  </li>
+</ul>
 
 
 <ProjectEntry
-  name="Linux-based VDI infrastructure w/ GPU passthrough"
+  name="Linux-based VDI infrastructure"
   date="05.2019 - 07.2019"
   description="A single physical server hosts templated KVM/QEMU VMs with NVIDIA GPU being passed through"
 >
-  IOMMU groups setup | kernel patching | KVM/QEMU VM generation through virsh interfaces with python | deb-packaged shell-scripts
+  IOMMU |
+  KVM/QEMU | Virsh | Python |
+  debian-packaged shell scripts
 </ProjectEntry>
 
+<ul>
+  <li>
+    IOMMU groups setup with additional Kernel patching
+  </li>
+  <li>
+    KVM/QEMU VM generation through virsh interfaces with python
+  </li>
+</ul>
+
 <ProjectEntry
-  name="Windows Backup, replcation and storage infrastructure"
-  date="09.2018-05.2019"
-  description="MS Windows Server Nano VEEAM, VMM cluster within AD forest.
-    A part of an infrastructre required to support backup,
-    replication, hot and cold storage of templated Windows VMs
-    for various products and their multiple host configurations"
+  name="Windows backup, replcation and storage infrastructure"
+  date="09.2018 - 05.2019"
+  description="VEEAM setup within a MS VMM-managed cluster inside
+    of an AD forest.
+    Part of the infrastructre required to support backup
+    and replication, automatic hot and cold storage management
+    of templated Windows VMs"
 >
-  MS Windows Server Nano | Powershell 5.1 | VEEAM B&R | Kerberos authentication setup | MS VMM integration to HYPER-V cluster
+  MS Windows Server Nano | Powershell 5.1 |
+  VEEAM B&R | Kerberos authentication setup |
+  MS VMM integration with HYPER-V cluster
 </ProjectEntry>
 
 <div use:melt={$root}>
@@ -92,8 +145,19 @@
 
 <style>
 
-h1, h2, h3, h4, h5, h6, p {
+h1, h2, h3 {
   color: rgb(245, 245, 220);
+}
+
+ul {
+  margin-bottom: 2.3rem;
+  margin-top: -1rem;
+
+  & li {
+    list-style-type: square;
+    padding-top: 12px;
+    color: hsl(13, 10%, 66%);
+  }
 }
 
 p {
