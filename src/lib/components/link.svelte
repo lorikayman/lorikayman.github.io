@@ -3,7 +3,8 @@
 
   import { FileTextFill, FileLock2Fill } from "svelte-bootstrap-icons"
 
-  import { fetchComponent } from "$lib/stores/mawanet.loader.js"
+  import { fetchComponent, nextPageName, currentPageName } from "$lib/stores/mawanet.loader.js"
+
 
   const {
     elements: { trigger, content, arrow }
@@ -32,12 +33,16 @@
 
     EntryComponent = entryProperties.entryComponent;
     error = entryProperties.error;
+  };
+  function mouseLeave() {
+    nextPageName.set($currentPageName); 
   }
 
 </script>
 
 <a class="mtt-link"
   href="{error || path}"
+  on:mouseleave={() => {mouseLeave()}}
   on:mouseenter={() => {loadEntry()}}
   on:m-hover={(e) => {e.preventDefault()}}
   on:m-blur={(e) => {e.preventDefault()}}

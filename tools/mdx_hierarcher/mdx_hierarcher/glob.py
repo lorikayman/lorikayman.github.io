@@ -5,8 +5,19 @@ from typing import Any
 from re import Pattern, compile as re_compile, VERBOSE
 
 _LOADER_BEGIN = """
+import { derived, writable } from "svelte/store";
+
 import Error404 from "$lib/components/error.404.svelte"
 import Error403 from "$lib/components/error.403.svelte"
+
+export const nextPageName = writable();
+export const currentPageName = writable();
+export const doesPageDiffer = derived(
+  [currentPageName, nextPageName],
+  ($values, set) => {
+    set($values[0] !== $values[1])
+  }
+)
 
 /**
  * Dynamically import an existing mdx componet (bundled)
@@ -33,6 +44,7 @@ _LOADER_END = """
       EntryComponent = Error404;
       error = e;
     }
+    nextPageName.set(componentName.replace(/\_/g," ").split(' ')[0].toUpperCase());
     return {
         componentName,
         entryComponent: EntryComponent,
