@@ -66,6 +66,13 @@ center {
   margin-bottom: 6rem;
 }
 
+/* https://www.dafont.com/liberation-serif.font */
+@font-face {
+  font-family: 'liberation-serif';
+  font-style: normal;
+  src: url('/fonts/liberation_serif/LiberationSerif-Regular.ttf');
+}
+
 #heading {
   padding: 0.6rem;
   border-radius: 12px;
@@ -74,8 +81,7 @@ center {
 
   & span {
     text-transform: uppercase;
-    font-family: serif;
-    /* font-family: 'familiar-pro'; */
+    font-family: 'liberation-serif';
     font-size: 2.6rem;
     font-weight: 300;
     color: rgb(255, 191, 90);
