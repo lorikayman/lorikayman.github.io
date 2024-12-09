@@ -43,6 +43,10 @@
         EntryComponent = (await import('$lib/mawanet/vacuum_ascention.mdx')).default;
         break;
 
+    case 'salt_sarcophaguses':
+        EntryComponent = (await import('$lib/mawanet/salt_sarcophaguses.mdx')).default;
+        break;
+
     case 'accursed_framework':
         EntryComponent = (await import('$lib/mawanet/accursed_framework.mdx')).default;
         break;
