@@ -1,0 +1,24 @@
+body {
+  font-family: sans-serif;
+  padding: 2em 1em;
+  background-color: black;
+}
+
+.container-vertical {
+  display: flex;
+  justify-content: center;
+}
+
+.card-greet {
+  width: 60%;
+  height: 80%;
+  min-height: 420px;
+  padding: 22px;
+  outline: solid 2px whitesmoke;
+}
+
+.resource {
+  display: inline;
+  font-size: 1.3em;
+  font-family: sans-serif;
+}
