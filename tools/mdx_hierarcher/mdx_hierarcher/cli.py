@@ -19,3 +19,10 @@ parser.add_argument(
   # default=None,
   help="Relative path to the output directory here MDXs will be placed",
 )
+
+parser.add_argument(
+  '--whitelist',
+  dest='whitelist',
+  required=False,
+  help="Whitelist of allowed to process filenames",
+)

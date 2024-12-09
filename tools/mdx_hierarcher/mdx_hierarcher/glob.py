@@ -2,6 +2,9 @@ from typing import Generator
 
 from pathlib import Path
 from typing import Any
+from json import loads
+from os import mkdir
+from shutil import rmtree
 from re import Pattern, compile as re_compile, VERBOSE
 
 _LOADER_BEGIN = """
@@ -64,15 +67,15 @@ class Globber:
     _RE_WIKILINK: Pattern = re_compile(
         r"""\[{2}   # openning doubles
             (?P<filename>[\w\s]+?) # filename
-            (?:\#(?P<id>[\w\s\-\'\.\d\(\)\[\]]+))?    # wont capture, we ignore ids
-            (?:[\|\:](?P<alias>[\w\s\-\'\.\d\(\)]+))?    # visible alias
+            (?:\#(?P<id>[\w\s\-//\'\.\d\(\)\[\]]+))?    # wont capture, we ignore ids
+            (?:[\|\:](?P<alias>[\w\s\-//\'\.\d\(\)]+))?    # visible alias
             \]{2}""", VERBOSE,
     )
 
     _MDX_COMPONENT_LINK_TEMPLATE = '<Link path="/mawanet/{}">{}</Link>'
     _MDX_IMPORTS = '<script>import Link from "$lib/components/link.svelte"</script>\n\n' 
 
-    def __init__(self, glob_root: Path, output_dir: Path) -> None:
+    def __init__(self, glob_root: Path, output_dir: Path, whitelist: None | Path) -> None:
         """
         Parameters
         ----------
@@ -83,11 +86,29 @@ class Globber:
         """
         self._glob_root = glob_root
         self._output_dir = output_dir
+        self._whitelist = whitelist
+
+    def __parse_whitelist(self) -> list[str]:
+        text = loads(self._whitelist.read_text())
+        whileisted_file_stems = []
+        for filename in text['allow']:
+            whileisted_file_stems.append(filename)
+        return whileisted_file_stems
 
     def __call__(self) -> Any:
+        rmtree(self._output_dir)
+        mkdir(self._output_dir)
+
+        if self._whitelist:
+            whileisted_file_stems = self.__parse_whitelist()
+
         glob_result: Generator = self._glob_root.glob('**/*.md')
         count = 0
         for count, md in enumerate(glob_result):
+            if self._whitelist and md.stem not in whileisted_file_stems:
+                continue
+            print('processing:', md.stem)
+
             name_normalised: str = md.stem.replace(' ', '_')
             contents = md.read_text()
             with open(
