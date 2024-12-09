@@ -19,7 +19,7 @@ export async function fetchComponent (componentName) {
     try {
       switch (componentName) {
         case 'index':
-          EntryComponent = (await import('$lib/mawanet/readme.mdx')).default;
+          EntryComponent = (await import('$lib/mawanet/maelstrom_encyclopedia.mdx')).default;
           break;
 """
 
