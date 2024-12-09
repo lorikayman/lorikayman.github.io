@@ -6,7 +6,7 @@
     import { slide } from 'svelte/transition'
     import { createCollapsible, melt } from '@melt-ui/svelte'
 
-    import { Fullscreen, ArrowBarUp } from "svelte-bootstrap-icons"
+    import { Fullscreen, ArrowBarUp, } from "svelte-bootstrap-icons"
 
     const {
         elements: { root, content, trigger },
@@ -94,7 +94,7 @@ center {
     font-weight: bolder;
 }
 .nier-access-point-close {
-    color: hsl(0, 71%, 74%);
+    color: hsl(0 0% 52%);
     font-weight: bolder;
 }
 
@@ -117,17 +117,17 @@ center {
     border-style: solid;
     padding: 1rem;
 
-    /* background-color: hsl(145, 30%, 60%); */
-    /* box-shadow: 0 15mm 4mm hsla(145, 30%, 60%, 0.26); */
+    background-color: hsl(145, 30%, 60%);
+    box-shadow: 0 15mm 4mm hsla(145, 30%, 60%, 0.26);
 
-    /* & span,ul,li,p,h2,h3,h4,h5 {
+    & span,ul,li,p,h2,h3,h4,h5 {
         color: rgb(35, 35, 40);
         font-weight: 600;
     }
 
     & a {
         color: rgb(100, 100, 110);
-    } */
+    }
 }
 
 </style>
