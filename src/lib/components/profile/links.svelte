@@ -47,7 +47,18 @@
     /* background-image: url("/img/hll.png"); */
     /* animation: show 140s infinite;
     -webkit-animation: show 140s infinite; */
-    min-height: 64.8vh;
+    /* &::before {
+        content: '';
+        background-image: url('/img/banner_lg.png');
+        width: 34rem;
+        height: 34rem;
+        background-size: cover;
+        z-index: -1;
+        left: 50%;
+        margin-top: -1.3%;
+        display: block;
+        position: absolute;
+    } */
     /* background: linear-gradient(to right, rgba(0%, 0%, 0%, 0.86), rgba(0%, 0%, 0%, 0.66)); */
     /* background-size: 31% 100%; */
     /* background-repeat: no-repeat; */
@@ -90,7 +101,7 @@
     animation: show 140s infinite;
     -webkit-animation: show 120s infinite; */
 
-    width: 100vi;
+    /* width: 100vi; */
     height: 100vi;
 }
 

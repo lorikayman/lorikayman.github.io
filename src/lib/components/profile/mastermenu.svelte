@@ -77,7 +77,7 @@ onMount(() => {
 })
 </script>
 
-<div id="center">
+<div id="menu-wrapper">
   <div
     use:melt={$root}
     class="menu-container"
@@ -120,12 +120,12 @@ onMount(() => {
 </div>
  
 <style>
+
 .menu-container {
   display: flex;
   flex-direction: column;
   overflow: hidden;
 
-  min-height: 8.2rem;
   width: 70%;
   /* background-color: #353136; */
   border-radius: 8px;
@@ -142,11 +142,12 @@ onMount(() => {
   }
 }
 
-#center {
+#menu-wrapper {
   display: flex;
   justify-content: center;
   width: 100%;
   height: 100%;
+  min-height: 60vi;
 }
 
 .menu-space {
