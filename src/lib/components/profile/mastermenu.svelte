@@ -96,10 +96,14 @@ onMount(() => {
         >
           {triggerItem.title}
           {#if $value === triggerItem.id}
-            <div class="trigger-indicator"
+            <div class="trigger-indicator-container"
               in:send={{ key: 'trigger' }}
               out:receive={{ key: 'trigger' }}
-            />
+            >
+              <div class="trigger-indicator-core"></div>
+              <div class="dot dot1"></div>
+              <div class="dot dot2"></div>
+            </div>
           {/if}
         </button>
       {/each}
@@ -201,13 +205,48 @@ onMount(() => {
   }
 }
 
-.trigger-indicator {
+.trigger-indicator-container {
+  margin-top: 2.16em;
   position: absolute;
-  width: 1.38em;
-  height: 0.18em;
-  margin-top: 2.38em;
-  border-radius: 8px;
+}
+
+.trigger-indicator-core {
+    position: relative;
+    background-color: hsl(355, 100%, 62%);
+
+    width: .5em;
+    height: .5em;
+    border-radius: 100%;
+    animation: pulse 5600ms infinite;
+}
+
+.dot {
+  position: absolute;
+  width: 4px;
+  height: 4px;
   background-color: hsl(355, 100%, 62%);
+  border-radius: 100%;
+  top: 4px
+}
+
+.dot1 {
+  left: -0.55em;
+}
+
+.dot2 {
+  right: -0.55em;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.32);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 
 .tabbed-content {

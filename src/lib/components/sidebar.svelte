@@ -119,10 +119,9 @@
   .toc {
     display: flex;
     position: fixed;
-    top: 26vh;
     left: 4.2rem;
     width: 13%;
-    height: calc(100% - 26vh);
+    height: 100%;
     word-wrap: normal;
     overflow-y: scroll;
   }

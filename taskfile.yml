@@ -1,0 +1,27 @@
+# https://taskfile.dev
+
+version: '3'
+
+tasks:
+  default:
+    cmds:
+      - task --list-all
+  install:
+    cmds:
+      - poetry install
+      - npm install
+  python:
+    cmds:
+      - poetry run python ./run.py --root-dir ./src/lib/sixth-chamber/doc --output-dir ./src/lib/mawanet --whitelist ./src/lib/sixth-chamber/whitelist.json
+  build:
+    cmds:
+      - task: python
+      - npm run build
+  preview:
+    cmds:
+      - npm run preview
+
+  dev:
+    cmds:
+      - task: python
+      - npm run dev
