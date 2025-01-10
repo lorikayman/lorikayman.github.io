@@ -3,8 +3,7 @@
     import { createTableOfContents } from '@melt-ui/svelte';
   
     import Tree from '$lib/components/toc.svelte';
-    import Sidebar from "$lib/components/sidebar.svelte"
-    
+
     import RebisTheory from "$lib/entries/sk-rebis-theory/RebisTheory.md"
  
     let data = RebisTheory;
@@ -22,10 +21,7 @@
       states: { activeHeadingIdxs, headingsTree },
     } = createTableOfContents({
       selector: '#toc-builder-preview',
-      // TODO: if only 2 or less headings are present, exclude all
-      exclude: ['h1',],
-      // FIXME: sometimes other pages ones navigated don't display
-      // custom active styles with "highest" stategy 
+      exclude: [],
       activeType: tocRenderStyleExclusions.includes(data.pageName) ? 'highest' : 'all',
       /**
        * Filters all heading belonging to the current mdx entry
@@ -64,22 +60,3 @@
     <svelte:component this={data}></svelte:component>
   </div>
 </div>
-
-<style>
-
-.toc {
-  display: none;
-}
-
-@media only screen and (min-width: 624px) {
-  .toc {
-    display: flex;
-    position: fixed;
-    left: 0.8rem;
-    width: 13%;
-    height: 100%;
-    word-wrap: normal;
-    overflow-y: scroll;
-  }
-}
-</style>
