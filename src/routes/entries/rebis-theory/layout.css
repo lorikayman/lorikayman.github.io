@@ -11,15 +11,35 @@
   src: url('/fonts/familiar_pro/Familiar Pro-Bold.otf') format("opentype");
 }
 
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(circle, rgba(52, 100, 255, 0.12), rgba(0, 0, 0, 0.0)), 
+    linear-gradient(to bottom,
+      hsla(200, 87%, 9%, 0.38), hsla(206, 23%, 19%, 0.2));
+  z-index: -1;
+}
+
+
 html {
-  background-color: hsl(0, 0%, 8%);
+  /* overflow: hidden; */
   min-height: 100vh;
-  color: rgb(234, 234, 234);
+  /* color: rgb(234, 234, 234); */
+  top: 0;
+  bottom: 0;
+}
+
+body {
+  top: 0;
+  bottom: 0;
 }
 
 ::selection {
-  /* darkreader override */
-  background-color: rgba(87, 157, 255, 0.558) !important;
+  background-color: rgba(133, 184, 255, 0.558) !important;
 }
 
 h1 {
@@ -32,11 +52,38 @@ h1 {
   text-transform: uppercase;
 }
 
+.energy {
+  font-weight: bold;
+  background: linear-gradient(to top, #a6d9fd, #66ffff, #4aa7ff, #3d51ff);
+  background-size: 200% 200%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: energy-move 5s linear infinite;
+  text-align: center;
+}
+
+/* Animate gradient background */
+@keyframes energy-move {
+  0% {
+    background-position: 0% 50%;
+    filter: blur(0.007em);
+  }
+  50% {
+    background-position: 100% 50%;
+    filter: blur(0.016em);
+  }
+  100% {
+    background-position: 0% 50%;
+    filter: blur(0.007em);
+  }
+}
+
+
 h2 {
   font-family: 'familiar-pro';
   font-weight: 500;
   font-size: 3.4rem;
-  /* letter-spacing: 1px; */
   text-transform: uppercase;
 }
 
@@ -97,15 +144,16 @@ li {
 }
 
 code {
-  background-color: hsl(257, 79%, 15%);
-  color: hsl(41, 86%, 64%);
-  /* border-color: hsl(267, 70%, 25%); */
+  background-color: hsl(215, 76%, 13%);
+  color: hsl(0, 0%, 100%);
+  border-color: hsl(257, 79%, 15%, 0);
   font-weight: lighter;
-  border-radius: 3px;
+  border-radius: 6px;
   border-style: solid;
   border-width: 1px;
   padding: 1px 4px;
-  /* font-size: 1.05rem; */
+  /* font-style: italic; */
+  font-family: "Open Sans";
 }
 
 em {
@@ -149,6 +197,18 @@ a {
 
 .toc {
   display: none;
+  top: 0;
+  bottom: 0;
+
+  /* hide scrollbar */
+  /* chrome */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  /* edge */
+  -ms-overflow-style: none;
+  /* ff */
+  scrollbar-width: none;
 }
 
 @media only screen and (min-width: 624px) {
@@ -158,7 +218,7 @@ a {
     position: fixed;
     max-width: 22%;
     height: 100vh;
-    word-wrap:anywhere;
+    word-wrap: anywhere;
     overflow-y: scroll;
   }
 

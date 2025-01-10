@@ -28,9 +28,9 @@
     { entry: 'narraphysic_realm' },
     { entry: 'narrative' },
     { entry: 'retroactive_refractory_feedback_loop' },
-    { entry: 'paraexhumed' },
     { entry: 'revenant' },
     { entry: 'unbound' },
+    { entry: 'paraexhumed' },
     { entry: 'superimposition_event' },
     { entry: 'gap_ammunition' },
         ];

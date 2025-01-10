@@ -215,7 +215,8 @@ code {
 em {
     color: hsl(25, 25%, 55%);
 }
-:is(h1,) + p {
+
+:is(h1) + p {
     & em {
         color: hsl(8, 30%, 55%);
     }
