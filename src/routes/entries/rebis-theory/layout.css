@@ -204,7 +204,7 @@ center.chapter-break {
 @keyframes energy-move {
   0% {
     background-position: 0% 50%;
-    filter: blur(0.007em);
+    filter: blur(0.008em);
   }
   50% {
     background-position: 100% 50%;
@@ -212,7 +212,7 @@ center.chapter-break {
   }
   100% {
     background-position: 0% 50%;
-    filter: blur(0.007em);
+    filter: blur(0.008em);
   }
 }
 
