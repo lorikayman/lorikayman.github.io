@@ -1,4 +1,6 @@
-# Spiral Knights: Rebis Theory <span class="energy">🜔</span>
+<h1 align="center">
+  Spiral Knights: Rebis Theory <span class="energy">🜔</span>
+</h1>
 
 This document is meant to group elements of Spiral Knights' worldbuilding and lore into cohesive narratives within the context of singular timeline of the game while focusing on the main themes and motifs in attempt to achieve narratively satisfying closure for the presented story.
 
