@@ -4,7 +4,7 @@
   
     import Tree from '$lib/components/toc.svelte';
 
-    import RebisTheory from "$lib/entries/RebisTheory.md"
+    import RebisTheory from "$lib/entries/sk_rebis_theory.mdx"
  
     let data = RebisTheory;
     // if (data.error) console.error(data.error);

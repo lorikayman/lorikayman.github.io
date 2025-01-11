@@ -1,5 +1,5 @@
 <h1 align="center">
-  Spiral Knights: Rebis Theory <span class="energy">🜔</span>
+  Rebis Theory <span class="energy">🜔</span>
 </h1>
 
 This document is meant to group elements of Spiral Knights' worldbuilding and lore into cohesive narratives within the context of singular timeline of the game while focusing on the main themes and motifs in attempt to achieve narratively satisfying closure for the presented story.
@@ -46,6 +46,10 @@ Lastly, there are a few rules of reference to the sources:
 To avoid unrelated and unnecessary information tangents, mainly perpetuated by item descriptions, dialogues, alchemy paths, references onto them will be spread across the document and mentioned multiple times in the context of a discussed topic, so that they could be invoked without breaking away from the flow.
 
 Although general description of the timeline will remain linear, some topics and overarching themes will be referencing to the future articles, those are usually capable of existing without prior established thought framework, unless it is stated otherwise.
+
+<center class="chapter-break">
+  <span class="energy">🜔</span>
+</center>
 
 <h3 align="center">Chapter <code>I</code>: Kozmology</h3>
 
@@ -252,6 +256,10 @@ Dragons' lifespan is unknown, but as [dragon scales](https://wiki.spiralknights.
 
 Apart from a scenario when dragons' did in fact create the worlds, in process becoming extinct, this still would not seem as a natural specie lifecycle, and them being alive to the present-day Cradle only reaffirms this, implying that some external force would be present, that had caused dragons' extinction, and this force should be powerful enough to defeat beasts implied to be wielding powers of storms, rage and frenzy. This will be an idea at the base of further timeline construction.
 
+<center class="chapter-break">
+  <span class="energy">🜔</span>
+</center>
+
 <h3 align="center">Chapter <code>II</code>: Establishment of Undercorp</h3>
 
 Within Underworld fiendish ecosystem develops. Devilites emerge as one of conscious species, and over time develop a society, existing, as currently known, within corporations. One such corporation is named "Undercorp" and is related to material realm (desc, design: [Devilite](https://wiki.spiralknights.com/Devilite), desc: [Morgral'm](https://wiki.spiralknights.com/Morgral%27m)).
@@ -344,6 +352,10 @@ Another city, Sol' Fork, has already established naming pattern. `After Recon Kn
 There was a successful operation of bringing both Maulos and everfrost pillar into Underworld, suggesting that some connection, maybe even one-directional, remain on Cradle. This will be kept in mind for later exploration of nature of [the void](#void).
 
 At the same time, another proposal in creation to dark cities could be made - as Cradle is implied to collect and integrate other planets, had it integrated some dark cities from a devilite colony from a different planet? This can seem plausible, as in the end it does not change main concept of dark cities belonging to devilites, and their main base of operation - Undercorp - being located in the Underworld, with the Core functioning as a potential disruption to Undercorp operations, hindering transportation between realms.
+
+<center class="chapter-break">
+  <span class="energy">🜔</span>
+</center>
 
 <h3 align="center">Chapter <code>III</code>: Ancient Titans</h3>
 
@@ -459,6 +471,10 @@ With dragons overthrown, whose powers reshaped the planet (desc: `created the wo
 [Rider Mantles](https://wiki.spiralknights.com/Frenzy_Rider_Mantle#Frenzy_Rider_Mantle) refer to 3 gods using their respective elements to `carve worlds from stone` - the meaning of carving worlds from stone may also refer to a construction of castles found within Clockworks. The notion of gods is often accompanied with divinity which for the most part is symbolized by the heavenly kingdom - this possible relation will be kept in mind and serves as a basis for this mostly speculative section.
 
 But, to achieve further progress in identification of both tortodrones and tortomega, we should approach from a point of the analysis of a different civilization - valkyries of heavenly kingdom.
+
+<center class="chapter-break">
+  <span class="energy">🜔</span>
+</center>
 
 <h3 align="center">Chapter <code>IV</code>: Valkyries of Heavenly Kingdom</h3>
 
@@ -665,6 +681,10 @@ Dragons on their death should have affected the environment, but at the same tim
 This current hypothesis would then suggest that in order for gun puppy statues to be present, either image of howlitzer had be present within tortomega culture, or that the statues is meant to represent a dragon. Now, considering the drastic difference between two instances, an undead howlitzer and a statue, stylized depiction of a dragon within tortomega society seems a more likely candidate.
 
 Gun puppies of elements do have similar elemental core but located on top, this might likely be of gremlin development.
+
+<center class="chapter-break">
+  <span class="energy">🜔</span>
+</center>
 
 <h3 align="center">Chapter <code>V</code>: Isorians</h3>
 
@@ -1106,6 +1126,10 @@ If the idea of this battlepod being manufactured by gremlins is true, this would
 - Cradle's are abandoned by gremlins, as suggested by Sleeper
 
 Now, as for the identity of the ship. We suggest that it belongs to Morai mainly due to the fact that we know of them very little, and at the same time Spiral Order would have known of it's interstellar vessel disappearing, as well as the iron hulk itself lacks any sign of Spiral Warden insignia present.
+
+<center class="chapter-break">
+  <span class="energy">🜔</span>
+</center>
 
 <h3 align="center">Chapter <code>VI</code>: Arrival of Undercorp</h3>
 
@@ -1653,6 +1677,10 @@ As Dreamlands were already mentioned as a potential inspiration behind the desig
 - Azathoth dreams up the existence of the Universe, allowing it to persist as long as it sleeps.
 
 Although this is not much context on dreams, it may allow us to better understand this notion. But, in order to make conclusion about it, we have to analyze, of course, the Sleeper within Cradle's Core, while keeping Lovecraftian inspirations for potential background information and themes in mind.
+
+<center class="chapter-break">
+  <span class="energy">🜔</span>
+</center>
 
 <h3 align="center">Chapter <code>VII</code>: Kingdom of Almire</h3>
 
@@ -2311,6 +2339,10 @@ One last element for this idea is the ownership of [Champion Helms](https://wiki
 
 This is only a possibility, but one we believe should be considered and discussed, as the designs of those items are, under current theory, similar to tortomega ancient designs, but also to [Volcanic Plate set](https://wiki.spiralknights.com/Volcanic_Plate_Helm) of more modern times of raiders, Ironmight, and Almire.
 
+<center class="chapter-break">
+  <span class="energy">🜔</span>
+</center>
+
 <h3 align="center">Chapter <code>VIII</code>: Kat Tribe</h3>
 
 The events of Kataclysm take place around 1000 years after the fall of Almire. At that point only heavenly kingdom remains with inhabiting it valkyries and Owlites, while tortomega titans are long gone, and Almire itself had turned into ashen land with the included former kingdoms around it. The raiders are absent, in relation to [Opration Gelid](#opration-gelid-and-other-methods-of-escaping-cradle), it could be plausible for them to survive in the northern regions of Cradle. Notes on Almire were described in many tomes within the established Owlite Academy of Magicks. The [Forgotten Library](https://wiki.spiralknights.com/Owlite_tome_text_Dialogue/The_Forgotten_Library), wherein first written texts about kingdom of Almre were found, is located in the halls of the High Academy of magicks, now known as the Candlestick Keep.
@@ -2566,6 +2598,10 @@ We believe, as Drakon became reincarnation of dragons, so Seraphynxs became rein
 
 This makes me think that the Kataclysm was the same grim portal, - the maelstrom of curse, - but on a far larger scale, whose size had allowed for the known aftermath. This could explain total erasure of Owlites and transformation or banishment of Kat tribe, transforming the rest in to the spookats and grimalkin. But through [Seraphynx](#seraphynx) it is more or less known how kats have looked originally, moreover having divine attributes to them, or sharing them with Owlites and Valkyries, embodying this period of time.
 
+<center class="chapter-break">
+  <span class="energy">🜔</span>
+</center>
+
 <h3 align="center">Intermission: Analysis of Curse</h3>
 
 Before we move on the analysis of Gremlin Empire, specifically nature of the complex network of connections between the Core, Whitespace, and the Swarm, with an addition of Sleeper and the Void, we are required to cover everything we now know of the phenomenon of Curse up until this point with a few exceptions from the next chapter. We will attempt to summarize all of it's properties and patterns based on the established narratives and reasonable implications, observed across the timeline up until this point.
@@ -2668,6 +2704,10 @@ The thematic duality of chaos and nothingness is most present in dark matter min
 The theme of this duality will be explored in the next section, fully deriving from alchemical meaning.
 
 So it is established how curse manifests itself in the material realm. What if this concept to be expanded upon by asking a single question: how would curse manifest itself, if it to be presented to the Nameless Realm? How this concept of metaphysical restriction would behave itself when introduced to physics of a realm, which is the source of all energy, the foundation of the universe and souls? How this pocket of energy would be transformed, if taken in account such entities as Snarbolax, Lord Vanaduke, Margrel, and Maoulos, or even phantoms, who are all tangible entities native to material realm?
+
+<center class="chapter-break">
+  <span class="energy">🜔</span>
+</center>
 
 <h3 align="center">Chapter <code>IX</code>: Gremlin Empire</h3>
 
@@ -4153,6 +4193,10 @@ Arrival of Isorians being framed as fated seems to be a continuation of a conclu
 Rebis theory proposes the existence of an alchemical framework, which constitutes a narrative at the foundation of interaction across the material realm, Nameless Realm, the Void, metaphysics of curse and Underworld, as parts of a unified cosmology through metaphors and interpretations of alchemical lore.
 
 Rebis theory proposes an existence of alchemical narrative within the story of Clockworks and Cradle. This alchemical narrative, a hermetic truth, serves as the foundation for the motifs of characters which operate within this set of physical laws, exploring potential ends of the Great Work in its many instances across history of Cradle, Clockworks, and civilizations which were incorporated into prior.
+
+<center class="chapter-break">
+  <span class="energy">🜔</span>
+</center>
 
 <h3 align="center">Chapter <code>X</code>: Spiral Knights</h3>
 

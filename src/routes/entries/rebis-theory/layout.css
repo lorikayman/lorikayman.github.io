@@ -54,33 +54,6 @@ h1 {
   text-transform: uppercase;
 }
 
-.energy {
-  font-weight: bold;
-  background: linear-gradient(to top, #a6d9fd, #66ffff, #4aa7ff, #3d51ff);
-  background-size: 200% 200%;
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  animation: energy-move 5s linear infinite;
-  text-align: center;
-}
-
-/* Animate gradient background */
-@keyframes energy-move {
-  0% {
-    background-position: 0% 50%;
-    filter: blur(0.007em);
-  }
-  50% {
-    background-position: 100% 50%;
-    filter: blur(0.016em);
-  }
-  100% {
-    background-position: 0% 50%;
-    filter: blur(0.007em);
-  }
-}
-
 
 h2 {
   font-family: 'familiar-pro';
@@ -205,6 +178,43 @@ a {
   text-decoration: none;
 }
 
+.energy {
+  font-weight: bold;
+  background: linear-gradient(to top, #a6d9fd, #66ffff, #4aa7ff, #3d51ff);
+  background-size: 200% 200%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: energy-move 5s linear infinite;
+  text-align: center;
+}
+
+/* fixme - make entries mdx-able */
+center.chapter-break {
+  margin-top: 4.5rem;
+  font-family: 'familiar-pro';
+  font-weight: 600;
+  font-size: 5rem;
+  padding: 0px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* Animate gradient background */
+@keyframes energy-move {
+  0% {
+    background-position: 0% 50%;
+    filter: blur(0.007em);
+  }
+  50% {
+    background-position: 100% 50%;
+    filter: blur(0.016em);
+  }
+  100% {
+    background-position: 0% 50%;
+    filter: blur(0.007em);
+  }
+}
 
 .container {
   /* max-width: 60%; */
