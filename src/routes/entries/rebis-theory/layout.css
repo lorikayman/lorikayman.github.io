@@ -182,6 +182,14 @@ em {
   }
 }
 
+ol, ul {
+  margin: 0em 0em;
+  padding-left: 1.2em;
+}
+
+li {
+  padding-bottom: 0.6em;
+}
 
 strong {
   /* color: hsl(23, 70%, 70%); */
