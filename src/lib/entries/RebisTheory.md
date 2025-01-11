@@ -2,10 +2,6 @@
 
 This document is meant to group elements of Spiral Knights' worldbuilding and lore into cohesive narratives within the context of singular timeline of the game while focusing on the main themes and motifs in attempt to achieve narratively satisfying closure for the presented story.
 
-<!-- <p align="center">
-  <img src="https://raw.githubusercontent.com/ironkayman/RebisTheory/master/assets/thumbnail_readme.png" alt="thumbnail" style="width: 70%; display: block; margin: auto;"/>
-</p> -->
-
 <p align="center">
   <img src="https://raw.githubusercontent.com/ironkayman/RebisTheory/master/assets/thumbnail_readme.png" alt="thumbnail" style="width: 100%; display: block; margin: auto;"/>
 </p>
@@ -24,7 +20,7 @@ But before that, 3 assumptions are made:
 
 As for the inspirations, relations to real world history, folklore and mythology, they will be brought up wherein we believe they stand as a potential inspiration for the motifs presented in the work of fiction within a specified context. We should note that at no point we are professional narratologists. Yet, we believe that through this field of expertise more connections could be found within the analyzed work of fiction.
 
-Of course, this space of theory-crafting stems from an idea that the analyzed work has ambiguities, left out information, and unanswered questions, that require resolution. It is the nature of those blanks, or even logical contradictions and paradoxes within the work of fiction itself, paired with it's themes and general feel, which create conditions for a generally accepted degree of seriousness and thought put into a theory with a capacity to acknowledge some cases as [hand waves](https://tvtropes.org/pmwiki/pmwiki.php/Main/HandWave). This process is accompanied by a constant risk of interpreting and suggesting a meaning that was never thought or implied by the author, as the guesswork itself contains a subjective element.
+Of course, this space of theory-crafting stems from an idea that the analyzed work has ambiguities, left out information, and unanswered questions, that require resolution. It is the nature of those blanks, or even logical contradictions and paradoxes within the work of fiction itself, paired with its themes and general feel, which create conditions for a generally accepted degree of seriousness and thought put into a theory with a capacity to acknowledge some cases as [hand waves](https://tvtropes.org/pmwiki/pmwiki.php/Main/HandWave). This process is accompanied by a constant risk of interpreting and suggesting a meaning that was never thought or implied by the author, as the guesswork itself contains a subjective element.
 
 With this foundation for a framework with aforementioned risks in mind, we will go through our proposed timeline of events for the universe of Spiral Knights, backed by the analysis of every dialogue, item description, items' designs, the symbolism, the connections, perceived as relevant to a current topic in order to present a cohesive story.
 
@@ -34,32 +30,34 @@ Through the course of this document we will propose why Spiral Knights, or rathe
 
 ### Document structure
 
-[Chapter 1]() establishes main entities within the context of the timeline, chapters 2-9 build the body of the theory and apply it onto the timeline. [Chapter 10]() presents the summary of the timeline, connecting it to the events of the game.
+[Chapter 1](#chapter-i-kozmology) establishes main entities within the context of the timeline, chapters 2-9 build the body of the theory and apply it onto the timeline. [Chapter 10](#chapter-x-spiral-knights) presents the summary of the timeline, connecting it to the events of the game.
 
 Lastly, there are a few rules of reference to the sources:
 
 - Names which don't have in-game term are placed into quotes
 - Informational source is placed into round parenthesis, with the following specification, if required:
-  - NPC dialogue `(npc: ... - item)`
-  - item description `(desc: ... - item)`
-  - item crafting materials `(crafting: ... - item)`
-  - item theming/design and stats `(design: ... - item)`
+  - NPC dialogue: `character's quote` (npc: `...` - item)
+  - Item (material, equipment, etc.) description: `item's description` (desc: `...` - item)
+  - item crafting materials: (crafting: `...` - item)
+  - item theming/design and stats `` (design: item)
 
 To avoid unrelated and unnecessary information tangents, mainly perpetuated by item descriptions, dialogues, alchemy paths, references onto them will be spread across the document and mentioned multiple times in the context of a discussed topic, so that they could be invoked without breaking away from the flow.
 
 Although general description of the timeline will remain linear, some topics and overarching themes will be referencing to the future articles, those are usually capable of existing without prior established thought framework, unless it is stated otherwise.
 
-### Chapter `I`: Cosmology
+<h3 align="center">Chapter <code>I</code>: Kozmology</h3>
 
 At first, we will establish rough outline of the cosmology based on the rank missions' briefings, dialogue, item, and equipment descriptions. We are not currently concerned with exact in-universe laws, under which each location operates, but with their themes.
 
-While we believe both laws and themes, including the symbolism, are important for the color-coded setting, - with no knowledge of it's laws, which would build the internally consistent physical foundation for the story to unfold, themes emerge here from the relations between its' elements, which, as parts of the story, we believe, should also be internally consistent. With this approach, at least for the cosmology, themes and motifs will serve us as a scaffolding and approximate guidelines for our theory on what we judge to be fitting thematically and what not, while taking notes on establishing in-universe physical laws to properly characterize those locations from as many point of view as it would be required.
+While we believe both laws and themes, including the symbolism, are important for the color-coded setting, - with no knowledge of its laws, which would build the internally consistent physical foundation for the story to unfold, themes emerge here from the relations between its' elements, which, as parts of the story, we believe, should also be internally consistent. With this approach, at least for the cosmology, themes and motifs will serve us as a scaffolding and approximate guidelines for our theory on what we judge to be fitting thematically and what not, while taking notes on establishing in-universe physical laws to properly characterize those locations from as many point of view as it would be required.
 
 #### Material Realm
 
-As it is the baseline, the real world within which most of game's event take place, we need to label it and distinguish from the other locations or realms. Such name we take from the description of the mission [Weight of Darkness](https://wiki.spiralknights.com/Weight_of_Darkness): `... Why spirits return to the material realm is unknown ...`
+The name we take from the description of the mission [Weight of Darkness](https://wiki.spiralknights.com/Weight_of_Darkness): `... Why spirits return to the material realm is unknown ...`
 
-Material realm is a home for wolvers, lichens, and rest of creatures, who are classified as neither fiends nor undead. It is the realm where Cradle is located.
+As it is the main location of the setting within which most of game's event take place, we need to label it and distinguish from the other dimensions, locations, or realms, so, such name would suffice.
+
+Material realm is home for wolvers, lichens, and rest of creatures, who are classified as neither fiends nor undead. It is the realm where Cradle is located.
 
 #### Underworld
 
@@ -252,7 +250,7 @@ Dragons' lifespan is unknown, but as [dragon scales](https://wiki.spiralknights.
 
 Apart from a scenario when dragons' did in fact create the worlds, in process becoming extinct, this still would not seem as a natural specie lifecycle, and them being alive to the present-day Cradle only reaffirms this, implying that some external force would be present, that had caused dragons' extinction, and this force should be powerful enough to defeat beasts implied to be wielding powers of storms, rage and frenzy. This will be an idea at the base of further timeline construction.
 
-### Chapter `II`: Establishment of Undercorp
+<h3 align="center">Chapter <code>II</code>: Establishment of Undercorp</h3>
 
 Within Underworld fiendish ecosystem develops. Devilites emerge as one of conscious species, and over time develop a society, existing, as currently known, within corporations. One such corporation is named "Undercorp" and is related to material realm (desc, design: [Devilite](https://wiki.spiralknights.com/Devilite), desc: [Morgral'm](https://wiki.spiralknights.com/Morgral%27m)).
 
@@ -345,7 +343,7 @@ There was a successful operation of bringing both Maulos and everfrost pillar in
 
 At the same time, another proposal in creation to dark cities could be made - as Cradle is implied to collect and integrate other planets, had it integrated some dark cities from a devilite colony from a different planet? This can seem plausible, as in the end it does not change main concept of dark cities belonging to devilites, and their main base of operation - Undercorp - being located in the Underworld, with the Core functioning as a potential disruption to Undercorp operations, hindering transportation between realms.
 
-### Chapter `III`: Ancient Titans
+<h3 align="center">Chapter <code>III</code>: Ancient Titans</h3>
 
 From dragons, referred to as `creatures of legend` (desc: `A mythical shield crafted from the scales of a creature of legend` - [Dragon Scale Shield](https://wiki.spiralknights.com/Dragon_Scale_Shield)), their descendants were born: drakes and potentially wyverns (crafting: [Wyvern Scale Shield](https://wiki.spiralknights.com/Wyvern_Scale_Shield)), explored later in it's alchemy path:
 
@@ -460,7 +458,7 @@ With dragons overthrown, whose powers reshaped the planet (desc: `created the wo
 
 But, to achieve further progress in identification of both tortodrones and tortomega, we should approach from a point of the analysis of a different civilization - valkyries of heavenly kingdom.
 
-### Chapter `IV`: Valkyries of Heavenly Kingdom
+<h3 align="center">Chapter <code>IV</code>: Valkyries of Heavenly Kingdom</h3>
 
 Overall designs of [Rage Prize Box](https://wiki.spiralknights.com/Rage_Prize_Box), [Stormy Prize Box](https://wiki.spiralknights.com/Stormy_Prize_Box), and [Frenzy Prize Box](https://wiki.spiralknights.com/Frenzy_Prize_Box) suggest existence of a different faction. This group's designs differ greatly from any tortomega stonework designs, and are most similar to Valkyrian and Spiral Order gear in respective themes and designs:
 
@@ -666,7 +664,7 @@ This current hypothesis would then suggest that in order for gun puppy statues t
 
 Gun puppies of elements do have similar elemental core but located on top, this might likely be of gremlin development.
 
-### Chapter `V`: Isorians
+<h3 align="center">Chapter <code>V</code>: Isorians</h3>
 
 Isorians, - although Isora is not confirmed to be the Knights' specie homeworlds, we will refer to them as such, in that manner, same as items like [Galactic Guardian Helm](https://wiki.spiralknights.com/Galactic_Guardian_Helm) suggest, - are an ancient spacefaring race.
 
@@ -1107,7 +1105,7 @@ If the idea of this battlepod being manufactured by gremlins is true, this would
 
 Now, as for the identity of the ship. We suggest that it belongs to Morai mainly due to the fact that we know of them very little, and at the same time Spiral Order would have known of it's interstellar vessel disappearing, as well as the iron hulk itself lacks any sign of Spiral Warden insignia present.
 
-### Chapter `VI`: Arrival of Undercorp
+<h3 align="center">Chapter <code>VI</code>: Arrival of Undercorp</h3>
 
 Tortomega, descendants of tortoises and far descendants of dragons, were pressed back into the wildwoods after the war with valkyries of heavenly kingdoms, as discussed in the [ancient titans section](#chapter-iii-ancient-titans). It was a place where their civilization had emerged for the first time.
 
@@ -1654,7 +1652,7 @@ As Dreamlands were already mentioned as a potential inspiration behind the desig
 
 Although this is not much context on dreams, it may allow us to better understand this notion. But, in order to make conclusion about it, we have to analyze, of course, the Sleeper within Cradle's Core, while keeping Lovecraftian inspirations for potential background information and themes in mind.
 
-### Chapter `VII`: Kingdomof Almire
+<h3 align="center">Chapter <code>VII</code>: Kingdom of Almire</h3>
 
 Kingdom of Almire as stated by multiple sources, was invaded by 2 nearby kingdoms.
 
@@ -2311,7 +2309,7 @@ One last element for this idea is the ownership of [Champion Helms](https://wiki
 
 This is only a possibility, but one we believe should be considered and discussed, as the designs of those items are, under current theory, similar to tortomega ancient designs, but also to [Volcanic Plate set](https://wiki.spiralknights.com/Volcanic_Plate_Helm) of more modern times of raiders, Ironmight, and Almire.
 
-### Chapter `VIII`: Kat Tribe
+<h3 align="center">Chapter <code>VIII</code>: Kat Tribe</h3>
 
 The events of Kataclysm take place around 1000 years after the fall of Almire. At that point only heavenly kingdom remains with inhabiting it valkyries and Owlites, while tortomega titans are long gone, and Almire itself had turned into ashen land with the included former kingdoms around it. The raiders are absent, in relation to [Opration Gelid](#opration-gelid-and-other-methods-of-escaping-cradle), it could be plausible for them to survive in the northern regions of Cradle. Notes on Almire were described in many tomes within the established Owlite Academy of Magicks. The [Forgotten Library](https://wiki.spiralknights.com/Owlite_tome_text_Dialogue/The_Forgotten_Library), wherein first written texts about kingdom of Almre were found, is located in the halls of the High Academy of magicks, now known as the Candlestick Keep.
 
@@ -2566,7 +2564,7 @@ We believe, as Drakon became reincarnation of dragons, so Seraphynxs became rein
 
 This makes me think that the Kataclysm was the same grim portal, - the maelstrom of curse, - but on a far larger scale, whose size had allowed for the known aftermath. This could explain total erasure of Owlites and transformation or banishment of Kat tribe, transforming the rest in to the spookats and grimalkin. But through [Seraphynx](#seraphynx) it is more or less known how kats have looked originally, moreover having divine attributes to them, or sharing them with Owlites and Valkyries, embodying this period of time.
 
-### Intermission: Analysis of Curse
+<h3 align="center">Intermission: Analysis of Curse</h3>
 
 Before we move on the analysis of Gremlin Empire, specifically nature of the complex network of connections between the Core, Whitespace, and the Swarm, with an addition of Sleeper and the Void, we are required to cover everything we now know of the phenomenon of Curse up until this point with a few exceptions from the next chapter. We will attempt to summarize all of it's properties and patterns based on the established narratives and reasonable implications, observed across the timeline up until this point.
 
@@ -2669,7 +2667,7 @@ The theme of this duality will be explored in the next section, fully deriving f
 
 So it is established how curse manifests itself in the material realm. What if this concept to be expanded upon by asking a single question: how would curse manifest itself, if it to be presented to the Nameless Realm? How this concept of metaphysical restriction would behave itself when introduced to physics of a realm, which is the source of all energy, the foundation of the universe and souls? How this pocket of energy would be transformed, if taken in account such entities as Snarbolax, Lord Vanaduke, Margrel, and Maoulos, or even phantoms, who are all tangible entities native to material realm?
 
-### Chapter `IX`: Gremlin Empire
+<h3 align="center">Chapter <code>IX</code>: Gremlin Empire</h3>
 
 Across the analysis we were noting different elements of gremlin technology, society, and what came of them. But in order to attain the fullest and deepest understanding of gremlin civilization, we need to analyze its history from several different perspectives in the similar manner as our previous discussions regarding tortomega, devilite, Isorian, and Owlite civilizations. Here, with all of the knowledge of those histories, which were eventually incorporated into Cradle, we can begin to arrange them within the context of Cradle and Clockworks.
 
@@ -4154,9 +4152,9 @@ Rebis theory proposes the existence of an alchemical framework, which constitute
 
 Rebis theory proposes an existence of alchemical narrative within the story of Clockworks and Cradle. This alchemical narrative, a hermetic truth, serves as the foundation for the motifs of characters which operate within this set of physical laws, exploring potential ends of the Great Work in its many instances across history of Cradle, Clockworks, and civilizations which were incorporated into prior.
 
-### Chapter `X`: Spiral Knights
+<h3 align="center">Chapter <code>X</code>: Spiral Knights</h3>
 
->_"Should You Choose to Accept"_
+_"Should You Choose to Accept"_
 
 In this chapter we will cover entirety of the timeline from the very beginning.
 

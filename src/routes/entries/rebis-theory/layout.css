@@ -20,7 +20,9 @@
   background:
     radial-gradient(circle, rgba(52, 100, 255, 0.12), rgba(0, 0, 0, 0.0)), 
     linear-gradient(to bottom,
-      hsla(200, 87%, 9%, 0.38), hsla(206, 23%, 19%, 0.2));
+      hsla(200, 89%, 15%, 0.38), hsla(206, 23%, 19%, 0.2)),
+      linear-gradient(211deg,
+      hsla(209, 100%, 65%, 0.1), hsla(234, 100%, 62%, 0.2));
   z-index: -1;
 }
 
@@ -39,7 +41,7 @@ body {
 }
 
 ::selection {
-  background-color: rgba(133, 184, 255, 0.558) !important;
+  background-color: rgba(255, 62, 41, 0.5) !important;
 }
 
 h1 {
@@ -116,6 +118,16 @@ li {
   padding-bottom: 24px;
 }
 
+h2, h3, h4, h5 {
+  margin-bottom: 16px;
+
+  > code {
+    font-weight: bold;
+    font-style: normal;
+    border-radius: 5px;
+  }
+}
+
 @media (max-width: 624px) {
   h1 {
     font-size: 1.7em;
@@ -144,13 +156,17 @@ li {
 }
 
 code {
-  background-color: hsl(215, 76%, 13%);
-  color: hsl(0, 0%, 100%);
-  border-color: hsl(257, 79%, 15%, 0);
-  font-weight: lighter;
-  border-radius: 6px;
+  background-color: hsla(25, 100%, 59%, 0.22);
+  color: hsl(34, 62%, 64%);
+  /* color: hsl(23, 70%, 70%); */
+  border-color: hsla(8, 75%, 45%, 0.0);
+  font-weight: bold;
+  font-style: oblique;
+  border-radius: 2px;
   border-style: solid;
   border-width: 1px;
+  margin-left: 6px;
+  margin-top: 6px;
   padding: 1px 4px;
   /* font-style: italic; */
   font-family: "Open Sans";
@@ -168,7 +184,10 @@ em {
 
 
 strong {
-  color: hsl(23, 70%, 70%);
+  /* color: hsl(23, 70%, 70%); */
+  color: hsl(340, 100%, 52%);
+  font-weight: bolder;
+  /* color: hsl(24, 100%, 52%); */
   padding-left: 1px;
   padding-right: 1px;
 }
@@ -189,7 +208,7 @@ a {
   }
 
   & a {
-    color: hsl(226, 63%, 60%);
+    color: hsl(35, 60%, 61%);
     text-decoration: none;
     font-weight: bold;
   }
@@ -209,6 +228,12 @@ a {
   -ms-overflow-style: none;
   /* ff */
   scrollbar-width: none;
+
+  & code {
+    font-weight: bold;
+    font-style: normal;
+    border-radius: 2px;
+  }
 }
 
 @media only screen and (min-width: 624px) {
