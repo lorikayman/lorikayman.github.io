@@ -12,7 +12,6 @@ Prerequisites:
 - [Task](https://taskfule.dev) task runner
 
 ```sh
-source .venv/bin/activate
 task install
 ```
 
