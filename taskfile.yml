@@ -9,8 +9,6 @@ tasks:
   install:
     aliases: [i]
     cmds:
-      - git submodule init src/lib/entries/sk-rebis-theory
-      - git submodule update --force --rebase
       - uv pip install
       - npm install
   python:
