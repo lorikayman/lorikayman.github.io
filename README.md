@@ -2,21 +2,28 @@
 
 # What is this?
 
-~~A personal site and~~ A wiki of a wordbuilding/writing project **"Maelstrom Takes Toll"** using SvelteKit, [MDsveX](https://mdsvex.pngwn.io/) and [melt-ui](https://melt-ui.com/).
+~~A personal site and~~ A wiki of a writing project **"Maelstrom Takes Toll"** using SvelteKit, [MDsveX](https://mdsvex.pngwn.io/) and [melt-ui](https://melt-ui.com/).
 
-### Build
+## Build
 
-Install dependencies:
+Prerequisites:
+
+- [uv](https://docs.astral.sh/uv/) python project manager
+- [Task](https://taskfule.dev) task runner
+
 ```sh
-npm install
+source .venv/bin/activate
+task install
 ```
 
 Create local development build (watching changes):
+
 ```sh
 npm run dev
 ```
 
 Create production-ready build:
+
 ```sh
 npm run build
 npm run preview

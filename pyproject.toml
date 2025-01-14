@@ -1,16 +1,6 @@
-[tool.poetry]
-name = "mdx-hierarcher"
+[project]
+name = "mdx-worker"
 version = "0.1.0"
-description = "Formatting tool used on md to transform them to mdx with components"
-authors = ["ironkayman <kostya.orlik@outlook.com>"]
-license = "CC BY-NC-SA 4.0 Deed"
-readme = "README.md"
-packages = [{include = "tools/mdx_hierarcher/mdx_hierarcher"}]
-
-[tool.poetry.dependencies]
-python = "^3.10"
-
-
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+description = "Add your description here"
+requires-python = ">=3.13"
+dependencies = []
