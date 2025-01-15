@@ -53,6 +53,7 @@ h1 {
   text-transform: uppercase;
 
   margin: 4rem 0rem;
+  margin-bottom: 1rem;
 
   &::before {
     background-image:
@@ -74,12 +75,15 @@ h1 {
 @keyframes clouds-move {
   0% {
     top: 1.2rem;
+    filter: blur(1px) opacity(0.4);
   }
   50% {
-    top: 1.3rem;
+    top: 1.32rem;
+    filter: blur(2px) opacity(0.6);
   }
   100% {
     top: 1.2rem;
+    filter: blur(1px) opacity(0.4);
   }
 }
 
