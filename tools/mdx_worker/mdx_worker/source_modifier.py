@@ -168,7 +168,7 @@ class SourceModifier:
 
     def replace_links(self) -> None:
         """
-        Replaces `[Entry](https://...)` with
+        Replaces external links such as `[Entry](https://...)` with
         
             <a path="https://..." target="_blank">Entry</a>
         """

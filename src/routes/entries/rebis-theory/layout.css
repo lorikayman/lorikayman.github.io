@@ -10,7 +10,7 @@
   font-style: normal;
   src: url('/fonts/familiar_pro/Familiar Pro-Bold.otf') format("opentype");
 }
-/* 
+
 @font-face {
   font-family: 'arial';
   src: url('https://fonts.cdnfonts.com/css/arial');
@@ -19,7 +19,7 @@
 @font-face {
   font-family: 'Arial Black', sans-serif;
   src: url('https://fonts.cdnfonts.com/css/arial');
-} */
+}
 
 .background {
   position: fixed;
@@ -55,40 +55,32 @@ body {
 }
 
 h1 {
-  font-family: 'familiar-pro';
   font-weight: 600;
   font-size: 3.7rem;
   padding: 30px 2px;
   margin: unset;
   letter-spacing: 1px;
+  font-family: 'familiar-pro';
   text-transform: uppercase;
 }
 
 
 h2 {
-  font-family: 'familiar-pro';
   font-weight: 500;
   font-size: 3.4rem;
-  text-transform: uppercase;
 }
 
 h3 {
   font-size: 3.6rem;
   letter-spacing: 3px;
-  font-family: 'familiar-pro';
-  text-transform: uppercase;
 }
 
 h4 {
-  font-family: 'familiar-pro';
-  text-transform: uppercase;
   /* letter-spacing: 2px; */
   font-size: 1.3rem;
 }
 
 h5 {
-  font-family: 'familiar-pro';
-  text-transform: uppercase;
   /* letter-spacing: 1px; */
   font-size: 1.3rem;
 }
@@ -103,11 +95,15 @@ li {
 
 h2, h3, h4, h5 {
   margin-bottom: 16px;
+  font-family: 'familiar-pro';
+  text-transform: uppercase;
+  /* font-weight: bold; */
 
   > code {
     font-weight: bold;
     font-style: normal;
     border-radius: 5px;
+    padding: unset;
   }
 }
 
@@ -139,7 +135,9 @@ h2, h3, h4, h5 {
 }
 
 code {
-  background-color: hsla(25, 100%, 59%, 0.22);
+  font-family: "Open Sans";
+  background-color: hsl(343, 10%, 27%);
+  /* background-color: hsla(23, 100%, 59%, 0.22); */
   color: hsl(34, 62%, 64%);
 
   border-color: hsla(8, 75%, 45%, 0.0);
@@ -148,12 +146,9 @@ code {
   border-radius: 2px;
   border-style: solid;
   border-width: 1px;
-  /* margin-left: 6px; */
+
   margin-top: 6px;
   padding: 1px 4px;
-  padding-right: 6px;
-  /* font-style: italic; */
-  font-family: "Open Sans";
 }
 
 div.code-conlang {
@@ -170,7 +165,7 @@ div.code-conlang {
 }
 
 em {
-  color: hsl(25, 25%, 55%);
+  color: hsl(24, 94%, 79%);
 }
 
 :is(h1)+p {
@@ -218,7 +213,6 @@ a {
   text-align: center;
 }
 
-/* fixme - make entries mdx-able */
 center.chapter-break {
   margin-top: 4.5rem;
   font-family: 'familiar-pro';
@@ -260,7 +254,7 @@ center.chapter-break {
   
     /* color: hsl(35, 60%, 61%); */
     text-decoration: none;
-    font-weight: bold;
+    /* font-weight: bold; */
     font-style: italic;
 
     &:hover {
@@ -271,6 +265,7 @@ center.chapter-break {
 }
 
 ul li a[data-active] {
+  /* default toc override */
   color: hsl(34, 72%, 70%) !important;
   transition: 60ms;
 }
@@ -294,6 +289,7 @@ ul li a[data-active] {
     font-weight: bold;
     font-style: normal;
     border-radius: 2px;
+    padding: 2px 4px;
   }
 }
 

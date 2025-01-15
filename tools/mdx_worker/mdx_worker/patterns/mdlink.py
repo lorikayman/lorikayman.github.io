@@ -22,8 +22,8 @@ class MDLINK:
             (?P<text>[\w\s\-\/\'\.\d\(\)]+) # plaintext to read
             \]
             \(
-            (?P<url>https?[\.\-\w\s\:\_\/]+?) # url itself, with http
-            (?:\#(?P<id>[\w\s\-\/\'\.\d\(\)\[\]]+))?    # id within a page
+            (?P<url>https?[\.\-\w\s\'\.\d\%\:\_\/\']+?) # url itself, with http
+            (?P<id>\#[\w\s\-\/\'\.\d\%]+)?    # id within a page
             \)""", VERBOSE,
     )
     COMPONENT_TEMPLATE = '<a href="{}" target="_blank">{}</a>'
