@@ -5,6 +5,7 @@ node_modules
 /package
 .env
 .env.*
+/.venv
 !.env.example
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
@@ -12,3 +13,4 @@ vite.config.ts.timestamp-*
 # mdx hierarcher
 tools/mdx_hierarcher/.venv
 tools/mdx_hierarcher/**/__pycache__
+__pycache__
