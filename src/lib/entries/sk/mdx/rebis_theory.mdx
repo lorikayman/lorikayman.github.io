@@ -3430,6 +3430,8 @@ Then there is the direction in which those symbols are read. As console screen d
 - On the other inner metal plate on the horizontal dimension of the lid we look for white pattern on black background.
 - The Roarmulus Twins' symbols are the black patterns
 
+<div class="code-conlang">
+
 As a result, we get the following symbols:
 
 - Console
@@ -3480,6 +3482,8 @@ As a result, we get the following symbols:
 
 Based on this, we can arrange a table of repetitions of each symbol:
 
+<center>
+
 | Symbol | Amount of times encountered |
 |:------:|:---------------------------:|
 |`▖`| 2 |
@@ -3498,6 +3502,10 @@ Based on this, we can arrange a table of repetitions of each symbol:
 |`▜`| x |
 |`▛`| 2 |
 |`_` (space or an empty outlined square)| 3 / 4? |
+
+</center>
+
+</div>
 
 Mention of gremlin cryptography in the Aftermath (npc: `` - []()) may be related to this language. But the presented instances of the language, we believe, are now encrypted, as in case of Roarmulus twins, they served as markings on the joint of armor plates, and in case of Mysterious Console and Artifact, they seem to be instructions, as they are present both on top of the lid and in the holographic display, serving functional purpose, especially in the context of anything relation to the Core, or its hatch at depth 29.
 

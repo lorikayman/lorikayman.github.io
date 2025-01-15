@@ -10,6 +10,16 @@
   font-style: normal;
   src: url('/fonts/familiar_pro/Familiar Pro-Bold.otf') format("opentype");
 }
+/* 
+@font-face {
+  font-family: 'arial';
+  src: url('https://fonts.cdnfonts.com/css/arial');
+}
+
+@font-face {
+  font-family: 'Arial Black', sans-serif;
+  src: url('https://fonts.cdnfonts.com/css/arial');
+} */
 
 .background {
   position: fixed;
@@ -131,18 +141,32 @@ h2, h3, h4, h5 {
 code {
   background-color: hsla(25, 100%, 59%, 0.22);
   color: hsl(34, 62%, 64%);
-  /* color: hsl(23, 70%, 70%); */
+
   border-color: hsla(8, 75%, 45%, 0.0);
   font-weight: bold;
   font-style: oblique;
   border-radius: 2px;
   border-style: solid;
   border-width: 1px;
-  margin-left: 6px;
+  /* margin-left: 6px; */
   margin-top: 6px;
   padding: 1px 4px;
+  padding-right: 6px;
   /* font-style: italic; */
   font-family: "Open Sans";
+}
+
+div.code-conlang {
+  margin-bottom: 2rem;
+}
+
+.code-conlang code {
+  color: hsl(344, 100%, 50%);
+  background-color: hsl(352, 41%, 25%);
+  font-style: normal;
+  margin: 0px;
+  padding: 4px 6px;
+  line-height: 1.02em;
 }
 
 em {
@@ -162,6 +186,7 @@ ol, ul {
 
 li {
   padding-bottom: 0.6em;
+  list-style-type: square;
 }
 
 strong {
@@ -171,6 +196,10 @@ strong {
   /* color: hsl(24, 100%, 52%); */
   padding-left: 1px;
   padding-right: 1px;
+
+  &::selection {
+    background-color: rgba(15, 10, 9, 0.7) !important;
+  }
 }
 
 a {
@@ -226,10 +255,24 @@ center.chapter-break {
   }
 
   & a {
-    color: hsl(35, 60%, 61%);
-    text-decoration: underline;
+    color: hsl(220, 87%, 77%);
+    /* color: hsl(23, 70%, 70%); */
+  
+    /* color: hsl(35, 60%, 61%); */
+    text-decoration: none;
     font-weight: bold;
+    font-style: italic;
+
+    &:hover {
+      color: hsl(214, 86%, 86%);
+      transition: 40ms;
+    }
   }
+}
+
+ul li a[data-active] {
+  color: hsl(34, 72%, 70%) !important;
+  transition: 60ms;
 }
 
 .toc {
