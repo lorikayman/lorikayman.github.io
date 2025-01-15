@@ -15,6 +15,7 @@ from .patterns import (
     MDX_COMPONENT_LOADER,
     ENTRY_PAGEJS,
     WIKILINK,
+    MDLINK,
 )
 
 
@@ -110,6 +111,8 @@ class SourceModifier:
             print("WORKING OUTSIDE MTT", end='\n\n')
             print("-" * 32, end='\n\n')
 
+            self.replace_links()
+
         print(f'{count} files processed')
 
 
@@ -162,3 +165,30 @@ class SourceModifier:
             MDX_COMPONENT_LOADER.layout_end,
         ])
         (Path().cwd() / MDX_COMPONENT_LOADER.path).write_text(js_loader_contents)
+
+    def replace_links(self) -> None:
+        """
+        Replaces `[Entry](https://...)` with
+        
+            <a path="https://..." target="_blank">Entry</a>
+        """
+        for mdx in self._output_dir.iterdir():
+            contents_old = mdx.read_text()
+            contents_new = ''
+            mappings_cache = []
+            for m in MDLINK.PATTERN.finditer(contents_old):
+                text = m.group('text')
+                url = m.group('url')
+                href_id = m.group('id') or ''
+                # alias = m.group('alias')
+                link = MDLINK.COMPONENT_TEMPLATE_NEWTAB.format(
+                    url + href_id, text
+                )
+                mappings_cache.append((m.span(), link))
+            contents_new = contents_old
+            for mpair in reversed(mappings_cache):
+                spans: tuple = mpair[0]
+                string = mpair[1]
+                contents_new = contents_new[:spans[0]] + string + contents_new[spans[1]:]
+
+            mdx.write_text(contents_new)
