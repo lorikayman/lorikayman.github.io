@@ -277,7 +277,7 @@ center.chapter-break {
   
     /* color: hsl(35, 60%, 61%); */
     text-decoration: none;
-    /* font-weight: bold; */
+    font-weight: bold;
     font-style: italic;
 
     &:hover {
