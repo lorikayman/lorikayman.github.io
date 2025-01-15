@@ -11,16 +11,6 @@
   src: url('/fonts/familiar_pro/Familiar Pro-Bold.otf') format("opentype");
 }
 
-@font-face {
-  font-family: 'arial';
-  src: url('https://fonts.cdnfonts.com/css/arial');
-}
-
-@font-face {
-  font-family: 'Arial Black', sans-serif;
-  src: url('https://fonts.cdnfonts.com/css/arial');
-}
-
 .background {
   position: fixed;
   top: 0;
@@ -58,10 +48,26 @@ h1 {
   font-weight: 600;
   font-size: 3.7rem;
   padding: 30px 2px;
-  margin: unset;
   letter-spacing: 1px;
   font-family: 'familiar-pro';
   text-transform: uppercase;
+
+  margin-bottom: 4rem;
+
+  &::before {
+    background-image:
+      url("$lib/entries/sk/rebis-theory/assets/clouds.png");
+    z-index: -2;
+    filter: blur(1px) opacity(0.4);
+    background-repeat: no-repeat;
+    position: absolute;
+    content: "";
+    top: 1.3rem;
+    /* left: 36%; */
+    width: 14rem;
+    height: 14rem;
+    background-size: cover;
+  }
 }
 
 
@@ -111,6 +117,10 @@ h2, h3, h4, h5 {
   h1 {
     font-size: 1.7em;
     padding: 14px 6px;
+
+    &::before {
+      content: none;
+    }
   }
 
   h2 {

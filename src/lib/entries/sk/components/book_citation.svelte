@@ -1,32 +1,47 @@
-<div class="book-citation">
-    <slot/>
-</div>
+<center>
+    <div class="book-citation">
+        <div class="citation-bg">
+            <slot />
+        </div>
+    </div>
+</center>
 
 <style>
 
-.book-citation {
-    border-radius: 4px;
-    text-align: justify;
-    /* border-color: hsl(0 0% 52%); */
-    /* border-width: 3px; */
-    /* border-style: solid; */
-    padding: 1rem;
-
-    background-color: hsl(0 0% 52%);
-    /* box-shadow: 0 1mm 4mm hsla(0, 30%, 60%, 0.26); */
-
-    & span,ul,li,p,h2,h3,h4,h5 {
-        color: rgb(35, 35, 40);
-        font-weight: 600;
+    .citation-bg {
+        position: relative;
+        width: 80%;
+        height: 100%;
+        padding: 1rem;
+        margin-bottom: 2rem;
     }
 
-    & a {
-        color: rgb(70, 60, 65);
+    .citation-bg::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+        background-color: hsl(240, 10%, 72%);
+        border-width: 4px;
+        border-style: solid;
+        border-color: hsl(197, 67%, 20%);
+        box-shadow: 0 1mm 4mm hsla(197, 67%, 41%, 0.26);
+        z-index: -1;
     }
 
-    & :is(h2,h3,h4,h5)::after {
-        content: unset;
-    }
+    .book-citation {
+        /* background-position: -30%; */
+        /* background-color: hsl(0 0% 52%); */
 
-}
+        & code, p {
+            color: rgb(35, 35, 40);
+            padding: 1px 0px;
+            font-weight: bold;
+            background-color: transparent;
+            text-align: justify;
+        }
+    }
 </style>
