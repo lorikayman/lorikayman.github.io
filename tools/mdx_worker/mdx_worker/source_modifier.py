@@ -12,12 +12,14 @@ from re import (
 )
 
 from .patterns import (
-    MDX_COMPONENT_LOADER, ENTRY_PAGEJS, WIKILINK,
+    MDX_COMPONENT_LOADER,
+    ENTRY_PAGEJS,
+    WIKILINK,
 )
 
 
 class SourceModifier:
-    """Callable class to process given markdwn filetree
+    """Callable class to process given markdown file tree
 
     Parameters
     ----------
@@ -27,6 +29,9 @@ class SourceModifier:
         Where files will be moved
     whitelist : Path
         Path to `.json` whitelist of allowed to be processed `.md` entries
+    component_map : Path
+    mtt : bool
+        Weather we are working in MTT context of markdown files, for compatibility.
     """
 
     _MDX_IMPORTS = '<script>import Link from "$lib/components/link.svelte";\nimport SecureEnclaveA from "$lib/components/niem_enclaves/a.svelte"\n</script>\n' 
@@ -36,10 +41,14 @@ class SourceModifier:
         glob_root: Path,
         output_dir: Path,
         whitelist: None | Path,
+        component_map: None | Path,
+        mtt: bool,
     ) -> None:
         self._glob_root = glob_root
         self._output_dir = output_dir
         self._whitelist = whitelist
+        self._component_map = component_map
+        self.mtt = mtt
 
     def __parse_whitelist(self) -> list[str]:
         """Parse given `_whitelist` if it was given
@@ -52,7 +61,7 @@ class SourceModifier:
         text = loads(self._whitelist.read_text())
         whileisted_file_stems = []
         for filename in text['allow']:
-            whileisted_file_stems.append(filename)
+            whileisted_file_stems.append(filename.lower())
         return whileisted_file_stems
 
     def __call__(self) -> Any:
@@ -70,9 +79,10 @@ class SourceModifier:
         entry_names = []
 
         for count, md in enumerate(glob_result):
-            if self._whitelist and md.stem not in whileisted_file_stems:
+            if self._whitelist and md.stem.lower().replace('_', ' ') not in whileisted_file_stems:
+                print(f"Found non-whitelisted {md.stem}... skipping")
                 continue
-            print('processing:', md.stem)
+            print(f"processing: {md.stem}...", end=' ')
 
             name_normalised: str = md.stem.replace(' ', '_')
             entry_names.append(name_normalised)
@@ -83,17 +93,24 @@ class SourceModifier:
                 encoding='utf-8'
             ) as mdx:
                 mdx.write(contents)
-    
-        with open(Path().cwd() / ENTRY_PAGEJS.path, mode='w', encoding='utf-8') as pjs:
-            pjs.write(ENTRY_PAGEJS.layout_start)
-            for name in entry_names:
-                pjs.write(ENTRY_PAGEJS.slot_pattern % name)
-            pjs.write(ENTRY_PAGEJS.layout_end)
+            print('ok')
+
+        if self.mtt:
+            with open(Path().cwd() / ENTRY_PAGEJS.path, mode='w', encoding='utf-8') as pjs:
+                pjs.write(ENTRY_PAGEJS.layout_start)
+                for name in entry_names:
+                    pjs.write(ENTRY_PAGEJS.slot_pattern % name)
+                pjs.write(ENTRY_PAGEJS.layout_end)
+
+
+            self.replace_wikilinks()
+            self.generate_js_imports()
+        else:
+            print("-" * 32, end='\n\n')
+            print("WORKING OUTSIDE MTT", end='\n\n')
+            print("-" * 32, end='\n\n')
 
         print(f'{count} files processed')
-
-        self.replace_wikilinks()
-        self.generate_js_imports()
 
 
     def replace_wikilinks(self):
@@ -131,7 +148,7 @@ class SourceModifier:
 
             # process existing script tag
             if 'script' in content_commentless:
-                mdx.write_text(self._MDX_IMPORTS[:-10] + content_commentless[9:])
+                mdx.write_text(self._MDX_IMPORTS[:-10] + '\n' + content_commentless[9:])
             else:
                 mdx.write_text(self._MDX_IMPORTS + content_commentless)
 

@@ -227,7 +227,7 @@ center.chapter-break {
 
   & a {
     color: hsl(35, 60%, 61%);
-    text-decoration: none;
+    text-decoration: underline;
     font-weight: bold;
   }
 }
