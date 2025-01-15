@@ -19,13 +19,12 @@ class MDLINK:
 
     PATTERN: Pattern = re_compile(
         r"""\[
-            (?P<text>[\w\s\-\/\'\.\d\(\)]+)
+            (?P<text>[\w\s\-\/\'\.\d\(\)]+) # plaintext to read
             \]
             \(
-            (?P<url>https?[\.\-\w\s\:\_\/]+?)
-            (?:\#(?P<id>[\w\s\-\/\'\.\d\(\)\[\]]+))?    # id
+            (?P<url>https?[\.\-\w\s\:\_\/]+?) # url itself, with http
+            (?:\#(?P<id>[\w\s\-\/\'\.\d\(\)\[\]]+))?    # id within a page
             \)""", VERBOSE,
     )
-    COMPONENT_TEMPLATE_NEWTAB = '<a href="{}" target="_blank">{}</a>'
-    COMPONENT_TEMPLATE = '<a href="{}">{}</a>'
+    COMPONENT_TEMPLATE = '<a href="{}" target="_blank">{}</a>'
 

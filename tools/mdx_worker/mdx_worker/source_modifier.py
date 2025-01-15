@@ -181,7 +181,7 @@ class SourceModifier:
                 url = m.group('url')
                 href_id = m.group('id') or ''
                 # alias = m.group('alias')
-                link = MDLINK.COMPONENT_TEMPLATE_NEWTAB.format(
+                link = MDLINK.COMPONENT_TEMPLATE.format(
                     url + href_id, text
                 )
                 mappings_cache.append((m.span(), link))
