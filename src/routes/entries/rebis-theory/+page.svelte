@@ -2,6 +2,7 @@
   import { createTableOfContents } from "@melt-ui/svelte";
 
   import Tree from "$lib/components/toc.svelte";
+  import Jumper from "$lib/components/scroll_to_active.svelte";
 
   import RebisTheory from "$lib/entries/sk/mdx/rebis_theory.mdx";
 
@@ -24,12 +25,15 @@
      * @returns {Boolean} Can an element be passed into final table of contents
      */
     headingFilterFn: (heading) => {
-      const validity =
-        !heading.hasAttribute("data-toc-ignore");
+      const validity = !heading.hasAttribute(
+        "data-toc-ignore",
+      );
       return validity;
     },
     scrollFn: (id) => {
-      const container = document.getElementById("toc-builder-preview");
+      const container = document.getElementById(
+        "toc-builder-preview",
+      );
       const element = document.getElementById(id);
 
       if (container && element) {
@@ -43,11 +47,19 @@
 </script>
 
 <div class="toc">
-  <Tree
-    tree={$headingsTree}
-    activeHeadingIdxs={$activeHeadingIdxs}
-    {item}
-  ></Tree>
+  <div class="toc-content">
+    <div class="jumper-container">
+      <Jumper
+        selector=".toc a[data-active]"
+        buttonClass="button-jumper"
+      />
+    </div>
+    <Tree
+      tree={$headingsTree}
+      activeHeadingIdxs={$activeHeadingIdxs}
+      {item}
+    ></Tree>
+  </div>
 </div>
 
 <div class="container">
