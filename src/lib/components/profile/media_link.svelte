@@ -32,12 +32,17 @@
             /* display:table-cell; */
         }
         & svg,img {
-            color: hsl(278, 33%, 6%);
-            margin-right: 0.25em;
+            filter: contrast(0) brightness(0.02);
+            margin-right: 0.5em;
         }
     }
 
     &:hover {
+        & svg {
+            transition: 80ms;
+            filter: none;
+        }
+
         & svg.bi-github {
             color: rgb(84, 214, 114);
         }
