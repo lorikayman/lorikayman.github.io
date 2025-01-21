@@ -45,7 +45,7 @@
       {/if}
       {#if $$slots.tech}
         <p>
-          <b>Technologies and products used:</b>
+          <b>Technologies and/or products used:</b>
           <slot name="tech"/>
         </p>
       {/if}
