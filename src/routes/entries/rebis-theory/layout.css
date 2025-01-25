@@ -1,11 +1,5 @@
 @import url("./normalize.css");
 
-:root {
-  /*https://fonts.google.com/specimen/Open+Sans?query=open+sans*/
-  font-family: "Open Sans";
-  color-scheme: dark;
-}
-
 /* https://www.dafont.com/familiar-pro.font */
 @font-face {
   font-family: "familiar-pro";
@@ -17,6 +11,12 @@
 @font-face {
   font-family: "Open Sans", sans-serif;
   src: url("/static/fonts/Open_Sans/static/OpenSans-Medium.ttf");
+}
+
+:root {
+  /*https://fonts.google.com/specimen/Open+Sans?query=open+sans*/
+  font-family: "Open Sans";
+  color-scheme: dark;
 }
 
 .background {
@@ -131,7 +131,10 @@ li {
   padding-bottom: 24px;
 }
 
-h2, h3, h4, h5 {
+h2,
+h3,
+h4,
+h5 {
   margin-bottom: 16px;
   font-family: "familiar-pro";
   text-transform: uppercase;
@@ -146,6 +149,14 @@ h2, h3, h4, h5 {
 }
 
 @media (max-width: 624px) {
+  body {
+    padding: 1rem;
+  }
+
+  .container p {
+    text-align: justify;
+  }
+
   h1 {
     font-size: 1.7em;
     padding: 14px 6px;
@@ -311,11 +322,6 @@ center.chapter-break {
 .container {
   /* max-width: 60%; */
   height: 100vh;
-  /* padding-left: 18%; */
-
-  & p {
-    text-align: left;
-  }
 
   & a {
     color: hsl(220, 87%, 77%);
@@ -405,10 +411,14 @@ ul li a[data-active] {
     z-index: 2;
   }
 
-  div.container {
+  .container {
     word-wrap: anywhere;
     max-width: 50%;
     padding-left: 25%;
+
+    & p {
+      text-align: left;
+    }
   }
 }
 
@@ -426,4 +436,16 @@ ul li a[data-active] {
 
 .heading-level-5 {
   margin-left: 1em;
+}
+
+.ending-rebis-hidden {
+  opacity: 0;
+  font-weight: 900;
+  font-style: oblique;
+  padding-top: 10rem;
+  padding-bottom: 2rem;
+
+  &:hover {
+    opacity: 1;
+  }
 }
