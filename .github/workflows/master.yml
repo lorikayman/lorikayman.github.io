@@ -21,12 +21,12 @@ jobs:
       - name: setup
         run: |
           mkdir -p ~/.ssh
-          echo "${{ secrets.GHPK }}" > ~/.ssh/key
-          chmod 600 ~/.ssh/key
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/key
+          chmod 600 ~/.ssh/id_rsa
           ssh-keyscan github.com >> ~/.ssh/known_hosts
       - uses: actions/checkout@v4
         with:
-          ssh-key: ~/.ssh/key
+          ssh-key: ~/.ssh/id_rsa
           submodules: true
       - uses: actions/setup-node@v4
         with:
