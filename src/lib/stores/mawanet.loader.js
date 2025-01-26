@@ -31,32 +31,24 @@
         EntryComponent = (await import('$lib/mawanet/maelstrom_encyclopedia.mdx')).default;
         break;
 
-    case 'engine_of_narraphysic_gliding':
-        EntryComponent = (await import('$lib/mawanet/engine_of_narraphysic_gliding.mdx')).default;
+    case 'gap_ammunition':
+        EntryComponent = (await import('$lib/mawanet/gap_ammunition.mdx')).default;
         break;
 
-    case 'resonance':
-        EntryComponent = (await import('$lib/mawanet/resonance.mdx')).default;
+    case 'superimposition_event':
+        EntryComponent = (await import('$lib/mawanet/superimposition_event.mdx')).default;
         break;
 
-    case 'vacuum_ascention':
-        EntryComponent = (await import('$lib/mawanet/vacuum_ascention.mdx')).default;
+    case 'revenant':
+        EntryComponent = (await import('$lib/mawanet/revenant.mdx')).default;
         break;
 
-    case 'salt_sarcophaguses':
-        EntryComponent = (await import('$lib/mawanet/salt_sarcophaguses.mdx')).default;
+    case 'unbound':
+        EntryComponent = (await import('$lib/mawanet/unbound.mdx')).default;
         break;
 
-    case 'accursed_framework':
-        EntryComponent = (await import('$lib/mawanet/accursed_framework.mdx')).default;
-        break;
-
-    case 'conceptual_configuration':
-        EntryComponent = (await import('$lib/mawanet/conceptual_configuration.mdx')).default;
-        break;
-
-    case 'death_drive':
-        EntryComponent = (await import('$lib/mawanet/death_drive.mdx')).default;
+    case 'paraexhumed':
+        EntryComponent = (await import('$lib/mawanet/paraexhumed.mdx')).default;
         break;
 
     case 'altered_field_presence':
@@ -79,24 +71,32 @@
         EntryComponent = (await import('$lib/mawanet/retroactive_refractory_feedback_loop.mdx')).default;
         break;
 
-    case 'paraexhumed':
-        EntryComponent = (await import('$lib/mawanet/paraexhumed.mdx')).default;
+    case 'accursed_framework':
+        EntryComponent = (await import('$lib/mawanet/accursed_framework.mdx')).default;
         break;
 
-    case 'revenant':
-        EntryComponent = (await import('$lib/mawanet/revenant.mdx')).default;
+    case 'conceptual_configuration':
+        EntryComponent = (await import('$lib/mawanet/conceptual_configuration.mdx')).default;
         break;
 
-    case 'unbound':
-        EntryComponent = (await import('$lib/mawanet/unbound.mdx')).default;
+    case 'death_drive':
+        EntryComponent = (await import('$lib/mawanet/death_drive.mdx')).default;
         break;
 
-    case 'superimposition_event':
-        EntryComponent = (await import('$lib/mawanet/superimposition_event.mdx')).default;
+    case 'salt_sarcophaguses':
+        EntryComponent = (await import('$lib/mawanet/salt_sarcophaguses.mdx')).default;
         break;
 
-    case 'gap_ammunition':
-        EntryComponent = (await import('$lib/mawanet/gap_ammunition.mdx')).default;
+    case 'resonance':
+        EntryComponent = (await import('$lib/mawanet/resonance.mdx')).default;
+        break;
+
+    case 'vacuum_ascention':
+        EntryComponent = (await import('$lib/mawanet/vacuum_ascention.mdx')).default;
+        break;
+
+    case 'engine_of_narraphysic_gliding':
+        EntryComponent = (await import('$lib/mawanet/engine_of_narraphysic_gliding.mdx')).default;
         break;
 
             default:
