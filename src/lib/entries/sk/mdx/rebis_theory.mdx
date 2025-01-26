@@ -1,6 +1,8 @@
 <script>
   import BookCitation from "$lib/entries/sk/components/book_citation.svelte"
   import SubTitleCentered from "$lib/entries/sk/components/sub_title_centered.svelte"
+
+  import thumbnail from '$lib/entries/sk/rebis-theory/assets/thumbnail_readme_no_text.png';
 </script>
 
 <h1 align="center">
@@ -16,7 +18,7 @@ _"A Monstrous Research"_
 This document is meant to group elements of Spiral Knights' worldbuilding and lore into cohesive narratives within the context of singular timeline of the game while focusing on the main themes and motifs in attempt to achieve narratively satisfying closure for the presented story.
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/ironkayman/RebisTheory/master/assets/thumbnail_readme_no_text.png" alt="thumbnail" style="width: 100%; display: block; margin: auto;"/>
+  <img src="{thumbnail}" alt="thumbnail" style="width: 100%; display: block; margin: auto;"/>
 </p>
 
 ## Preface
