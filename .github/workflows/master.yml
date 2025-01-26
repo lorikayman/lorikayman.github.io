@@ -18,12 +18,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: setup
-        run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/key
-          chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan github.com >> ~/.ssh/known_hosts
+      - name: setup s1
+        run: mkdir -p ~/.ssh
+      - name: setup s2
+        run: echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/key
+      - name: setup s3
+        run: chmod 600 ~/.ssh/id_rsa
+      - name: setup s4s
+        run: ssh-keyscan github.com >> ~/.ssh/known_hosts
       - uses: actions/checkout@v4
         with:
           ssh-key: ~/.ssh/id_rsa
