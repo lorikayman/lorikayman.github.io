@@ -19,9 +19,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-        # with:
-        #   ssh-key: ~/.ssh/id_rsa
-        #   submodules: true
+        with:
+          token: ${{ secrets.MTT_SIXTH_CHAMBER_PAT }}
+          submodules: true
       - uses: actions/setup-node@v4
         with:
           node-version: lts/*
