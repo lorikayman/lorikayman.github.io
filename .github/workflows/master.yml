@@ -10,7 +10,7 @@ permissions:
 
 # Allow one concurrent deployment
 concurrency:
-  group: 'pages'
+  group: "pages"
   cancel-in-progress: true
 
 jobs:
@@ -18,15 +18,24 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: setup
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.GHPK }}" > ~/.ssh/key
+          chmod 600 ~/.ssh/key
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
       - uses: actions/checkout@v4
+        with:
+          ssh-key: ~/.ssh/key
+          submodules: true
       - uses: actions/setup-node@v4
         with:
           node-version: lts/*
-          cache: 'npm'
+          cache: "npm"
       - run: npm install
       - run: npm run build
         env:
-          BASE_PATH: '/${{ github.event.repository.name }}'
+          BASE_PATH: "/${{ github.event.repository.name }}"
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
