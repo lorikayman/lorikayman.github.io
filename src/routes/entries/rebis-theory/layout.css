@@ -374,6 +374,10 @@ ul li a[data-active] {
     padding: 2px 4px;
   }
 
+  & :not(:is(code, .button-jumper)) {
+    background-color: unset;
+  }
+
   & [data-active] {
     opacity: 1 !important;
   }
@@ -436,6 +440,10 @@ ul li a[data-active] {
 
 .heading-level-5 {
   margin-left: 1em;
+}
+
+.through-curse {
+  background-color: #f72694;
 }
 
 .ending-rebis-hidden {
