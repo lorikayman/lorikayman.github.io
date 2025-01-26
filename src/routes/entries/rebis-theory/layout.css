@@ -71,7 +71,7 @@ h1 {
   margin-bottom: 1rem;
 
   &::before {
-    background-image: url("https://raw.githubusercontent.com/ironkayman/RebisTheory/master/assets/moon.png");
+    background-image: url("/src/lib/entries/sk/rebis-theory/assets/moon.png");
     width: 18rem;
     height: 18rem;
 
