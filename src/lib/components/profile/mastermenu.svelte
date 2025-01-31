@@ -179,7 +179,7 @@
     align-items: center;
     justify-content: center;
     position: relative;
-    font-family: "fira-sans-semi-bold", sans-serif;
+    font-family: "familiar-pro", sans-serif;
     font-weight: 230;
     letter-spacing: 0.1rem;
 
