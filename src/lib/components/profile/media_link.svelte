@@ -1,80 +1,71 @@
 <script>
-    export let url, label;
+  export let url, label, type;
 </script>
 
-<a class="media-link-container" target="_blank" href="{url}">
-    <div>
-        <slot/>
-        <span>{label}</span>
-    </div>
+<a class="media-link-container" target="_blank" href={url}>
+  <div>
+    <span data-type={type}>{label}</span>
+    <p><slot /></p>
+  </div>
 </a>
 
 <style>
-
-.media-link-container {
+  .media-link-container {
     border-radius: 2px;
     margin: 0.5rem;
     padding: 4px 0.6rem;
     text-decoration: none;
     background-color: hsl(0, 8%, 31%);
     box-shadow: 0px 8px hsl(0, 8%, 25%);
-    letter-spacing: .05rem;
+    letter-spacing: 0.05rem;
+
+    & p {
+      margin: 0.1em 0em;
+    }
 
     & div {
-        display: table;
-        min-width: 9.4rem;
+      display: table;
+      min-width: 9.4rem;
 
-        & * {
-            vertical-align: middle;
-            font-size: 1.15em;
-            /* font-weight: 600; */
-            font-family: 'fira-sans-bold' !important;
-            /* display:table-cell; */
-        }
-        & svg,img {
-            filter: contrast(0) brightness(0.02);
-            margin-right: 0.5em;
-        }
+      & span {
+        vertical-align: middle;
+        font-size: 1.15em;
+        /* font-weight: 600; */
+        font-family: "fira-sans-bold" !important;
+        /* display:table-cell; */
+      }
     }
 
     &:hover {
-        & svg {
-            transition: 80ms;
-            filter: none;
-        }
+      background-color: hsl(0, 8%, 27%);
+      box-shadow: 0px 6px hsl(0, 8%, 20%);
+      transition: 100ms;
+      padding-bottom: 2px;
+      margin-top: calc(0.5rem + 2px);
 
-        & svg.bi-github {
-            color: rgb(84, 214, 114);
-        }
-        & svg.bi-twitter {
-            color: rgb(49, 169, 243);
-        }
-        & .furaffinity-logo {
-            filter: brightness(0.9) invert(.7) sepia(.5) hue-rotate(0deg) saturate(490%);
-        }
-        & svg.bi-discord {
-            color: rgb(116, 162, 218);
-        }
-        & svg.bi-mailbox2 {
-            color: rgb(244, 78, 75);
-        }
+      & [data-type] {
+        transition: 80ms;
+      }
 
-        background-color: hsl(0, 8%, 27%);
-        box-shadow: 0px 6px hsl(0, 8%, 20%);
+      & [data-type="github"] {
+        color: rgb(84, 214, 114);
+      }
+      & [data-type="twitter"] {
+        color: rgb(49, 169, 243);
+      }
+      & [data-type="furaffinity"] {
+        color: goldenrod;
+      }
+
+      &:active {
+        background-color: hsl(0, 8%, 23%);
+        box-shadow: 0px 6px hsl(0, 8%, 16%);
         transition: 100ms;
-        padding-bottom: 2px;
-        margin-top: calc(0.5rem + 2px);
-
-        &:active {
-            background-color: hsl(0, 8%, 23%);
-            box-shadow: 0px 6px hsl(0, 8%, 16%);
-            transition: 100ms;
-        }
+      }
     }
-}
+  }
 
-a {
+  a {
     color: beige;
-}
-
+  }
 </style>

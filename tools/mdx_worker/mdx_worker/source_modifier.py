@@ -35,7 +35,7 @@ class SourceModifier:
         Weather we are working in MTT context of markdown files, for compatibility.
     """
 
-    _MDX_IMPORTS = '<script>import Link from "$lib/components/link.svelte";\nimport SecureEnclaveA from "$lib/components/niem_enclaves/a.svelte"\n</script>\n' 
+    _MDX_IMPORTS = '<script>import Link from "$lib/components/link.svelte";\nimport SecureEnclaveA from "$lib/components/niem_enclaves/a.svelte"\n</script>\n'
     _RE_COMMENT = re_compile(r"(?P<comm_start><!--).+?(?P<comm_end>-->)", DOTALL)
 
     def __init__(self,
@@ -119,7 +119,7 @@ class SourceModifier:
     def replace_wikilinks(self):
         """
         Replaces `[[Entry]]`, `[[Entry Whitespaces#id|alias]]` to
-        
+
             <Link path="/maelstrom/entry">Entry</Link>
         """
         for mdx in self._output_dir.iterdir():
@@ -139,7 +139,7 @@ class SourceModifier:
                 spans: tuple = mpair[0]
                 string = mpair[1]
                 contents_new = contents_new[:spans[0]] + string + contents_new[spans[1]:]
-            
+
             # comments cleanup
             content_commentless = contents_new
             matches = []
@@ -169,7 +169,7 @@ class SourceModifier:
     def replace_links(self) -> None:
         """
         Replaces external links such as `[Entry](https://...)` with
-        
+
             <a path="https://..." target="_blank">Entry</a>
         """
         for mdx in self._output_dir.iterdir():

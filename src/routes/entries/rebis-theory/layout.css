@@ -15,8 +15,11 @@
 
 :root {
   /*https://fonts.google.com/specimen/Open+Sans?query=open+sans*/
-  font-family: "Open Sans";
   color-scheme: dark;
+}
+
+body {
+  font-family: "Open Sans";
 }
 
 .background {

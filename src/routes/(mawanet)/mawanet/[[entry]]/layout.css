@@ -1,264 +1,265 @@
 :root {
-    /*https://fonts.google.com/specimen/Open+Sans?query=open+sans*/
-    font-family: "Open Sans";
-    color-scheme: dark;
+  /*https://fonts.google.com/specimen/Open+Sans?query=open+sans*/
+  font-family: "Open Sans";
+  color-scheme: dark;
 }
 
 /* https://www.dafont.com/familiar-pro.font */
 @font-face {
-    font-family: 'familiar-pro';
-    font-style: normal;
-    src: url('/fonts/familiar_pro/Familiar Pro-Bold.otf') format("opentype");
+  font-family: "familiar-pro";
+  font-style: normal;
+  src: url("/fonts/familiar_pro/Familiar Pro-Bold.otf")
+    format("opentype");
 }
 
 html {
-    background-color: rgb(24, 26, 27);
-    color: rgb(232, 230, 227);
+  background-color: rgb(24, 26, 27);
+  color: rgb(232, 230, 227);
 }
 
 ::selection {
-    /* darkreader override */
-    background-color: rgba(255, 200, 34, 0.558)!important;
+  /* darkreader override */
+  background-color: rgba(255, 200, 34, 0.558) !important;
 }
 
 h1 {
-    font-family: 'familiar-pro';
-    font-weight: 600;
-    font-size: 4.7rem;
-    padding: 34px 6px;
-    margin: unset;
-    letter-spacing: 3px;
-    text-transform: uppercase;
+  font-family: "familiar-pro";
+  font-weight: 600;
+  font-size: 4.7rem;
+  padding: 34px 6px;
+  margin: unset;
+  letter-spacing: 3px;
+  text-transform: uppercase;
 }
 
 h2 {
-    font-family: 'familiar-pro';
-    font-weight: 500;
-    font-size: 3.4rem;
-    letter-spacing: 3px;
-    text-transform: uppercase;
+  font-family: "familiar-pro";
+  font-weight: 500;
+  font-size: 3.4rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
 
-    &:is(:not(.error403))::after {
-        content: '';
-        position: relative;
-        float: left;
-        background-color: hsl(9, 5%, 28%);
-        width: 70%;
-        height: 0.12rem;
-        border-radius: 1px;
-        margin-right: 30%;
-    }
+  &:is(:not(.error403))::after {
+    content: "";
+    position: relative;
+    float: left;
+    background-color: hsl(9, 5%, 28%);
+    width: 70%;
+    height: 0.12rem;
+    border-radius: 1px;
+    margin-right: 30%;
+  }
 }
 
 h3 {
-    font-size: 1.3rem;
-    letter-spacing: 3px;
-    font-family: 'familiar-pro';
-    text-transform: uppercase;
+  font-size: 1.3rem;
+  letter-spacing: 3px;
+  font-family: "familiar-pro";
+  text-transform: uppercase;
 
-    &::after {
-        content: '';
-        position: relative;
-        float: left;
-        background-color: hsl(235, 30%, 25%);
-        width: 60%;
-        height: 0.12rem;
-        border-radius: 1px;
-        margin-right: 40%;
-    }
+  &::after {
+    content: "";
+    position: relative;
+    float: left;
+    background-color: hsl(235, 30%, 25%);
+    width: 60%;
+    height: 0.12rem;
+    border-radius: 1px;
+    margin-right: 40%;
+  }
 }
 
 h4 {
-    font-family: 'familiar-pro';
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 1.3rem;
+  font-family: "familiar-pro";
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 1.3rem;
 
-    &::after {
-        content: '';
-        position: relative;
-        float: left;
-        background-color: hsl(252, 40%, 25%);
-        width: 50%;
-        height: 0.12rem;
-        border-radius: 1px;
-        margin-right: 50%;
-    }
+  &::after {
+    content: "";
+    position: relative;
+    float: left;
+    background-color: hsl(252, 40%, 25%);
+    width: 50%;
+    height: 0.12rem;
+    border-radius: 1px;
+    margin-right: 50%;
+  }
 }
 
 h5 {
-    font-family: 'familiar-pro';
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-size: 1.3rem;
+  font-family: "familiar-pro";
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 1.3rem;
 
-    &::after {
-        content: '';
-        position: relative;
-        float: left;
-        background-color: hsl(346, 30%, 25%);
-        width: 40%;
-        height: 0.12rem;
-        border-radius: 1px;
-        margin-right: 60%;
-    }
+  &::after {
+    content: "";
+    position: relative;
+    float: left;
+    background-color: hsl(346, 30%, 25%);
+    width: 40%;
+    height: 0.12rem;
+    border-radius: 1px;
+    margin-right: 60%;
+  }
 }
 
-p, li {
-    font-weight: 400;
-    line-height: 1.6;
-    margin: 0 0;
-    padding-bottom:  24px;
+p,
+li {
+  font-weight: 400;
+  line-height: 1.6;
+  margin: 0 0;
+  padding-bottom: 24px;
 }
 
 @media (max-width: 540px) {
-    h1 {
-        font-size: 1.7em;
-        padding: 14px 6px;
-    }
-    h2 {
-        font-size: 1.5rem;
-        letter-spacing: 3px;
-    }
-    h3 {
-        font-size: 1.4rem;
-        letter-spacing: 3px;
-    }
-    h4 {
-        letter-spacing: 2px;
-        font-size: 1.3rem;
-    }    
-    h5 {
-        letter-spacing: 1px;
-        font-size: 1.2rem;
-    }
+  h1 {
+    font-size: 1.7em;
+    padding: 14px 6px;
+  }
+  h2 {
+    font-size: 1.5rem;
+    letter-spacing: 3px;
+  }
+  h3 {
+    font-size: 1.4rem;
+    letter-spacing: 3px;
+  }
+  h4 {
+    letter-spacing: 2px;
+    font-size: 1.3rem;
+  }
+  h5 {
+    letter-spacing: 1px;
+    font-size: 1.2rem;
+  }
 }
 
 .container {
-    margin-bottom: 4rem;
+  margin-bottom: 4rem;
 
-    & p {
-       text-align: justify;
-    }
+  & p {
+    text-align: justify;
+  }
 }
 
 blockquote {
-    background-color: hsl(0, 0%, 7%);
-    padding: 0.6em 1em;
-    margin: 1.4em 0em;
-    border-radius: 4px;
-    /* border-style: solid; */
-    border-color: hsl(0, 0%, 5%);
-    border-width: 1px;
+  background-color: hsl(0, 0%, 7%);
+  padding: 0.6em 1em;
+  margin: 1.4em 0em;
+  border-radius: 4px;
+  /* border-style: solid; */
+  border-color: hsl(0, 0%, 5%);
+  border-width: 1px;
 
-    background:
-        repeating-linear-gradient(
-            hsl(0, 30%, 51%),
-            hsl(25, 68%, 60%))
-        center center;
-    background-size:100%;
-    color: transparent;
-    -webkit-background-clip: text;
-    background-clip: text;
+  background: repeating-linear-gradient(
+      hsl(0, 30%, 51%),
+      hsl(25, 68%, 60%)
+    )
+    center center;
+  background-size: 100%;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
 
-    & p, li {
-        margin: 0px;
-        padding: 0em 1.2em;
+  & p,
+  li {
+    margin: 0px;
+    padding: 0em 1.2em;
 
-        &::selection {
-            color: hsl(0, 0%, 80%);
-        }
+    &::selection {
+      color: hsl(0, 0%, 80%);
     }
+  }
 
-    & ul {
-        margin: 0;
-    }
+  & ul {
+    margin: 0;
+  }
 
-    & li {
-        margin-top: 1em;
-        font-size: 0.95em;
-        font-style: italic;
-        list-style-type: none;
-    }
+  & li {
+    margin-top: 1em;
+    font-size: 0.95em;
+    font-style: italic;
+    list-style-type: none;
+  }
 
-    &::before {
-        content: "\"";
-        font-style: italic;
-        color: hsl(0, 0%, 55%);
-        font-size: 1.8em;
-        position: relative;
-        margin: 0;
-    }
-    &::after {
-        content: "\"";
-        font-style: italic;
-        color: hsl(0, 0%, 55%);
-        font-size: 1.8em;
-        position: relative;
-        /* float: right; */
-        margin-left: 95%;
-    }
+  &::before {
+    content: '"';
+    font-style: italic;
+    color: hsl(0, 0%, 55%);
+    font-size: 1.8em;
+    position: relative;
+    margin: 0;
+  }
+  &::after {
+    content: '"';
+    font-style: italic;
+    color: hsl(0, 0%, 55%);
+    font-size: 1.8em;
+    position: relative;
+    /* float: right; */
+    margin-left: 95%;
+  }
 }
 
 code {
-    background-color: hsl(257, 79%, 15%);
-    color: hsl(41, 86%, 64%);
-    border-color: hsl(267, 70%, 25%);
-    font-weight: lighter;
-    border-radius: 3px;
-    border-style: solid;
-    border-width: 1px;
-    padding: 1px 4px;
-    font-size: 1.05rem;
+  background-color: hsl(257, 79%, 15%);
+  color: hsl(41, 86%, 64%);
+  border-color: hsl(267, 70%, 25%);
+  font-weight: lighter;
+  border-radius: 3px;
+  border-style: solid;
+  border-width: 1px;
+  padding: 1px 4px;
+  font-size: 1.05rem;
 }
 
 em {
-    color: hsl(25, 25%, 55%);
+  color: hsl(25, 25%, 55%);
 }
 
 :is(h1) + p {
-    & em {
-        color: hsl(8, 30%, 55%);
-    }
+  & em {
+    color: hsl(8, 30%, 55%);
+  }
 }
 
-
 strong {
-    color: hsl(23, 70%, 70%);
-    padding-left: 1px;
-    padding-right: 1px;
+  color: hsl(23, 70%, 70%);
+  padding-left: 1px;
+  padding-right: 1px;
 }
 
 div.container {
-    padding-left: 3.8rem;
-    padding-right: 0.8rem;
+  padding-left: 3.8rem;
+  padding-right: 0.8rem;
 }
 
 @media only screen and (min-width: 801px) {
-    div.container {
-        max-width: 60%;
-        padding-left: 20%;
-        counter-reset: paragraph;
-    }
+  div.container {
+    max-width: 60%;
+    padding-left: 20%;
+    counter-reset: paragraph;
+  }
 
-    /* Paragraph counter styles */
-    div.container :is(p,li)::before {
-        counter-increment: paragraph;
-        content: '[ ' counter(paragraph) ' ]';
-        position: absolute;
-        color: hsl(0, 0%, 60%);
-        right: 8%;
-        font-size: 0.9em;
-    }
-    /* skip authors */
-    blockquote > ul > li::before {
-        counter-increment: paragraph 0;
-        color: transparent;
-    }
+  /* Paragraph counter styles */
+  div.container :is(p, li)::before {
+    counter-increment: paragraph;
+    content: "[ " counter(paragraph) " ]";
+    position: absolute;
+    color: hsl(0, 0%, 60%);
+    right: 8%;
+    font-size: 0.9em;
+  }
+  /* skip authors */
+  blockquote > ul > li::before {
+    counter-increment: paragraph 0;
+    color: transparent;
+  }
 }
 
-
 a {
-    color: unset;
-    text-decoration: none;
+  color: unset;
+  text-decoration: none;
 }

@@ -6,7 +6,7 @@
 
   /**
    * Scrolls do a designated div end
-   * 
+   *
    * @param {Event} e
    */
   // function clickHandler(e) {
@@ -25,10 +25,16 @@
 
 <div class="sidebar">
   <div class="header">
-    <a class="header-item header-start" data-sveltekit-preload-data="tap" href="/mawanet/index">
+    <a
+      class="header-item header-start"
+      data-sveltekit-preload-data="tap"
+      href="/mawanet/index"
+    >
       <TropicalStorm width={30} height={30} />
     </a>
-    <span class="header-item sidebar-span" id="maec-db-logo">MAEC</span>
+    <span class="header-item sidebar-span" id="maec-db-logo"
+      >MAEC</span
+    >
     <span class="header-item sidebar-span">//</span>
     <span class="header-item sidebar-span">
       {$currentPageName}
@@ -44,60 +50,59 @@
 </div>
 
 <style>
+  .sidebar {
+    position: fixed;
+    /* z-index: 3; */
 
-.sidebar {
-  position: fixed;
-  /* z-index: 3; */
+    background-color: rgb(45, 45, 48);
+    min-width: 3.2rem;
 
-  background-color: rgb(45, 45, 48);
-  min-width: 3.2rem;
+    height: calc(100% - 1rem);
 
-  height: calc(100% - 1rem);
-
-  border-radius: 4px;
-  border-style: hidden;
-  border-color: rgb(45, 45, 48);
-}
-
-.header {
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: center;
-  flex-direction: column;
-  justify-content: flex-start;
-
-  padding: 3.4rem 0rem;
-  max-height: 100vh;
-}
-
-.header-item {
-  flex: 0 0 0;
-  flex-basis: content;
-
-  writing-mode: vertical-rl;
-  text-orientation: mixed;
-
-  font-size: 1.4em;
-  padding: 0.2em 0em;
-
-  & .sidebar-span:hover {
-    transition-duration: 40ms;
-    color: rgb(164, 164, 164);
+    border-radius: 4px;
+    border-style: hidden;
+    border-color: rgb(45, 45, 48);
   }
-}
 
-.header-start {
-  border-radius: 4px;
-  padding: 0.3rem;
-  margin-bottom: 0.2em;
+  .header {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
 
-  &:hover {
-    background-color: rgba(30, 30, 33, 0.6);
-    color: rgba(245, 181, 5, 0.9);
+    padding: 3.4rem 0rem;
+    max-height: 100vh;
   }
-}
 
-/* #maec-db-logo:hover {
+  .header-item {
+    flex: 0 0 0;
+    flex-basis: content;
+
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+
+    font-size: 1.4em;
+    padding: 0.2em 0em;
+
+    & .sidebar-span:hover {
+      transition-duration: 40ms;
+      color: rgb(164, 164, 164);
+    }
+  }
+
+  .header-start {
+    border-radius: 4px;
+    padding: 0.3rem;
+    margin-bottom: 0.2em;
+
+    &:hover {
+      background-color: rgba(30, 30, 33, 0.6);
+      color: rgba(245, 181, 5, 0.9);
+    }
+  }
+
+  /* #maec-db-logo:hover {
   background: linear-gradient(
       30deg,
       hsl(20, 85%, 66%),
@@ -111,19 +116,26 @@
   background-clip: text;
 } */
 
-.toc {
-  display: none;
-}
-
-@media only screen and (min-width: 1024px) {
-  .toc {
-    display: flex;
-    position: fixed;
-    left: 4.2rem;
-    width: 13%;
-    height: 100%;
-    word-wrap: normal;
-    overflow-y: scroll;
+  .toc,
+  .sidebar {
+    display: none;
   }
-}
+
+  @media only screen and (min-width: 624px) {
+    .sidebar {
+      display: block;
+    }
+  }
+
+  @media only screen and (min-width: 1024px) {
+    .toc {
+      display: flex;
+      position: fixed;
+      left: 4.2rem;
+      width: 13%;
+      height: 100%;
+      word-wrap: normal;
+      overflow-y: scroll;
+    }
+  }
 </style>

@@ -13,26 +13,26 @@
   },
   "devDependencies": {
     "@melt-ui/pp": "^0.3.2",
-    "@melt-ui/svelte": "^0.83.0",
-    "@sveltejs/adapter-auto": "^3.2.5",
-    "@sveltejs/adapter-static": "^3.0.5",
-    "@sveltejs/kit": "^2.5.28",
-    "@sveltejs/vite-plugin-svelte": "^3.1.2",
-    "eslint": "^8.57.1",
-    "eslint-plugin-svelte": "^2.44.0",
+    "@melt-ui/svelte": "^0.86.2",
+    "@sveltejs/adapter-auto": "^4.0.0",
+    "@sveltejs/adapter-static": "^3.0.8",
+    "@sveltejs/kit": "^2.16.1",
+    "@sveltejs/vite-plugin-svelte": "^5.0.3",
+    "eslint": "^9.19.0",
+    "eslint-plugin-svelte": "^2.46.1",
     "mdsvex": "^0.12.3",
     "remark": "^15.0.1",
-    "svelte": "^4.2.19",
-    "svelte-check": "^3.8.6",
-    "svelte-sequential-preprocessor": "^2.0.1",
-    "typescript": "^5.6.2",
-    "vite": "^5.4.7"
+    "svelte": "^5.19.6",
+    "svelte-check": "^4.1.4",
+    "svelte-sequential-preprocessor": "^2.0.2",
+    "typescript": "^5.7.3",
+    "vite": "^6.0.11"
   },
   "type": "module",
   "dependencies": {
-    "@fontsource/open-sans": "^5.1.0",
+    "@fontsource/open-sans": "^5.1.1",
     "remark-wiki-link": "^2.0.1",
-    "svelte-bootstrap-icons": "^3.1.1",
+    "svelte-bootstrap-icons": "^3.1.2",
     "svelte-routing": "^2.13.0"
   }
 }
