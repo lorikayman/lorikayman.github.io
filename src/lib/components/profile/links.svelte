@@ -34,8 +34,8 @@
     gap: 1.05rem;
     display: flex;
     vertical-align: middle;
-    flex-direction: column;
-    justify-content: space-between;
+    flex-direction: row;
+    justify-content: center;
     flex-wrap: wrap;
     /* position: absolute; */
     /* z-index: 2; */

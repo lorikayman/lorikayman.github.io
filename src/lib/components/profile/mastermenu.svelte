@@ -29,9 +29,9 @@
   });
 
   var triggers = [
-    { id: "links", title: "∷ 1 ∷" },
-    { id: "about", title: "∷ 2 ∷" },
-    { id: "projects", title: "∷ 3 ∷" },
+    { id: "links", title: ":LINKS:" },
+    { id: "about", title: ":ABOUT:" },
+    { id: "projects", title: ":OTHER:" },
   ];
   if (document.documentElement.clientWidth > 824) {
     triggers = [
