@@ -172,6 +172,8 @@
     z-index: 3;
     display: flex;
     overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
   }
 
   .trigger-button {
