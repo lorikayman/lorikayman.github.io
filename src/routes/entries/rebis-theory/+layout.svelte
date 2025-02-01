@@ -5,7 +5,8 @@
   import Webgl from "$lib/components/canvas/webgl.svelte";
 </script>
 
-<Webgl controlClasses="background" />
+<div class="background" />
+<Webgl controlClasses="background-special" />
 <div>
   <slot />
 </div>

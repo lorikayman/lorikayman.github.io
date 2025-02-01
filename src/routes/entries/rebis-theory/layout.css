@@ -14,7 +14,6 @@
 }
 
 :root {
-  /*https://fonts.google.com/specimen/Open+Sans?query=open+sans*/
   color-scheme: dark;
 }
 
@@ -22,9 +21,18 @@ body {
   font-family: "Open Sans";
 }
 
+.background-special {
+  z-index: -98;
+}
+
 .background {
   position: fixed;
-  /* background: radial-gradient(
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* in case of webgl failuer, regular gradient will work */
+  background: radial-gradient(
       circle,
       rgba(52, 100, 255, 0.12),
       rgba(0, 0, 0, 0)
@@ -33,7 +41,7 @@ body {
       210deg,
       rgba(77, 169, 255, 0.14),
       rgba(61, 81, 255, 0.2)
-    ); */
+    );
   z-index: -99;
 }
 
