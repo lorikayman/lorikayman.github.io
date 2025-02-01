@@ -21,7 +21,7 @@ body {
   font-family: "Open Sans";
 }
 
-.background-special {
+/* .background-special {
   z-index: -1;
   position: fixed;
   top: 0;
@@ -29,7 +29,7 @@ body {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0);
-}
+} */
 
 .background {
   position: fixed;
