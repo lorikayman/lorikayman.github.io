@@ -1,32 +1,36 @@
 <img src="./docs/preview.png">
 
-# What is this?
+This is the main repository for a writing project __"Maelstrom Takes Toll"__ and a frontend for adjacent materials, listed in [other content](#other-content).
 
-~~A personal site and~~ A wiki of a writing project **"Maelstrom Takes Toll"** using SvelteKit, [MDsveX](https://mdsvex.pngwn.io/) and [melt-ui](https://melt-ui.com/).
+It is build using [SvelteKit](https://github.com/sveltejs/kit), [MDsveX](https://github.com/pngwn/MDsveX), and [melt-ui](https://github.com/melt-ui/melt-ui).
 
 ## Build
 
+> [!WARNING]
+> Despite being a public repository, it is not intended to be build locally.
+
 Prerequisites:
 
-- [uv](https://docs.astral.sh/uv/) python project manager
-- [Task](https://taskfule.dev) task runner
+- Node.js
+- Python
+- [uv](https://docs.astral.sh/uv/) - python project manager
+- [Task](https://taskfule.dev) - task runner
 
 ```sh
 task install
 ```
 
-Create local development build (watching changes):
+Watch-mode:
 
 ```sh
-npm run dev
+task d
 ```
 
-Create production-ready build:
+## Other content
 
-```sh
-npm run build
-npm run preview
-```
+The reppository contains duplicates of materials from other repositories listed below, wherein proper attribution and credit is presented:
+
+- [RebisTheory](https://github.com/ironkayman/RebisTheory)
 
 ## Credits
 
