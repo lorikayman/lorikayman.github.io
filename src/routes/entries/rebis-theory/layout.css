@@ -325,6 +325,7 @@ center.chapter-break {
 .container {
   /* max-width: 60%; */
   height: 100vh;
+  word-wrap: anywhere;
 
   & a {
     color: hsl(220, 87%, 77%);
@@ -419,7 +420,6 @@ ul li a[data-active] {
   }
 
   .container {
-    word-wrap: anywhere;
     max-width: 50%;
     padding-left: 25%;
 
