@@ -29,13 +29,13 @@
   });
 
   var triggers = [
-    { id: "links", title: ":LINKS:" },
+    // { id: "links", title: ":LINKS:" },
     { id: "about", title: ":ABOUT:" },
     { id: "projects", title: ":OTHER:" },
   ];
   if (document.documentElement.clientWidth > 824) {
     triggers = [
-      { id: "links", title: "∷ LINKS ∷" },
+      // { id: "links", title: "∷ LINKS ∷" },
       { id: "about", title: "∷ ABOUT ∷" },
       { id: "projects", title: "∷ PROJECTS ∷" },
     ];
@@ -209,6 +209,7 @@
       background-color: hsl(288, 5%, 15%);
       box-shadow: 0px 8px hsl(288, 5%, 10%);
       margin-bottom: 8px;
+      padding-bottom: calc(0.9em + 3px);
     }
 
     &[data-state="active"] {
@@ -216,6 +217,17 @@
       background-color: hsl(288, 5%, 12%);
       box-shadow: 0px 6px hsl(288, 4%, 8%);
       margin-bottom: 6px;
+    }
+
+    &[data-state="active"]:hover {
+      padding-bottom: calc(0.9em);
+      background-color: hsl(288, 3%, 11%);
+      box-shadow: 0px 6px hsl(288, 4%, 6%);
+      margin-bottom: 6px;
+
+      & .dot {
+        filter: drop-shadow(0 0 1mm hsl(355, 100%, 62%));
+      }
     }
   }
 
