@@ -1352,7 +1352,7 @@ If the idea of this battlepod being manufactured by gremlins is true, this would
 Now, as for the **identity of the ship, we propose that it belongs to species of Isora**. Then it can be attributed to either Morai or Isorians, and as we suggest, it being the prior, mainly due to the fact that we know of them very little, and at the same time Spiral Order would have known of its interstellar vessel disappearing or at least be capable of identifying it though prominence of the Spiral Order insignia of a Spiral Warden. This emblem is not present in the Iron Hulk. On the other hand, there are cases of Raiders and kingdom of Almire being completely ignored or recognized as bearing or invoking any similarity to Isorians from their perspective.
 
 <center class="chapter-break">
-  <span class="energy">⭙</span>
+  <span class="energy">🜩</span>
 </center>
 
 <h3 align="center">Chapter <code>VI</code>: Arrival of Undercorp</h3>
