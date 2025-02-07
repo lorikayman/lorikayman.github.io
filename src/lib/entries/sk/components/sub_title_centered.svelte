@@ -24,7 +24,7 @@
     align-items: center;
     justify-content: center;
     position: absolute;
-    top: -0.8rem;
+    padding-bottom: 1.5rem;
 
     width: 3.2rem;
     height: 3.2rem;
