@@ -1,5 +1,15 @@
+<script>
+  import LogoAlchemy from "$lib/entries/sk/rebis-theory/assets/logo_alchemy.png";
+
+  export let bg = false;
+</script>
+
 <div class="centered">
-  <slot></slot>
+  <slot />
+
+  {#if bg}
+    <img src={LogoAlchemy} alt="" class="alchemy" />
+  {/if}
 </div>
 
 <style>
@@ -8,11 +18,26 @@
     src: url("/static/fonts/Open_Sans/static/OpenSans-Bold.ttf");
   }
 
+  .alchemy {
+    z-index: -2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: -0.8rem;
+
+    width: 3.2rem;
+    height: 3.2rem;
+    filter: opacity(0.06);
+  }
+
   :global(.centered) {
     display: flex;
     align-items: center;
     justify-content: center;
     filter: drop-shadow(0 0 3mm hsla(39, 100%, 66%, 0.7));
+
+    margin-bottom: 0.4rem;
 
     & code {
       background-color: hsla(39, 100%, 66%, 1);

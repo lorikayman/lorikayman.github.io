@@ -10,7 +10,16 @@
 
 @font-face {
   font-family: "Open Sans", sans-serif;
-  src: url("/static/fonts/Open_Sans/static/OpenSans-Medium.ttf");
+  src: url("/static/fonts/Open_Sans/static/OpenSans-Medium.ttf")
+    format("truetype");
+}
+
+/* https://webapp1.dlib.indiana.edu/newton/reference/font.do */
+/* https://webapp1.dlib.indiana.edu/newton/fonts/Unicode-U1F700.pdf */
+@font-face {
+  font-family: "newton-sans-regular";
+  src: url("$lib/entries/sk/rebis-theory/assets/fonts/newton_sans/NewtonSans-2015-11-04.ttf")
+    format("truetype");
 }
 
 :root {
@@ -18,7 +27,8 @@
 }
 
 body {
-  font-family: "Open Sans";
+  font-family: "Open Sans", "newton-sans-regular",
+    sans-serif;
 }
 
 /* .background-special {
@@ -286,7 +296,7 @@ a {
 }
 
 .energy {
-  font-weight: bold;
+  font-family: "newton-sans-regular";
   background: linear-gradient(
     to top,
     #a6d9fd,
@@ -326,10 +336,6 @@ center.chapter-break {
   padding: 0px;
   letter-spacing: 1px;
   text-transform: uppercase;
-}
-
-.bold {
-  font-weight: bold;
 }
 
 /* Animate gradient background */
@@ -386,6 +392,7 @@ ul li a[data-active] {
   top: 0;
   bottom: 0;
   padding: 1rem;
+  padding-top: 0.5rem;
 
   /* hide scrollbar */
   /* chrome */
