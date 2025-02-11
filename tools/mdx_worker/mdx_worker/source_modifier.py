@@ -68,7 +68,10 @@ class SourceModifier:
     def __call__(self) -> Any:
         """
         """
-        rmtree(self._output_dir)
+        try:
+            rmtree(self._output_dir)
+        except FileNotFoundError:
+            print(f"The directory '{self._output_dir}' does not exist.")
         mkdir(self._output_dir)
 
         if self._whitelist:
@@ -81,7 +84,7 @@ class SourceModifier:
 
         for count, md in enumerate(glob_result):
             if self._whitelist and md.stem.lower().replace('_', ' ') not in whileisted_file_stems:
-                print(f"Found non-whitelisted {md.stem}... skipping")
+                # print(f"Found non-whitelisted {md.stem}... skipping")
                 continue
             print(f"processing: {md.stem}...", end=' ')
 
