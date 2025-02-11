@@ -5,9 +5,9 @@
   import { onMount } from "svelte";
 
   import MasterMenu from "$lib/components/profile/mastermenu.svelte";
-  import { page } from "$app/stores";
+  import { page } from "$app/state";
 
-  document.title = "IRNKM : " + $page.data.tab;
+  document.title = "IRNKM : " + page.data.tab;
 </script>
 
 <div id="bg-handler">_57</div>
@@ -32,6 +32,6 @@
   </div>
 </div>
 
-<MasterMenu tab={$page.data.tab} />
+<MasterMenu tab={page.data.tab} />
 
 <div class="footer"></div>
