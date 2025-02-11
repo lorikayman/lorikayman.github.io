@@ -1,13 +1,11 @@
-<img src="./docs/preview.png">
-
-This is the main repository for a writing project __"Maelstrom Takes Toll"__ and a frontend for adjacent materials, listed in [other content](#other-content).
-
-It is build using [SvelteKit](https://github.com/sveltejs/kit), [MDsveX](https://github.com/pngwn/MDsveX), and [melt-ui](https://github.com/melt-ui/melt-ui).
+This is main frontend repository for a wiki of __"Maelstrom Takes Toll"__ and a frontend for adjacent materials, listed in [other content](#other-content).
 
 ## Build
 
 > [!WARNING]
 > Despite being a public repository, it is not intended to be build locally.
+
+It is build using [SvelteKit](https://github.com/sveltejs/kit), [MDsveX](https://github.com/pngwn/MDsveX), and [melt-ui](https://github.com/melt-ui/melt-ui).
 
 Prerequisites:
 
@@ -26,9 +24,9 @@ Watch-mode:
 task d
 ```
 
-## Other content
+## Other Content
 
-The reppository contains duplicates of materials from other repositories listed below, wherein proper attribution and credit is presented:
+The repository contains duplicates of materials from other repositories listed below, wherein proper attribution and credit is presented:
 
 - [RebisTheory](https://github.com/ironkayman/RebisTheory)
 
