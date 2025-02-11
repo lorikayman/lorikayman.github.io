@@ -36,6 +36,8 @@ jobs:
         with:
           node-version: lts/*
           cache: "npm"
+      - name: Set up Node
+        run: npm install
 
       - name: Install Task
         uses: arduino/setup-task@v2
