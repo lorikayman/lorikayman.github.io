@@ -14,3 +14,6 @@ vite.config.ts.timestamp-*
 tools/mdx_hierarcher/.venv
 tools/mdx_hierarcher/**/__pycache__
 __pycache__
+
+src/lib/mawanet
+src/lib/entries/**/mdx
