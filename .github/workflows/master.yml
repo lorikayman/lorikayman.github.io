@@ -23,6 +23,7 @@ jobs:
           token: ${{ secrets.MTT_SIXTH_CHAMBER_PAT }}
           submodules: true
 
+      # https://docs.astral.sh/uv/guides/integration/github/#using-uv-in-github-actions
       - name: Install Python - uv
         uses: astral-sh/setup-uv@v5
       - name: Set up Python
@@ -39,6 +40,7 @@ jobs:
       - name: Set up Node
         run: npm install
 
+      # https://taskfile.dev/installation/#github-actions
       - name: Install Task
         uses: arduino/setup-task@v2
         with:
