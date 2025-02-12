@@ -1,12 +1,11 @@
 <script>
   import { onMount } from "svelte";
 
-  export let selector = "";
-  export let buttonClass = "";
+  let { selector = "", buttonClass = "" } = $props();
 
   /**
    * @description On click TOC is scrolled to the selector
-   *  so that it would be centeredd vertically
+   *  so that it would be centered vertically
    */
   function scrollToActive() {
     const activeElement = document.querySelector(selector);

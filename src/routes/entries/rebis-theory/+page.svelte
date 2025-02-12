@@ -1,15 +1,22 @@
 <script>
   import { createTableOfContents } from "@melt-ui/svelte";
-  import { onMount } from "svelte";
+  import { onMount, tick } from "svelte";
+  import { goto } from "$app/navigation";
+  import { page } from "$app/state";
+
+  import { createSelfDestructingStore } from "$lib/stores/self_destructing_store";
 
   import Tree from "$lib/components/toc.svelte";
   import Jumper from "$lib/components/scroll_to_active.svelte";
 
   import RebisTheory from "$lib/entries/sk/mdx/rebis_theory.mdx";
+  import { writable } from "svelte/store";
 
   let data = RebisTheory;
 
-  const tocActiveSelector = ".toc a[data-active]";
+  document.title = "Spiral Knights: Rebis Theory";
+
+  const tocActiveSelector = ".toc-content a[data-active]";
   /**
    * crete table of content by scanning a component
    */
@@ -47,20 +54,54 @@
     },
   });
 
-  function scrollToActive() {
-    const activeElement = document.querySelector(
-      tocActiveSelector,
-    );
-    if (activeElement) {
-      activeElement.scrollIntoView({
-        behavior: "smooth",
-        block: "center",
-      });
-    }
+  /**
+   * Sets URL's hash without redirect/scrolling
+   *
+   * @param {string} hash URL's hash string
+   */
+  async function updateHash(hash) {
+    let url = page.url.pathname;
+    let newUrl = `${url}#${hash}`;
+    goto(newUrl, {
+      replaceState: false,
+      noScroll: true,
+    });
   }
 
-  onMount(() => {
-    scrollToActive();
+  const activeElementdestroyCondition = (value) =>
+    value instanceof HTMLElement;
+  const activeElement = createSelfDestructingStore(
+    null,
+    activeElementdestroyCondition,
+  );
+
+  /**
+   * @param {Number[]} idxc
+   *    array of active melt ui link ids
+   */
+  activeHeadingIdxs.subscribe(async (idxs) => {
+    // unreliable, as it still contains older data
+    // let item = document.querySelector(tocActiveSelector);
+    // better move to a $derived once melt supports it
+    await tick();
+    let tocItems = document.querySelectorAll(
+      ".toc a[data-melt-table-of-contents-item]",
+    );
+    let item = tocItems.item(idxs.at(0));
+    if (!item) return;
+    updateHash(item.dataset.id);
+
+    activeElement.set(
+      document.querySelector(tocActiveSelector),
+    );
+  });
+
+  activeElement.subscribe((e) => {
+    if (!(e instanceof HTMLElement)) return;
+    e.scrollIntoView({
+      behavior: "instant",
+      block: "center",
+    });
   });
 </script>
 

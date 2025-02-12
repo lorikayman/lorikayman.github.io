@@ -1,16 +1,17 @@
 <script>
-  import {
-    melt,
-  } from '@melt-ui/svelte';
- 
-  export let tree = [];
-  export let activeHeadingIdxs;
-  export let item;
-  export let level = 1;
+  import { melt } from "@melt-ui/svelte";
+  import { onMount, tick } from "svelte";
+
+  let {
+    tree = [],
+    activeHeadingIdxs,
+    item,
+    level = 1,
+  } = $props();
 </script>
 
 <!-- we override on:m-click with {(e)=>{e.preventDefault()}} within an item
-becouse during listening to the mdx object, as it is replaced,
+because during listening to the mdx object, as it is replaced,
 the handler function within the default m-click continues to point onto previous
 MDX component table of contents
 -->
@@ -21,7 +22,9 @@ MDX component table of contents
         <a
           href="#{heading.id}"
           use:melt={$item(heading.id)}
-          on:m-click={(event)=>{event.preventDefault()}}
+          on:m-click={(event) => {
+            event.preventDefault();
+          }}
         >
           {@html heading.node.innerHTML}
         </a>
@@ -39,20 +42,19 @@ MDX component table of contents
 </ul>
 
 <style>
-
-ul,li {
-  padding-left: 0em;
-  list-style: none;
-  padding: 4px 0px;
-}
-a {
-  line-height: 1.66;
-  opacity: 0.5;
-  &[data-active] {
-    opacity: 0.9;
-    color: hsl(25, 73%, 78%);
-    font-weight: bolder;
+  ul,
+  li {
+    padding-left: 0em;
+    list-style: none;
+    padding: 4px 0px;
   }
-}
-
+  a {
+    line-height: 1.66;
+    opacity: 0.5;
+    &[data-active] {
+      opacity: 0.9;
+      color: hsl(25, 73%, 78%);
+      font-weight: bolder;
+    }
+  }
 </style>
