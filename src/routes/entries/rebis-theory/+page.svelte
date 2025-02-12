@@ -1,5 +1,6 @@
 <script>
   import { createTableOfContents } from "@melt-ui/svelte";
+  import { onMount } from "svelte";
 
   import Tree from "$lib/components/toc.svelte";
   import Jumper from "$lib/components/scroll_to_active.svelte";
@@ -8,6 +9,7 @@
 
   let data = RebisTheory;
 
+  const tocActiveSelector = ".toc a[data-active]";
   /**
    * crete table of content by scanning a component
    */
@@ -44,13 +46,29 @@
       }
     },
   });
+
+  function scrollToActive() {
+    const activeElement = document.querySelector(
+      tocActiveSelector,
+    );
+    if (activeElement) {
+      activeElement.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+    }
+  }
+
+  onMount(() => {
+    scrollToActive();
+  });
 </script>
 
 <div class="toc">
   <div class="toc-content">
     <div class="jumper-container">
       <Jumper
-        selector=".toc a[data-active]"
+        selector={tocActiveSelector}
         buttonClass="button-jumper"
       />
     </div>
