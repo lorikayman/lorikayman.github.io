@@ -1,14 +1,12 @@
 on:
-  # Allows you to run this workflow manually from the Actions tab
+  # run manually
   workflow_dispatch:
 
-# Sets the GITHUB_TOKEN permissions to allow deployment to GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Allow one concurrent deployment
 concurrency:
   group: "pages"
   cancel-in-progress: true
@@ -24,10 +22,8 @@ jobs:
           submodules: true
 
       # https://docs.astral.sh/uv/guides/integration/github/#using-uv-in-github-actions
-      - name: Install Python - uv
-        uses: astral-sh/setup-uv@v5
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - uses: astral-sh/setup-uv@v5
+      - uses: actions/setup-python@v5
         with:
           python-version-file: "pyproject.toml"
       - name: Set up Python
@@ -41,8 +37,7 @@ jobs:
         run: npm install
 
       # https://taskfile.dev/installation/#github-actions
-      - name: Install Task
-        uses: arduino/setup-task@v2
+      - uses: arduino/setup-task@v2
         with:
           version: 3.x
 
