@@ -1,7 +1,7 @@
 <script>
   import { createTableOfContents } from "@melt-ui/svelte";
   import { onMount, tick } from "svelte";
-  import { goto } from "$app/navigation";
+  import { replaceState } from "$app/navigation";
   import { page } from "$app/state";
 
   import { createSelfDestructingStore } from "$lib/stores/self_destructing_store";
@@ -62,10 +62,8 @@
   async function updateHash(hash) {
     let url = page.url.pathname;
     let newUrl = `${url}#${hash}`;
-    goto(newUrl, {
-      replaceState: false,
-      noScroll: true,
-    });
+    if (url === newUrl) return;
+    replaceState(newUrl);
   }
 
   const activeElementdestroyCondition = (value) =>
