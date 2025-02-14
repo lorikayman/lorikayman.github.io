@@ -1,7 +1,11 @@
 <script>
   import { createTableOfContents } from "@melt-ui/svelte";
   import { onMount, tick } from "svelte";
-  import { replaceState } from "$app/navigation";
+  import {
+    pushState,
+    replaceState,
+    goto,
+  } from "$app/navigation";
   import { page } from "$app/state";
 
   import { createSelfDestructingStore } from "$lib/stores/self_destructing_store";
@@ -14,7 +18,7 @@
 
   let data = RebisTheory;
 
-  document.title = "Spiral Knights: Rebis Theory";
+  // document.title = "Spiral Knights: Rebis Theory";
 
   const tocActiveSelector = ".toc-content a[data-active]";
   /**
@@ -61,9 +65,10 @@
    */
   async function updateHash(hash) {
     let url = page.url.pathname;
+    let oldUrl = `${url}${page.url.hash}`;
     let newUrl = `${url}#${hash}`;
     if (url === newUrl) return;
-    replaceState(newUrl);
+    // replaceState(newUrl);
   }
 
   const activeElementdestroyCondition = (value) =>
@@ -87,7 +92,8 @@
     );
     let item = tocItems.item(idxs.at(0));
     if (!item) return;
-    updateHash(item.dataset.id);
+    // FIXME: create workaround for not writing to history on hash change
+    // updateHash(item.dataset.id);
 
     activeElement.set(
       document.querySelector(tocActiveSelector),
