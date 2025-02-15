@@ -1,7 +1,16 @@
 <script>
   import { onMount } from "svelte";
 
-  let { selector = "", buttonClass = "" } = $props();
+  /** peak moronic design here with slots
+  https://svelte.dev/docs/svelte/@render
+  knockout solved it fucking 15 years ago
+  why this has to be here so complex??
+  */
+  let {
+    selector = "",
+    buttonClass = "",
+    children,
+  } = $props();
 
   /**
    * @description On click TOC is scrolled to the selector
@@ -23,27 +32,13 @@
   on:click={scrollToActive}
   type="button"
 >
-  <!-- https://icons.getbootstrap.com/icons/arrows-collapse/ -->
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24"
-    height="24"
-    fill="currentColor"
-    class="bi bi-arrows-collapse"
-    viewBox="0 0 16 16"
-  >
-    <path
-      fill-rule="evenodd"
-      d="M1 8a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 8m7-8a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 4.293V.5A.5.5 0 0 1 8 0m-.5 11.707-1.146 1.147a.5.5 0 0 1-.708-.708l2-2a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 11.707V15.5a.5.5 0 0 1-1 0z"
-    />
-  </svg>
+  {@render children?.()}
 </button>
 
 <style>
   button {
     cursor: pointer;
     height: 100%;
-    /* width: 4rem; */
     padding: 0.3em;
     display: flex;
     align-items: center;
