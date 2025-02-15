@@ -18,7 +18,7 @@
 
   let data = RebisTheory;
 
-  // document.title = "Spiral Knights: Rebis Theory";
+  document.title = "Spiral Knights: Rebis Theory";
 
   const tocActiveSelector = ".toc-content a[data-active]";
   /**
