@@ -1,6 +1,6 @@
 <script>
   import ProjectEntry from "./project_entry.svelte";
-  import MysteriousVendorMessage from "./mysterious_vendor_message.mdx"
+  import VendorMessage from "./█████-███████.mdx"
 
   import { ExclamationTriangle } from "svelte-bootstrap-icons"
 
@@ -11,13 +11,11 @@
   } = createCollapsible();
 </script>
 
-<!--
-
 <ProjectEntry link="https://desktopx.ru">
 <span slot="name">Desktop X</span>
-<span slot="desc">A supreme email, calendar, chat, and assistant enterprise-grade desktop client to excel in an intense office workflow through application of UX accumulated over the last 2 decades of email clients' developments</span>
+<span slot="desc">A supreme email, calendar, chat, and assistant enterprise-grade desktop client</span>
 
-<span slot="date">██.2024 - ...</span>
+<span slot="date">██.████ - ...</span>
 <div slot="did">
 
 [ CLASSIFIED ]
@@ -82,8 +80,8 @@
   - Development of YAML-based (StrictYAML derivation of YAML 1.1) configuration markup syntax, it's engine/mapper for unified interpretation, translation and representation of every individual mailflow component configuration files' syntax (i.e. postfix's master.conf, main.conf, etc.)
   - As amounts of mailflow components increased, discussion and implementation of interpreters of said components' configuration files' syntaxes
 - Development of design guidelines for Web UI of the control panel
-  - UI and UX research, study, composition and development of VanillaJS and KnockoutJS 3 components-backed Bootstrap 4 administation panel based on industries WebUI best practices
-  - Continius support and further migration of frontend technology
+  - UI and UX research, study, composition and development of VanillaJS and KnockoutJS 3 components-backed Bootstrap 4 admin panel based on industries WebUI best practices
+  - Continious support and further migration of frontend technology
     - Migration from WTForms to hybrid VanillaJS application
     - Migration to KnockoutJS SPA
   - Coordination of research and migration to a final framework solution: React+MobX
@@ -116,10 +114,10 @@
 <ProjectEntry link="https://runer.workspad.com/">
 <span slot="name">RuNER</span>
 <span slot="date">07.2019 - 12.2020</span>
-<span slot="desc">On-premise russian language no-AI NLP/NLU lightweight solution designed for chat bot integrations and CRMs</span>
+<span slot="desc">On-premise no-AI NLP/NLU lightweight solution designed for chat bot integrations</span>
 <div slot="did">
 
-- Implimentation of architecture for various part of the pipeline (i.e. parsing, tokenization)
+- Implementation of architecture for various part of the pipeline (i.e. parsing, tokenization)
 - API and specification development for user-defined custom dictionaries and behaviors
 
 </div>
@@ -138,7 +136,7 @@
 
 - Analysis and selection of required hardware
 - Arch-based testing stands deployment
-- Finalised production-ready Debian-based deployment
+- Finalized production-ready Debian-based deployment
 - KVM/QEMU VM generation over Virsh interfaces with python
 
 </div>
@@ -155,11 +153,11 @@
 <ProjectEntry>
 <span slot="name">Windows backup, replication and storage infrastructure</span>
 <span slot="date">09.2018 - 05.2019</span>
-<span slot="desc">VEEAM setup within a MS VMM-managed cluster inside of an AD forest. Part of the infrastructre required to support backup and replication, automatic hot and cold storage management of templated Windows VMs</span>
+<span slot="desc">VEEAM setup within a MS VMM-managed cluster inside of an AD forest. Part of the infrastructure required to support backup and replication, automatic hot and cold storage management of templated Windows VMs</span>
 <div slot="tech">
 
 - VEEAM Backup and replication infrastructure installation, support, maintenance and integration w/ preexisting windows Server Standard infrastructure
-- Migration of the latter to Windos Server Nano, including:
+- Migration of the latter to Windows Server Nano, including:
   - MS IIS
   - MS Hyper-V hosts to dedicated MSWS Nano installations
 - MS VMM
@@ -178,17 +176,19 @@
     <ExclamationTriangle/>An unexpected error encountered
   </p>
   <div use:melt={$content} class="danger">
-    <p><code>- Detected presence of an invalid narrative representation within a component ...</code></p>
-    <p><code>- Deploying Narraphysic Isolation Environment ...</code></p>
-    <p><code>- Narraphysic Isolation Environment has being successfully deployed,
+
+    `- Detected presence of an invalid narrative representation within a component`
+
+    `- Deploying Narraphysic Isolation Environment ...`
+
+    `- Narraphysic Isolation Environment has been successfully deployed,
       targeted narrative representation is captured within
-      the currently appropriate fabula</code>
-    </p>
-    <p><code>- Please, proceed to the fallback instructions included
-      by the associated vendor</code>
-    </p>
-    <p><code>- Displaying filtered block contents ...</code>
-    </p>
+      an appropriate fabula.`
+
+    `- Please, proceed to the fallback instructions included
+      by the associated vendor`
+
+    `- Displaying filtered block contents ...`
 
     <ProjectEntry type="mysterious-vendor-message">
       <span slot="name">█████████ █████ ████</span>
@@ -199,8 +199,9 @@
 - ███████████ █████████ ██████████
 
 </div>
-      <MysteriousVendorMessage slot="message"/>
+      <VendorMessage slot="message"/>
     </ProjectEntry>
+
   </div>
   <br use:melt={$content}/>
 </div>
@@ -278,4 +279,4 @@ li {
  100% {-webkit-mask-position:left}
 }
 
-</style> -->
+</style>

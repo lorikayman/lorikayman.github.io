@@ -1,13 +1,10 @@
 <script>
   import "./styles.css";
 
-  import { writable } from "svelte/store";
-  import { onMount } from "svelte";
-
   import MasterMenu from "$lib/components/profile/mastermenu.svelte";
   import { page } from "$app/state";
 
-  document.title = "IRNKM : " + page.data.tab;
+  document.title = "RKHL57 : IRKM : " + page.data.tab;
 </script>
 
 <div id="bg-handler">_57</div>
@@ -19,7 +16,7 @@
       <br />
       <div class="align">
         <h2>
-          Viewing profile: <span>ironkayman</span>
+          Viewing: <span>{page.url.host}</span>
         </h2>
       </div>
     </div>

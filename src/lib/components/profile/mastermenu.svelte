@@ -69,7 +69,7 @@
       if (!userHasScrolled) {
         window.scrollTo(
           0,
-          tabElement.getBoundingClientRect().top + 40,
+          tabElement.getBoundingClientRect().top - 80,
         );
       }
       userHasScrolled = true;
@@ -127,7 +127,7 @@
       use:melt={$content("projects")}
       class="tabbed-content scroll-anchor"
     >
-      <Projects />
+      <!-- <Projects /> -->
     </div>
     <div
       use:melt={$content("gateway")}
