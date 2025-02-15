@@ -23,10 +23,11 @@
   on:click={scrollToActive}
   type="button"
 >
+  <!-- https://icons.getbootstrap.com/icons/arrows-collapse/ -->
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="35"
-    height="35"
+    width="24"
+    height="24"
     fill="currentColor"
     class="bi bi-arrows-collapse"
     viewBox="0 0 16 16"
@@ -42,7 +43,7 @@
   button {
     cursor: pointer;
     height: 100%;
-    width: 4rem;
+    /* width: 4rem; */
     padding: 0.3em;
     display: flex;
     align-items: center;
