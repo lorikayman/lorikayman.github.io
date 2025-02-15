@@ -11,19 +11,19 @@
 @font-face {
   font-family: primary;
   font-style: normal;
-  /* src: url("/fonts/Open_Sans/static/OpenSans-Regular.ttf") */
-  src: url("/fonts/Open_Sans/static/OpenSans-Light.ttf")
+  src: url("/fonts/Open_Sans/static/OpenSans-Regular.ttf")
+    /* src: url("/fonts/Open_Sans/static/OpenSans-Light.ttf") */
     /* src: url("/fonts/Fira_Sans/FiraSans-Light.ttf") */
     /* src: url("/fonts/Fira_Sans/FiraSans-ExtraLight.ttf") */
     format("truetype");
 }
 
-/* https://fonts.google.com/specimen/Fira+Sans */
 @font-face {
   font-family: secondary-light;
   font-style: normal;
-  src: url("/fonts/Fira_Sans/FiraSans-ExtraLight.ttf");
-  /* src: url("/fonts/Open_Sans/static/OpenSans-Light.ttf"); */
+  src: url("/fonts/Fira_Sans/FiraSans-ExtraLight.ttf")
+    /* src: url("/fonts/Open_Sans/static/OpenSans-Light.ttf") */
+    format("truetype");
 }
 
 /* https://webapp1.dlib.indiana.edu/newton/reference/font.do */
@@ -403,7 +403,7 @@ ul li a[data-active] {
   display: none;
   top: 0;
   bottom: 0;
-  padding: 1rem;
+  padding-left: 1.5rem;
   padding-top: 0.5rem;
   padding-right: 0;
 
@@ -437,7 +437,7 @@ ul li a[data-active] {
   .toc {
     display: flex;
     position: fixed;
-    max-width: 22%;
+    max-width: 20%;
     height: 100vh;
     word-wrap: anywhere;
     overflow-y: scroll;
@@ -468,8 +468,8 @@ ul li a[data-active] {
   }
 
   .container {
-    max-width: 48%;
-    padding-left: 26%;
+    max-width: 50%;
+    padding-left: 25%;
 
     & p,
     li {
@@ -483,9 +483,9 @@ ul li a[data-active] {
   margin-left: 0.4em;
 } */
 
-.heading-level-3 {
+/* .heading-level-3 {
   margin-left: 0.6em;
-}
+} */
 
 .heading-level-4 {
   margin-left: 0.75em;
