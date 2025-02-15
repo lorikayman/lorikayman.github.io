@@ -327,9 +327,9 @@ a {
 
 .button-jumper {
   border: solid;
-  background: hsl(233, 12%, 27%);
+  background: hsla(233, 12%, 27%, 0.7);
   color: hsl(229, 62%, 64%);
-  border-color: hsl(214, 10%, 27%);
+  border-color: transparent;
 
   border-radius: 0px 5px 5px 0px;
   border-width: 2px;
@@ -389,12 +389,6 @@ center.chapter-break {
   }
 }
 
-ul li a[data-active] {
-  /* default toc override */
-  color: hsl(34, 72%, 70%) !important;
-  transition: 60ms;
-}
-
 .jumper-container {
   display: none;
 }
@@ -421,15 +415,23 @@ ul li a[data-active] {
     font-weight: bold;
     font-style: normal;
     border-radius: 2px;
-    padding: 2px 4px;
+    padding: 0px 4px;
   }
 
   & :not(:is(code, .button-jumper)) {
     background-color: unset;
   }
 
-  & [data-active] {
+  & > li > a[data-active] {
+    /* default toc override */
     opacity: 1 !important;
+    color: hsl(34, 72%, 70%) !important;
+    transition: 60ms;
+  }
+
+  & a:hover {
+    opacity: 0.8;
+    transition: 40ms;
   }
 }
 
@@ -479,34 +481,16 @@ ul li a[data-active] {
   }
 }
 
-/* .heading-level-2 {
-  margin-left: 0.4em;
-} */
-
-/* .heading-level-3 {
-  margin-left: 0.6em;
-} */
-
-.heading-level-4 {
-  margin-left: 0.75em;
+.heading-level-3 > li > a {
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
+.heading-level-4,
 .heading-level-5 {
   margin-left: 1em;
 }
 
 .through-curse {
   background-color: #f72694;
-}
-
-.ending-rebis-hidden {
-  opacity: 0;
-  font-weight: 900;
-  font-style: oblique;
-  padding-top: 10rem;
-  padding-bottom: 2rem;
-
-  &:hover {
-    opacity: 1;
-  }
 }
