@@ -1,5 +1,5 @@
 <script>
-  export let type, link;
+  export let type;
 
   import {
     BoxArrowUpRight,
@@ -25,9 +25,6 @@
   >
     <h3 class="project-name">
       <slot name="name" />
-      <!-- {#if link}
-        <a target="_blank" rel="noopener noreferrer" class="link-out" href="{link}"><BoxArrowUpRight/></a>
-      {/if} -->
     </h3>
     <div class="project-description">
       <slot name="desc" />
@@ -70,7 +67,7 @@
 
 <style>
   .project-summary {
-    font-family: sans-serif;
+    /* font-family: sans-serif; */
     margin: 1.8rem 0.2rem;
     padding: 0.6rem;
     border-width: 1px;
@@ -115,7 +112,7 @@
     text-align: justify;
 
     & b {
-      font-family: sans-serif !important;
+      /* font-family: sans-serif !important; */
       font-size: 0.9rem;
     }
     & ul {

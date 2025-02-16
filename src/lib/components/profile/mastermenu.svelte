@@ -31,13 +31,13 @@
   var triggers = [
     // { id: "links", title: ":LINKS:" },
     { id: "about", title: ":ABOUT:" },
-    { id: "projects", title: ":OTHER:" },
+    { id: "projects", title: ":HHGC:" },
   ];
   if (document.documentElement.clientWidth > 824) {
     triggers = [
       // { id: "links", title: "∷ LINKS ∷" },
       { id: "about", title: "∷ ABOUT ∷" },
-      { id: "projects", title: "∷ PROJECTS ∷" },
+      { id: "projects", title: "∷ HHGC ∷" },
     ];
   }
 
@@ -58,7 +58,9 @@
     let y = window.visualViewport.height * 0.7;
     // let y = tabElement.getBoundingClientRect().bottom;
     // if (userHasScrolled == true) {
-    window.scrollTo(0, y);
+    if (tabName != "gateway") {
+      window.scrollTo(0, y);
+    }
     // }
     // disableScrollHandling();
   });
@@ -66,7 +68,7 @@
   onMount(() => {
     let tabElement = document.getElementById(tabName);
     window.onscroll = function () {
-      if (!userHasScrolled) {
+      if (!userHasScrolled && tabName != "gateway") {
         window.scrollTo(
           0,
           tabElement.getBoundingClientRect().top - 80,
@@ -127,7 +129,7 @@
       use:melt={$content("projects")}
       class="tabbed-content scroll-anchor"
     >
-      <!-- <Projects /> -->
+      <Projects />
     </div>
     <div
       use:melt={$content("gateway")}

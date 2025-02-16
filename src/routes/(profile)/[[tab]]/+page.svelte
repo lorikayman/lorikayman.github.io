@@ -7,7 +7,7 @@
   document.title = "RKHL57 : IRKM : " + page.data.tab;
 </script>
 
-<div id="bg-handler">_57</div>
+<div id="bg-handler">_57: Requesting personnel file...</div>
 
 <div id="header-spacer">
   <div class="floating">
