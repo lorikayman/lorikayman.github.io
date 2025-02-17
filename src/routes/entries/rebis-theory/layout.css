@@ -21,7 +21,7 @@
 @font-face {
   font-family: secondary-light;
   font-style: normal;
-  src: url("/fonts/Fira_Sans/FiraSans-ExtraLight.ttf")
+  src: url("/fonts/Fira_Sans/FiraSans-Light.ttf")
     /* src: url("/fonts/Open_Sans/static/OpenSans-Light.ttf") */
     format("truetype");
 }
@@ -36,6 +36,7 @@
 
 :root {
   color-scheme: dark;
+  --toc-active-item-color: hsl(34, 72%, 70%);
 }
 
 body {
@@ -423,9 +424,7 @@ center.chapter-break {
   }
 
   & > li > a[data-active] {
-    /* default toc override */
-    opacity: 1 !important;
-    color: hsl(34, 72%, 70%) !important;
+    opacity: 1;
     transition: 60ms;
   }
 
