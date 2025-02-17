@@ -398,7 +398,6 @@ center.chapter-break {
   display: none;
   top: 0;
   bottom: 0;
-  padding-left: 1.5rem;
   padding-top: 0.5rem;
   padding-right: 0;
 
@@ -422,16 +421,6 @@ center.chapter-break {
   & :not(:is(code, .button-jumper)) {
     background-color: unset;
   }
-
-  & > li > a[data-active] {
-    opacity: 1;
-    transition: 60ms;
-  }
-
-  & a:hover {
-    opacity: 0.8;
-    transition: 40ms;
-  }
 }
 
 @media only screen and (min-width: 624px) {
@@ -454,6 +443,25 @@ center.chapter-break {
     /* heading 1 is always single */
     & ul.heading-level-1 {
       padding-bottom: 7rem;
+    }
+
+    /* clickable area margins */
+    & a > li {
+      padding-left: 1.5rem;
+    }
+
+    & .heading-level-3 > a > li {
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    & .heading-level-3 ul a li {
+      margin-left: 1em;
+    }
+
+    & .heading-level-4 ul a li,
+    & .heading-level-5 ul a li {
+      margin-left: 2em;
     }
   }
 
@@ -479,16 +487,6 @@ center.chapter-break {
       color: hsl(240, 10%, 92%);
     }
   }
-}
-
-.heading-level-3 > li > a {
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-.heading-level-4,
-.heading-level-5 {
-  margin-left: 1em;
 }
 
 .through-curse {

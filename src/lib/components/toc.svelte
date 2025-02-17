@@ -2,6 +2,10 @@
   import { melt } from "@melt-ui/svelte";
   import { onMount, tick } from "svelte";
 
+  /**
+   * @description
+   * --toc-active-item-color: any color for selected a[data-active] element
+   */
   let {
     tree = [],
     activeHeadingIdxs,
@@ -18,16 +22,16 @@ MDX component table of contents
 <ul class="heading-level-{level}">
   {#if tree && tree.length}
     {#each tree as heading, i (i)}
-      <li>
-        <a
-          href="#{heading.id}"
-          use:melt={$item(heading.id)}
-          on:m-click={(event) => {
-            event.preventDefault();
-          }}
-        >
+      <a
+        href="#{heading.id}"
+        use:melt={$item(heading.id)}
+        on:m-click={(event) => {
+          event.preventDefault();
+        }}
+      >
+        <li>
           {@html heading.node.innerHTML}
-        </a>
+        </li>
         {#if heading.children && heading.children.length}
           <svelte:self
             tree={heading.children}
@@ -36,7 +40,7 @@ MDX component table of contents
             {item}
           />
         {/if}
-      </li>
+      </a>
     {/each}
   {/if}
 </ul>
@@ -48,13 +52,19 @@ MDX component table of contents
     list-style: none;
     padding: 4px 0px;
   }
-  a {
+
+  a > li {
     line-height: 1.66;
     opacity: 0.5;
-    &[data-active] {
-      opacity: 0.9;
-      color: hsl(25, 73%, 78%);
-      font-weight: bolder;
-    }
+  }
+
+  li:hover {
+    opacity: 0.8;
+    transition: 40ms;
+  }
+
+  a[data-active] > li {
+    opacity: 1;
+    color: var(--toc-active-item-color, hsl(25, 73%, 78%));
   }
 </style>
