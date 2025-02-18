@@ -1,6 +1,6 @@
 [submodule "src/lib/sixth-chamber"]
 	path = src/lib/sixth-chamber
-	url = https://github.com/ironkayman/mtt-sixth-chamber.git
+	url = git@github.com:lorikayman/mtt-sixth-chamber.git
 [submodule "src/lib/entries/sk/rebis-theory"]
 	path = src/lib/entries/sk/rebis-theory
-	url = https://github.com/ironkayman/RebisTheory.git
+	url = git@github.com:lorikayman/RebisTheory.git
