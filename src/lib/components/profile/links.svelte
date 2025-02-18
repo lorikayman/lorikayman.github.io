@@ -6,7 +6,7 @@
   <div class="link-array">
     <MediaLink
       type="twitter"
-      url="https://twitter.com/ironkayman"
+      url="https://twitter.com/lorikayman"
       label="Twitter">WIPs / sketches</MediaLink
     >
     <MediaLink
@@ -16,7 +16,7 @@
     >
     <MediaLink
       type="github"
-      url="https://github.com/ironkayman"
+      url="https://github.com/lorikayman"
       label="Github">Other projects</MediaLink
     >
   </div>
