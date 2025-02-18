@@ -18,3 +18,4 @@ __pycache__
 src/lib/mawanet
 src/lib/entries/**/mdx
 src/routes/(mawanet)/mawanet/\[\[entry\]\]/+page.js
+src/lib/stores/mawanet.loader.js
