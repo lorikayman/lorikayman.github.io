@@ -29,7 +29,7 @@
     states: { activeHeadingIdxs, headingsTree },
   } = createTableOfContents({
     selector: "#toc-builder-preview",
-    exclude: [],
+    exclude: ["h1"],
     activeType: "highest",
     /**
      * Filters all heading belonging to the current mdx entry
@@ -136,7 +136,9 @@
       tree={$headingsTree}
       activeHeadingIdxs={$activeHeadingIdxs}
       {item}
-    ></Tree>
+    >
+      abc
+    </Tree>
   </div>
 </div>
 

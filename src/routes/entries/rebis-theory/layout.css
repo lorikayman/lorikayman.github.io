@@ -450,7 +450,7 @@ center.chapter-break {
       padding-left: 1.5rem;
     }
 
-    & .heading-level-3 > a > li {
+    & .heading-level-2 > a > li {
       font-weight: bold;
       text-transform: uppercase;
     }
@@ -459,10 +459,10 @@ center.chapter-break {
       margin-left: 1em;
     }
 
-    & .heading-level-4 ul a li,
+    /* & .heading-level-4 ul a li,
     & .heading-level-5 ul a li {
       margin-left: 2em;
-    }
+    } */
   }
 
   .jumper-container {
