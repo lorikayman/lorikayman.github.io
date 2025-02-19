@@ -37,6 +37,9 @@
 :root {
   color-scheme: dark;
   --toc-active-item-color: hsl(34, 72%, 70%);
+  --ui-hover-glow: drop-shadow(
+    0 0 8px hsla(0deg, 0%, 100%, 0.6)
+  );
 }
 
 body {
@@ -338,6 +341,11 @@ a {
   &:hover {
     transition: 240ms;
     filter: brightness(0.9);
+
+    & img {
+      transition: 240ms;
+      filter: var(--ui-hover-glow);
+    }
   }
 }
 
@@ -458,6 +466,16 @@ center.chapter-break {
       padding-left: 1.5rem;
     }
 
+    & a[data-active] > li::before {
+      content: "!";
+      position: absolute;
+      left: 0.5em;
+      font-size: 1.2em;
+      margin-top: -2px;
+      font-weight: bold;
+      /* filter: var(--ui-hover-glow); */
+    }
+
     &
       :is(
         .heading-level-1,
@@ -489,6 +507,13 @@ center.chapter-break {
     /* left: 17.8%; */
     width: auto;
     z-index: 2;
+  }
+
+  .button-icon {
+    width: 44px;
+    height: 44px;
+    scale: 1;
+    padding: 2px 0px;
   }
 
   .scroll-to-top-container {

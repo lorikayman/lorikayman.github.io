@@ -13,6 +13,9 @@
   import Tree from "$lib/components/toc.svelte";
   import Jumper from "$lib/entries/sk/components/scroll_to_active.svelte";
 
+  import IconElevator from "$lib/entries/sk/rebis-theory/assets/icon.png";
+  import IconHaven from "$lib/entries/sk/rebis-theory/assets/icon_up.png";
+
   import RebisTheory from "$lib/entries/sk/mdx/rebis_theory.mdx";
   import { writable } from "svelte/store";
 
@@ -118,29 +121,18 @@
         selector={tocActiveSelector}
         buttonClass="button-jumper"
       >
-        <!-- https://icons.getbootstrap.com/icons/arrows-collapse/ -->
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          fill="currentColor"
-          class="bi bi-arrows-collapse"
-          viewBox="0 0 16 16"
-        >
-          <path
-            fill-rule="evenodd"
-            d="M1 8a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 8m7-8a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 4.293V.5A.5.5 0 0 1 8 0m-.5 11.707-1.146 1.147a.5.5 0 0 1-.708-.708l2-2a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 11.707V15.5a.5.5 0 0 1-1 0z"
-          />
-        </svg>
+        <img
+          src={IconElevator}
+          class="button-icon"
+          alt=""
+        />
       </Jumper>
     </div>
     <Tree
       tree={$headingsTree}
       activeHeadingIdxs={$activeHeadingIdxs}
       {item}
-    >
-      abc
-    </Tree>
+    ></Tree>
   </div>
 </div>
 
@@ -153,22 +145,7 @@
       selector={documentStart}
       buttonClass="button-scroll-to-top"
     >
-      <!--
-      https://icons.getbootstrap.com/icons/arrow-bar-up/
-      -->
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        fill="currentColor"
-        class="bi bi-arrow-bar-up"
-        viewBox="0 0 16 16"
-      >
-        <path
-          fill-rule="evenodd"
-          d="M8 10a.5.5 0 0 0 .5-.5V3.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 3.707V9.5a.5.5 0 0 0 .5.5m-7 2.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13a.5.5 0 0 1-.5-.5"
-        />
-      </svg>
+      <img src={IconHaven} alt="" class="button-icon" />
     </Jumper>
   </div>
 </div>

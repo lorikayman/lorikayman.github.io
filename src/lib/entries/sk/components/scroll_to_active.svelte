@@ -39,7 +39,6 @@
   button {
     cursor: pointer;
     height: 100%;
-    padding: 0.3em;
     display: flex;
     align-items: center;
     justify-content: center;
