@@ -13,7 +13,7 @@
   import Tree from "$lib/components/toc.svelte";
   import Jumper from "$lib/entries/sk/components/scroll_to_active.svelte";
 
-  import IconElevator from "$lib/entries/sk/rebis-theory/assets/icon.png";
+  import IconComm from "$lib/entries/sk/rebis-theory/assets/icon_story.png";
   import IconHaven from "$lib/entries/sk/rebis-theory/assets/icon_up.png";
 
   import RebisTheory from "$lib/entries/sk/mdx/rebis_theory.mdx";
@@ -121,11 +121,7 @@
         selector={tocActiveSelector}
         buttonClass="button-jumper"
       >
-        <img
-          src={IconElevator}
-          class="button-icon"
-          alt=""
-        />
+        <img src={IconComm} class="button-icon" alt="" />
       </Jumper>
     </div>
     <Tree

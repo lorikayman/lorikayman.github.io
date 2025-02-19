@@ -38,10 +38,11 @@
   color-scheme: dark;
   --toc-active-item-color: hsl(34, 72%, 70%);
   --ui-hover-glow: drop-shadow(
-    0 0 3px hsla(50deg, 70%, 50%, 0.5)
+    0 0 4px hsla(0deg, 0%, 100%, 0.4)
   );
   --ui-selection-regular: rgba(255, 62, 41, 0.5);
   --asset-moon: url("/src/lib/entries/sk/rebis-theory/assets/moon.png");
+  --asset-floor: url("/src/lib/entries/sk/rebis-theory/assets/knight_floorlogo.png");
 }
 
 body {
@@ -91,6 +92,21 @@ body {
     );
   z-index: -20;
 }
+
+/* .background::before {
+  content: "";
+  position: absolute;
+  top: -40px;
+  right: -50%;
+
+  height: 80%;
+  width: 80%;
+
+  background-image: var(--asset-floor);
+  background-size: contain;
+  opacity: 0.04;
+  background-repeat: no-repeat;
+} */
 
 html {
   min-height: 100vh;
@@ -334,10 +350,9 @@ a {
 .button-jumper,
 .button-scroll-to-top {
   border: solid;
-  background: hsla(233, 12%, 27%, 0.7);
-  color: hsl(229, 62%, 64%);
+  background: hsla(232, 34%, 26%, 0);
+  /* color: hsl(229, 62%, 64%); */
   border-color: transparent;
-
   border-width: 2px;
 
   &:hover {
@@ -465,16 +480,20 @@ center.chapter-break {
 
     /* clickable area margins */
     & a > li {
-      padding-left: 1.5rem;
+      padding-left: 2.2rem;
     }
 
     & a[data-active] > li::before {
-      content: "!";
+      content: "";
+      background-image: url("/src/lib/entries/sk/rebis-theory/assets/icon_goldlock.png");
+      display: block;
+      background-size: cover;
+      background-repeat: no-repeat;
+      width: 1.2em;
+      height: 1.2em;
       position: absolute;
       left: 0.5em;
-      font-size: 1.2em;
-      margin-top: -2px;
-      font-weight: bold;
+      margin-top: 3px;
     }
 
     &
@@ -501,18 +520,17 @@ center.chapter-break {
   .jumper-container {
     display: block;
     position: fixed;
-    bottom: 2.2rem;
-    left: 0%;
+    left: 0rem;
     align-items: center;
     justify-content: center;
-    /* left: 17.8%; */
     width: auto;
+    bottom: 1.4rem;
     z-index: 2;
   }
 
   .button-icon {
-    width: 44px;
-    height: 44px;
+    width: 72px;
+    height: 72px;
     scale: 1;
     padding: 2px 0px;
   }
