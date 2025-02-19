@@ -38,8 +38,10 @@
   color-scheme: dark;
   --toc-active-item-color: hsl(34, 72%, 70%);
   --ui-hover-glow: drop-shadow(
-    0 0 8px hsla(0deg, 0%, 100%, 0.6)
+    0 0 3px hsla(50deg, 70%, 50%, 0.5)
   );
+  --ui-selection-regular: rgba(255, 62, 41, 0.5);
+  --asset-moon: url("/src/lib/entries/sk/rebis-theory/assets/moon.png");
 }
 
 body {
@@ -102,7 +104,7 @@ body {
 }
 
 ::selection {
-  background-color: rgba(255, 62, 41, 0.5) !important;
+  background-color: var(--ui-selection-regular) !important;
 }
 
 h1 {
@@ -120,7 +122,7 @@ h1 {
   margin-bottom: 1rem;
 
   &::before {
-    background-image: url("/src/lib/entries/sk/rebis-theory/assets/moon.png");
+    background-image: var(--asset-moon);
     width: 18rem;
     height: 18rem;
 
@@ -244,8 +246,8 @@ code {
   /* background-color: hsla(23, 100%, 59%, 0.22); */
   /* background-color: #564443; */
   color: hsl(34, 62%, 64%);
-
   border-color: hsla(8, 75%, 45%, 0);
+
   font-weight: bold;
   font-style: oblique;
   border-radius: 2px;
