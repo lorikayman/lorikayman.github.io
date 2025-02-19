@@ -475,7 +475,6 @@ center.chapter-break {
       font-size: 1.2em;
       margin-top: -2px;
       font-weight: bold;
-      /* filter: var(--ui-hover-glow); */
     }
 
     &
