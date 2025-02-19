@@ -326,19 +326,27 @@ a {
   font-weight: 100;
 }
 
-.button-jumper {
+.button-jumper,
+.button-scroll-to-top {
   border: solid;
   background: hsla(233, 12%, 27%, 0.7);
   color: hsl(229, 62%, 64%);
   border-color: transparent;
 
-  border-radius: 0px 5px 5px 0px;
   border-width: 2px;
 
   &:hover {
     transition: 240ms;
     filter: brightness(0.9);
   }
+}
+
+.button-jumper {
+  border-radius: 0px 5px 5px 0px;
+}
+
+.button-scroll-to-top {
+  border-radius: 5px 0px 0px 5px;
 }
 
 center.chapter-break {
@@ -450,7 +458,14 @@ center.chapter-break {
       padding-left: 1.5rem;
     }
 
-    & .heading-level-2 > a > li {
+    &
+      :is(
+        .heading-level-1,
+        .heading-level-2,
+        .heading-level-3
+      )
+      > a
+      > li {
       font-weight: bold;
       text-transform: uppercase;
     }
@@ -459,10 +474,9 @@ center.chapter-break {
       margin-left: 1em;
     }
 
-    /* & .heading-level-4 ul a li,
-    & .heading-level-5 ul a li {
+    & .heading-level-4 ul a li {
       margin-left: 2em;
-    } */
+    }
   }
 
   .jumper-container {
@@ -470,6 +484,18 @@ center.chapter-break {
     position: fixed;
     bottom: 2.2rem;
     left: 0%;
+    align-items: center;
+    justify-content: center;
+    /* left: 17.8%; */
+    width: auto;
+    z-index: 2;
+  }
+
+  .scroll-to-top-container {
+    display: block;
+    position: fixed;
+    bottom: 2.2rem;
+    right: 0%;
     align-items: center;
     justify-content: center;
     /* left: 17.8%; */

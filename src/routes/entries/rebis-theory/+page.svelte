@@ -20,7 +20,9 @@
 
   document.title = "Spiral Knights: Rebis Theory";
 
-  const tocActiveSelector = ".toc-content a[data-active]";
+  const tocActiveSelector =
+    ".toc-content a[data-active] li";
+  const documentStart = "h1";
   /**
    * crete table of content by scanning a component
    */
@@ -29,7 +31,7 @@
     states: { activeHeadingIdxs, headingsTree },
   } = createTableOfContents({
     selector: "#toc-builder-preview",
-    exclude: ["h1"],
+    exclude: [],
     activeType: "highest",
     /**
      * Filters all heading belonging to the current mdx entry
@@ -145,5 +147,28 @@
 <div class="container">
   <div id="toc-builder-preview">
     <svelte:component this={data}></svelte:component>
+  </div>
+  <div class="scroll-to-top-container">
+    <Jumper
+      selector={documentStart}
+      buttonClass="button-scroll-to-top"
+    >
+      <!--
+      https://icons.getbootstrap.com/icons/arrow-bar-up/
+      -->
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        fill="currentColor"
+        class="bi bi-arrow-bar-up"
+        viewBox="0 0 16 16"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M8 10a.5.5 0 0 0 .5-.5V3.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 3.707V9.5a.5.5 0 0 0 .5.5m-7 2.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13a.5.5 0 0 1-.5-.5"
+        />
+      </svg>
+    </Jumper>
   </div>
 </div>
