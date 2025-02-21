@@ -36,8 +36,8 @@
     /* background-color: hsl(0 0% 52%); */
 
     & p > code,
-    p {
-      color: rgb(35, 35, 40);
+    & p {
+      color: hsl(0deg, 0%, 12%);
       padding: 1px 0px;
       font-weight: bold;
       background-color: transparent;
