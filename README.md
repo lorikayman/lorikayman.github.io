@@ -13,7 +13,7 @@ Prerequisites:
 2. Python
 3. [uv](https://docs.astral.sh/uv/) - python project manager
 4. [Task](https://taskfule.dev) - task runner
-5. Access to [█████-███████](.gitmodules)
+5. Access to [░░░░░▓░░░░░░░](.gitmodules)
 
 ```sh
 task install
