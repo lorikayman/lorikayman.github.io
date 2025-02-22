@@ -423,7 +423,8 @@ center.chapter-break {
   }
 }
 
-.jumper-container {
+.ui-button-container-jumper,
+.ui-button-container-scroller {
   display: none;
 }
 
@@ -485,15 +486,15 @@ center.chapter-break {
 
     & a[data-active] > li::before {
       content: "";
-      background-image: url("/src/lib/entries/sk/rebis-theory/assets/icon_goldlock.png");
+      background-image: url("/src/lib/entries/sk/rebis-theory/assets/bomb_icon_equinox.png");
       display: block;
       background-size: cover;
       background-repeat: no-repeat;
-      width: 1.2em;
-      height: 1.2em;
+      width: 1.1em;
+      height: 1.1em;
       position: absolute;
-      left: 0.5em;
-      margin-top: 3px;
+      left: 0.6em;
+      margin-top: 2px;
     }
 
     &
@@ -517,7 +518,7 @@ center.chapter-break {
     }
   }
 
-  .jumper-container {
+  .ui-button-container-jumper {
     display: block;
     position: fixed;
     left: 0rem;
@@ -535,7 +536,7 @@ center.chapter-break {
     padding: 2px 0px;
   }
 
-  .scroll-to-top-container {
+  .ui-button-container-scroller {
     display: block;
     position: fixed;
     bottom: 2.2rem;
