@@ -9,10 +9,11 @@ It is build using [SvelteKit](https://github.com/sveltejs/kit), [MDsveX](https:/
 
 Prerequisites:
 
-- Node.js
-- Python
-- [uv](https://docs.astral.sh/uv/) - python project manager
-- [Task](https://taskfule.dev) - task runner
+1. Node.js
+2. Python
+3. [uv](https://docs.astral.sh/uv/) - python project manager
+4. [Task](https://taskfule.dev) - task runner
+5. Access to [█████-███████](.gitmodules)
 
 ```sh
 task install
