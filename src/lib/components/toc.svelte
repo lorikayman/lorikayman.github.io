@@ -2,6 +2,8 @@
   import { melt } from "@melt-ui/svelte";
   import { onMount, tick } from "svelte";
 
+  import Toc from "./toc.svelte";
+
   /**
    * @description
    * --toc-active-item-color: any color for selected a[data-active] element
@@ -25,7 +27,7 @@ MDX component table of contents
       <a
         href="#{heading.id}"
         use:melt={$item(heading.id)}
-        on:m-click={(event) => {
+        onm-click={(event) => {
           event.preventDefault();
         }}
       >
@@ -33,10 +35,10 @@ MDX component table of contents
           {@html heading.node.innerHTML}
         </li>
         {#if heading.children && heading.children.length}
-          <svelte:self
+          <Toc
             tree={heading.children}
-            level={level + 1}
             {activeHeadingIdxs}
+            level={level + 1}
             {item}
           />
         {/if}
