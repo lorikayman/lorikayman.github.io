@@ -1,7 +1,11 @@
+<script>
+  let { source, markup } = $props();
+</script>
+
 <center>
   <div class="book-citation">
     <div class="citation-bg">
-      <slot />
+      {@render markup?.()}
     </div>
   </div>
 </center>
