@@ -77,7 +77,7 @@ class SourceModifier:
         if self._whitelist:
             whileisted_file_stems = self.__parse_whitelist()
 
-        glob_result: Generator = self._glob_root.glob('**/*.md')
+        glob_result: Generator = self._glob_root.glob('**/*.md*')
         count = 0
 
         entry_names = []
