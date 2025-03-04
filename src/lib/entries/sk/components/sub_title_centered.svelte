@@ -13,10 +13,10 @@
 </div>
 
 <style>
-  @font-face {
+  /* @font-face {
     font-family: "Open Sans Bold", sans-serif;
     src: url("/static/fonts/Open_Sans/static/OpenSans-Bold.ttf");
-  }
+  } */
 
   .alchemy {
     z-index: -2;
@@ -44,7 +44,6 @@
       color: hsl(343, 10%, 10%);
       padding: 4px 26px;
       font-style: italic;
-      font-family: "Open Sans Bold", sans-serif;
     }
 
     & h4 {
