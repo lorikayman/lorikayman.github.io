@@ -1,12 +1,8 @@
 <script>
   import { createTableOfContents } from "@melt-ui/svelte";
   import { onMount, tick } from "svelte";
-  import {
-    pushState,
-    replaceState,
-    goto,
-  } from "$app/navigation";
   import { page } from "$app/state";
+  import { replaceState } from "$app/navigation";
 
   import { createSelfDestructingStore } from "$lib/stores/self_destructing_store";
 
@@ -19,22 +15,29 @@
   import RebisTheory from "$lib/entries/sk/mdx/rebis_theory.mdx";
   import { writable } from "svelte/store";
 
+  // MDX module
   let data = RebisTheory;
 
   document.title = "Spiral Knights: Rebis Theory";
 
+  // selector for highlighting currently selected item
   const tocActiveSelector =
     ".toc-content a[data-active] li";
+  /** selector for defining the start for @see Jumper */
   const documentStart = "h1";
   /**
-   * crete table of content by scanning a component
+   * create table of content by scanning a component
    */
   const {
     elements: { item },
     states: { activeHeadingIdxs, headingsTree },
   } = createTableOfContents({
-    selector: "#toc-builder-preview",
+    selector: "#document-body",
     exclude: [],
+    // this is not UX-friendly as we are
+    // targeting the selection of a heading,
+    // whose body takes up most of space
+    // in the viewport
     activeType: "highest",
     /**
      * Filters all heading belonging to the current mdx entry
@@ -48,10 +51,14 @@
       );
       return validity;
     },
+    /**
+     * What happens whn pressing on a link in TOC
+     *
+     * @param {String} id of a heading scroll to
+     */
     scrollFn: (id) => {
-      const container = document.getElementById(
-        "toc-builder-preview",
-      );
+      const container =
+        document.getElementById("document-body");
       const element = document.getElementById(id);
 
       if (container && element) {
@@ -133,7 +140,7 @@
 </div>
 
 <div class="container">
-  <div id="toc-builder-preview">
+  <div id="document-body">
     <svelte:component this={data}></svelte:component>
   </div>
   <div class="ui-button-container-jumper">

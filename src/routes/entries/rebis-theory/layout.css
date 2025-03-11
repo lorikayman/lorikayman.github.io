@@ -214,6 +214,8 @@ h5 {
     font-style: normal;
     border-radius: 5px;
     padding: 0em 0.15em;
+    /* align visually letter's box size */
+    padding-left: 0.2em;
   }
 }
 

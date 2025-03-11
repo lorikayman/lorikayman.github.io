@@ -1,11 +1,11 @@
 <script>
   import { onMount } from "svelte";
 
-  /** peak moronic design here with slots
-  https://svelte.dev/docs/svelte/@render
-  knockout solved it fucking 15 years ago
-  why this has to be here so complex??
-  */
+  /**
+   * @param {String} selector
+   * @param {String} buttonClass
+   * @param {HTMLElement} children passed markup
+   */
   let {
     selector = "",
     buttonClass = "",
