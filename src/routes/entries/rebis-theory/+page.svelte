@@ -122,15 +122,15 @@
 </script>
 
 <div class="toc">
+  <div class="ui-button-container-scroller">
+    <Jumper
+      selector={documentStart}
+      buttonClass="button-scroll-to-top"
+    >
+      <img src={IconHaven} alt="" class="button-icon" />
+    </Jumper>
+  </div>
   <div class="toc-content">
-    <div class="ui-button-container-scroller">
-      <Jumper
-        selector={documentStart}
-        buttonClass="button-scroll-to-top"
-      >
-        <img src={IconHaven} alt="" class="button-icon" />
-      </Jumper>
-    </div>
     <Tree
       tree={$headingsTree}
       activeHeadingIdxs={$activeHeadingIdxs}
