@@ -5,15 +5,13 @@ This is main frontend repository for a wiki of __"Maelstrom Takes Toll"__ and a 
 > [!WARNING]
 > Despite being a public repository, it is not intended to be build locally.
 
-It is build using [SvelteKit](https://github.com/sveltejs/kit), [MDsveX](https://github.com/pngwn/MDsveX), and [melt-ui](https://github.com/melt-ui/melt-ui).
-
 Prerequisites:
 
 1. Node.js
 2. Python
 3. [uv](https://docs.astral.sh/uv/) - python project manager
 4. [Task](https://taskfule.dev) - task runner
-5. Access to [░░░░░▓░░░░░░░](.gitmodules)
+5. Access to [submodules](.gitmodules)
 
 ```sh
 task install
