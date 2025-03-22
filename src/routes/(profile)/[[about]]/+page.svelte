@@ -2,18 +2,15 @@
   import MawanetHeader from "$lib/components/profile/mawanet_header.svelte";
   import { page } from "$app/state";
 
-  document.title = "RKHL57 : IRKM";
-
-  import { createTabs, melt } from "@melt-ui/svelte";
-
   import { onMount } from "svelte";
 
   import { goto, afterNavigate } from "$app/navigation";
-
   import { cubicInOut } from "svelte/easing";
   import { crossfade, blur } from "svelte/transition";
 
   import About from "$lib/components/profile/about.mdx";
+
+  document.title = "RKHL57 : IRKM";
 
   let userHasScrolled = false;
 
@@ -71,11 +68,11 @@
     }
   }
 
-  .tabbed-content {
-    /* padding: 0em 1.6em; */
+  /* .tabbed-content { */
+  /* padding: 0em 1.6em; */
 
-    /* https://stackoverflow.com/questions/28652571/dotted-background-overlay-effect-in-css */
-    &:not([aria-labelledby="projects"]) {
+  /* https://stackoverflow.com/questions/28652571/dotted-background-overlay-effect-in-css */
+  /* &:not([aria-labelledby="projects"]) {
       background: transparent;
       background-position-x: 0%;
       background-position-y: 0%;
@@ -84,16 +81,12 @@
       background-image: radial-gradient(hsl(0, 0%, 9%) 1px, transparent 0);
       background-size: 50px 50px;
       background-position: -25px -25px;
-    }
+    } */
 
-    &[aria-labelledby="gateway"] {
-      /* background-image: url('/img/bc.jpg');
-    background-position: 40% 80%;
-    background-size: 160%; */
+  /* &[aria-labelledby="gateway"] {
       background-image: url("/img/mp.jpg");
       background-position: 31% 36%;
       background-size: 130%;
-      /* filter: saturate(97%) blur(0.1em); */
-    }
-  }
+    } */
+  /* } */
 </style>

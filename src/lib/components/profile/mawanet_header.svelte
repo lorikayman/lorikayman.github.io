@@ -2,7 +2,6 @@
   <div class="floating array-container">
     <div id="array">
       <h1>RKHL-57 South-West Communications Array</h1>
-      <!-- <br /> -->
     </div>
     <div id="connectivity">
       <h3>
@@ -32,52 +31,56 @@
     margin-bottom: 2.15rem;
     border-radius: 8px;
     filter: drop-shadow(0 -2mm 4mm rgba(183, 112, 11, 0.844));
+  }
 
-    & h1 {
-      margin: 0.15em 0;
-      padding: 0.1rem 1.2rem;
-      border-top: 0.3rem solid transparent;
-      border-bottom: 0.3rem solid transparent;
-      margin: 0rem 1rem;
-      transition: color 1s;
-      color: rgb(255, 233, 159);
-      text-transform: uppercase;
+  h3 {
+    color: #de9835;
+  }
 
-      border-top: 0.3rem solid transparent;
-      border-bottom: 0.3rem solid transparent;
-      color: rgb(255, 251, 147);
+  h1 {
+    margin: 0.15em 0;
+    padding: 0.1rem 1.2rem;
+    border-top: 0.3rem solid transparent;
+    border-bottom: 0.3rem solid transparent;
+    margin: 0rem 1rem;
+    transition: color 1s;
+    color: rgb(255, 233, 159);
+    text-transform: uppercase;
 
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    border-top: 0.3rem solid transparent;
+    border-bottom: 0.3rem solid transparent;
+    color: rgb(255, 251, 147);
 
-      /* Author: Stefan Judis (stefanjudis)
-      https://codepen.io/alphardex/pen/vYEYGzp */
-      &::after {
-        position: absolute;
-        content: "";
-        top: calc(-1 * var(--border-width));
-        left: calc(-1 * var(--border-width));
-        z-index: -1;
-        width: 100%;
-        height: 40%;
-        background: linear-gradient(
-          60deg,
-          hsl(224, 85%, 66%),
-          hsl(269, 85%, 66%),
-          hsl(314, 85%, 66%),
-          hsl(359, 85%, 66%),
-          hsl(34, 85%, 66%),
-          hsl(89, 85%, 66%),
-          hsl(134, 85%, 66%),
-          hsl(179, 85%, 66%)
-        );
-        background-size: 300% 300%;
-        background-position: 0 50%;
-        border-radius: calc(2 * var(--border-width));
-        animation: moveGradient 3s alternate infinite;
-      }
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* Author: Stefan Judis (stefanjudis)
+    https://codepen.io/alphardex/pen/vYEYGzp */
+    &::after {
+      position: absolute;
+      content: "";
+      top: calc(-1 * var(--border-width));
+      left: calc(-1 * var(--border-width));
+      z-index: -1;
+      width: 100%;
+      height: 40%;
+      background: linear-gradient(
+        60deg,
+        hsl(224, 85%, 66%),
+        hsl(269, 85%, 66%),
+        hsl(314, 85%, 66%),
+        hsl(359, 85%, 66%),
+        hsl(34, 85%, 66%),
+        hsl(89, 85%, 66%),
+        hsl(134, 85%, 66%),
+        hsl(179, 85%, 66%)
+      );
+      background-size: 300% 300%;
+      background-position: 0 50%;
+      border-radius: calc(2 * var(--border-width));
+      animation: moveGradient 3s alternate infinite;
     }
   }
 
