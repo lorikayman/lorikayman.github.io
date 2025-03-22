@@ -103,6 +103,10 @@ p {
   color: rgb(245, 245, 220);
 }
 
+em {
+  color: rgb(245, 245, 220);
+}
+
 a {
   color: inherit;
 }

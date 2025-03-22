@@ -1,3 +1,7 @@
+<script>
+  import { page } from "$app/state";
+</script>
+
 <div id="header-container">
   <div class="floating array-container">
     <div id="array">
@@ -5,8 +9,10 @@
     </div>
     <div id="connectivity">
       <h3>
-        Connectivity [ <code class="online">ONLINE</code> ]:
-        <code class="check">98.2%</code>
+        Connectivity [
+        <code class="online">ONLINE</code>
+        ]:
+        <code class="check">98.2%</code> - <em>{page.url.host}</em>
       </h3>
     </div>
   </div>
