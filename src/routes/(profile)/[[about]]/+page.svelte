@@ -1,6 +1,4 @@
 <script>
-  import "./../styles.css";
-
   import MawanetHeader from "$lib/components/profile/mawanet_header.svelte";
   import { page } from "$app/state";
 
@@ -34,8 +32,6 @@
     };
   });
 </script>
-
-<div id="bg-handler"></div>
 
 <MawanetHeader />
 
