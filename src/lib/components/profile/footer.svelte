@@ -18,6 +18,13 @@
 <style>
   #footer {
     background: hsla(0deg, 0%, 0%, 0.8);
+    margin-top: 12rem;
+  }
+
+  @media (aspect-ratio < 1/1) {
+    #footer {
+      margin-top: 32rem;
+    }
   }
 
   .container {
@@ -30,6 +37,7 @@
     flex: 1;
     margin: 0.3em;
     text-align: center;
+    font-size: 0.7em;
 
     &.first {
       text-align: left;

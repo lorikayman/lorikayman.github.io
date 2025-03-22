@@ -1,5 +1,7 @@
 <script>
   import { page } from "$app/state";
+
+  let { host } = $props();
 </script>
 
 <div id="header-container">
@@ -12,7 +14,7 @@
         Connectivity [
         <code class="online">ONLINE</code>
         ]:
-        <code class="check">98.2%</code> - <em>{page.url.host}</em>
+        <code class="check">98.2%</code> - <em>{host}</em>
       </h3>
     </div>
   </div>

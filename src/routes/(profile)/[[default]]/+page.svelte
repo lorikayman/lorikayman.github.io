@@ -12,25 +12,32 @@
 
   document.title = "RKHL57 : IRKM";
 
+  let host;
+  if (data.tab == "company") {
+    host = "57sw.erkh.maw";
+  } else {
+    host = page.url.host;
+  }
+
   let userHasScrolled = false;
 
   afterNavigate(() => {
     let tabElement = document.querySelector(".tabbed-content");
-    window.scrollTo(0, tabElement.getBoundingClientRect().top - 80);
+    window.scrollTo(0, tabElement.getBoundingClientRect().top - 180);
   });
 
-  onMount(() => {
-    let tabElement = document.querySelector(".tabbed-content");
-    window.onscroll = function () {
-      if (!userHasScrolled) {
-        window.scrollTo(0, tabElement.getBoundingClientRect().top - 80);
-      }
-      userHasScrolled = true;
-    };
-  });
+  // onMount(() => {
+  //   let tabElement = document.querySelector(".tabbed-content");
+  //   window.onscroll = function () {
+  //     if (!userHasScrolled) {
+  //       window.scrollTo(0, tabElement.getBoundingClientRect().top - 80);
+  //     }
+  //     userHasScrolled = true;
+  //   };
+  // });
 </script>
 
-<MawanetHeader />
+<MawanetHeader {host} />
 
 <div id="menu-wrapper">
   <div class="menu-container">
