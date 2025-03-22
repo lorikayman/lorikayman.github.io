@@ -34,6 +34,14 @@
 
 <div id="menu-wrapper">
   <div class="menu-container">
+    <div class="trigger">
+      <div class="indicator-container">
+        <div class="trigger-indicator-core"></div>
+        <div class="dot dot1"></div>
+        <div class="dot dot2"></div>
+      </div>
+    </div>
+
     <div class="tabbed-content scroll-anchor">
       <About />
     </div>
@@ -89,4 +97,66 @@
       background-size: 130%;
     } */
   /* } */
+
+  .trigger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    letter-spacing: 0.1rem;
+
+    cursor: pointer;
+    padding: 0.9em;
+
+    border-color: transparent;
+
+    margin-bottom: 11px;
+
+    & .dot {
+      filter: drop-shadow(0 0 1mm hsl(355, 100%, 62%));
+    }
+    & .indicator-container {
+      margin-top: 2.16em;
+      position: absolute;
+    }
+
+    & .trigger-indicator-core {
+      position: relative;
+      background-color: hsl(355, 100%, 62%);
+
+      width: 0.5em;
+      height: 0.5em;
+      border-radius: 100%;
+      animation: pulse 5600ms infinite;
+    }
+
+    & .dot {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background-color: hsl(355, 100%, 62%);
+      border-radius: 100%;
+      top: 4px;
+    }
+
+    & .dot1 {
+      left: -0.55em;
+    }
+
+    & .dot2 {
+      right: -0.55em;
+    }
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.32);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
 </style>
