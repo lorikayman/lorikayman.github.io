@@ -1,3 +1,7 @@
+<script>
+  import { base } from "$app/paths";
+</script>
+
 <div id="footer">
   <div class="container">
     <p class="first">
@@ -5,7 +9,7 @@
     </p>
     <p>
       Security, Privacy, Legal |
-      <a href="/company">About Us</a>
+      <a href="{base}/company">About Us</a>
     </p>
     <p class="last">© Hordholl General Communications</p>
   </div>
