@@ -1,14 +1,14 @@
 <script>
-  import MawanetHeader from "$lib/components/profile/mawanet_header.svelte";
   import { page } from "$app/state";
-
   import { onMount } from "svelte";
+  import { afterNavigate } from "$app/navigation";
+  // import { cubicInOut } from "svelte/easing";
+  // import { crossfade, blur } from "svelte/transition";
 
-  import { goto, afterNavigate } from "$app/navigation";
-  import { cubicInOut } from "svelte/easing";
-  import { crossfade, blur } from "svelte/transition";
+  export let data;
+  console.log("data:", data);
 
-  import About from "$lib/components/profile/about.mdx";
+  import MawanetHeader from "$lib/components/profile/mawanet_header.svelte";
 
   document.title = "RKHL57 : IRKM";
 
@@ -43,7 +43,7 @@
     </div>
 
     <div class="tabbed-content scroll-anchor">
-      <About />
+      <svelte:component this={data.component}></svelte:component>
     </div>
   </div>
 </div>
@@ -115,6 +115,7 @@
     & .dot {
       filter: drop-shadow(0 0 1mm hsl(355, 100%, 62%));
     }
+
     & .indicator-container {
       margin-top: 2.16em;
       position: absolute;
