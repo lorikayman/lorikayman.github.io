@@ -117,6 +117,7 @@ html {
 body {
   top: 0;
   bottom: 0;
+  color: hsl(240, 10%, 92%);
 }
 
 ::selection {
@@ -557,7 +558,6 @@ center.chapter-break {
     & p,
     li {
       text-align: left;
-      color: hsl(240, 10%, 92%);
     }
   }
 }
