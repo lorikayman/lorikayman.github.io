@@ -9,8 +9,11 @@
   import Tree from "$lib/components/toc.svelte";
   import Jumper from "$lib/entries/sk/components/scroll_to_active.svelte";
 
-  import IconComm from "$lib/entries/sk/rebis-theory/assets/icon_story.png";
-  import IconHaven from "$lib/entries/sk/rebis-theory/assets/icon_up.png";
+  // import IconComm from "$lib/entries/sk/rebis-theory/assets/icon_story.png";
+  import IconComm from "$lib/entries/sk/rebis-theory/assets/next_up.png";
+
+  // import IconHaven from "$lib/entries/sk/rebis-theory/assets/icon_up.png";
+  import IconHaven from "$lib/entries/sk/rebis-theory/assets/over.png";
 
   import RebisTheory from "$lib/entries/sk/mdx/rebis_theory.mdx";
   import { writable } from "svelte/store";

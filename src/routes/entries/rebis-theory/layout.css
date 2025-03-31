@@ -353,10 +353,9 @@ a {
 .button-jumper,
 .button-scroll-to-top {
   border: solid;
-  background: hsla(232, 34%, 26%, 0);
-  /* color: hsl(229, 62%, 64%); */
   border-color: transparent;
   border-width: 2px;
+  background-color: hsla(225deg, 30%, 24%, 1);
 
   &:hover {
     transition: 240ms;
@@ -455,7 +454,7 @@ center.chapter-break {
     padding: 0px 4px;
   }
 
-  & :not(:is(code, .button-jumper)) {
+  & :not(:is(code, .button-jumper, .button-scroll-to-top)) {
     background-color: unset;
   }
 }
@@ -487,17 +486,29 @@ center.chapter-break {
       padding-left: 2.2rem;
     }
 
-    & a[data-active] > li::before {
-      content: "";
-      background-image: url("/src/lib/entries/sk/rebis-theory/assets/bomb_icon_equinox.png");
-      display: block;
-      background-size: cover;
-      background-repeat: no-repeat;
-      width: 1.1em;
-      height: 1.1em;
-      position: absolute;
-      left: 0.6em;
-      margin-top: 2px;
+    & a[data-active] > li {
+      font-weight: 600;
+
+      &::before {
+        content: "";
+
+        border: solid;
+        border-color: transparent;
+        border-width: 0px;
+        border-radius: 5px;
+        background-color: hsla(225deg, 30%, 24%, 1);
+
+        /* background-image: url("/src/lib/entries/sk/rebis-theory/assets/bomb_icon_equinox.png"); */
+        background-image: url("/src/lib/entries/sk/rebis-theory/assets/icon_goldlock.png");
+        display: block;
+        background-size: cover;
+        background-repeat: no-repeat;
+        width: 1.2em;
+        height: 1.2em;
+        position: absolute;
+        left: 0.6em;
+        margin-top: 4px;
+      }
     }
 
     &
@@ -528,13 +539,13 @@ center.chapter-break {
     align-items: center;
     justify-content: center;
     width: auto;
-    bottom: 1.4rem;
+    bottom: 2.2rem;
     z-index: 2;
   }
 
   .button-icon {
-    width: 72px;
-    height: 72px;
+    width: 34px;
+    height: 34px;
     scale: 1;
     padding: 2px 0px;
   }
