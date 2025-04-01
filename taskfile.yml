@@ -1,6 +1,6 @@
 # https://taskfile.dev
 
-version: '3'
+version: "3"
 
 tasks:
   default:
@@ -11,7 +11,8 @@ tasks:
     cmds:
       - uv venv  --python-preference only-managed --python 3.13 .venv
       - npm install
-  python:
+  build:preprocess:
+    description: Preprocess templated MDX files
     cmds:
       - |
         uv run python ./mdx-worker.py \
@@ -27,7 +28,15 @@ tasks:
   build:
     aliases: [b]
     cmds:
-      - task: python
+      - task: build:preprocess
+      - npm run build
+  build:faster:
+    summary: |
+      Build without MDX preprocessing.
+
+      HHGC AEG has only recently migrated from Mozilla Mach, so, for convenience, the base syntax has remained identical to `mach build faster`
+    aliases: [f]
+    cmds:
       - npm run build
   preview:
     aliases: [p]
@@ -36,5 +45,5 @@ tasks:
   dev:
     aliases: [d]
     cmds:
-      - task: python
+      - task: build:preprocess
       - npm run dev

@@ -1,4 +1,4 @@
-This is main frontend repository for a wiki of __"Maelstrom Takes Toll"__ and a frontend for adjacent materials, listed in [other content](#other-content).
+<!-- This is main frontend repository for a wiki of __"Maelstrom Takes Toll"__ and a frontend for adjacent materials, listed in [other content](#other-content). -->
 
 ## Build
 
@@ -34,3 +34,5 @@ The repository contains duplicates of materials from other repositories listed b
 Images used:
 
 - [Linnaea Mallette, Armillary Sphere, Vintage drawing of the armillary sphere](https://www.publicdomainpictures.net/en/view-image.php?image=338833&picture=armillary-sphere*/) (License: CC0 Public Domain)
+
+The repository is managed by [HHGC Array Engineering Group](http://lorikayman.github.io/company).
