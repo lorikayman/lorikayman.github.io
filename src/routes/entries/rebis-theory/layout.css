@@ -486,29 +486,25 @@ center.chapter-break {
       padding-left: 2.2rem;
     }
 
-    & a[data-active] > li {
-      font-weight: 600;
+    & a[data-active] > li::before {
+      content: "";
 
-      &::before {
-        content: "";
+      border: solid;
+      border-color: transparent;
+      border-width: 0px;
+      border-radius: 5px;
+      background-color: hsla(225deg, 30%, 24%, 1);
 
-        border: solid;
-        border-color: transparent;
-        border-width: 0px;
-        border-radius: 5px;
-        background-color: hsla(225deg, 30%, 24%, 1);
-
-        /* background-image: url("/src/lib/entries/sk/rebis-theory/assets/bomb_icon_equinox.png"); */
-        background-image: url("/src/lib/entries/sk/rebis-theory/assets/icon_goldlock.png");
-        display: block;
-        background-size: cover;
-        background-repeat: no-repeat;
-        width: 1.2em;
-        height: 1.2em;
-        position: absolute;
-        left: 0.6em;
-        margin-top: 4px;
-      }
+      /* background-image: url("/src/lib/entries/sk/rebis-theory/assets/bomb_icon_equinox.png"); */
+      background-image: url("/src/lib/entries/sk/rebis-theory/assets/icon_goldlock.png");
+      display: block;
+      background-size: cover;
+      background-repeat: no-repeat;
+      width: 1.2em;
+      height: 1.2em;
+      position: absolute;
+      left: 0.6em;
+      margin-top: 4px;
     }
 
     &
