@@ -526,6 +526,14 @@ center.chapter-break {
     & .heading-level-4 ul a li {
       margin-left: 2em;
     }
+
+    .active-parent {
+      position: -webkit-sticky;
+      position: sticky;
+      top: 0;
+      background-color: hsl(225deg, 30%, 24%);
+      z-index: 3;
+    }
   }
 
   .ui-button-container-jumper {

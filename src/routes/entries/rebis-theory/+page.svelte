@@ -1,24 +1,18 @@
 <script>
-  import { createTableOfContents } from "@melt-ui/svelte";
-  import { onMount, tick } from "svelte";
   import { page } from "$app/state";
-  import { replaceState } from "$app/navigation";
 
+  // table of contents
+  import { createTableOfContents } from "@melt-ui/svelte";
+  import Tree from "$lib/components/toc.svelte";
   import { createSelfDestructingStore } from "$lib/stores/self_destructing_store";
 
-  import Tree from "$lib/components/toc.svelte";
+  // ui
   import Jumper from "$lib/entries/sk/components/scroll_to_active.svelte";
-
-  // import IconComm from "$lib/entries/sk/rebis-theory/assets/icon_story.png";
   import IconComm from "$lib/entries/sk/rebis-theory/assets/next_up.png";
-
-  // import IconHaven from "$lib/entries/sk/rebis-theory/assets/icon_up.png";
   import IconHaven from "$lib/entries/sk/rebis-theory/assets/over.png";
 
+  // mdx
   import RebisTheory from "$lib/entries/sk/mdx/rebis_theory.mdx";
-  import { writable } from "svelte/store";
-
-  // MDX module
   let data = RebisTheory;
 
   document.title = "Spiral Knights: Rebis Theory";
@@ -101,7 +95,6 @@
     // unreliable, as it still contains older data
     // let item = document.querySelector(tocActiveSelector);
     // better move to a $derived once melt supports it
-    await tick();
     let tocItems = document.querySelectorAll(
       ".toc a[data-melt-table-of-contents-item]",
     );
@@ -113,6 +106,50 @@
     activeElement.set(
       document.querySelector(tocActiveSelector),
     );
+  });
+
+  /**
+   *
+   * @param stopClass
+   * @returns {Element[]}
+   */
+  function findCurrentHeadings(
+    element,
+    stopClass = "heading-level-1",
+  ) {
+    var list = [];
+
+    const check = (e, s) => {
+      console.log(e);
+      const p = e.closest("ul").previousElementSiblings;
+      console.log(p);
+      list.push(p);
+      if (e.classList.contains(stopClass)) {
+        return;
+      }
+      check(p, s);
+    };
+    check(element, stopClass);
+    return list;
+  }
+
+  activeHeadingIdxs.subscribe(async (idxs) => {
+    // return;
+    const activeElementData = document.querySelector(
+      tocActiveSelector,
+    );
+    if (activeElementData) {
+      const rl = findCurrentHeadings(activeElementData);
+      console.log("parentHeading", parentHeading, rl);
+
+      parentHeading.classList.add("active-parent");
+    } else {
+      document
+        .querySelectorAll(".active-parent")
+        .forEach((e) =>
+          e.classList.remove("active-parent"),
+        );
+    }
   });
 
   activeElement.subscribe((e) => {

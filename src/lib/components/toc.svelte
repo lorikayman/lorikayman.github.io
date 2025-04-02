@@ -14,6 +14,25 @@
     item,
     level = 1,
   } = $props();
+
+  $effect(() => {
+    const activeItem =
+      document.querySelector("[data-active]");
+
+    if (activeItem) {
+      const parentHeading = activeItem.closest("ul");
+
+      // Add 'active-parent' class to the parent
+      parentHeading.classList.add("active-parent");
+    } else {
+      // If no active item, remove any previous 'active-parent' class
+      document
+        .querySelectorAll(".active-parent")
+        .forEach((el) =>
+          el.classList.remove("active-parent"),
+        );
+    }
+  });
 </script>
 
 <!-- we override on:m-click with {(e)=>{e.preventDefault()}} within an item
@@ -21,7 +40,7 @@ because during listening to the mdx object, as it is replaced,
 the handler function within the default m-click continues to point onto previous
 MDX component table of contents
 -->
-<ul class="heading-level-{level}">
+<ul class="heading heading-level-{level}">
   {#if tree && tree.length}
     {#each tree as heading, i (i)}
       <a
