@@ -1,0 +1,6 @@
+{
+  "soft_wrap": "editor_width",
+  "preferred_line_length": 60,
+  "hard_tabs": false,
+  "tab_size": 2
+}
