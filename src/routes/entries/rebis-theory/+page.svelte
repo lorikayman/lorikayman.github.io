@@ -125,12 +125,12 @@
 </script>
 
 <div class="toc">
-  <div class="ui-button-container-scroller">
+  <div class="ui-button-container-jumper">
     <Jumper
-      selector={documentStart}
-      buttonClass="button-scroll-to-top"
+      selector={tocActiveSelector}
+      buttonClass="button-jumper"
     >
-      <img src={IconHaven} alt="" class="button-icon" />
+      <img src={IconComm} class="button-icon" alt="" />
     </Jumper>
   </div>
   <div class="toc-content">
@@ -146,12 +146,12 @@
   <div id="document-body">
     <svelte:component this={data}></svelte:component>
   </div>
-  <div class="ui-button-container-jumper">
+  <div class="ui-button-container-scroller">
     <Jumper
-      selector={tocActiveSelector}
-      buttonClass="button-jumper"
+      selector={documentStart}
+      buttonClass="button-scroll-to-top"
     >
-      <img src={IconComm} class="button-icon" alt="" />
+      <img src={IconHaven} alt="" class="button-icon" />
     </Jumper>
   </div>
 </div>
