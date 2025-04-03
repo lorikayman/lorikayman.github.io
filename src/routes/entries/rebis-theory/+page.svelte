@@ -72,13 +72,6 @@
    *
    * @param {string} hash URL's hash string
    */
-  async function updateHash(hash) {
-    let url = page.url.pathname;
-    let oldUrl = `${url}${page.url.hash}`;
-    let newUrl = `${url}#${hash}`;
-    if (url === newUrl) return;
-    // replaceState(newUrl);
-  }
 
   const activeElementdestroyCondition = (value) =>
     value instanceof HTMLElement;
@@ -109,6 +102,7 @@
   });
 
   /**
+   * Recursively ascent Toc hierarchy
    *
    * @param stopClass
    * @returns {Element[]}
@@ -119,38 +113,18 @@
   ) {
     var list = [];
 
-    const check = (e, s) => {
-      console.log(e);
-      const p = e.closest("ul").previousElementSiblings;
-      console.log(p);
-      list.push(p);
-      if (e.classList.contains(stopClass)) {
+    const ascentTableOfContents = (e, s) => {
+      const ul = e.closest("ul");
+      if (ul.classList.contains(stopClass)) {
         return;
       }
-      check(p, s);
+      const p = ul.previousElementSibling;
+      list.push(p);
+      ascentTableOfContents(p, s);
     };
-    check(element, stopClass);
+    ascentTableOfContents(element, stopClass);
     return list;
   }
-
-  activeHeadingIdxs.subscribe(async (idxs) => {
-    // return;
-    const activeElementData = document.querySelector(
-      tocActiveSelector,
-    );
-    if (activeElementData) {
-      const rl = findCurrentHeadings(activeElementData);
-      console.log("parentHeading", parentHeading, rl);
-
-      parentHeading.classList.add("active-parent");
-    } else {
-      document
-        .querySelectorAll(".active-parent")
-        .forEach((e) =>
-          e.classList.remove("active-parent"),
-        );
-    }
-  });
 
   activeElement.subscribe((e) => {
     if (!(e instanceof HTMLElement)) return;
@@ -158,6 +132,31 @@
       behavior: "instant",
       block: "center",
     });
+  });
+
+  activeHeadingIdxs.subscribe(async (idxs) => {
+    console.log("idxs", idxs);
+    // scrap old
+    const actives = document
+      .querySelector(".toc")
+      .querySelectorAll(".active-parent");
+    actives.forEach((e) =>
+      e.classList.remove("active-parent"),
+    );
+
+    // reassign
+    const activeElementData = document.querySelector(
+      tocActiveSelector,
+    );
+    if (activeElementData) {
+      const parentHeadings = findCurrentHeadings(
+        activeElementData,
+      );
+
+      parentHeadings.forEach((h) =>
+        h.classList.add("active-parent"),
+      );
+    }
   });
 </script>
 

@@ -476,7 +476,7 @@ center.chapter-break {
 
     font-family: secondary-light;
 
-    /* heading 1 is always single */
+    /* heading 1 is always single by CommonMark spec */
     & ul.heading-level-1 {
       padding-bottom: 7rem;
     }
