@@ -500,11 +500,6 @@ center.chapter-break {
       border-radius: 5px;
       background-color: hsla(225deg, 30%, 24%, 1);
 
-      /* filter: drop-shadow(
-        0px 0px 4px hsla(213, 53%, 30%, 1)
-      ); */
-
-      /* background-image: url("/src/lib/entries/sk/rebis-theory/assets/bomb_icon_equinox.png"); */
       background-image: url("/src/lib/entries/sk/rebis-theory/assets/icon_goldlock.png");
       display: block;
       background-size: cover;
@@ -544,12 +539,8 @@ center.chapter-break {
       margin-top: 4px;
     }
 
-    & .heading-level-3 ul a li {
-      padding-left: 2.4em;
-    }
-
     & .heading-level-4 ul a li {
-      padding-left: 3.4em;
+      padding-left: 2.66em;
     }
   }
 
