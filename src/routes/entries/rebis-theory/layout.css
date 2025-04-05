@@ -460,7 +460,7 @@ center.chapter-break {
 
 @media only screen and (min-width: 624px) {
   .toc {
-    display: flex;
+    display: grid;
     position: fixed;
     max-width: 21%;
     height: 100vh;
@@ -592,6 +592,14 @@ center.chapter-break {
   .container {
     padding-left: calc((100% - 50rem) / 2);
     max-width: 50rem;
+  }
+
+  .ui-button-container-jumper {
+    left: unset;
+    justify-self: center; /* Centers horizontally */
+    & .button-jumper {
+      border-radius: 5px;
+    }
   }
 }
 
