@@ -588,7 +588,12 @@ center.chapter-break {
   .toc {
     max-width: 20rem;
     left: calc(((100% - 50rem) / 2) - 22rem);
+
+    & .toc-content a > li {
+      border-radius: 5px;
+    }
   }
+
   .container {
     padding-left: calc((100% - 50rem) / 2);
     max-width: 50rem;
