@@ -37,9 +37,6 @@
 :root {
   color-scheme: dark;
   --toc-active-item-color: hsl(34, 72%, 70%);
-  --ui-hover-glow: drop-shadow(
-    0 0 4px hsla(0deg, 0%, 100%, 0.4)
-  );
   --ui-selection-regular: rgba(255, 62, 41, 0.5);
   --asset-moon: url("/src/lib/entries/sk/rebis-theory/assets/moon.png");
   --asset-floor: url("/src/lib/entries/sk/rebis-theory/assets/knight_floorlogo.png");
@@ -359,11 +356,12 @@ a {
 
   &:hover {
     transition: 240ms;
-    filter: brightness(0.9);
+    background-color: hsla(225deg, 30%, 18%, 1);
 
     & img {
-      transition: 240ms;
-      filter: var(--ui-hover-glow);
+      filter: drop-shadow(
+        0px 0px 4px hsla(0deg, 0%, 40%, 0.4)
+      );
     }
   }
 }
