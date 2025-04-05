@@ -37,6 +37,7 @@
 :root {
   color-scheme: dark;
   --toc-active-item-color: hsl(34, 72%, 70%);
+  --toc-hover-item-background: hsla(225deg, 40%, 30%, 0.1);
   --ui-selection-regular: rgba(255, 62, 41, 0.5);
   --asset-moon: url("/src/lib/entries/sk/rebis-theory/assets/moon.png");
   --asset-floor: url("/src/lib/entries/sk/rebis-theory/assets/knight_floorlogo.png");
@@ -461,7 +462,7 @@ center.chapter-break {
   .toc {
     display: flex;
     position: fixed;
-    max-width: 20%;
+    max-width: 21%;
     height: 100vh;
     word-wrap: anywhere;
     overflow-y: scroll;
@@ -483,11 +484,11 @@ center.chapter-break {
     & a > li {
       padding-left: 2.2rem;
       padding-right: 0.2rem;
+      border-radius: 0px 5px 5px 0px;
     }
 
     & a[data-active] > li {
       background-color: hsla(225deg, 30%, 24%, 0.2);
-      border-radius: 0px 5px 5px 0px;
     }
     & a[data-active] > li::before {
       content: "";
@@ -583,7 +584,7 @@ center.chapter-break {
   }
 }
 
-@media only screen and (min-width: 2040px) {
+@media only screen and (min-width: 1440px) {
   .toc {
     max-width: 20rem;
     left: calc(((100% - 50rem) / 2) - 22rem);

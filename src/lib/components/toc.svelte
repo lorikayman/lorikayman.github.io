@@ -7,6 +7,7 @@
   /**
    * @description
    * --toc-active-item-color: any color for selected a[data-active] element
+   * --toc-hover-item-background: any color for a > li:hover
    */
   let {
     tree = [],
@@ -63,6 +64,7 @@ MDX component table of contents
   li:hover {
     opacity: 0.8;
     transition: 40ms;
+    background-color: var(--toc-hover-item-background);
   }
 
   a[data-active] > li {
