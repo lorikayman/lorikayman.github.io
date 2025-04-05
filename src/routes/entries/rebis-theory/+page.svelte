@@ -27,7 +27,8 @@
   const tocActiveSelector =
     ".toc-content a[data-active] li";
   /** selector for defining the start for @see Jumper */
-  const documentStart = "h1";
+  const documentStart =
+    ".toc-content a[data-id='rebis-theory-'] li, #document-body h1";
   /**
    * create table of content by scanning a component
    */
