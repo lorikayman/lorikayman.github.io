@@ -17,10 +17,10 @@ Prerequisites:
 task install
 ```
 
-Watch-mode:
+For fuerther instructions see:
 
 ```sh
-task d
+task
 ```
 
 ## Other Content
