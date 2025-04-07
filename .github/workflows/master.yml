@@ -17,27 +17,28 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        name: Checkout
         with:
           token: ${{ secrets.MTT_SIXTH_CHAMBER_PAT }}
           submodules: true
 
       # https://docs.astral.sh/uv/guides/integration/github/#using-uv-in-github-actions
       - uses: astral-sh/setup-uv@v5
-      - uses: actions/setup-python@v5
-        with:
-          python-version-file: "pyproject.toml"
+        name: Set up Uv
       - name: Set up Python
         run: uv python install
 
       - uses: actions/setup-node@v4
+        name: Setup Node
         with:
           node-version: lts/*
           cache: "npm"
-      - name: Set up Node
+      - name: Set up Node dependencies
         run: npm install
 
       # https://taskfile.dev/installation/#github-actions
       - uses: arduino/setup-task@v2
+        name: Set up Task runner
         with:
           version: 3.x
 
