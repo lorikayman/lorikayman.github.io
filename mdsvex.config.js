@@ -31,7 +31,7 @@ const config = defineConfig({
    * Those layouts are not the same as svelte layouts,
    * as the prior is a concept restricted to specifically mdsvex
    * and is the only feasible/programmable way
-   * to pacakge component subtitution through 2-step process:
+   * to package component substitution through a 2-step process:
    *
    * 1. We register an aforementioned mapping of layout name to its path
    * 2. When we import an `.mdx` document, at its header we can specify
