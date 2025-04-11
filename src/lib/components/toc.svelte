@@ -9,12 +9,7 @@
    * --toc-active-item-color: any color for selected a[data-active] element
    * --toc-hover-item-background: any color for a > li:hover
    */
-  let {
-    tree = [],
-    activeHeadingIdxs,
-    item,
-    level = 1,
-  } = $props();
+  let { tree = [], activeHeadingIdxs, item, level = 1 } = $props();
 </script>
 
 <!-- we override on:m-click with {(e)=>{e.preventDefault()}} within an item
