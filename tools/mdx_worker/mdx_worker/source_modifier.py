@@ -114,7 +114,7 @@ class SourceModifier:
             print("WORKING OUTSIDE MTT", end='\n\n')
             print("-" * 32, end='\n\n')
 
-            self.replace_links()
+            # self.replace_links()
 
         print(f'{count} files processed')
 
