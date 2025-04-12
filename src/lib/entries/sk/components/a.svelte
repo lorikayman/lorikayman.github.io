@@ -1,4 +1,6 @@
 <script>
+    import { preventDefault } from 'svelte/legacy';
+
   // implicity here as
   // when no href given in md syntax for [abc]()
   // lack of link is perceived as a
@@ -34,12 +36,41 @@
     return false
   }
 
+  /**
+  * Scroll to active toc element
+  * As it is a link, the click happens
+  * before an actual traversal,
+  * so need to compute a selected
+  * element to scroll to
+  *
+  * @param {String} hash
+  */
+  function scrollTocToActive(hash) {
+    if (!hash) {
+      console.error('No selectable hash provided')
+      return
+    }
+    const dataId = hash.substring(1)
+    const entry = document.querySelector(`.toc a[data-id="${dataId}"]`)
+    if (!entry) {
+      console.error('No selected element in DOM was found for hash:', hash)
+      return
+    }
+    entry.scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+    })
+  }
+
+  let hrefHash;
+
   // reiterate on href checks,
   // now correcting href itself
   if (!!href) {
     if (
       isFirstPartyUrl(href) && href.startsWith("#")
     ) {
+      hrefHash = href;
       href =
         window.location.origin +
         window.location.pathname +
@@ -76,7 +107,9 @@
     {/if}
   </a>
 {:else}
-  <a {href}>
+  <a {href}
+    onclick={() => scrollTocToActive(hrefHash)}
+  >
     {#if children}
       {@render children()}
     {:else}
