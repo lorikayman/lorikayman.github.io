@@ -30,19 +30,23 @@
           err,
         );
       }
-      return false;
     }
+    return false
   }
 
-  if (isFirstPartyUrl(href)) {
-    if (href.startsWith("#")) {
+  // reiterate on href checks,
+  // now correcting href itself
+  if (!!href) {
+    if (
+      isFirstPartyUrl(href) && href.startsWith("#")
+    ) {
       href =
         window.location.origin +
         window.location.pathname +
         href;
     }
   } else {
-    href = undefined;
+    href = false;
   }
 </script>
 
@@ -50,12 +54,16 @@
   <span class="no-children-elements">
     No visible text provided for link:
     <code>
-      {href}
+      {#if href !== true}
+        {href}
+      {:else}
+        [blank]
+      {/if}
     </code>
   </span>
 {/snippet}
 
-{#if !isFirstPartyUrl}
+{#if !isFirstPartyUrl(href)}
   <a
     href={href ?? window.location}
     target="_blank"
@@ -68,7 +76,7 @@
     {/if}
   </a>
 {:else}
-  <a href={href}>
+  <a {href}>
     {#if children}
       {@render children()}
     {:else}
@@ -84,8 +92,9 @@
     background-color: crimson;
 
     & > code {
-      background-color: crimson;
+      background-color: ghostwhite;
       color: black;
+      font-style: normal;
     }
   }
 </style>

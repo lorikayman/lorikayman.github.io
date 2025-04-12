@@ -15,7 +15,7 @@
   // import IconHaven from "$lib/entries/sk/rebis-theory/assets/icon_up.png";
   import IconHaven from "$lib/entries/sk/rebis-theory/assets/over.png";
 
-  import RebisTheory from "$lib/entries/sk/mdx/rebis_theory.mdx";
+  import RebisTheory from "$lib/entries/sk/rebis-theory/rebis_theory.mdx";
   import { writable } from "svelte/store";
 
   // MDX module
