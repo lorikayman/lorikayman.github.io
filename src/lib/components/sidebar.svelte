@@ -1,7 +1,6 @@
 <script>
   import { onMount } from "svelte";
 
-  import { TropicalStorm } from "svelte-bootstrap-icons";
   import { currentPageName } from "$lib/stores/mawanet.loader";
 
   /**
@@ -30,7 +29,7 @@
       data-sveltekit-preload-data="tap"
       href="/mawanet/index"
     >
-      <TropicalStorm width={30} height={30} />
+      <!-- <TropicalStorm width={30} height={30} /> -->
     </a>
     <span class="header-item sidebar-span" id="maec-db-logo"
       >MAEC</span
