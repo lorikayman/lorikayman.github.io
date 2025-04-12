@@ -6,9 +6,6 @@
     "dev": "vite dev --host",
     "build": "vite build",
     "preview": "vite preview --host",
-    "check": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json",
-    "check:watch": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json --watch",
-    "lint": "eslint .",
     "deploy": "gh-pages -d build -t true"
   },
   "devDependencies": {
@@ -18,10 +15,7 @@
     "@sveltejs/adapter-static": "^3.0.8",
     "@sveltejs/kit": "^2.16.1",
     "@sveltejs/vite-plugin-svelte": "^5.0.3",
-    "eslint": "^9.19.0",
-    "eslint-plugin-svelte": "^2.46.1",
     "mdsvex": "^0.12.3",
-    "remark": "^15.0.1",
     "svelte": "^5.19.6",
     "svelte-check": "^4.1.4",
     "svelte-sequential-preprocessor": "^2.0.2",
@@ -30,9 +24,6 @@
   },
   "type": "module",
   "dependencies": {
-    "@fontsource/open-sans": "^5.1.1",
-    "remark-wiki-link": "^2.0.1",
-    "svelte-bootstrap-icons": "^3.1.2",
     "svelte-routing": "^2.13.0"
   }
 }

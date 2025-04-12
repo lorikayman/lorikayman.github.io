@@ -11,24 +11,18 @@ tasks:
     cmds:
       - uv venv  --python-preference only-managed --python 3.13 .venv
       - npm install
-  build:preprocess:
+  build:mtt:preprocess:
     description: Preprocess templated MDX files
     cmds:
       - |
         uv run python ./mdx-worker.py \
         --root-dir ./src/lib/sixth-chamber/doc \
         --output-dir ./src/lib/mawanet \
-        --whitelist ./src/lib/sixth-chamber/whitelist.json \
-        --mtt
-      - |
-        uv run python ./mdx-worker.py \
-        --root-dir ./src/lib/entries/sk/rebis-theory \
-        --output-dir ./src/lib/entries/sk/mdx \
-        --whitelist ./src/lib/entries/sk/whitelist.json \
+        --whitelist ./src/lib/sixth-chamber/whitelist.json
   build:
     aliases: [b]
     cmds:
-      - task: build:preprocess
+      # - task: build:preprocess
       - npm run build
   build:faster:
     summary: |

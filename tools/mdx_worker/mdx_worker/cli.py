@@ -32,10 +32,3 @@ parser.add_argument(
   required=False,
   help="Maps WebComponents onto MDX Custom Components",
 )
-
-parser.add_argument(
-  '--mtt',
-  dest='mtt',
-  action='store_true',
-  help="Weather we are working in MTT context of markdown files, for compatibility",
-)

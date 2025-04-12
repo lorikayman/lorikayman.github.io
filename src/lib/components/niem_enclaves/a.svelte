@@ -6,11 +6,6 @@
   import { slide } from "svelte/transition";
   import { createCollapsible, melt } from "@melt-ui/svelte";
 
-  import {
-    Fullscreen,
-    ArrowBarUp,
-  } from "svelte-bootstrap-icons";
-
   const {
     elements: { root, content, trigger },
     states: { open },
@@ -28,12 +23,12 @@
     >
       {#if $open}
         <span class="nier-access-point-close"
-          ><ArrowBarUp /> Revoke access</span
+          >Revoke access</span
         >
         to
       {:else}
         <span class="nier-access-point-access"
-          ><Fullscreen /> Access</span
+          >Access</span
         >
       {/if}
       NIER | Secure Enclave

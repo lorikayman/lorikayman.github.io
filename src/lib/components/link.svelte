@@ -1,7 +1,7 @@
 <script>
   import { createLinkPreview, melt } from "@melt-ui/svelte";
 
-  import { FileLock2Fill } from "svelte-bootstrap-icons";
+  // import { FileLock2Fill } from "svelte-bootstrap-icons";
 
   import {
     fetchComponent,
@@ -63,7 +63,7 @@
   {#if !error}
     <slot />
   {:else}
-    <FileLock2Fill width={16} height={16} />Access Denied
+    Access Denied
   {/if}
 </a>
 
