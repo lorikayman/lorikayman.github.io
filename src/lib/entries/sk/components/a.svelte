@@ -1,6 +1,4 @@
 <script>
-    import { preventDefault } from 'svelte/legacy';
-
   // implicity here as
   // when no href given in md syntax for [abc]()
   // lack of link is perceived as a
@@ -94,27 +92,27 @@
   </span>
 {/snippet}
 
+{#snippet slotChecker(children)}
+  {#if children}
+    {@render children()}
+  {:else}
+    {@render errorNoChildrenElements(href)}
+  {/if}
+{/snippet}
+
 {#if !isFirstPartyUrl(href)}
   <a
     href={href ?? window.location}
     target="_blank"
     rel="noopener noreferrer"
   >
-    {#if children}
-      {@render children()}
-    {:else}
-      {@render errorNoChildrenElements(href)}
-    {/if}
+    {@render slotChecker(children)}
   </a>
 {:else}
   <a {href}
     onclick={() => scrollTocToActive(hrefHash)}
   >
-    {#if children}
-      {@render children()}
-    {:else}
-      {@render errorNoChildrenElements(href)}
-    {/if}
+    {@render slotChecker(children)}
   </a>
 {/if}
 
