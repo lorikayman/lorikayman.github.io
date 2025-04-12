@@ -31,8 +31,6 @@ class SourceModifier:
     whitelist : Path
         Path to `.json` whitelist of allowed to be processed `.md` entries
     component_map : Path
-    mtt : bool
-        Weather we are working in MTT context of markdown files, for compatibility.
     """
 
     _MDX_IMPORTS = '<script>import Link from "$lib/components/link.svelte";\nimport SecureEnclaveA from "$lib/components/niem_enclaves/a.svelte"\n</script>\n'
@@ -43,13 +41,11 @@ class SourceModifier:
         output_dir: Path,
         whitelist: None | Path,
         component_map: None | Path,
-        mtt: bool,
     ) -> None:
         self._glob_root = glob_root
         self._output_dir = output_dir
         self._whitelist = whitelist
         self._component_map = component_map
-        self.mtt = mtt
 
     def __parse_whitelist(self) -> list[str]:
         """Parse given `_whitelist` if it was given
@@ -99,22 +95,15 @@ class SourceModifier:
                 mdx.write(contents)
             print('ok')
 
-        if self.mtt:
-            with open(Path().cwd() / ENTRY_PAGEJS.path, mode='w', encoding='utf-8') as pjs:
-                pjs.write(ENTRY_PAGEJS.layout_start)
-                for name in entry_names:
-                    pjs.write(ENTRY_PAGEJS.slot_pattern % name)
-                pjs.write(ENTRY_PAGEJS.layout_end)
+        with open(Path().cwd() / ENTRY_PAGEJS.path, mode='w', encoding='utf-8') as pjs:
+            pjs.write(ENTRY_PAGEJS.layout_start)
+            for name in entry_names:
+                pjs.write(ENTRY_PAGEJS.slot_pattern % name)
+            pjs.write(ENTRY_PAGEJS.layout_end)
 
 
-            self.replace_wikilinks()
-            self.generate_js_imports()
-        else:
-            print("-" * 32, end='\n\n')
-            print("WORKING OUTSIDE MTT", end='\n\n')
-            print("-" * 32, end='\n\n')
-
-            # self.replace_links()
+        self.replace_wikilinks()
+        self.generate_js_imports()
 
         print(f'{count} files processed')
 

@@ -18,8 +18,7 @@ tasks:
         uv run python ./mdx-worker.py \
         --root-dir ./src/lib/sixth-chamber/doc \
         --output-dir ./src/lib/mawanet \
-        --whitelist ./src/lib/sixth-chamber/whitelist.json \
-        --mtt
+        --whitelist ./src/lib/sixth-chamber/whitelist.json
   build:
     aliases: [b]
     cmds:

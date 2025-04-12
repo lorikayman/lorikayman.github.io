@@ -17,8 +17,6 @@ def main():
     modifier = SourceModifier(
         glob_root=Path().cwd() / args.root_dir,
         output_dir=Path().cwd() / args.output_dir,
-        mtt=args.mtt,
-
         whitelist=whitelist,
         component_map=component_map,
     )
