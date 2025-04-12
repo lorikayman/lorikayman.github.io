@@ -79,53 +79,60 @@
   }
 </script>
 
-{#snippet errorNoChildrenElements(href)}
+{#snippet errorNoChildrenElements()}
   <span class="no-children-elements">
-    No visible text provided for link:
-    <code>
-      {#if href !== true}
-        {href}
-      {:else}
-        [blank]
-      {/if}
-    </code>
+    No text is provided for link:
   </span>
 {/snippet}
 
-{#snippet slotChecker(children)}
-  {#if children}
+{#snippet slotChecker(children, href)}
+  {#if children && href !== true}
     {@render children()}
   {:else}
-    {@render errorNoChildrenElements(href)}
+
+    {#if children}
+      {@render children()}
+    {:else}
+      {@render errorNoChildrenElements()}
+    {/if}
+
+    <code class="no-children-elements">
+      {#if href !== true}
+        {href}
+      {:else}
+        => [blank]
+      {/if}
+    </code>
   {/if}
 {/snippet}
 
 {#if !isFirstPartyUrl(href)}
   <a
-    href={href ?? window.location}
+    href={href}
     target="_blank"
     rel="noopener noreferrer"
   >
-    {@render slotChecker(children)}
+    {@render slotChecker(children, href)}
   </a>
 {:else}
   <a {href}
     onclick={() => scrollTocToActive(hrefHash)}
   >
-    {@render slotChecker(children)}
+    {@render slotChecker(children, href)}
   </a>
 {/if}
 
 <style>
   /* error template in case of component failure */
-  .no-children-elements {
+  span.no-children-elements {
     color: black;
     background-color: crimson;
+  }
 
-    & > code {
-      background-color: ghostwhite;
-      color: black;
-      font-style: normal;
-    }
+  code.no-children-elements {
+    /* background-color: ghostwhite; */
+    background-color: crimson;
+    color: black;
+    font-style: normal;
   }
 </style>
