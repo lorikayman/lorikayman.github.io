@@ -6,23 +6,40 @@
   // attribute with no value - boolean
   let { href, children, ...params } = $props();
 
-  let isFirstPartyUrl;
-  if (href !== true) {
+  /**
+   * Check FQDN of a link weather it is same as current site's
+   *
+   * @param {String} href
+   * @returns {Boolean}
+   */
+  function isFirstPartyUrl(href) {
+    if (href !== true) {
+      // check string as hash
+      if (href.startsWith("#")) {
+        return true;
+      }
+      // in case of plaintext
+      // un-url-able string being passed
+      try {
+        const hrefObj = new URL(href);
+        return window.location.hostname == hrefObj.hostname;
+      } catch (err) {
+        console.error(
+          "[a component]",
+          import.meta.url,
+          err,
+        );
+      }
+      return false;
+    }
+  }
+
+  if (isFirstPartyUrl(href)) {
     if (href.startsWith("#")) {
       href =
         window.location.origin +
         window.location.pathname +
         href;
-    }
-    // in case of plaintext
-    // un-url-able string being passed
-    try {
-      const hrefObj = new URL(href);
-
-      isFirstPartyUrl =
-        window.location.hostname == hrefObj.hostname;
-    } catch (err) {
-      console.error("[a component]", import.meta.url, err);
     }
   } else {
     href = undefined;
@@ -51,7 +68,7 @@
     {/if}
   </a>
 {:else}
-  <a {href}>
+  <a href={href}>
     {#if children}
       {@render children()}
     {:else}
