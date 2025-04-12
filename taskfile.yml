@@ -20,11 +20,6 @@ tasks:
         --output-dir ./src/lib/mawanet \
         --whitelist ./src/lib/sixth-chamber/whitelist.json \
         --mtt
-      - |
-        uv run python ./mdx-worker.py \
-        --root-dir ./src/lib/entries/sk/rebis-theory \
-        --output-dir ./src/lib/entries/sk/mdx \
-        --whitelist ./src/lib/entries/sk/whitelist.json \
   build:
     aliases: [b]
     cmds:
