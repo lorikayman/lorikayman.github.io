@@ -11,7 +11,7 @@ tasks:
     cmds:
       - uv venv  --python-preference only-managed --python 3.13 .venv
       - npm install
-  build:preprocess:
+  build:mtt:preprocess:
     description: Preprocess templated MDX files
     cmds:
       - |
@@ -22,7 +22,7 @@ tasks:
   build:
     aliases: [b]
     cmds:
-      - task: build:preprocess
+      # - task: build:preprocess
       - npm run build
   build:faster:
     summary: |
