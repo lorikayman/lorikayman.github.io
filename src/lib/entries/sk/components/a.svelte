@@ -44,6 +44,7 @@
   * @param {String} hash
   */
   function scrollTocToActive(hash) {
+    console.log(hash)
     if (!hash) {
       console.error('No selectable hash provided')
       return
