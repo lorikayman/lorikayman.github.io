@@ -19,7 +19,7 @@
     const targetHash = `#${e.target.parentNode.previousElementSibling.id}`
 
     const replaceState = page.url.hash == targetHash
-    goto(targetHash, {noScroll: true, replaceState: replaceState})
+    goto(targetHash, {replaceState: replaceState})
   }
 </script>
 
