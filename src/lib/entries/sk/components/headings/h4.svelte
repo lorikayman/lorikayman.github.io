@@ -1,6 +1,9 @@
 <script>
   // todo: on mobile make entire heading clickable with underscore
 
+  import { goto } from "$app/navigation"
+  import { page } from "$app/state"
+
   let {children, ...props} = $props()
 
   /**
@@ -13,10 +16,10 @@
       console.error("No target provided")
       return
     }
-    const targetId = e.target.parentNode.previousElementSibling.id
+    const targetHash = `#${e.target.parentNode.previousElementSibling.id}`
 
-    // back in history does not scroll to prev element
-    window.location.hash = targetId
+    const replaceState = page.url.hash == targetHash
+    goto(targetHash, {noScroll: true, replaceState: replaceState})
   }
 </script>
 
@@ -45,6 +48,7 @@
 
   .anchor {
     display: none;
+    cursor: pointer ;
     border-color: transparent;
     border-radius: 5px;
     border-width: 0px;
