@@ -1,6 +1,4 @@
 <script>
-    import { sleep } from "@melt-ui/svelte/internal/helpers";
-
   /**
    * @param {String} selector
    *    may contain comas `,` and if so,
