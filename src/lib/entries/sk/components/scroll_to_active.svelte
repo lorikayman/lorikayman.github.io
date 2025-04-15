@@ -1,4 +1,6 @@
 <script>
+    import { sleep } from "@melt-ui/svelte/internal/helpers";
+
   /**
    * @param {String} selector
    *    may contain comas `,` and if so,
@@ -14,30 +16,47 @@
   } = $props();
 
   const isChrome = navigator.userAgent.indexOf('Chrome') > 0
+  // delay in ms
+  const SCROLL_DELAY = 800;
+
+  /**
+  * Helper delay function
+  *
+  * @param ms delay in ms
+  */
+  function delay(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
 
   /**
    * @description On click TOC is scrolled to the selector
    *  so that it would be centered vertically
    * if selector has `,` - split them and evaluate sequentially
+   *
+   * Notably, Chrome does not support multiple
+   * on-going scrolls, so we consider processing
+   * them sequentially, that is not waiting for
+   * a previous one to complete as it would be
+   * too complex of logic,
+   * but sep approx time window between them
    */
-  function scrollToActive() {
-    // FIXME:
-    // Chrome does not support multiple scrolling actions, consider processing them sequentially,
-    // that is waiting for a previous one to complete
-    // currently we do this by applying instant scroll for chrome
-    selector.split(",").forEach((selectorFiltered, i) => {
+  async function scrollToActive() {
+    const selectors = selector.split(",")
+    for (let i = 0; i < selectors.length; i++) {
+      const selectorFiltered = selectors[i]
       const activeElement = document.querySelector(
         selectorFiltered,
       );
       if (activeElement) {
+        if (isChrome && i > 0) await delay(SCROLL_DELAY);
         activeElement.scrollIntoView({
-          behavior: isChrome ? 'instant' : "smooth",
+          behavior: "smooth",
           block: "center",
         });
       } else {
         console.error("No element was found for selector:", selectorFiltered)
       }
-    });
+    }
   }
 </script>
 
