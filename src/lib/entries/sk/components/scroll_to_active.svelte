@@ -7,23 +7,19 @@
    * @param {String} buttonClass
    * @param {HTMLElement} children passed markup
    */
-  let {
-    selector = "",
-    buttonClass = "",
-    children,
-  } = $props();
+  let { selector = "", buttonClass = "", children } = $props();
 
-  const isChrome = navigator.userAgent.indexOf('Chrome') > 0
+  const isChrome = navigator.userAgent.indexOf("Chrome") > 0;
   // delay in ms
   const SCROLL_DELAY = 800;
 
   /**
-  * Helper delay function
-  *
-  * @param ms delay in ms
-  */
+   * Helper delay function
+   *
+   * @param ms delay in ms
+   */
   function delay(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
+    return new Promise((resolve) => setTimeout(resolve, ms));
   }
 
   /**
@@ -39,12 +35,10 @@
    * but sep approx time window between them
    */
   async function scrollToActive() {
-    const selectors = selector.split(",")
+    const selectors = selector.split(",");
     for (let i = 0; i < selectors.length; i++) {
-      const selectorFiltered = selectors[i]
-      const activeElement = document.querySelector(
-        selectorFiltered,
-      );
+      const selectorFiltered = selectors[i];
+      const activeElement = document.querySelector(selectorFiltered);
       if (activeElement) {
         if (isChrome && i > 0) await delay(SCROLL_DELAY);
         activeElement.scrollIntoView({
@@ -52,17 +46,13 @@
           block: "center",
         });
       } else {
-        console.error("No element was found for selector:", selectorFiltered)
+        console.error("No element was found for selector:", selectorFiltered);
       }
     }
   }
 </script>
 
-<button
-  class={buttonClass}
-  on:click={scrollToActive}
-  type="button"
->
+<button class={buttonClass} on:click={scrollToActive} type="button">
   {@render children?.()}
 </button>
 

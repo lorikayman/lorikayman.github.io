@@ -1,23 +1,24 @@
-import path from "path"
-import { fileURLToPath } from "node:url";
+import path from 'path'
+import { fileURLToPath } from 'node:url'
 
-import { defineMDSveXConfig as defineConfig } from "mdsvex"
+import { defineMDSveXConfig as defineConfig } from 'mdsvex'
 // import { wikiLinkPlugin } from "remark-wiki-link";
 
-const root_dir = path.resolve(fileURLToPath(import.meta.url), '..');
+const rootDir = path.resolve(fileURLToPath(import.meta.url), '..')
 
 // mdsvex layouts' paths
-const layout_entries_sk_path = path.join(root_dir, "./src/lib/entries/sk/mdsvex.layout.svelte");
+const layoutPathEntriesRebis = path
+  .join(rootDir, './src/lib/entries/sk/mdsvex.layout.svelte')
 
 const config = defineConfig({
   extensions: [
     '.mdx',
-    '.md',
+    '.md'
   ],
 
   smartypants: {
     dashes: true,
-    backticks: false,
+    backticks: false
   },
   /**
    * Js developers reinventing and renaming 20+ year-old concepts at its fucking best
@@ -47,8 +48,8 @@ const config = defineConfig({
    * for complete exploration of this feature
    */
   layout: {
-    entries_sk: layout_entries_sk_path,
-  },
-});
+    entries_sk: layoutPathEntriesRebis
+  }
+})
 
-export default config;
+export default config

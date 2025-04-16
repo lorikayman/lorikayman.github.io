@@ -3,9 +3,5 @@
   "preferred_line_length": 60,
   "hard_tabs": false,
   "tab_size": 2,
-
-  "remove_trailing_whitespace_on_save": true,
-  "formatter": "language_server",
-  // until eslint configuration is completed
-  "format_on_save": "off"
+  "remove_trailing_whitespace_on_save": false
 }

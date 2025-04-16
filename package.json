@@ -4,6 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "vite dev --host",
+    "lint": "standard",
+    "lint:fix": "standard --fix",
     "build": "vite build",
     "preview": "vite preview --host",
     "deploy": "gh-pages -d build -t true"
@@ -16,14 +18,17 @@
     "@sveltejs/kit": "^2.16.1",
     "@sveltejs/vite-plugin-svelte": "^5.0.3",
     "mdsvex": "^0.12.3",
+    "standard": "^17.1.2",
     "svelte": "^5.19.6",
     "svelte-check": "^4.1.4",
+    "svelte-routing": "^2.13.0",
     "svelte-sequential-preprocessor": "^2.0.2",
     "typescript": "^5.7.3",
     "vite": "^6.0.11"
   },
   "type": "module",
-  "dependencies": {
-    "svelte-routing": "^2.13.0"
+  "standard": {
+    "enable": true,
+    "autoFixOnSave": true
   }
 }
