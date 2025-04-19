@@ -130,10 +130,7 @@
     {@render slotChecker(children, href)}
   </a>
 {:else}
-  <a
-    {href}
-    onclick={async () => await scrollTocToActive(hrefHash)}
-  >
+  <a {href} onclick={scrollTocToActive(hrefHash)}>
     {@render slotChecker(children, href)}
   </a>
 {/if}
