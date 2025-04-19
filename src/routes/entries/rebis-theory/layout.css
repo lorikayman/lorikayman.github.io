@@ -418,7 +418,7 @@ center.chapter-break {
 
     &:hover {
       color: hsl(214, 86%, 86%);
-      transition: 40ms;
+      transition: 20ms;
     }
   }
 }
