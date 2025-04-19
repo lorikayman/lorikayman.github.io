@@ -34,7 +34,9 @@ jobs:
           node-version: lts/*
           cache: "npm"
       - name: Set up Node dependencies
-        run: npm install
+        # see https://github.com/standard/eslint-config-standard/issues/427
+        # we use --force due to standard/eslint-config-standard `eslint` dependency compatibility having a stroke
+        run: npm install --force
 
       # https://taskfile.dev/installation/#github-actions
       - uses: arduino/setup-task@v2
