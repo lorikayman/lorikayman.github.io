@@ -35,6 +35,7 @@ jobs:
           cache: "npm"
       - name: Set up Node dependencies
         # see https://github.com/standard/eslint-config-standard/issues/427
+        # see https://github.com/standard/eslint-config-standard/issues/411
         # we use --force due to standard/eslint-config-standard `eslint` dependency compatibility having a stroke
         run: npm install --force
 
