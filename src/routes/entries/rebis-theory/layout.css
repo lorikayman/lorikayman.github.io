@@ -356,7 +356,6 @@ a {
   background-color: hsla(225deg, 30%, 24%, 1);
 
   &:hover {
-    transition: 240ms;
     background-color: hsla(225deg, 30%, 18%, 1);
 
     & img {
