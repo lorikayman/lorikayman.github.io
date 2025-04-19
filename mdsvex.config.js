@@ -1,29 +1,29 @@
-import path from "path";
-import { fileURLToPath } from "node:url";
+import path from 'path'
+import { fileURLToPath } from 'node:url'
 
-import { defineMDSveXConfig as defineConfig } from "mdsvex";
+import { defineMDSveXConfig as defineConfig } from 'mdsvex'
 // import { wikiLinkPlugin } from "remark-wiki-link";
 
 const rootDir = path.resolve(
   fileURLToPath(import.meta.url),
-  "..",
-);
+  '..'
+)
 
 // mdsvex layouts' paths
 const layoutPathEntriesRebis = path.join(
   rootDir,
-  "./src/lib/entries/sk/mdsvex.layout.svelte",
-);
+  './src/lib/entries/sk/mdsvex.layout.svelte'
+)
 
 const config = defineConfig({
-  extensions: [".mdx", ".md"],
+  extensions: ['.mdx', '.md'],
 
   smartypants: {
     dashes: true,
-    backticks: false,
+    backticks: false
   },
   /**
-   * Js developers reinventing and renaming 20+ year-old concepts at its fucking best
+   * Js developers reinventing wheels and failing at 20+ year-old concepts at its best
    *
    * This is one of more obscure but only approaches
    * of replacing html tags with custom svelte components
@@ -49,27 +49,24 @@ const config = defineConfig({
    * @see {@link https://github.com/lorikayman/lorikayman.github.io/issues/8}
    * for complete exploration of this feature
    *
-   * If a library or a tool is designed for a specific framework only,
-   * - in this case being mdsvex, making a shift from an established
-   * by parent framework paradigm if stupid,
+   * If a library or a tool is designed only for a specific framework,
+   * - in this case being mdsvex, - making a shift from an established
+   * by parent framework paradigm is particularly bad,
    * as it breaks internal consistency of the ecosystem,
-   * which is paramount to most of other stuff
+   * which is paramount to most of other stuff,
+   * if we ever cant to achieve smooth DX.
+   * Especially, in cases such as MDX implementation,
+   * which itself can be considered overengineered or bloat.
    *
-   * why the fuck should we adapt for a workflow of a specific niche use case tool,
-   * countered to a framework, where the tool itself could not exist without the latter?
-   * Even when the latter's logic is flawed by itself,
-   * do not introduce even more entropy and complexity to an already
-   * far from perfect, but an established system.
-   * There is nothing good nor beneficial about it
-   * apart from a removal of a learning curve for one's own habits, workflows,
-   * and a lack of skill as a developer, evident by an inability to account for or timely resolve it
-   *
-   * If the parent framework's approach does not suffice,
-   * - use a different framework, but not this hot mess
+   * why should we adapt for a workflow of a specific niche use-case tool,
+   * countered to the framework, where tool itself could not exist without the latter?
+   * Even when the latter's logic is flawed on its own,
+   * do not introduce even more entropy/complexity to an already
+   * far from perfect, but an established and working system.
    */
   layout: {
-    entries_sk: layoutPathEntriesRebis,
-  },
-});
+    entries_sk: layoutPathEntriesRebis
+  }
+})
 
-export default config;
+export default config
