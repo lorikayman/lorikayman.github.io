@@ -1,15 +1,15 @@
 <script>
-  import { melt } from "@melt-ui/svelte";
-  import { onMount, tick } from "svelte";
+  import { melt } from '@melt-ui/svelte'
+  import { onMount, tick } from 'svelte'
 
-  import Toc from "./toc.svelte";
+  import Toc from './toc.svelte'
 
   /**
    * @description
    * --toc-active-item-color: any color for selected a[data-active] element
    * --toc-hover-item-background: any color for a > li:hover
    */
-  let { tree = [], activeHeadingIdxs, item, level = 1 } = $props();
+  const { tree = [], activeHeadingIdxs, item, level = 1 } = $props()
 </script>
 
 <!-- we override on:m-click with {(e)=>{e.preventDefault()}} within an item
@@ -24,7 +24,7 @@ MDX component table of contents
         href="#{heading.id}"
         use:melt={$item(heading.id)}
         onm-click={(event) => {
-          event.preventDefault();
+          event.preventDefault()
         }}
       >
         <li>

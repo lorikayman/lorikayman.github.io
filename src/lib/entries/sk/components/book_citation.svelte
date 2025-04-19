@@ -1,5 +1,5 @@
 <script>
-  let { source, markup } = $props();
+  const { source, markup } = $props()
 </script>
 
 <center>

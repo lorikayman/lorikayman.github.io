@@ -7,26 +7,25 @@
    * @param {String} buttonClass
    * @param {HTMLElement} children passed markup
    */
-  let {
-    selector = "",
-    buttonClass = "",
-    children,
-  } = $props();
+  const {
+    selector = '',
+    buttonClass = '',
+    children
+  } = $props()
 
-  const isChrome =
-    navigator.userAgent.indexOf("Chrome") > 0;
+  const isChrome = navigator.userAgent.indexOf('Chrome') > 0
   // delay in ms
-  const SCROLL_DELAY = 800;
+  const SCROLL_DELAY = 800
 
   /**
    * Helper delay function
    *
    * @param ms delay in ms
    */
-  function delay(ms) {
+  function delay (ms) {
     return new Promise((resolve) =>
-      setTimeout(resolve, ms),
-    );
+      setTimeout(resolve, ms)
+    )
   }
 
   /**
@@ -41,24 +40,24 @@
    * too complex of logic,
    * but sep approx time window between them
    */
-  async function scrollToActive() {
-    const selectors = selector.split(",");
+  async function scrollToActive () {
+    const selectors = selector.split(',')
     for (let i = 0; i < selectors.length; i++) {
-      const selectorFiltered = selectors[i];
+      const selectorFiltered = selectors[i]
       const activeElement = document.querySelector(
-        selectorFiltered,
-      );
+        selectorFiltered
+      )
       if (activeElement) {
-        if (isChrome && i > 0) await delay(SCROLL_DELAY);
+        if (isChrome && i > 0) await delay(SCROLL_DELAY)
         activeElement.scrollIntoView({
-          behavior: "smooth",
-          block: "center",
-        });
+          behavior: 'smooth',
+          block: 'center'
+        })
       } else {
         console.error(
-          "No element was found for selector:",
-          selectorFiltered,
-        );
+          'No element was found for selector:',
+          selectorFiltered
+        )
       }
     }
   }

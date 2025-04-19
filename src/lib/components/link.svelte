@@ -1,44 +1,44 @@
 <script>
-  import { createLinkPreview, melt } from "@melt-ui/svelte";
+  import { createLinkPreview, melt } from '@melt-ui/svelte'
 
   // import { FileLock2Fill } from "svelte-bootstrap-icons";
 
   import {
     fetchComponent,
     nextPageName,
-    currentPageName,
-  } from "$lib/stores/mawanet.loader.js";
+    currentPageName
+  } from '$lib/stores/mawanet.loader.js'
 
   const {
-    elements: { trigger, content, arrow },
+    elements: { trigger, content, arrow }
   } = createLinkPreview({
     openDelay: 400,
     closeDelay: 50,
-    positioning: { placement: "bottom" },
-  });
+    positioning: { placement: 'bottom' }
+  })
 
   /**
    * @type {String}
    */
-  export let path;
-  let EntryComponent = null;
-  let error = null;
+  export let path
+  let EntryComponent = null
+  let error = null
 
-  function extractName(path) {
-    let rx = /\/\w+\/(\w+)\.*/g;
-    let arr = rx.exec(path);
-    return arr[1];
+  function extractName (path) {
+    const rx = /\/\w+\/(\w+)\.*/g
+    const arr = rx.exec(path)
+    return arr[1]
   }
 
-  async function loadEntry() {
-    let page = extractName(path);
-    let entryProperties = await fetchComponent(page);
+  async function loadEntry () {
+    const page = extractName(path)
+    const entryProperties = await fetchComponent(page)
 
-    EntryComponent = entryProperties.entryComponent;
-    error = entryProperties.error;
+    EntryComponent = entryProperties.entryComponent
+    error = entryProperties.error
   }
-  function mouseLeave() {
-    nextPageName.set($currentPageName);
+  function mouseLeave () {
+    nextPageName.set($currentPageName)
   }
 </script>
 
@@ -46,16 +46,16 @@
   class="mtt-link"
   href={error || path}
   on:mouseleave={() => {
-    mouseLeave();
+    mouseLeave()
   }}
   on:mouseenter={() => {
-    loadEntry();
+    loadEntry()
   }}
   on:m-hover={(e) => {
-    e.preventDefault();
+    e.preventDefault()
   }}
   on:m-blur={(e) => {
-    e.preventDefault();
+    e.preventDefault()
   }}
   use:melt={$trigger}
   class:error403={error === 403}

@@ -1,30 +1,30 @@
 <script>
-  import { page } from "$app/state";
-  import { onMount } from "svelte";
-  import { afterNavigate } from "$app/navigation";
+  import { page } from '$app/state'
+  import { onMount } from 'svelte'
+  import { afterNavigate } from '$app/navigation'
   // import { cubicInOut } from "svelte/easing";
   // import { crossfade, blur } from "svelte/transition";
 
-  export let data;
+  export let data
 
-  import MawanetHeader from "$lib/components/profile/mawanet_header.svelte";
-  import TripleSymbol from "$lib/components/profile/triple_symbol.svelte";
+  import MawanetHeader from '$lib/components/profile/mawanet_header.svelte'
+  import TripleSymbol from '$lib/components/profile/triple_symbol.svelte'
 
-  document.title = "RKHL57 : IRKM";
+  document.title = 'RKHL57 : IRKM'
 
-  let host;
-  if (data.tab == "company") {
-    host = "57sw.erkh.maw";
+  let host
+  if (data.tab == 'company') {
+    host = '57sw.erkh.maw'
   } else {
-    host = page.url.host;
+    host = page.url.host
   }
 
-  let userHasScrolled = false;
+  const userHasScrolled = false
 
   afterNavigate(() => {
-    let tabElement = document.querySelector(".tabbed-content");
-    window.scrollTo(0, tabElement.getBoundingClientRect().top - 180);
-  });
+    const tabElement = document.querySelector('.tabbed-content')
+    window.scrollTo(0, tabElement.getBoundingClientRect().top - 180)
+  })
 
   // onMount(() => {
   //   let tabElement = document.querySelector(".tabbed-content");

@@ -1,5 +1,5 @@
 <script>
-  export let url, label, type;
+  export let url, label, type
 </script>
 
 <a class="media-link-container" target="_blank" href={url}>

@@ -3,5 +3,10 @@
   "preferred_line_length": 60,
   "hard_tabs": false,
   "tab_size": 2,
-  "remove_trailing_whitespace_on_save": false
+  "remove_trailing_whitespace_on_save": false,
+  "languages": {
+    "Svelte": {
+      "format_on_save": "off"
+    }
+  }
 }

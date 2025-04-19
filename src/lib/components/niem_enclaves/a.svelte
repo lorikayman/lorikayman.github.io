@@ -3,15 +3,15 @@
    * @module SecureEnclaveA
    */
 
-  import { slide } from "svelte/transition";
-  import { createCollapsible, melt } from "@melt-ui/svelte";
+  import { slide } from 'svelte/transition'
+  import { createCollapsible, melt } from '@melt-ui/svelte'
 
   const {
     elements: { root, content, trigger },
-    states: { open },
+    states: { open }
   } = createCollapsible({
-    forceVisible: false,
-  });
+    forceVisible: false
+  })
 </script>
 
 <div use:melt={$root}>

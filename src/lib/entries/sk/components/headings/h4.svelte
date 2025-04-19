@@ -1,25 +1,25 @@
 <script>
   // todo: on mobile make entire heading clickable with underscore
 
-  import { goto } from "$app/navigation"
-  import { page } from "$app/state"
+  import { goto } from '$app/navigation'
+  import { page } from '$app/state'
 
-  let {children, ...props} = $props()
+  const { children, ...props } = $props()
 
   /**
    *
    * @param {Event} e event with
    *   target element
-  */
-  function gotoAnchorHeading(e) {
+   */
+  function gotoAnchorHeading (e) {
     if (!e) {
-      console.error("No target provided")
+      console.error('No target provided')
       return
     }
     const targetHash = `#${e.target.parentNode.previousElementSibling.id}`
 
     const replaceState = page.url.hash == targetHash
-    goto(targetHash, {replaceState: replaceState})
+    goto(targetHash, { replaceState })
   }
 </script>
 
@@ -29,7 +29,10 @@
   </h4>
   <!-- workaround for melt-ui 1 toc scrapper -->
   <h4 data-toc-ignore>
-    <button class="anchor" onclick={e => gotoAnchorHeading(e)}>
+    <button
+      class="anchor"
+      onclick={(e) => gotoAnchorHeading(e)}
+    >
       i
     </button>
   </h4>
@@ -48,7 +51,7 @@
 
   .anchor {
     display: none;
-    cursor: pointer ;
+    cursor: pointer;
     border-color: transparent;
     border-radius: 5px;
     border-width: 0px;
@@ -57,7 +60,7 @@
     width: 1.3rem;
     height: 1.3rem;
 
-    background-size:cover;
+    background-size: cover;
     background-repeat: no-repeat;
     align-items: center;
 
