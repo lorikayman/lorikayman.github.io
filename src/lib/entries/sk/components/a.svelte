@@ -77,13 +77,27 @@
       )
       return
     }
-    if (isChrome) await delay(SCROLL_DELAY)
-    entry.scrollIntoView({
-      behavior: 'smooth',
-      block: isChrome ? 'start' : 'center'
-    })
+    if (isChrome) {
+      await delay(SCROLL_DELAY)
+      // chrome does not work here with
+      // entry.scrollIntoView + block: center,
+      // as it misaligns 'block: center'
+      // to viewport's top
+      // firefox and webkit works as intended
+      const viewportHeightCentered = entry.getBoundingClientRect().top - window.innerHeight / 2
+      document.querySelector('.toc').scrollTo({
+        top: viewportHeightCentered,
+        behavior: 'smooth'
+      })
+    } else {
+      entry.scrollIntoView({
+        block: 'center',
+        behavior: 'smooth'
+      })
+    }
   }
 
+  // svelte-ignore non_reactive_update
   let hrefHash
 
   // reiterate on href checks,
@@ -132,7 +146,7 @@
     {@render slotChecker(children, href)}
   </a>
 {:else}
-  <a {href} onclick={scrollTocToActive(hrefHash)}>
+  <a {href} onclick={() => scrollTocToActive(hrefHash)}>
     {@render slotChecker(children, href)}
   </a>
 {/if}
