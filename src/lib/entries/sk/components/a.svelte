@@ -9,7 +9,9 @@
   const isChrome =
     navigator.userAgent.indexOf('Chrome') > 0
   // delay in ms
-  const SCROLL_DELAY = 800
+  // since other concurrent scrolls are instant,
+  // due to href/onclick logic, setting delay to 1 still works in chrome
+  const SCROLL_DELAY = 0
   /**
    * Helper delay function
    *
