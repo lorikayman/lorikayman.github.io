@@ -1,7 +1,7 @@
 <script>
-  import { onMount } from "svelte";
+  import { onMount } from 'svelte'
 
-  import { currentPageName } from "$lib/stores/mawanet.loader";
+  import { currentPageName } from '$lib/stores/mawanet.loader'
 
   /**
    * Scrolls do a designated div end

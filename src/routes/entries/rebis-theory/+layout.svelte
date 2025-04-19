@@ -1,5 +1,5 @@
 <script context="module">
-  import "./layout.css";
+  import './layout.css'
 
   // import Webgl from "$lib/components/canvas/webgl.svelte";
 </script>

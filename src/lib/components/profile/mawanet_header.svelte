@@ -1,7 +1,7 @@
 <script>
-  import { page } from "$app/state";
+  import { page } from '$app/state'
 
-  let { host } = $props();
+  const { host } = $props()
 </script>
 
 <div id="header-container">

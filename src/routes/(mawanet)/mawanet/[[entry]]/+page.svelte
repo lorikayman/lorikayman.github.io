@@ -1,19 +1,19 @@
 <script>
-  
-  import { createTableOfContents } from '@melt-ui/svelte';
 
-  import { currentPageName } from "$lib/stores/mawanet.loader";
-  import Tree from '$lib/components/toc.svelte';
-  import Sidebar from "$lib/components/sidebar.svelte"
-  
-  export let data;
+  import { createTableOfContents } from '@melt-ui/svelte'
 
-  if (data.error) console.error(data.error);
+  import { currentPageName } from '$lib/stores/mawanet.loader'
+  import Tree from '$lib/components/toc.svelte'
+  import Sidebar from '$lib/components/sidebar.svelte'
 
-  $: updateTitle(data.pageName);
- 
+  export let data
+
+  if (data.error) console.error(data.error)
+
+  $: updateTitle(data.pageName)
+
   const tocRenderStyleExclusions = [
-    'MAELSTROM ENCYCLOPEDIA CENTRAL'.toLowerCase(),
+    'MAELSTROM ENCYCLOPEDIA CENTRAL'.toLowerCase()
   ]
 
   /**
@@ -21,48 +21,48 @@
    */
   const {
     elements: { item },
-    states: { activeHeadingIdxs, headingsTree },
+    states: { activeHeadingIdxs, headingsTree }
   } = createTableOfContents({
     selector: '#toc-builder-preview',
     // TODO: if only 2 or less headings are present, exclude all
-    exclude: ['h1',],
+    exclude: ['h1'],
     // FIXME: sometimes other pages ones navigated don't display
-    // custom active styles with "highest" stategy 
+    // custom active styles with "highest" stategy
     activeType: tocRenderStyleExclusions.includes(data.pageName) ? 'highest' : 'all',
     /**
      * Filters all heading belonging to the current mdx entry
-     * 
+     *
      * @param {HTMLElement} heading Heading element
      * @returns {Boolean} Can an element be passed into final table of contents
      */
     headingFilterFn: (heading) => {
-      const validity = !heading.hasAttribute('data-toc-ignore') && !heading.className.includes('error403') && !heading.parentNode.className.includes('peeker');
-      return validity;
+      const validity = !heading.hasAttribute('data-toc-ignore') && !heading.className.includes('error403') && !heading.parentNode.className.includes('peeker')
+      return validity
     },
     scrollFn: (id) => {
-      const container = document.getElementById('toc-builder-preview');
-      const element = document.getElementById(id);
+      const container = document.getElementById('toc-builder-preview')
+      const element = document.getElementById(id)
 
       if (container && element) {
         container.scrollTo({
           top: element.offsetTop - container.offsetTop - 24,
-          behavior: 'smooth',
-        });
+          behavior: 'smooth'
+        })
       }
-    },
-  });
+    }
+  })
 
   /**
    * Updates documents title reactively
-   * 
+   *
    * @param {String} pageName Page/entry's file name
    */
-  function updateTitle(pageName) {
-    let titleStructured = pageName.replace(/\_/g," ");
-    let title = titleStructured.charAt(0).toUpperCase() + titleStructured.substr(1).toLowerCase();
-    document.title = `${title} // MAWANET`;
+  function updateTitle (pageName) {
+    const titleStructured = pageName.replace(/\_/g, ' ')
+    const title = titleStructured.charAt(0).toUpperCase() + titleStructured.substr(1).toLowerCase()
+    document.title = `${title} // MAWANET`
   }
-  $: currentPageName.set(data.pageName.replace(/\_/g," ").split(' ')[0].toUpperCase());
+  $: currentPageName.set(data.pageName.replace(/\_/g, ' ').split(' ')[0].toUpperCase())
 </script>
 
 <Sidebar>

@@ -4,21 +4,21 @@
   // lack of link is perceived as a
   // boolean value of href, as it simply is as an
   // attribute with no value - boolean
-  let { href, children, ...params } = $props();
+  let { href, children, ...params } = $props()
 
   const isChrome =
-    navigator.userAgent.indexOf("Chrome") > 0;
+    navigator.userAgent.indexOf('Chrome') > 0
   // delay in ms
-  const SCROLL_DELAY = 800;
+  const SCROLL_DELAY = 800
   /**
    * Helper delay function
    *
    * @param ms delay in ms
    */
-  function delay(ms) {
+  function delay (ms) {
     return new Promise((resolve) =>
-      setTimeout(resolve, ms),
-    );
+      setTimeout(resolve, ms)
+    )
   }
 
   /**
@@ -27,26 +27,26 @@
    * @param {String} href
    * @returns {Boolean}
    */
-  function isFirstPartyUrl(href) {
+  function isFirstPartyUrl (href) {
     if (href !== true) {
       // check string as hash
-      if (href.startsWith("#")) {
-        return true;
+      if (href.startsWith('#')) {
+        return true
       }
       // in case of plaintext
       // un-url-able string being passed
       try {
-        const hrefObj = new URL(href);
-        return window.location.hostname == hrefObj.hostname;
+        const hrefObj = new URL(href)
+        return window.location.hostname == hrefObj.hostname
       } catch (err) {
         console.error(
-          "[a component]",
+          '[a component]',
           import.meta.url,
-          err,
-        );
+          err
+        )
       }
     }
-    return false;
+    return false
   }
 
   /**
@@ -58,44 +58,44 @@
    *
    * @param {String} hash
    */
-  async function scrollTocToActive(hash) {
-    console.log(hash);
+  async function scrollTocToActive (hash) {
+    console.log(hash)
     if (!hash) {
-      console.error("No selectable hash provided");
-      return;
+      console.error('No selectable hash provided')
+      return
     }
-    const dataId = hash.substring(1);
+    const dataId = hash.substring(1)
     const entry = document.querySelector(
-      `.toc a[data-id="${dataId}"]`,
-    );
+      `.toc a[data-id="${dataId}"]`
+    )
     if (!entry) {
       console.error(
-        "No selected element in DOM was found for hash:",
-        hash,
-      );
-      return;
+        'No selected element in DOM was found for hash:',
+        hash
+      )
+      return
     }
-    if (isChrome) await delay(SCROLL_DELAY);
+    if (isChrome) await delay(SCROLL_DELAY)
     entry.scrollIntoView({
-      behavior: "smooth",
-      block: isChrome ? "start" : "center",
-    });
+      behavior: 'smooth',
+      block: isChrome ? 'start' : 'center'
+    })
   }
 
-  let hrefHash;
+  let hrefHash
 
   // reiterate on href checks,
   // now correcting href itself
-  if (!!href) {
-    if (isFirstPartyUrl(href) && href.startsWith("#")) {
-      hrefHash = href;
+  if (href) {
+    if (isFirstPartyUrl(href) && href.startsWith('#')) {
+      hrefHash = href
       href =
         window.location.origin +
         window.location.pathname +
-        href;
+        href
     }
   } else {
-    href = false;
+    href = false
   }
 </script>
 

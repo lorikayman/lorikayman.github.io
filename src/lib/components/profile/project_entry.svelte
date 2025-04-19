@@ -1,26 +1,26 @@
 <script>
-  export let type;
+  export let type
 
   import {
     BoxArrowUpRight,
     ChevronExpand,
-    ChevronBarContract,
-  } from "svelte-bootstrap-icons";
+    ChevronBarContract
+  } from 'svelte-bootstrap-icons'
 
-  import { slide } from "svelte/transition";
-  import { createCollapsible, melt } from "@melt-ui/svelte";
+  import { slide } from 'svelte/transition'
+  import { createCollapsible, melt } from '@melt-ui/svelte'
   const {
     elements: { root, content, trigger },
-    states: { open },
+    states: { open }
   } = createCollapsible({
-    forceVisible: false,
-  });
+    forceVisible: false
+  })
 </script>
 
 <div>
   <div
     class="project-summary"
-    data-type={type ?? ""}
+    data-type={type ?? ''}
     use:melt={$root}
   >
     <h3 class="project-name">

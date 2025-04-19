@@ -1,23 +1,23 @@
 <script>
-  import { writable } from 'svelte/store';
-  
-  import { createPinInput, melt } from '@melt-ui/svelte';
-  import { onMount } from 'svelte';
+  import { writable } from 'svelte/store'
 
-  const passcode = '6,4,9,8,7,1';
-  const passcodeMatch = writable(false);
-  const passcodeCurrent = writable([]);
+  import { createPinInput, melt } from '@melt-ui/svelte'
+  import { onMount } from 'svelte'
+
+  const passcode = '6,4,9,8,7,1'
+  const passcodeMatch = writable(false)
+  const passcodeCurrent = writable([])
 
   const {
-    elements: { root, input },
+    elements: { root, input }
   } = createPinInput({
     placeholder: '-',
-    value: passcodeCurrent,
-  });
+    value: passcodeCurrent
+  })
 
   passcodeCurrent.subscribe(v => {
-    passcodeMatch.set(v.toString() === passcode);
-  });
+    passcodeMatch.set(v.toString() === passcode)
+  })
 </script>
 
 <div class="content-wrapper">
@@ -47,7 +47,6 @@
     {/if}
   </center>
 </div>
-
 
 <style>
 
@@ -135,7 +134,6 @@ center {
   color:#fe4800 !important;
 }
 
-
 .cell {
   font-weight: 800;
   font-size: 0.8rem;
@@ -181,7 +179,6 @@ center {
       content: "ing"
     }
   }
-
 
   & a {
     text-decoration: none;

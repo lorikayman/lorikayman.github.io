@@ -1,48 +1,48 @@
 <script>
-  import { createTableOfContents } from "@melt-ui/svelte";
-  import { onMount, tick } from "svelte";
-  import { page } from "$app/state";
-  import { replaceState } from "$app/navigation";
+  import { createTableOfContents } from '@melt-ui/svelte'
+  import { onMount, tick } from 'svelte'
+  import { page } from '$app/state'
+  import { replaceState } from '$app/navigation'
 
-  import { createSelfDestructingStore } from "$lib/stores/self_destructing_store";
+  import { createSelfDestructingStore } from '$lib/stores/self_destructing_store'
 
-  import Tree from "$lib/components/toc.svelte";
-  import Jumper from "$lib/entries/sk/components/scroll_to_active.svelte";
+  import Tree from '$lib/components/toc.svelte'
+  import Jumper from '$lib/entries/sk/components/scroll_to_active.svelte'
 
   // import IconComm from "$lib/entries/sk/rebis-theory/assets/icon_story.png";
-  import IconComm from "$lib/entries/sk/rebis-theory/assets/next_up.png";
+  import IconComm from '$lib/entries/sk/rebis-theory/assets/next_up.png'
 
   // import IconHaven from "$lib/entries/sk/rebis-theory/assets/icon_up.png";
-  import IconHaven from "$lib/entries/sk/rebis-theory/assets/over.png";
+  import IconHaven from '$lib/entries/sk/rebis-theory/assets/over.png'
 
-  import RebisTheory from "$lib/entries/sk/rebis-theory/rebis_theory.mdx";
-  import { writable } from "svelte/store";
+  import RebisTheory from '$lib/entries/sk/rebis-theory/rebis_theory.mdx'
+  import { writable } from 'svelte/store'
 
   // MDX module
-  let data = RebisTheory;
+  const data = RebisTheory
 
-  document.title = "Spiral Knights: Rebis Theory";
+  document.title = 'Spiral Knights: Rebis Theory'
 
   // selector for highlighting currently selected item
   const tocActiveSelector =
-    ".toc-content a[data-active] li";
+    '.toc-content a[data-active] li'
   /** selector for defining the start for @see Jumper */
   const documentStart =
-    "#document-body h1, .toc-content a[data-id='rebis-theory-'] li";
+    "#document-body h1, .toc-content a[data-id='rebis-theory-'] li"
   /**
    * create table of content by scanning a component
    */
   const {
     elements: { item },
-    states: { activeHeadingIdxs, headingsTree },
+    states: { activeHeadingIdxs, headingsTree }
   } = createTableOfContents({
-    selector: "#document-body",
+    selector: '#document-body',
     exclude: [],
     // this is not UX-friendly as we are
     // targeting the selection of a heading,
     // whose body takes up most of space
     // in the viewport
-    activeType: "highest",
+    activeType: 'highest',
     /**
      * Filters all heading belonging to the current mdx entry
      *
@@ -51,9 +51,9 @@
      */
     headingFilterFn: (heading) => {
       const validity = !heading.hasAttribute(
-        "data-toc-ignore",
-      );
-      return validity;
+        'data-toc-ignore'
+      )
+      return validity
     },
     /**
      * What happens whn pressing on a link in TOC
@@ -62,37 +62,37 @@
      */
     scrollFn: (id) => {
       const container =
-        document.getElementById("document-body");
-      const element = document.getElementById(id);
+        document.getElementById('document-body')
+      const element = document.getElementById(id)
 
       if (container && element) {
         container.scrollTo({
           top: element.offsetTop - container.offsetTop - 24,
-          behavior: "smooth",
-        });
+          behavior: 'smooth'
+        })
       }
-    },
-  });
+    }
+  })
 
   /**
    * Sets URL's hash without redirect/scrolling
    *
    * @param {string} hash URL's hash string
    */
-  async function updateHash(hash) {
-    let url = page.url.pathname;
-    let oldUrl = `${url}${page.url.hash}`;
-    let newUrl = `${url}#${hash}`;
-    if (url === newUrl) return;
+  async function updateHash (hash) {
+    const url = page.url.pathname
+    const oldUrl = `${url}${page.url.hash}`
+    const newUrl = `${url}#${hash}`
+    if (url === newUrl) return
     // replaceState(newUrl);
   }
 
   const activeElementdestroyCondition = (value) =>
-    value instanceof HTMLElement;
+    value instanceof HTMLElement
   const activeElement = createSelfDestructingStore(
     null,
-    activeElementdestroyCondition,
-  );
+    activeElementdestroyCondition
+  )
 
   /**
    * @param {Number[]} idxc
@@ -102,27 +102,27 @@
     // unreliable, as it still contains older data
     // let item = document.querySelector(tocActiveSelector);
     // better move to a $derived once melt supports it
-    await tick();
-    let tocItems = document.querySelectorAll(
-      ".toc a[data-melt-table-of-contents-item]",
-    );
-    let item = tocItems.item(idxs.at(0));
-    if (!item) return;
+    await tick()
+    const tocItems = document.querySelectorAll(
+      '.toc a[data-melt-table-of-contents-item]'
+    )
+    const item = tocItems.item(idxs.at(0))
+    if (!item) return
     // FIXME: create workaround for not writing to history on hash change
     // updateHash(item.dataset.id);
 
     activeElement.set(
-      document.querySelector(tocActiveSelector),
-    );
-  });
+      document.querySelector(tocActiveSelector)
+    )
+  })
 
   activeElement.subscribe((e) => {
-    if (!(e instanceof HTMLElement)) return;
+    if (!(e instanceof HTMLElement)) return
     e.scrollIntoView({
-      behavior: "instant",
-      block: "center",
-    });
-  });
+      behavior: 'instant',
+      block: 'center'
+    })
+  })
 </script>
 
 <div class="toc">

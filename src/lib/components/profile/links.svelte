@@ -1,5 +1,5 @@
 <script>
-  import MediaLink from "./media_link.svelte";
+  import MediaLink from './media_link.svelte'
 </script>
 
 <div class="link-array-wrapper">
