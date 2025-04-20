@@ -67,19 +67,6 @@
     }
   })
 
-  /**
-   * Sets URL's hash without redirect/scrolling
-   *
-   * @param {string} hash URL's hash string
-   */
-  async function updateHash (hash) {
-    const url = page.url.pathname
-    const oldUrl = `${url}${page.url.hash}`
-    const newUrl = `${url}#${hash}`
-    if (url === newUrl) return
-    // replaceState(newUrl);
-  }
-
   const activeElementDestroyCondition = (value) =>
     value instanceof HTMLElement
   const activeElement = createSelfDestructingStore(
