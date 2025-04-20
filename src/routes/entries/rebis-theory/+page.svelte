@@ -1,18 +1,13 @@
 <script>
   import { createTableOfContents } from '@melt-ui/svelte'
-  import { onMount, tick } from 'svelte'
   import { page } from '$app/state'
-  import { replaceState } from '$app/navigation'
 
   import { createSelfDestructingStore } from '$lib/stores/self_destructing_store'
 
   import Tree from '$lib/components/toc.svelte'
   import Jumper from '$lib/entries/sk/components/scroll_to_active.svelte'
 
-  // import IconComm from "$lib/entries/sk/rebis-theory/assets/icon_story.png";
   import IconComm from '$lib/entries/sk/rebis-theory/assets/next_up.png'
-
-  // import IconHaven from "$lib/entries/sk/rebis-theory/assets/icon_up.png";
   import IconHaven from '$lib/entries/sk/rebis-theory/assets/over.png'
 
   import RebisTheory from '$lib/entries/sk/rebis-theory/rebis_theory.mdx'
@@ -85,35 +80,41 @@
     // replaceState(newUrl);
   }
 
-  const activeElementdestroyCondition = (value) =>
+  const activeElementDestroyCondition = (value) =>
     value instanceof HTMLElement
   const activeElement = createSelfDestructingStore(
     null,
-    activeElementdestroyCondition
+    activeElementDestroyCondition
   )
 
   /**
-   * @param {Number[]} idxc
+   * @param {Number[]} idxs
    *    array of active melt ui link ids
    */
   activeHeadingIdxs.subscribe(async (idxs) => {
     // unreliable, as it still contains older data
     // let item = document.querySelector(tocActiveSelector);
     // better move to a $derived once melt supports it
-    await tick()
     const tocItems = document.querySelectorAll(
       '.toc a[data-melt-table-of-contents-item]'
     )
     const item = tocItems.item(idxs.at(0))
     if (!item) return
-    // FIXME: create workaround for not writing to history on hash change
-    // updateHash(item.dataset.id);
 
     activeElement.set(
       document.querySelector(tocActiveSelector)
     )
   })
 
+  /**
+   * On page full re/load locate Toc active element
+   * and destroy the listener
+   *
+   * We can't wrap it to onMount here,
+   * as we do not receive a completion-signalling
+   * custom event from recursive toc construction
+   * unless we want to do more custom logic within the recursion tracking
+   */
   activeElement.subscribe((e) => {
     if (!(e instanceof HTMLElement)) return
     e.scrollIntoView({
