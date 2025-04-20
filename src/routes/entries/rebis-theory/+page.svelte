@@ -16,9 +16,7 @@
   import IconHaven from '$lib/entries/sk/rebis-theory/assets/over.png'
 
   import RebisTheory from '$lib/entries/sk/rebis-theory/rebis_theory.mdx'
-  import { writable } from 'svelte/store'
 
-  // MDX module
   const data = RebisTheory
 
   document.title = 'Spiral Knights: Rebis Theory'
