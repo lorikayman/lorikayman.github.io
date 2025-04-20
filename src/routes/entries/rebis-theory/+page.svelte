@@ -1,6 +1,7 @@
 <script>
+  import { tick } from 'svelte'
+
   import { createTableOfContents } from '@melt-ui/svelte'
-  import { page } from '$app/state'
 
   import { createSelfDestructingStore } from '$lib/stores/self_destructing_store'
 
@@ -82,6 +83,10 @@
     // unreliable, as it still contains older data
     // let item = document.querySelector(tocActiveSelector);
     // better move to a $derived once melt supports it
+    //
+    // but, so far, usage of `tick` is required,
+    // as it allows to scroll Toc on page's initial full load
+    await tick()
     const tocItems = document.querySelectorAll(
       '.toc a[data-melt-table-of-contents-item]'
     )
