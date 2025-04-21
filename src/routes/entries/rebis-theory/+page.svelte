@@ -114,6 +114,30 @@
       block: 'center'
     })
   })
+
+  // const EVENT_ENTRIES_REBIS_CHANGE_URL_HASH = 'entries:rebis:change-url-hash'
+
+  // tie url's hash to state, call effect from it, one as one used to react on idxs change
+
+  let lastHash = $state('')
+
+  // Store the current hash when the page loads
+  lastHash = window.location.hash
+
+  import { delay } from "$lib/helpers/delay.js"
+  window.addEventListener('popstate', async () => {
+    const newHash = $state(window.location.hash)
+
+    if (newHash !== '') {
+      await delay(700)
+      // Only scroll `.toc` to the corresponding section if only the hash changes
+      document.querySelector(tocActiveSelector).scrollIntoView({ behavior: 'smooth' })
+
+      lastHash = newHash
+    } else {
+      console.log('User went back in history')
+    }
+  })
 </script>
 
 <div class="toc">

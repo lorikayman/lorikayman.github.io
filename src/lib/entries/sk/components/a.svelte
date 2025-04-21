@@ -1,4 +1,6 @@
 <script>
+  import { delay } from "$lib/helpers/delay.js"
+
   // implicitly here as
   // when no href given in md syntax for [abc]()
   // lack of link is perceived as a
@@ -12,16 +14,6 @@
   // since other concurrent scrolls are instant,
   // due to href/onclick logic, setting delay to 1 still works in chrome
   const SCROLL_DELAY = 0
-  /**
-   * Helper delay function
-   *
-   * @param ms delay in ms
-   */
-  function delay (ms) {
-    return new Promise((resolve) =>
-      setTimeout(resolve, ms)
-    )
-  }
 
   /**
    * Check FQDN of a link weather it is same as current site's

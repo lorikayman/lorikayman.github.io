@@ -1,4 +1,6 @@
 <script>
+  import { delay } from "$lib/helpers/delay.js"
+
   /**
    * @param {String} selector
    *    may contain comas `,` and if so,
@@ -16,17 +18,6 @@
   const isChrome = navigator.userAgent.indexOf('Chrome') > 0
   // delay in ms
   const SCROLL_DELAY = 800
-
-  /**
-   * Helper delay function
-   *
-   * @param ms delay in ms
-   */
-  function delay (ms) {
-    return new Promise((resolve) =>
-      setTimeout(resolve, ms)
-    )
-  }
 
   /**
    * @description On click TOC is scrolled to the selector
