@@ -1,5 +1,6 @@
 <script>
   import { delay } from "$lib/helpers/delay.js"
+  import { isChrome } from "$lib/helpers/useragent.js"
 
   // implicitly here as
   // when no href given in md syntax for [abc]()
@@ -8,8 +9,6 @@
   // attribute with no value - boolean
   let { href, children, ...params } = $props()
 
-  const isChrome =
-    navigator.userAgent.indexOf('Chrome') > 0
   // delay in ms
   // since other concurrent scrolls are instant,
   // due to href/onclick logic, setting delay to 1 still works in chrome

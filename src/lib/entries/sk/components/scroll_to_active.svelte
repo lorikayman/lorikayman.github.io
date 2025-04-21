@@ -1,5 +1,6 @@
 <script>
   import { delay } from "$lib/helpers/delay.js"
+  import {isChrome} from "$lib/helpers/useragent.js"
 
   /**
    * @param {String} selector
@@ -15,7 +16,6 @@
     children
   } = $props()
 
-  const isChrome = navigator.userAgent.indexOf('Chrome') > 0
   // delay in ms
   const SCROLL_DELAY = 800
 

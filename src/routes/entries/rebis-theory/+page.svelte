@@ -115,27 +115,32 @@
     })
   })
 
-  // const EVENT_ENTRIES_REBIS_CHANGE_URL_HASH = 'entries:rebis:change-url-hash'
 
   // tie url's hash to state, call effect from it, one as one used to react on idxs change
 
-  let lastHash = $state('')
-
-  // Store the current hash when the page loads
-  lastHash = window.location.hash
-
   import { delay } from "$lib/helpers/delay.js"
-  window.addEventListener('popstate', async () => {
-    const newHash = $state(window.location.hash)
+  import { isChrome } from "$lib/helpers/useragent.js"
 
-    if (newHash !== '') {
-      await delay(700)
-      // Only scroll `.toc` to the corresponding section if only the hash changes
-      document.querySelector(tocActiveSelector).scrollIntoView({ behavior: 'smooth' })
+  window.addEventListener('hashchange', async e => {
+    const hOld = new URL(e.oldURL).hash
+    const hNew = new URL(e.newURL).hash
+    console.log(hOld, hNew)
 
-      lastHash = newHash
+    // we don't expect response
+    // for ToC melt ui component to update
+    // so we wait
+    await delay(20)
+    const activeElement = document.querySelector(tocActiveSelector)
+    if (activeElement) {
+      activeElement.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center'
+      })
     } else {
-      console.log('User went back in history')
+      console.error(
+        `No active element was found when backing
+        history from '${hOld}' to '${hNew}'`
+      )
     }
   })
 </script>
