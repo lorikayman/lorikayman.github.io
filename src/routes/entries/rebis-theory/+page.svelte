@@ -138,27 +138,36 @@
     started: false,
     processing: false
   })
+  /**
+   * Hash change logic, responsible for edge cases of page traversal and history
+   */
   window.addEventListener('hashchange', async e => {
     const hOld = new URL(e.oldURL).hash
     const hNew = new URL(e.newURL).hash
-    console.log(hOld, hNew)
+    console.log(`Received 'hashchange' event from '${hOld}' to '${hNew}'`)
 
+    // this check allows for identification of the source of hash change
+    // if its from url traversal within DOM,
+    // such as href links, - scroll Toc smoothly
+    //
+    // Otherwise, jump  in instant scroll to an active an aligned toc element
+    // as this is likely a history traversal backwards/forwards
     if (hashChangeSource.started) {
       hashChangeSource.started = false
       hashChangeSource.processing = true
 
-      console.log('Found hashChangeSource as', $state.snapshot(hashChangeSource))
+      console.log('Found href processing before hashchange event as:', $state.snapshot(hashChangeSource))
 
+      hashChangeSource.processing = false
       switch (hashChangeSource.source) {
         case HASH_CHANGE_SOURCE.MDX:
           console.log('source identity HASH_CHANGE_SOURCE.MDX')
           return
         case HASH_CHANGE_SOURCE.TOC:
           console.log('source identity HASH_CHANGE_SOURCE.TOC')
-          break
+          return
       }
     }
-    return
 
     // we don't expect response
     // for ToC melt ui component to update
@@ -166,9 +175,8 @@
     await delay(20)
     const activeElement = document.querySelector(tocActiveSelector)
     if (activeElement) {
-      if (isChrome) await delay(2000)
       activeElement.scrollIntoView({
-        behavior: 'smooth',
+        behavior: 'instant',
         block: 'center'
       })
     } else {
@@ -183,12 +191,12 @@
     document.querySelector('#document-body').addEventListener('click', e => {
       hashChangeSource.source = HASH_CHANGE_SOURCE.MDX
       hashChangeSource.started = true
-      console.log('from #document-body:', e, $state.snapshot(hashChangeSource))
+      console.log('Received event from #document-body')
     })
     document.querySelector('.toc-content').addEventListener('click', e => {
       hashChangeSource.source = HASH_CHANGE_SOURCE.TOC
       hashChangeSource.started = true
-      console.log('from .toc-content:', e, $state.snapshot(hashChangeSource))
+      console.log('Received event from .toc-content')
     })
   })
 </script>
