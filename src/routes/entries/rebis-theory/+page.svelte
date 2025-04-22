@@ -1,7 +1,10 @@
 <script>
-  import { tick } from 'svelte'
+  import { onMount, tick } from 'svelte'
 
   import { createTableOfContents } from '@melt-ui/svelte'
+
+  import { delay } from "$lib/helpers/delay.js"
+  import { isChrome } from '$lib/helpers/useragent.js'
 
   import { createSelfDestructingStore } from '$lib/stores/self_destructing_store'
 
@@ -76,6 +79,8 @@
   )
 
   /**
+   * Logic for full-reload ToC active entry location: effect
+   *
    * @param {Number[]} idxs
    *    array of active melt ui link ids
    */
@@ -99,6 +104,7 @@
   })
 
   /**
+   * Logic for full-reload ToC active entry location: one-off listener
    * On page full re/load locate Toc active element
    * and destroy the listener
    *
@@ -115,23 +121,52 @@
     })
   })
 
-
-  // tie url's hash to state, call effect from it, one as one used to react on idxs change
-
-  import { delay } from "$lib/helpers/delay.js"
-  import { isChrome } from "$lib/helpers/useragent.js"
-
+  /**
+   *
+   */
+  const HASH_CHANGE_SOURCE = {
+    MDX: 4000,
+    TOC: 3000,
+    DOM: 2000,
+    BROWSER: 1000
+  }
+  /**
+   *
+   */
+  const hashChangeSource = $state({
+    source: HASH_CHANGE_SOURCE.BROWSER,
+    started: false,
+    processing: false
+  })
   window.addEventListener('hashchange', async e => {
     const hOld = new URL(e.oldURL).hash
     const hNew = new URL(e.newURL).hash
     console.log(hOld, hNew)
 
+    if (hashChangeSource.started) {
+      hashChangeSource.started = false
+      hashChangeSource.processing = true
+
+      console.log('Found hashChangeSource as', $state.snapshot(hashChangeSource))
+
+      switch (hashChangeSource.source) {
+        case HASH_CHANGE_SOURCE.MDX:
+          console.log('source identity HASH_CHANGE_SOURCE.MDX')
+          return
+        case HASH_CHANGE_SOURCE.TOC:
+          console.log('source identity HASH_CHANGE_SOURCE.TOC')
+          break
+      }
+    }
+    return
+
     // we don't expect response
     // for ToC melt ui component to update
-    // so we wait
+    // so we wait, as it is easier to implement
     await delay(20)
     const activeElement = document.querySelector(tocActiveSelector)
     if (activeElement) {
+      if (isChrome) await delay(2000)
       activeElement.scrollIntoView({
         behavior: 'smooth',
         block: 'center'
@@ -142,6 +177,19 @@
         history from '${hOld}' to '${hNew}'`
       )
     }
+  })
+
+  onMount(() => {
+    document.querySelector('#document-body').addEventListener('click', e => {
+      hashChangeSource.source = HASH_CHANGE_SOURCE.MDX
+      hashChangeSource.started = true
+      console.log('from #document-body:', e, $state.snapshot(hashChangeSource))
+    })
+    document.querySelector('.toc-content').addEventListener('click', e => {
+      hashChangeSource.source = HASH_CHANGE_SOURCE.TOC
+      hashChangeSource.started = true
+      console.log('from .toc-content:', e, $state.snapshot(hashChangeSource))
+    })
   })
 </script>
 

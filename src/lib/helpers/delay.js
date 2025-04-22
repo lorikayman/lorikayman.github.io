@@ -1,7 +1,6 @@
 /**
- * @module
- 
- helper async functions
+ * @module delay
+ * helper async functions
  */
 
 /**

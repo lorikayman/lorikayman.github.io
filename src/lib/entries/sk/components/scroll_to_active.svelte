@@ -1,6 +1,6 @@
 <script>
-  import { delay } from "$lib/helpers/delay.js"
-  import {isChrome} from "$lib/helpers/useragent.js"
+  import { delay } from '$lib/helpers/delay.js'
+  import { isChrome } from '$lib/helpers/useragent.js'
 
   /**
    * @param {String} selector
