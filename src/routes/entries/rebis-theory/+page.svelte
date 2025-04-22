@@ -4,7 +4,6 @@
   import { createTableOfContents } from '@melt-ui/svelte'
 
   import { delay } from "$lib/helpers/delay.js"
-  import { isChrome } from '$lib/helpers/useragent.js'
 
   import { createSelfDestructingStore } from '$lib/stores/self_destructing_store'
 
@@ -122,6 +121,42 @@
   })
 
   /**
+   * Scroll to active toc element
+   * As it is a link, the click happens
+   * before an actual traversal,
+   * so need to compute a selected
+   * element to scroll to
+   *
+   * @param {String} hash
+   */
+  async function scrollTocToActive (hash) {
+    console.log('scrollTocToActive:', hash)
+    if (!hash) {
+      console.error('No selectable hash provided')
+      return
+    }
+    const dataId = hash.substring(1)
+    const entry = document.querySelector(
+      `.toc a[data-id="${dataId}"]`
+    )
+    if (!entry) {
+      console.error(
+        'No selected element in DOM was found for hash:',
+        hash
+      )
+      return
+    }
+    await delay(20)
+    console.log('entry.getBoundingClientRect().top:', entry.getBoundingClientRect().top)
+    console.log('window.innerHeight / 2:', window.innerHeight / 2)
+    const viewportHeightCentered = entry.getBoundingClientRect().top // - window.innerHeight / 2
+    document.querySelector('.toc').scrollTo({
+      top: viewportHeightCentered,
+      behavior: 'smooth'
+    })
+  }
+
+  /**
    *
    */
   const HASH_CHANGE_SOURCE = {
@@ -161,10 +196,11 @@
       hashChangeSource.processing = false
       switch (hashChangeSource.source) {
         case HASH_CHANGE_SOURCE.MDX:
-          console.log('source identity HASH_CHANGE_SOURCE.MDX')
+          console.log("Found 'hrefchange' source as HASH_CHANGE_SOURCE.MDX")
+          await scrollTocToActive(hNew)
           return
         case HASH_CHANGE_SOURCE.TOC:
-          console.log('source identity HASH_CHANGE_SOURCE.TOC')
+          console.log("Found 'hrefchange' source as HASH_CHANGE_SOURCE.TOC")
           return
       }
     }
