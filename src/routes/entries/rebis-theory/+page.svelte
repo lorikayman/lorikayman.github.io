@@ -121,42 +121,6 @@
   })
 
   /**
-   * Scroll to active toc element
-   * As it is a link, the click happens
-   * before an actual traversal,
-   * so need to compute a selected
-   * element to scroll to
-   *
-   * @param {String} hash
-   */
-  async function scrollTocToActive (hash) {
-    console.log('scrollTocToActive:', hash)
-    if (!hash) {
-      console.error('No selectable hash provided')
-      return
-    }
-    const dataId = hash.substring(1)
-    const entry = document.querySelector(
-      `.toc a[data-id="${dataId}"]`
-    )
-    if (!entry) {
-      console.error(
-        'No selected element in DOM was found for hash:',
-        hash
-      )
-      return
-    }
-    await delay(20)
-    console.log('entry.getBoundingClientRect().top:', entry.getBoundingClientRect().top)
-    console.log('window.innerHeight / 2:', window.innerHeight / 2)
-    const viewportHeightCentered = entry.getBoundingClientRect().top // - window.innerHeight / 2
-    document.querySelector('.toc').scrollTo({
-      top: viewportHeightCentered,
-      behavior: 'smooth'
-    })
-  }
-
-  /**
    *
    */
   const HASH_CHANGE_SOURCE = {
@@ -193,14 +157,13 @@
 
       console.log('Found href processing before hashchange event as:', $state.snapshot(hashChangeSource))
 
-      hashChangeSource.processing = false
       switch (hashChangeSource.source) {
         case HASH_CHANGE_SOURCE.MDX:
           console.log("Found 'hrefchange' source as HASH_CHANGE_SOURCE.MDX")
-          await scrollTocToActive(hNew)
-          return
+          break
         case HASH_CHANGE_SOURCE.TOC:
           console.log("Found 'hrefchange' source as HASH_CHANGE_SOURCE.TOC")
+          hashChangeSource.processing = false
           return
       }
     }
@@ -212,7 +175,7 @@
     const activeElement = document.querySelector(tocActiveSelector)
     if (activeElement) {
       activeElement.scrollIntoView({
-        behavior: 'instant',
+        behavior: hashChangeSource.processing ? 'smooth' : 'instant',
         block: 'center'
       })
     } else {
@@ -221,6 +184,7 @@
         history from '${hOld}' to '${hNew}'`
       )
     }
+    hashChangeSource.processing = false
   })
 
   onMount(() => {
