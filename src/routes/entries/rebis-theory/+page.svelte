@@ -3,8 +3,7 @@
 
   import { createTableOfContents } from '@melt-ui/svelte'
 
-  import { delay } from "$lib/helpers/delay.js"
-
+  import { delay } from '$lib/helpers/delay.js'
   import { createSelfDestructingStore } from '$lib/stores/self_destructing_store'
 
   import Tree from '$lib/components/toc.svelte'
@@ -70,6 +69,12 @@
     }
   })
 
+  /**
+   * Prepare self-destructing/one-time store for page initial full load
+   * this logic will allow to locate active toc element in less code,
+   * without relying on custom event fired from recursive toc components' full
+   * array completion
+   */
   const activeElementDestroyCondition = (value) =>
     value instanceof HTMLElement
   const activeElement = createSelfDestructingStore(
@@ -121,7 +126,9 @@
   })
 
   /**
-   *
+   * highly abstract list of identifiers
+   * for labeling the source/part of an app,
+   * responsible for hash change
    */
   const HASH_CHANGE_SOURCE = {
     MDX: 4000,
@@ -130,7 +137,7 @@
     BROWSER: 1000
   }
   /**
-   *
+   * Initial state of @see HASH_CHANGE_SOURCE on full page's load
    */
   const hashChangeSource = $state({
     source: HASH_CHANGE_SOURCE.BROWSER,
@@ -138,7 +145,8 @@
     processing: false
   })
   /**
-   * Hash change logic, responsible for edge cases of page traversal and history
+   * Hash change logic, responsible for edge cases
+   * of page traversal and history traversal by the user
    */
   window.addEventListener('hashchange', async e => {
     const hOld = new URL(e.oldURL).hash
@@ -158,9 +166,13 @@
       console.log('Found href processing before hashchange event as:', $state.snapshot(hashChangeSource))
 
       switch (hashChangeSource.source) {
+        // when hash change comes from mdx itself - it was caused by `a` tag click
         case HASH_CHANGE_SOURCE.MDX:
           console.log("Found 'hrefchange' source as HASH_CHANGE_SOURCE.MDX")
           break
+        // this is sourced from Toc component - those are `a` tas,
+        // but this logic is delegated to MeltUI through component builder itself
+        // so we stop here
         case HASH_CHANGE_SOURCE.TOC:
           console.log("Found 'hrefchange' source as HASH_CHANGE_SOURCE.TOC")
           hashChangeSource.processing = false
@@ -168,6 +180,7 @@
       }
     }
 
+    // otherwise, we process toc scrolling
     // we don't expect response
     // for ToC melt ui component to update
     // so we wait, as it is easier to implement
@@ -175,6 +188,8 @@
     const activeElement = document.querySelector(tocActiveSelector)
     if (activeElement) {
       activeElement.scrollIntoView({
+        // hashChangeSource.processing marks unaborted
+        // logic of toc handling from a list of allowed sources in switch/case
         behavior: hashChangeSource.processing ? 'smooth' : 'instant',
         block: 'center'
       })
@@ -187,12 +202,20 @@
     hashChangeSource.processing = false
   })
 
+  /**
+   * Prepare a chain of listeners, as `click` event will always precede `hashchange`
+   * Here, we identify through bubbling a general area of the page,
+   * from which an event has emerged, and act accordingly through
+   * working with @see hashChangeSource
+   */
   onMount(() => {
+    // source is a rendered mdx document
     document.querySelector('#document-body').addEventListener('click', e => {
       hashChangeSource.source = HASH_CHANGE_SOURCE.MDX
       hashChangeSource.started = true
       console.log('Received event from #document-body')
     })
+    // source is mdx-derived ToC component wrapper
     document.querySelector('.toc-content').addEventListener('click', e => {
       hashChangeSource.source = HASH_CHANGE_SOURCE.TOC
       hashChangeSource.started = true
@@ -214,7 +237,7 @@
     <Tree
       tree={$headingsTree}
       activeHeadingIdxs={$activeHeadingIdxs}
-      {item}
+      item={item}
     ></Tree>
   </div>
 </div>
