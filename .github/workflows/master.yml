@@ -1,8 +1,6 @@
 on:
-  # run of tag definition
-  push:
-    tags:
-      - "v*.*.*.*"
+  # run manually
+  workflow_dispatch:
 
 permissions:
   contents: read
