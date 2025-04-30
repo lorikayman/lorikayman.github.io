@@ -124,7 +124,7 @@ body {
 
 h1 {
   font-weight: 600;
-  font-size: 3.7rem;
+  font-size: 4rem;
 
   padding-top: 5rem;
   padding-bottom: 0rem;
@@ -173,12 +173,13 @@ h1 {
 
 h2 {
   font-weight: 500;
-  font-size: 3.4rem;
+  font-size: 3.8rem;
 }
 
 h3 {
-  font-size: 3.6rem;
+  font-size: 3.8rem;
   letter-spacing: 3px;
+  margin-bottom: 3.6rem;
 }
 
 h4 {
@@ -189,6 +190,11 @@ h4 {
 h5 {
   /* letter-spacing: 1px; */
   font-size: 1.3rem;
+}
+
+h4,
+h5 {
+  margin-bottom: 16px;
 }
 
 p,
@@ -203,18 +209,31 @@ h2,
 h3,
 h4,
 h5 {
-  margin-bottom: 16px;
   font-family: heading;
   text-transform: uppercase;
   /* font-weight: bold; */
 
-  > code {
+  & code {
     font-weight: bold;
-    font-style: normal;
-    border-radius: 5px;
+    font-style: inherit;
+    border-radius: 2px;
     padding: 0em 0.15em;
-    /* align visually letter's box size */
-    padding-left: 0.2em;
+    /* align visually letter's box size,
+      consider letter spacing */
+    padding-left: 0.3em;
+  }
+
+  /* 2-story chapter names */
+  > em {
+    font-size: 1.3rem;
+    font-style: inherit;
+    color: inherit;
+
+    &::after {
+      content: "";
+      display: block;
+      white-space: pre-line;
+    }
   }
 }
 
@@ -539,6 +558,16 @@ center.chapter-break {
 
     & .heading-level-4 ul a li {
       padding-left: 2.66em;
+    }
+
+    /* Prevent custom multiline for chapter headings */
+    & em {
+      font-style: normal;
+      color: inherit;
+
+      & > code {
+        font-style: normal;
+      }
     }
   }
 
