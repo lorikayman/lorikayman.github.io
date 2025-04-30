@@ -247,7 +247,7 @@ h5 {
   }
 
   h1 {
-    font-size: 1.7em;
+    /* font-size: 1.7em; */
     padding: 14px 6px;
 
     &::before {
@@ -256,23 +256,12 @@ h5 {
   }
 
   h2 {
-    font-size: 1.5rem;
     letter-spacing: 3px;
   }
 
   h3 {
-    font-size: 1.4rem;
+    font-size: 2.4rem;
     letter-spacing: 3px;
-  }
-
-  h4 {
-    letter-spacing: 2px;
-    font-size: 1.3rem;
-  }
-
-  h5 {
-    letter-spacing: 1px;
-    font-size: 1.2rem;
   }
 }
 
@@ -442,9 +431,33 @@ center.chapter-break {
   }
 }
 
-.ui-button-container-jumper,
+.ui-button-container-jumper {
+  display: block;
+  position: fixed;
+  left: 0rem;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  bottom: 2.2rem;
+  z-index: 2;
+}
+
 .ui-button-container-scroller {
-  display: none;
+  display: block;
+  position: fixed;
+  bottom: 2.2rem;
+  right: 0%;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  z-index: 2;
+}
+
+.button-icon {
+  width: 34px;
+  height: 34px;
+  scale: 1;
+  padding: 2px 0px;
 }
 
 .toc {
@@ -571,24 +584,6 @@ center.chapter-break {
     }
   }
 
-  .ui-button-container-jumper {
-    display: block;
-    position: fixed;
-    left: 0rem;
-    align-items: center;
-    justify-content: center;
-    width: auto;
-    bottom: 2.2rem;
-    z-index: 2;
-  }
-
-  .button-icon {
-    width: 34px;
-    height: 34px;
-    scale: 1;
-    padding: 2px 0px;
-  }
-
   .ui-button-container-scroller {
     display: block;
     position: fixed;
@@ -596,7 +591,6 @@ center.chapter-break {
     right: 0%;
     align-items: center;
     justify-content: center;
-    /* left: 17.8%; */
     width: auto;
     z-index: 2;
   }
