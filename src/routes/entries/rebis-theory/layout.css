@@ -234,8 +234,7 @@ h5 {
       background-position-x: 90%;
       position: relative;
       background-repeat: no-repeat;
-      filter: brightness(0.5) contrast(0.5) sepia(1)
-        saturate(2.2);
+      filter: brightness(0.52) sepia(1) saturate(2.02);
     }
   }
 
