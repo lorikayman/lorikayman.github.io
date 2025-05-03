@@ -214,6 +214,7 @@ h5 {
   /* font-weight: bold; */
 
   & code {
+    letter-spacing: 0px;
     font-weight: bold;
     font-style: inherit;
     border-radius: 2px;
@@ -221,10 +222,25 @@ h5 {
     /* align visually letter's box size,
       consider letter spacing */
     padding-left: 0.3em;
+
+    &::after {
+      content: "";
+      background-image: url("/src/lib/entries/sk/rebis-theory/assets/logo_alchemy.png");
+      background-size: 22px;
+      width: 29px;
+      display: inline-block;
+      height: 24px;
+      bottom: -5px;
+      background-position-x: 90%;
+      position: relative;
+      background-repeat: no-repeat;
+      filter: brightness(0.5) contrast(0.5) sepia(1)
+        saturate(2.2);
+    }
   }
 
   /* 2-story chapter names */
-  > em {
+  > em:first-of-type {
     font-size: 1.3rem;
     font-style: inherit;
     color: inherit;
