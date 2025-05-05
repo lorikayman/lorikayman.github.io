@@ -13,11 +13,6 @@
 </div>
 
 <style>
-  /* @font-face {
-    font-family: "Open Sans Bold", sans-serif;
-    src: url("/static/fonts/Open_Sans/static/OpenSans-Bold.ttf");
-  } */
-
   .alchemy {
     z-index: -2;
     display: flex;
