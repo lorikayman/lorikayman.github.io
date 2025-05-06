@@ -12,9 +12,6 @@
   font-family: primary;
   font-style: normal;
   src: url("/fonts/Open_Sans/static/OpenSans-Regular.ttf")
-    /* src: url("/fonts/Open_Sans/static/OpenSans-Light.ttf") */
-    /* src: url("/fonts/Fira_Sans/FiraSans-Light.ttf") */
-    /* src: url("/fonts/Fira_Sans/FiraSans-ExtraLight.ttf") */
     format("truetype");
 }
 
@@ -22,7 +19,6 @@
   font-family: secondary-light;
   font-style: normal;
   src: url("/fonts/Fira_Sans/FiraSans-Light.ttf")
-    /* src: url("/fonts/Open_Sans/static/OpenSans-Light.ttf") */
     format("truetype");
 }
 
@@ -180,7 +176,7 @@ h3 {
   font-size: 3.8rem;
   letter-spacing: 3px;
   margin-bottom: 3.6rem;
-  padding-top: 10.6rem;
+  margin-top: 0rem;
 }
 
 h4 {
@@ -253,14 +249,34 @@ h5 {
   }
 }
 
-/* h3:nth-of-type(4) > em > code::before {
+img.preview {
+  height: 100%;
+  width: 100%;
+  display: block;
+}
+
+div.before-title {
+  min-width: 35vi;
+  position: relative;
+  width: 100%;
+}
+.before-title-overflow {
+  position: absolute;
+  bottom: -3vi;
+  right: 5%;
+  font-size: 6.4rem;
+  /* transform: translate(-50%, -50%); */
+  z-index: 1;
+  rotate: -8deg;
+}
+
+/* h3:nth-of-type(4) em::before {
   content: "";
   position: absolute;
   background-image: url("$lib/entries/sk/rebis-theory/assets/img/owlite.png");
-  margin-left: 4rem;
-  width: 40vi;
-  background-position-y: -4rem;
-  height: 25rem;
+  right: 0;
+  width: 4vi;
+  height: 15rem;
   z-index: -2;
   background-repeat: no-repeat;
   background-size: contain;
@@ -380,7 +396,8 @@ a {
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
-  animation: energy-move 5s linear infinite;
+  animation: energy-move 10s linear infinite;
+  /* text-shadow: 0px 5px 10px rgba(74, 167, 255, 0.2); */
   text-align: center;
   font-weight: 100;
 }
@@ -425,15 +442,15 @@ center.chapter-break {
 @keyframes energy-move {
   0% {
     background-position: 0% 50%;
-    filter: blur(0.008em);
+    filter: blur(0.003em);
   }
   50% {
     background-position: 100% 50%;
-    filter: blur(0.016em);
+    filter: blur(0.013em);
   }
   100% {
     background-position: 0% 50%;
-    filter: blur(0.008em);
+    filter: blur(0.003em);
   }
 }
 
