@@ -37,19 +37,6 @@
   --ui-selection-regular: rgba(255, 62, 41, 0.5);
   --asset-moon: url("/src/lib/entries/sk/rebis-theory/assets/moon.png");
   --asset-floor: url("/src/lib/entries/sk/rebis-theory/assets/knight_floorlogo.png");
-  --title-decoration-image-below-offset: 14vh;
-}
-
-@media only screen and (min-width: 824px) {
-  :root {
-    --title-decoration-image-below-offset: 2vh;
-  }
-}
-
-@media only screen and (min-width: 1440px) {
-  :root {
-    --title-decoration-image-below-offset: -6vh;
-  }
 }
 
 body {
@@ -262,36 +249,39 @@ h5 {
   }
 }
 
-div.decorate-title-wrapper {
-  display: block;
+.decorate-title-wrapper {
+  display: flex;
+  flex-direction: column;
   position: relative;
+  margin-bottom: 4rem;
 
-  & #chapter-ivheavenly-kingdom {
+  & h3 {
     position: relative;
     z-index: 20;
-    margin-bottom: 8rem;
+    /* fix in h3 proper */
+    margin-bottom: 0;
   }
 
-  & div.decorate-title {
-    position: absolute;
+  & .decorate-contents {
+    position: relative;
     z-index: 18;
     width: 100%;
-    top: var(--title-decoration-image-below-offset);
+    margin-top: -12vi;
+    /* margin-top: var(--title-decoration-image-below-offset); */
 
-    & img.preview {
-      height: 100%;
-      width: 100%;
+    & .decorate-contents-img {
       display: block;
+      height: auto;
+      width: 100%;
     }
 
-    & .decorate-title-overflow {
+    & .decorate-contents-overflow {
       position: absolute;
       bottom: -3vi;
       right: 5%;
-      font-size: 6.4rem;
-      /* transform: translate(-50%, -50%); */
-      z-index: 1;
+      z-index: 19;
       rotate: -8deg;
+      font-size: 6.4rem;
     }
   }
 }
