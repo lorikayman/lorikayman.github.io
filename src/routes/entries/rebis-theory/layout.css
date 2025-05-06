@@ -37,6 +37,19 @@
   --ui-selection-regular: rgba(255, 62, 41, 0.5);
   --asset-moon: url("/src/lib/entries/sk/rebis-theory/assets/moon.png");
   --asset-floor: url("/src/lib/entries/sk/rebis-theory/assets/knight_floorlogo.png");
+  --title-decoration-image-below-offset: 14vh;
+}
+
+@media only screen and (min-width: 824px) {
+  :root {
+    --title-decoration-image-below-offset: 2vh;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  :root {
+    --title-decoration-image-below-offset: -6vh;
+  }
 }
 
 body {
@@ -249,38 +262,39 @@ h5 {
   }
 }
 
-img.preview {
-  height: 100%;
-  width: 100%;
+div.decorate-title-wrapper {
   display: block;
-}
-
-div.before-title {
-  min-width: 35vi;
   position: relative;
-  width: 100%;
-}
-.before-title-overflow {
-  position: absolute;
-  bottom: -3vi;
-  right: 5%;
-  font-size: 6.4rem;
-  /* transform: translate(-50%, -50%); */
-  z-index: 1;
-  rotate: -8deg;
-}
 
-/* h3:nth-of-type(4) em::before {
-  content: "";
-  position: absolute;
-  background-image: url("$lib/entries/sk/rebis-theory/assets/img/owlite.png");
-  right: 0;
-  width: 4vi;
-  height: 15rem;
-  z-index: -2;
-  background-repeat: no-repeat;
-  background-size: contain;
-} */
+  & #chapter-ivheavenly-kingdom {
+    position: relative;
+    z-index: 20;
+    margin-bottom: 8rem;
+  }
+
+  & div.decorate-title {
+    position: absolute;
+    z-index: 18;
+    width: 100%;
+    top: var(--title-decoration-image-below-offset);
+
+    & img.preview {
+      height: 100%;
+      width: 100%;
+      display: block;
+    }
+
+    & .decorate-title-overflow {
+      position: absolute;
+      bottom: -3vi;
+      right: 5%;
+      font-size: 6.4rem;
+      /* transform: translate(-50%, -50%); */
+      z-index: 1;
+      rotate: -8deg;
+    }
+  }
+}
 
 @media (max-width: 624px) {
   body {
