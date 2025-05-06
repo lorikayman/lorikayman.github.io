@@ -180,6 +180,7 @@ h3 {
   font-size: 3.8rem;
   letter-spacing: 3px;
   margin-bottom: 3.6rem;
+  padding-top: 10.6rem;
 }
 
 h4 {
@@ -251,6 +252,19 @@ h5 {
     }
   }
 }
+
+/* h3:nth-of-type(4) > em > code::before {
+  content: "";
+  position: absolute;
+  background-image: url("$lib/entries/sk/rebis-theory/assets/img/owlite.png");
+  margin-left: 4rem;
+  width: 40vi;
+  background-position-y: -4rem;
+  height: 25rem;
+  z-index: -2;
+  background-repeat: no-repeat;
+  background-size: contain;
+} */
 
 @media (max-width: 624px) {
   body {
