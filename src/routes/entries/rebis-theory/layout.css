@@ -255,6 +255,36 @@ h5 {
   position: relative;
   margin-bottom: 4rem;
 
+  & .decorate-title-depth-wrapper {
+    position: absolute;
+    display: inline-block;
+    right: -12vi;
+    top: 2.6rem;
+    width: fit-content;
+    height: fit-content;
+    z-index: 20;
+
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 2px;
+    box-decoration-break: clone;
+
+    border-color: hsla(8, 75%, 45%, 0);
+    color: hsl(343, 10%, 27%);
+    background-color: hsl(34, 62%, 64%);
+
+    & .decorate-title-depth-count {
+      letter-spacing: 0px;
+      padding: 5px;
+      font-family: heading;
+      font-weight: bold;
+      font-style: italic;
+      text-transform: uppercase;
+      border-radius: 2px;
+      font-size: 1.5em;
+    }
+  }
+
   & h3 {
     position: relative;
     z-index: 20;
@@ -280,7 +310,7 @@ h5 {
       bottom: -3vi;
       right: 5%;
       z-index: 19;
-      rotate: -8deg;
+      /* rotate: -8deg; */
       font-size: 6.4rem;
     }
   }
