@@ -1,5 +1,5 @@
 <script>
-  import LogoAlchemy from '$lib/entries/sk/rebis-theory/assets/logo_alchemy.png'
+  import LogoAlchemy from '$lib/entries/sk/rebis-theory/assets/img/spiral_knights/logo_alchemy.png'
 
   const { bg, markup } = $props()
 </script>
