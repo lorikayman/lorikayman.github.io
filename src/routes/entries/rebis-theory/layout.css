@@ -1,6 +1,11 @@
+/* reset browser-specifc css */
 @import url("./normalize.css");
 
-/* https://www.dafont.com/familiar-pro.font */
+/**
+ * Markdown document headings-only font
+ *
+ * https://www.dafont.com/familiar-pro.font
+ */
 @font-face {
   font-family: heading;
   font-style: normal;
@@ -8,6 +13,11 @@
     format("opentype");
 }
 
+/**
+ * Primary font for markdown document,
+ * paragraphs, etc.,
+ * excluding headings
+ */
 @font-face {
   font-family: primary;
   font-style: normal;
@@ -15,6 +25,7 @@
     format("truetype");
 }
 
+/* Font for Table of Contents' entries, bold, regular, etc. */
 @font-face {
   font-family: secondary-light;
   font-style: normal;
@@ -22,14 +33,22 @@
     format("truetype");
 }
 
-/* https://webapp1.dlib.indiana.edu/newton/reference/font.do */
-/* https://webapp1.dlib.indiana.edu/newton/fonts/Unicode-U1F700.pdf */
+/**
+ * Newton Sans is for extended support of unicode characters of alchemical group
+ * https://symbl.cc/en/unicode/blocks/alchemical-symbols/
+ *
+ * https://webapp1.dlib.indiana.edu/newton/reference/font.do
+ * https://webapp1.dlib.indiana.edu/newton/fonts/Unicode-U1F700.pdf
+ */
 @font-face {
   font-family: "newton-sans-regular";
   src: url("$lib/entries/sk/rebis-theory/assets/fonts/newton_sans/NewtonSans-2015-11-04.ttf")
     format("truetype");
 }
 
+/**
+ * In root register images in variables
+ */
 :root {
   color-scheme: dark;
   --toc-active-item-color: hsl(34, 72%, 70%);
@@ -39,10 +58,25 @@
   --asset-floor: url("/src/lib/entries/sk/rebis-theory/assets/knight_floorlogo.png");
 }
 
+/* Set initial height for document for background stability */
+html {
+  min-height: 100vh;
+  top: 0;
+  bottom: 0;
+}
+
+/**
+ * Set default font color
+ * Set primary font priority
+ */
 body {
+  top: 0;
+  bottom: 0;
+  color: hsl(240, 10%, 92%);
   font-family: primary, newton-sans-regular, sans-serif;
 }
 
+/** OpenGL canvas background */
 /* .background-special {
   z-index: -1;
   position: fixed;
@@ -53,6 +87,12 @@ body {
   background: rgba(0, 0, 0, 0);
 } */
 
+/**
+ * Initial background coloe fill,
+ * so that @see .background would
+ * not change hue depending on browser
+ * because of latter's alpha < 1.0 
+ */
 .background-base {
   position: fixed;
   top: 0;
@@ -63,6 +103,14 @@ body {
   z-index: -99;
 }
 
+/**
+ * Page's primary background w/ gradient
+ * Gradient is loosely derived of
+ * inventory item's preview model background
+ *
+ * As this gradient is not 1.0 alpha,
+ * we rely on default bg color in @see .background-base
+ */
 .background {
   position: fixed;
   top: 0;
@@ -87,6 +135,7 @@ body {
   z-index: -20;
 }
 
+/* potentially add floor texture for primary background */
 /* .background::before {
   content: "";
   position: absolute;
@@ -102,22 +151,18 @@ body {
   background-repeat: no-repeat;
 } */
 
-html {
-  min-height: 100vh;
-  top: 0;
-  bottom: 0;
-}
-
-body {
-  top: 0;
-  bottom: 0;
-  color: hsl(240, 10%, 92%);
-}
-
+/**
+ * Dafault selection color
+ * We may override DarkReader's selection color override here
+ */
 ::selection {
   background-color: var(--ui-selection-regular) !important;
 }
 
+/**
+ * CommonMark spec assumes only 1 h1 heading
+ * We use it as the start of the markdown document
+ */
 h1 {
   font-weight: 600;
   font-size: 4rem;
@@ -132,6 +177,9 @@ h1 {
 
   margin-bottom: 1rem;
 
+  /**
+   * Moon animated image for h1
+   */
   &::before {
     background-image: var(--asset-moon);
     width: 18rem;
@@ -141,17 +189,16 @@ h1 {
     background-repeat: no-repeat;
     position: absolute;
     content: "";
-    /* content: url("/src/lib/entries/sk/rebis-theory/assets/moon.png"); */
     background-size: cover;
-    /* top: -2.8rem; */
     animation: clouds-move 16s linear infinite;
     transform: scale(1);
     mix-blend-mode: screen;
   }
 }
 
-/* 0 8px 24px var(--btn-primary-box-shadow opacity .32) */
-
+/**
+ * Animation for moon image of h1
+ */
 @keyframes clouds-move {
   0% {
     top: -2.6rem;
@@ -202,14 +249,25 @@ li {
   padding-bottom: 24px;
 }
 
+/**
+ * Common heading elements
+ * As we rely on markdown transfomation to html
+ * to use its tags as anchors for specific
+ * styles and design elemnts
+ *
+ * The pattern of chpater design follows
+ *  <h><em>Chapter <code>XX</code></em> Plaintext heading text</h>
+ */
 h2,
 h3,
 h4,
 h5 {
   font-family: heading;
   text-transform: uppercase;
-  /* font-weight: bold; */
 
+  /**
+   * code tag is used to wrap chapter numerals
+   */
   & code {
     letter-spacing: 0px;
     font-weight: bold;
@@ -220,6 +278,11 @@ h5 {
       consider letter spacing */
     padding-left: 0.3em;
 
+    /**
+     * Within the code wrapper of chapter's number
+     * we place aclhemy symbol
+     * It is still within the outlined box
+     */
     &::after {
       content: "";
       background-image: url("/src/lib/entries/sk/rebis-theory/assets/logo_alchemy.png");
@@ -235,7 +298,10 @@ h5 {
     }
   }
 
-  /* 2-story chapter names */
+  /**
+   * As em wraps the chpater + its number, we use it to make
+   * 2-level chapter names
+   */
   > em:first-of-type {
     font-size: 1.3rem;
     font-style: inherit;
@@ -249,6 +315,15 @@ h5 {
   }
 }
 
+/**
+ * Chapter headings - h3 - are wrapped in a following structure
+ *
+ * This structure allows for
+ * custom-sised imaged to be placed behind
+ * and slightly below chapter's text
+ *
+ * The 'below' part is regulated by @see .decorate-contents::margin-top
+ */
 .decorate-title-wrapper {
   display: flex;
   flex-direction: column;
@@ -285,6 +360,11 @@ h5 {
     }
   }
 
+  /**
+   * Explicitly customize h3,
+   * as is is the only level of heading
+   * the encompassing structure applies to
+   */
   & h3 {
     position: relative;
     z-index: 20;
@@ -292,30 +372,40 @@ h5 {
     margin-bottom: 0;
   }
 
+  /**
+   * Image and other stuff behind the heading text goes here
+   */
   & .decorate-contents {
     position: relative;
     z-index: 18;
     width: 100%;
     margin-top: -12vi;
-    /* margin-top: var(--title-decoration-image-below-offset); */
 
+    /**
+     * Image itself
+     */
     & .decorate-contents-img {
       display: block;
       height: auto;
       width: 100%;
     }
 
+    /**
+     * Elements above the image on z-index
+     */
     & .decorate-contents-overflow {
       position: absolute;
       bottom: -3vi;
       right: 5%;
       z-index: 19;
-      /* rotate: -8deg; */
       font-size: 6.4rem;
     }
   }
 }
 
+/**
+ * Custom styles for mobile view
+ */
 @media (max-width: 624px) {
   body {
     padding: 1rem;
@@ -344,6 +434,10 @@ h5 {
   }
 }
 
+/**
+ * Main code block styles common across all applications
+ * of the tag
+ */
 code {
   font-family: primary;
   background-color: hsl(343, 10%, 27%);
@@ -365,17 +459,20 @@ code {
   padding: 1px 4px;
 }
 
-div.code-conlang {
+/**
+ * Overrides for code block
+ */
+.code-conlang {
   margin-bottom: 2rem;
-}
 
-.code-conlang code {
-  color: hsl(344, 100%, 50%);
-  background-color: hsl(352, 41%, 25%);
-  font-style: normal;
-  margin: 0px;
-  padding: 4px 6px;
-  /* line-height: 1.06em; */
+  & code {
+    color: hsl(344, 100%, 50%);
+    background-color: hsl(352, 41%, 25%);
+    font-style: normal;
+    margin: 0px;
+    padding: 4px 6px;
+    /* line-height: 1.06em; */
+  }
 }
 
 em {
@@ -388,6 +485,9 @@ em {
   }
 }
 
+/**
+ * List styles
+ */
 ol,
 ul {
   margin: 0em 0em;
@@ -417,6 +517,9 @@ a {
   text-decoration: none;
 }
 
+/**
+ * SK energy-themed style for text
+ */
 .energy {
   font-family: "newton-sans-regular";
   background: linear-gradient(
@@ -436,6 +539,25 @@ a {
   font-weight: 100;
 }
 
+/* Animate gradient background */
+@keyframes energy-move {
+  0% {
+    background-position: 0% 50%;
+    filter: blur(0.003em);
+  }
+  50% {
+    background-position: 100% 50%;
+    filter: blur(0.013em);
+  }
+  100% {
+    background-position: 0% 50%;
+    filter: blur(0.003em);
+  }
+}
+
+/**
+ * Common elements of buttons
+ */
 .button-jumper,
 .button-scroll-to-top {
   border: solid;
@@ -462,6 +584,10 @@ a {
   border-radius: 5px 0px 0px 5px;
 }
 
+/**
+ * Chapter break which is paired with
+ * h3 headings' div structures
+ */
 center.chapter-break {
   margin-top: 4.5rem;
   font-family: heading;
@@ -472,24 +598,10 @@ center.chapter-break {
   text-transform: uppercase;
 }
 
-/* Animate gradient background */
-@keyframes energy-move {
-  0% {
-    background-position: 0% 50%;
-    filter: blur(0.003em);
-  }
-  50% {
-    background-position: 100% 50%;
-    filter: blur(0.013em);
-  }
-  100% {
-    background-position: 0% 50%;
-    filter: blur(0.003em);
-  }
-}
-
+/**
+ * Markdown document text container
+ */
 .container {
-  /* max-width: 60%; */
   height: 100vh;
   word-wrap: anywhere;
 
@@ -540,6 +652,9 @@ center.chapter-break {
   padding: 2px 0px;
 }
 
+/**
+ * Table of Contents container
+ */
 .toc {
   display: none;
   top: 0;
@@ -569,6 +684,9 @@ center.chapter-break {
   }
 }
 
+/**
+ * Custom styles for minimal desktop veiw
+ */
 @media only screen and (min-width: 624px) {
   .toc {
     display: grid;
@@ -714,28 +832,32 @@ center.chapter-break {
   background-color: #f72694;
 }
 
-/* table context */
-th {
-  width: 140px;
+/**
+ * Table context and styles
+ */
+table {
+  & th {
+    width: 140px;
 
-  &:nth-of-type(1) {
-    width: 80px;
-    word-wrap: break-word;
+    &:nth-of-type(1) {
+      width: 80px;
+      word-wrap: break-word;
+    }
+    &:nth-of-type(2) {
+      width: 200px;
+    }
   }
-  &:nth-of-type(2) {
-    width: 200px;
+
+  /* table cells */
+  & td {
+    padding: 10px 4px;
   }
-}
 
-/* table cells */
-td {
-  padding: 10px 4px;
-}
-
-/* table rows */
-.row-color-1 {
-  background-color: hsla(0deg, 0%, 100%, 0.01);
-}
-.row-color-2 {
-  background-color: hsla(0deg, 0%, 100%, 0.02);
+  /* table rows */
+  & .row-color-1 {
+    background-color: hsla(0deg, 0%, 100%, 0.01);
+  }
+  & .row-color-2 {
+    background-color: hsla(0deg, 0%, 100%, 0.02);
+  }
 }
