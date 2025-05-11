@@ -9,8 +9,8 @@
   import Tree from '$lib/components/toc.svelte'
   import Jumper from '$lib/entries/sk/components/scroll_to_active.svelte'
 
-  import IconComm from '$lib/entries/sk/rebis-theory/assets/next_up.png'
-  import IconHaven from '$lib/entries/sk/rebis-theory/assets/over.png'
+  import IconComm from '$lib/entries/sk/rebis-theory/assets/img/spiral_knights/next_up.png'
+  import IconHaven from '$lib/entries/sk/rebis-theory/assets/img/spiral_knights/over.png'
 
   import RebisTheory from '$lib/entries/sk/rebis-theory/rebis_theory.mdx'
 

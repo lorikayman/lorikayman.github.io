@@ -54,8 +54,7 @@
   --toc-active-item-color: hsl(34, 72%, 70%);
   --toc-hover-item-background: hsla(225deg, 40%, 30%, 0.1);
   --ui-selection-regular: rgba(255, 62, 41, 0.5);
-  --asset-moon: url("/src/lib/entries/sk/rebis-theory/assets/moon.png");
-  --asset-floor: url("/src/lib/entries/sk/rebis-theory/assets/knight_floorlogo.png");
+  --asset-moon: url("/src/lib/entries/sk/rebis-theory/assets/img/spiral_knights/moon.png");
 }
 
 /* Set initial height for document for background stability */
@@ -285,7 +284,7 @@ h5 {
      */
     &::after {
       content: "";
-      background-image: url("/src/lib/entries/sk/rebis-theory/assets/logo_alchemy.png");
+      background-image: url("/src/lib/entries/sk/rebis-theory/assets/img/spiral_knights/logo_alchemy.png");
       background-size: 22px;
       width: 29px;
       display: inline-block;
@@ -728,7 +727,7 @@ center.chapter-break {
       border-radius: 5px;
       background-color: hsla(225deg, 30%, 24%, 1);
 
-      background-image: url("/src/lib/entries/sk/rebis-theory/assets/icon_goldlock.png");
+      background-image: url("/src/lib/entries/sk/rebis-theory/assets/img/spiral_knights/icon_goldlock.png");
       display: block;
       background-size: cover;
       background-repeat: no-repeat;
