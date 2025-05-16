@@ -4,12 +4,51 @@
 
   import Toc from './toc.svelte'
 
+  import * as evToc from '$lib/events/toc.js'
+
   /**
    * @description
    * --toc-active-item-color: any color for selected a[data-active] element
    * --toc-hover-item-background: any color for a > li:hover
    */
-  const { tree = [], activeHeadingIdxs, item, level = 1 } = $props()
+  const {
+    tree = [],
+    activeHeadingIdxs,
+    item,
+    level = 1
+  } = $props()
+
+  /**
+   * Logic to handle ToC render completion for single-h1 documents
+   * @see src/lib/events/toc.js
+   */
+  onMount(async () => {
+    if (level === 1) {
+      // wait for component to render
+      // since we are in 1st level heading,
+      // we encompass all of document headings
+      // due to this, as long as there is only one h1
+      // heading, we can safely tell that
+      // toc has finished rendering
+      await tick()
+
+      const tocRoot = document.querySelector(`.heading-level-${level}`)
+      if (!tocRoot) {
+        console.error(
+          'Failed to retrieve ToC root element with class:',
+          `.heading-level-${level}`
+        )
+        return
+      }
+
+      const event = evToc.EVENT_TOC_BUILD_COMPLETE
+      console.log(
+        'Finished recursive ToC render. Firing:',
+        event.type
+      )
+      tocRoot.dispatchEvent(event)
+    }
+  })
 </script>
 
 <!-- we override on:m-click with {(e)=>{e.preventDefault()}} within an item

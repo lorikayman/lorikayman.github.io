@@ -1,10 +1,9 @@
 <script>
-  import { onMount, tick } from 'svelte'
+  import { onMount } from 'svelte'
 
   import { createTableOfContents } from '@melt-ui/svelte'
 
-  import { delay } from '$lib/helpers/delay.js'
-  import { createSelfDestructingStore } from '$lib/stores/self_destructing_store'
+  import * as evToc from '$lib/events/toc.js'
 
   import Tree from '$lib/components/toc.svelte'
   import Jumper from '$lib/entries/sk/components/scroll_to_active.svelte'
@@ -70,60 +69,39 @@
   })
 
   /**
-   * Prepare self-destructing/one-time store for page initial full load
-   * this logic will allow to locate active toc element in less code,
-   * without relying on custom event fired from recursive toc components' full
-   * array completion
-   */
-  const activeElementDestroyCondition = (value) =>
-    value instanceof HTMLElement
-  const activeElement = createSelfDestructingStore(
-    null,
-    activeElementDestroyCondition
-  )
-
-  /**
-   * Logic for full-reload ToC active entry location: effect
-   *
-   * @param {Number[]} idxs
-   *    array of active melt ui link ids
-   */
-  activeHeadingIdxs.subscribe(async (idxs) => {
-    // unreliable, as it still contains older data
-    // let item = document.querySelector(tocActiveSelector);
-    // better move to a $derived once melt supports it
-    //
-    // but, so far, usage of `tick` is required,
-    // as it allows to scroll Toc on page's initial full load
-    await tick()
-    const tocItems = document.querySelectorAll(
-      '.toc a[data-melt-table-of-contents-item]'
-    )
-    const item = tocItems.item(idxs.at(0))
-    if (!item) return
-
-    activeElement.set(
-      document.querySelector(tocActiveSelector)
-    )
-  })
-
-  /**
    * Logic for full-reload ToC active entry location: one-off listener
    * On page full re/load locate Toc active element
-   * and destroy the listener
    *
-   * We can't wrap it to onMount here,
-   * as we do not receive a completion-signalling
-   * custom event from recursive toc construction
-   * unless we want to do more custom logic within the recursion tracking
+   * @param {string} scrollBehavior
+   *   @see {@link https://developer.mozilla.org/en-US/docs/Web/API/Window/scrollTo#behavior}
+   * @param {string} errorMsg Error message in case of failure to scroll
    */
-  activeElement.subscribe((e) => {
-    if (!(e instanceof HTMLElement)) return
-    e.scrollIntoView({
-      behavior: 'instant',
-      block: 'center'
-    })
-  })
+  function locateActiveTocItem ({
+    scrollBehavior,
+    errorMsg
+  }) {
+    console.log('Calling locateActiveTocItem')
+
+    const activeElement = document.querySelector(
+      `.toc a[data-melt-table-of-contents-item][data-id="${window.location.hash.slice(1)}"]`)
+    if (activeElement) {
+      console.log('attempting to scroll ToC')
+
+      const aOffsetTop = activeElement.offsetTop
+      // Relative to Viewport y position
+      const viewportOffset = window.innerHeight / 2
+      const finalPosition = aOffsetTop - viewportOffset
+
+      document.querySelector('.toc').scrollTo({
+        behavior: scrollBehavior,
+        top: finalPosition
+      })
+    } else {
+      console.error(
+        errorMsg
+      )
+    }
+  };
 
   /**
    * highly abstract list of identifiers
@@ -180,25 +158,16 @@
       }
     }
 
-    // otherwise, we process toc scrolling
+    // process toc scrolling
     // we don't expect response
     // for ToC melt ui component to update
-    // so we wait, as it is easier to implement
-    await delay(20)
-    const activeElement = document.querySelector(tocActiveSelector)
-    if (activeElement) {
-      activeElement.scrollIntoView({
-        // hashChangeSource.processing marks unaborted
-        // logic of toc handling from a list of allowed sources in switch/case
-        behavior: hashChangeSource.processing ? 'smooth' : 'instant',
-        block: 'center'
-      })
-    } else {
-      console.error(
-        `No active element was found when backing
+    // so we preemptively identify target active element
+    // and move scroll into its view and of viewport
+    locateActiveTocItem({
+      scrollBehavior: hashChangeSource.processing ? 'smooth' : 'instant',
+      errorMsg: `No active element was found when backing
         history from '${hOld}' to '${hNew}'`
-      )
-    }
+    })
     hashChangeSource.processing = false
   })
 
@@ -209,18 +178,39 @@
    * working with @see hashChangeSource
    */
   onMount(() => {
+    // logic to locate toc active entry on history traversion
+    // from markdown document link clicks
+    //
     // source is a rendered mdx document
     document.querySelector('#document-body').addEventListener('click', e => {
       hashChangeSource.source = HASH_CHANGE_SOURCE.MDX
       hashChangeSource.started = true
       console.log('Received event from #document-body')
     })
+
+    // logic to locate toc active entry on history traversion
+    // from toc links' clicks
+    //
     // source is mdx-derived ToC component wrapper
     document.querySelector('.toc-content').addEventListener('click', e => {
       hashChangeSource.source = HASH_CHANGE_SOURCE.TOC
       hashChangeSource.started = true
       console.log('Received event from .toc-content')
     })
+
+    // logic to handle ToC render completion on full-reload
+    // and locate active entry by page's hash
+    window.addEventListener(
+      evToc.EVENT_TOC_BUILD_COMPLETE.type,
+      () => {
+        locateActiveTocItem({
+          scrollBehavior: 'instant',
+          errorMsg: 'Failed to initialize full-reload ToC scroll'
+        })
+      }, {
+        once: true
+      }
+    )
   })
 </script>
 
