@@ -67,6 +67,7 @@ MDX component table of contents
         }}
       >
         <li>
+          <!-- eslint-disable-next-line svelte/no-at-html-tags -->
           {@html heading.node.innerHTML}
         </li>
         {#if heading.children && heading.children.length}
