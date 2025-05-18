@@ -22,12 +22,6 @@ jobs:
           token: ${{ secrets.MTT_SIXTH_CHAMBER_PAT }}
           submodules: true
 
-      # https://docs.astral.sh/uv/guides/integration/github/#using-uv-in-github-actions
-      - uses: astral-sh/setup-uv@v5
-        name: Set up Uv
-      - name: Set up Python
-        run: uv python install
-
       - uses: actions/setup-node@v4
         name: Setup Node
         with:

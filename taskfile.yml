@@ -9,7 +9,6 @@ tasks:
   install:
     aliases: [i]
     cmds:
-      - uv venv  --python-preference only-managed --python 3.13 .venv
       - npm install --force
   build:
     aliases: [b]
