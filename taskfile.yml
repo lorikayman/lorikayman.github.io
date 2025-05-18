@@ -11,18 +11,9 @@ tasks:
     cmds:
       - uv venv  --python-preference only-managed --python 3.13 .venv
       - npm install --force
-  build:preprocess:
-    description: Preprocess templated MDX files
-    cmds:
-      - |
-        uv run python ./mdx-worker.py \
-        --root-dir ./src/lib/sixth-chamber/doc \
-        --output-dir ./src/lib/mawanet \
-        --whitelist ./src/lib/sixth-chamber/whitelist.json
   build:
     aliases: [b]
     cmds:
-      - task: build:preprocess
       - npm run build
   build:faster:
     summary: |
@@ -39,5 +30,4 @@ tasks:
   dev:
     aliases: [d]
     cmds:
-      # - task: build:preprocess
       - npm run dev

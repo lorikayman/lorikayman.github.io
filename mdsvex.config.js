@@ -15,6 +15,11 @@ const layoutPathEntriesRebis = path.join(
   './src/lib/entries/sk/mdsvex.layout.svelte'
 )
 
+const layoutPathMawanet = path.join(
+  rootDir,
+  './src/routes/(mawanet)/mdsvex.layout.svelte'
+)
+
 const config = defineConfig({
   extensions: ['.mdx', '.md'],
 
@@ -42,10 +47,6 @@ const config = defineConfig({
    *    The specified layout can contain components,
    *    exported by desired HTML tag names.
    *
-   * @see {@link https://www.youtube.com/watch?v=VJFkyGd0FEA}
-   * this video is a good enough demo of entire system
-   * of mdsvex layouts working as intended in a proper context.
-   *
    * @see {@link https://github.com/lorikayman/lorikayman.github.io/issues/8}
    * for complete exploration of this feature
    *
@@ -58,14 +59,13 @@ const config = defineConfig({
    * Especially, in cases such as MDX implementation,
    * which itself can be considered overengineered or bloat.
    *
-   * why should we adapt for a workflow of a specific niche use-case tool,
-   * countered to the framework, where tool itself could not exist without the latter?
    * Even when the latter's logic is flawed on its own,
    * do not introduce even more entropy/complexity to an already
    * far from perfect, but an established and working system.
    */
   layout: {
-    entries_sk: layoutPathEntriesRebis
+    entries_sk: layoutPathEntriesRebis,
+    mawanet: layoutPathMawanet
   }
 })
 

@@ -9,12 +9,3 @@ node_modules
 !.env.example
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
-
-# mdx hierarcher
-tools/mdx_hierarcher/.venv
-tools/mdx_hierarcher/**/__pycache__
-__pycache__
-
-src/lib/mawanet
-src/routes/(mawanet)/mawanet/\[\[entry\]\]/+page.js
-src/lib/stores/mawanet.loader.js
