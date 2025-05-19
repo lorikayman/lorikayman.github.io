@@ -51,6 +51,9 @@
  */
 :root {
   color-scheme: dark;
+  --color-unknown: #ff0055;
+  --toc-active-item-icon: url("/src/lib/entries/sk/rebis-theory/assets/img/spiral_knights/icon_goldlock.png");
+  --toc-active-item-icon-unknown: url("/src/lib/entries/sk/rebis-theory/assets/img/spiral_knights/icon_mobeye.png");
   --toc-active-item-color: hsl(34, 72%, 70%);
   --toc-hover-item-background: hsla(225deg, 40%, 30%, 0.1);
   --ui-selection-regular: rgba(255, 62, 41, 0.5);
@@ -222,7 +225,7 @@ h3 {
   font-size: 3.8rem;
   letter-spacing: 3px;
   margin-bottom: 3.6rem;
-  margin-top: 0rem;
+  margin-top: 6rem;
 }
 
 h4 {
@@ -272,17 +275,16 @@ h5 {
     font-weight: bold;
     font-style: inherit;
     border-radius: 2px;
-    padding: 0em 0.15em;
+    padding: 0em 0.3em;
     /* align visually letter's box size,
       consider letter spacing */
-    padding-left: 0.3em;
 
     /**
      * Within the code wrapper of chapter's number
-     * we place aclhemy symbol
+     * we place alchemy symbol
      * It is still within the outlined box
      */
-    &::after {
+    /* &::after {
       content: "";
       background-image: url("/src/lib/entries/sk/rebis-theory/assets/img/spiral_knights/logo_alchemy.png");
       background-size: 22px;
@@ -294,7 +296,7 @@ h5 {
       position: relative;
       background-repeat: no-repeat;
       filter: brightness(0.52) sepia(1) saturate(2.02);
-    }
+    } */
   }
 
   /**
@@ -314,11 +316,28 @@ h5 {
   }
 }
 
+h3:is([id="chapter-ix-part-iithe-swarm"]) {
+ 
+  color: var(--color-unknown);
+
+  & code {
+    background-color: #000;
+    color: inherit;
+
+    /* &::after {
+      content: '';
+      background-image: unset;
+      filter: unset;
+      width: 3px;
+    } */
+  }
+}
+
 /**
  * Chapter headings - h3 - are wrapped in a following structure
  *
  * This structure allows for
- * custom-sised imaged to be placed behind
+ * custom-sized imaged to be placed behind
  * and slightly below chapter's text
  *
  * The 'below' part is regulated by @see .decorate-contents::margin-top
@@ -727,7 +746,7 @@ center.chapter-break {
       border-radius: 5px;
       background-color: hsla(225deg, 30%, 24%, 1);
 
-      background-image: url("/src/lib/entries/sk/rebis-theory/assets/img/spiral_knights/icon_goldlock.png");
+      background-image: var(--toc-active-item-icon);
       display: block;
       background-size: cover;
       background-repeat: no-repeat;
@@ -736,6 +755,20 @@ center.chapter-break {
       position: absolute;
       left: 0.6em;
       margin-top: 4px;
+    }
+    
+    & a:is(
+      [data-id="chapter-ix-part-iithe-swarm"] [data-active],
+      [data-id="chapter-ix-part-iithe-swarm"][data-active]
+    ) > li::before {
+      background-image: var(--toc-active-item-icon-unknown);
+    }
+
+    & a[data-id="chapter-ix-part-iithe-swarm"] {
+      & > li code {
+        background-color: var(--color-unknown);
+        color: #000;
+      }
     }
 
     &
