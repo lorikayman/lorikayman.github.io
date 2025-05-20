@@ -316,7 +316,7 @@ h5 {
   }
 }
 
-h3:is([id="chapter-ix-part-iithe-swarm"]) {
+h3:is([id="chapter-ix-part-iiswarm"]) {
  
   color: var(--color-unknown);
 
@@ -758,13 +758,13 @@ center.chapter-break {
     }
     
     & a:is(
-      [data-id="chapter-ix-part-iithe-swarm"] [data-active],
-      [data-id="chapter-ix-part-iithe-swarm"][data-active]
+      [data-id="chapter-ix-part-iiswarm"] [data-active],
+      [data-id="chapter-ix-part-iiswarm"][data-active]
     ) > li::before {
       background-image: var(--toc-active-item-icon-unknown);
     }
 
-    & a[data-id="chapter-ix-part-iithe-swarm"] {
+    & a[data-id="chapter-ix-part-iiswarm"] {
       & > li code {
         background-color: var(--color-unknown);
         color: #000;
