@@ -225,18 +225,8 @@ h3 {
   margin-top: 6rem;
 }
 
-h4 {
-  /* letter-spacing: 2px; */
+h4, h5, h6 {
   font-size: 1.3rem;
-}
-
-h5 {
-  /* letter-spacing: 1px; */
-  font-size: 1.3rem;
-}
-
-h4,
-h5 {
   margin-bottom: 16px;
 }
 
