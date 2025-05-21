@@ -311,6 +311,18 @@ h5 {
       white-space: pre-line;
     }
   }
+  
+  /**
+   * No padding creates impression as if
+   * the word on the first line went horizontally
+   * farther than boundaries of larger text below,
+   * - more to the left due to custom letter-spacing,
+   * so we add a few pixels to counter that
+   */
+  &::before {
+    content: "";
+    padding-left: 2px;
+  }
 }
 
 h3:is([id="chapter-ix-part-iiswarm"]) {
@@ -796,8 +808,11 @@ center.chapter-break {
       margin-top: 4px;
     }
 
+    /**
+     * Better define subsections of chapters
+     */
     & .heading-level-4 ul a li {
-      padding-left: 2.66em;
+      padding-left: 3.6em;
     }
 
     /* Prevent custom multiline for chapter headings */
