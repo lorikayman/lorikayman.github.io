@@ -198,6 +198,11 @@
       console.log('Received event from .toc-content')
     })
 
+    // change bg based on chapter's scope
+    // document.querySelector('#document-body').addEventListener('scroll', e => {
+    //   // const chapterSpan = window.
+    // })
+
     // logic to handle ToC render completion on full-reload
     // and locate active entry by page's hash
     window.addEventListener(

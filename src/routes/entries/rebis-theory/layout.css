@@ -57,7 +57,7 @@
   --toc-active-item-color: hsl(34, 72%, 70%);
   --toc-hover-item-background: hsla(225deg, 40%, 30%, 0.1);
   --ui-selection-regular: rgba(255, 62, 41, 0.5);
-  --asset-moon: url("/src/lib/entries/sk/rebis-theory/assets/img/spiral_knights/moon.png");
+  /* --asset-moon: url("/src/lib/entries/sk/rebis-theory/assets/img/spiral_knights/moon.png"); */
 }
 
 /* Set initial height for document for background stability */
@@ -169,20 +169,17 @@ h1 {
   font-weight: 600;
   font-size: 4rem;
 
-  padding-top: 5rem;
-  padding-bottom: 0rem;
-  margin-bottom: 0.1rem;
-
   letter-spacing: 1px;
   font-family: heading;
   text-transform: uppercase;
 
   margin-bottom: 1rem;
+  padding-top: 2rem;
 
   /**
    * Moon animated image for h1
    */
-  &::before {
+  /* &::before {
     background-image: var(--asset-moon);
     width: 18rem;
     height: 18rem;
@@ -195,13 +192,13 @@ h1 {
     animation: clouds-move 16s linear infinite;
     transform: scale(1);
     mix-blend-mode: screen;
-  }
+  } */
 }
 
 /**
  * Animation for moon image of h1
  */
-@keyframes clouds-move {
+/* @keyframes clouds-move {
   0% {
     top: -2.6rem;
     filter: contrast(1.5) brightness(1);
@@ -214,7 +211,7 @@ h1 {
     top: -2.6rem;
     filter: contrast(1.5) brightness(1);
   }
-}
+} */
 
 h2 {
   font-weight: 500;
@@ -348,7 +345,7 @@ h3:is([id="chapter-ix-part-iiswarm"]) {
   position: relative;
   margin-bottom: 4rem;
 
-  & .decorate-title-depth-wrapper {
+  /* & .decorate-title-depth-wrapper {
     position: absolute;
     display: inline-block;
     right: -12vi;
@@ -376,7 +373,7 @@ h3:is([id="chapter-ix-part-iiswarm"]) {
       border-radius: 2px;
       font-size: 1.5em;
     }
-  }
+  } */
 
   /**
    * Explicitly customize h3,
@@ -411,13 +408,13 @@ h3:is([id="chapter-ix-part-iiswarm"]) {
     /**
      * Elements above the image on z-index
      */
-    & .decorate-contents-overflow {
+    /* & .decorate-contents-overflow {
       position: absolute;
       bottom: -3vi;
       right: 5%;
       z-index: 19;
       font-size: 6.4rem;
-    }
+    } */
   }
 }
 
