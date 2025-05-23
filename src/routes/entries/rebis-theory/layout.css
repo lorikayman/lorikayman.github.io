@@ -225,7 +225,9 @@ h3 {
   margin-top: 6rem;
 }
 
-h4, h5, h6 {
+h4,
+h5,
+h6 {
   font-size: 1.3rem;
   margin-bottom: 16px;
 }
@@ -301,7 +303,7 @@ h5 {
       white-space: pre-line;
     }
   }
-  
+
   /**
    * No padding creates impression as if
    * the word on the first line went horizontally
@@ -315,8 +317,18 @@ h5 {
   }
 }
 
-h3:is([id="chapter-ix-part-iiswarm"]) {
- 
+/**
+ * we use h3-derived selector instead
+ * of nth-type-of since not all h3s
+ * are nested or positioned on the same inline depth
+ *
+ * The :is logic supports special character parsing
+ * of webkit (1) and of firefox / chrome (2)
+ */
+h3:is(
+    [id="chapter-ix-part-ii-swarm"],
+    [id="chapter-ix-part-iiswarm"]
+  ) {
   color: var(--color-unknown);
 
   & code {
@@ -755,29 +767,32 @@ center.chapter-break {
       left: 0.6em;
       margin-top: 4px;
     }
-    
+
+    /**
+     * See prior instance of this selection through id's string
+     */
     & a:is(
-      [data-id="chapter-ix-part-iiswarm"] [data-active],
-      [data-id="chapter-ix-part-iiswarm"][data-active]
-    ) > li::before {
-      background-image: var(--toc-active-item-icon-unknown);
+        [data-id="chapter-ix-part-iiswarm"],
+        [data-id="chapter-ix-part-ii-swarm"]
+      ) {
+        & > li code {
+          background-color: var(--color-unknown);
+          color: #000;
+        }
+
+        /**
+         * Select both undelying headings and one of chapter's
+         */
+        & [data-active] > li::before, &[data-active] > li::before {
+          background-image: var(--toc-active-item-icon-unknown);
+        }
     }
 
-    & a[data-id="chapter-ix-part-iiswarm"] {
-      & > li code {
-        background-color: var(--color-unknown);
-        color: #000;
-      }
-    }
-
-    &
-      :is(
+    & :is(
         .heading-level-1,
         .heading-level-2,
         .heading-level-3
-      )
-      > a
-      > li {
+      ) > a > li {
       font-weight: bold;
       text-transform: uppercase;
     }
@@ -838,7 +853,7 @@ center.chapter-break {
   }
 }
 
-@media only screen and (min-width: 1440px) {
+@media only screen and (min-width: 2048px) {
   .toc {
     max-width: 20rem;
     left: calc(((100% - 50rem) / 2) - 22rem);
