@@ -4,12 +4,5 @@
   "hard_tabs": false,
   "tab_size": 2,
   "remove_trailing_whitespace_on_save": false,
-  "languages": {
-    "Svelte": {
-      "format_on_save": "off"
-    },
-    "JavaScript": {
-      "format_on_save": "off"
-    }
-  }
+  "format_on_save": "off"
 }
