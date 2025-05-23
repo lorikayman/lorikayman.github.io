@@ -70,6 +70,8 @@ MDX component table of contents
           <!-- eslint-disable-next-line svelte/no-at-html-tags -->
           {@html heading.node.innerHTML}
         </li>
+      </a>
+      <div>
         {#if heading.children && heading.children.length}
           <Toc
             tree={heading.children}
@@ -78,7 +80,7 @@ MDX component table of contents
             {item}
           />
         {/if}
-      </a>
+      </div>
     {/each}
   {/if}
 </ul>
