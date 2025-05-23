@@ -774,18 +774,18 @@ center.chapter-break {
     & a:is(
         [data-id="chapter-ix-part-iiswarm"],
         [data-id="chapter-ix-part-ii-swarm"]
-      ) {
-        & > li code {
-          background-color: var(--color-unknown);
-          color: #000;
-        }
+    ) {
+      & > li code {
+        background-color: var(--color-unknown);
+        color: #000;
+      }
 
-        /**
-         * Select both undelying headings and one of chapter's
-         */
-        & [data-active] > li::before, &[data-active] > li::before {
-          background-image: var(--toc-active-item-icon-unknown);
-        }
+      /**
+       * Select only chapter's heading
+       */
+      &[data-active] > li::before {
+        background-image: var(--toc-active-item-icon-unknown);
+      }
     }
 
     & :is(
