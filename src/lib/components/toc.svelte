@@ -1,5 +1,4 @@
 <script>
-  import { melt } from '@melt-ui/svelte'
   import { onMount, tick } from 'svelte'
 
   import Toc from './toc.svelte'
@@ -61,7 +60,7 @@ MDX component table of contents
     {#each tree as heading, i (i)}
       <a
         href="#{heading.id}"
-        use:melt={$item(heading.id)}
+        {...$item(heading.id)} use:item
         onm-click={(event) => {
           event.preventDefault()
         }}
