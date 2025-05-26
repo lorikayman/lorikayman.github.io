@@ -617,14 +617,22 @@ a {
  * Chapter break which is paired with
  * h3 headings' div structures
  */
-center.chapter-break {
+.chapter-break {
   margin-top: 4.5rem;
   font-family: heading;
-  font-weight: 600;
   font-size: 5rem;
   padding: 0px;
   letter-spacing: 1px;
   text-transform: uppercase;
+}
+
+.chapter-break-penultimate {
+  margin-top: 4.5rem;
+  font-family: secondary-light;
+  font-size: 1rem;
+  padding: 4rem 0rem;
+  background: #000;
+  color: var(--toc-active-item-icon);
 }
 
 /**
