@@ -1,11 +1,11 @@
 <script>
   import LogoAlchemy from '$lib/entries/sk/rebis-theory/assets/img/spiral_knights/logo_alchemy.png'
 
-  const { bg, markup } = $props()
+  const { bg, children } = $props()
 </script>
 
 <div class="centered">
-  {@render markup()}
+  {@render children?.()}
 
   {#if bg}
     <img src={LogoAlchemy} alt="" class="alchemy" />

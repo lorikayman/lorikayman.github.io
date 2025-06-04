@@ -1,11 +1,11 @@
 <script>
-  const { source, markup } = $props()
+  const { source, children } = $props()
 </script>
 
 <center>
   <div class="book-citation">
     <div class="citation-bg">
-      {@render markup?.()}
+      {@render children?.()}
     </div>
   </div>
 </center>
