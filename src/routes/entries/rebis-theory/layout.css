@@ -304,11 +304,12 @@ h5 {
     font-style: inherit;
     color: inherit;
 
-    &::after {
+    /** So far we wont use this as we have <br> in em part of headings */
+    /* &::after {
       content: "";
       display: block;
       white-space: pre-line;
-    }
+    } */
   }
 
   /**
