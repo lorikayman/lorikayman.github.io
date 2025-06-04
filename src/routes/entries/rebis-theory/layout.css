@@ -221,8 +221,15 @@ h2 {
 h3 {
   font-size: 3.8rem;
   letter-spacing: 3px;
-  margin-bottom: 3.6rem;
   margin-top: 6rem;
+
+  margin-bottom: 3.6rem;
+  
+  
+  /* non-p eleemnt follows, make smaller gap */
+  &:has(+ div) {
+    margin-bottom: 2.0rem;
+  }
 }
 
 h4,
@@ -315,6 +322,13 @@ h5 {
     content: "";
     padding-left: 2px;
   }
+}
+
+
+h3:is(
+   [id="chapter-ix-part-i-gremlin-empire"]
+) {
+  max-width: 50%;
 }
 
 /**
