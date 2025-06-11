@@ -1,25 +1,18 @@
 <script>
   import { page } from '$app/state'
-  import { onMount } from 'svelte'
   import { afterNavigate } from '$app/navigation'
   // import { cubicInOut } from "svelte/easing";
   // import { crossfade, blur } from "svelte/transition";
 
+  import About from '$lib/components/profile/about.mdx'
+
   export let data
 
-  import MawanetHeader from '$lib/components/profile/mawanet_header.svelte'
   import TripleSymbol from '$lib/components/profile/triple_symbol.svelte'
 
   document.title = 'RKHL57 : IRKM'
 
-  let host
-  if (data.tab == 'company') {
-    host = '57sw.erkh.maw'
-  } else {
-    host = page.url.host
-  }
-
-  const userHasScrolled = false
+  // const userHasScrolled = false
 
   afterNavigate(() => {
     const tabElement = document.querySelector('.tabbed-content')
@@ -37,8 +30,6 @@
   // });
 </script>
 
-<MawanetHeader {host} />
-
 <div id="menu-wrapper">
   <div class="menu-container">
     <div class="trigger">
@@ -46,7 +37,7 @@
     </div>
 
     <div class="tabbed-content scroll-anchor">
-      <svelte:component this={data.component}></svelte:component>
+      <About />
     </div>
   </div>
 </div>
@@ -55,9 +46,9 @@
   #menu-wrapper {
     display: flex;
     justify-content: center;
-    width: 100%;
-    height: 100%;
     min-height: 60vi;
+
+    margin-top: 10vi;
   }
 
   .menu-container {

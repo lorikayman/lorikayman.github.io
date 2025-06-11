@@ -1,0 +1,78 @@
+/* https://www.dafont.com/familiar-pro.font */
+@font-face {
+  font-family: "familiar-pro";
+  font-style: normal;
+  src: url("/fonts/familiar_pro/Familiar Pro-Bold.otf") format("opentype");
+}
+
+/* https://www.1001fonts.com/fira-sans-font.html */
+@font-face {
+  font-family: "fira-sans-ultralight";
+  font-style: normal;
+  src: url("/fonts/Fira_Sans/fira-sans.ultralight.ttf");
+}
+@font-face {
+  font-family: "fira-sans-bold";
+  font-style: normal;
+  src: url("/fonts/Fira_Sans/FiraSans-Bold.ttf");
+}
+@font-face {
+  font-family: "fira-sans-semi-bold";
+  font-style: normal;
+  src: url("/fonts/Fira_Sans/FiraSans-SemiBold.ttf");
+}
+
+/* https://fonts.google.com/specimen/Fira+Sans */
+@font-face {
+  font-family: "fira-sans-extralight";
+  font-style: normal;
+  src: url("/fonts/Fira_Sans/FiraSans-ExtraLight.ttf");
+}
+
+:root {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #000;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "fira-sans-semi-bold";
+  color: rgb(245, 245, 220);
+}
+
+h1,
+h2 {
+  text-transform: uppercase;
+}
+
+strong {
+  color: hsl(12, 80%, 80%);
+}
+
+p {
+  font-size: 1.12rem;
+  letter-spacing: 0.08mm;
+  font-family: "fira-sans-ultralight" !important;
+  line-height: 1.6rem;
+  color: rgb(245, 245, 220);
+}
+
+em {
+  color: rgb(245, 245, 220);
+}
+
+a {
+  color: inherit;
+}
+
+del {
+  opacity: 0.2;
+  cursor: text;
+}

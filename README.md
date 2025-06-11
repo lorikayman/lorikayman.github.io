@@ -1,4 +1,4 @@
-<!-- This is main frontend repository for a wiki of __"Maelstrom Takes Toll"__ and a frontend for adjacent materials, listed in [other content](#other-content). -->
+This is main frontend repository for a wiki of __"Maelstrom Takes Toll"__ and a frontend for adjacent materials, listed in [other content](#other-content).
 
 ## Build
 
