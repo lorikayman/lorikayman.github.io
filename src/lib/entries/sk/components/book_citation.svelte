@@ -4,6 +4,9 @@
 
 <center>
   <div class="book-citation">
+    <div class="citation-source">
+      {source}
+    </div>
     <div class="citation-bg">
       {@render children?.()}
     </div>
@@ -11,6 +14,11 @@
 </center>
 
 <style>
+
+  .citation-source {
+    position: relative;
+  }
+
   .citation-bg {
     position: relative;
     width: 80%;

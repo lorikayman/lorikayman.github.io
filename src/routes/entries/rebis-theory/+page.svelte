@@ -15,7 +15,7 @@
 
   const data = RebisTheory
 
-  document.title = 'Spiral Knights: Rebis Theory'
+  document.title = 'Rebis Theory ::'
 
   // selector for highlighting currently selected item
   const tocActiveSelector =
