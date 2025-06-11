@@ -1,5 +1,7 @@
 <script>
   import { base } from '$app/paths'
+
+  const href = 'about'
 </script>
 
 <div id="footer">
@@ -9,42 +11,45 @@
     </p>
     <p>
       Security, Privacy, Legal |
-      <a href="{base}/company">About Us</a>
+      <a href="{base}/{href}">About Us</a>
     </p>
     <p class="last">© Hordholl General Communications</p>
   </div>
 </div>
 
 <style>
-  #footer {
-    background: hsla(0deg, 0%, 0%, 0.8);
-    margin-top: 12rem;
-  }
-
-  @media (aspect-ratio < 1/1) {
+  :global {
     #footer {
-      margin-top: 32rem;
+      background: hsla(0deg, 0%, 0%, 0.8);
+      margin: 1.4rem;
+      margin-top: 12rem;
     }
-  }
-
-  .container {
-    display: flex;
-    justify-content: space-between;
-    position: relative;
-  }
-
-  .container > p {
-    flex: 1;
-    margin: 0.3em;
-    text-align: center;
-    font-size: 0.7em;
-
-    &.first {
-      text-align: left;
+  
+    @media (aspect-ratio < 1/1) {
+      #footer {
+        margin-top: 32rem;
+      }
     }
+  
+    .container {
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+    }
+  
+    .container > p {
+      flex: 1;
+      margin: 0.3em;
+      text-align: center;
+      font-size: 0.7em;
+  
+      &.first {
+        text-align: left;
+      }
 
-    &.last {
-      text-align: right;
+      &.last {
+        text-align: right;
+      }
     }
   }
 </style>

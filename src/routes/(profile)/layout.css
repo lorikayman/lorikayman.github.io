@@ -35,16 +35,15 @@
 }
 
 :root {
-  padding: 0.4em 0.6em;
-  background-color: rgb(6, 6, 6);
   scroll-behavior: smooth;
 }
 
 body {
+  background-color: #000;
+
   /* font-family: "Open Sans", sans-serif; */
 
   min-height: 40rem;
-  scroll-behavior: smooth;
 
   & > div:first-child {
     position: fixed;
