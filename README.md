@@ -29,8 +29,4 @@ The repository contains duplicates of materials from other repositories listed b
 
 ## Credits
 
-Images used:
-
-- [Linnaea Mallette, Armillary Sphere, Vintage drawing of the armillary sphere](https://www.publicdomainpictures.net/en/view-image.php?image=338833&picture=armillary-sphere*/) (License: CC0 Public Domain)
-
 The repository is managed by [HHGC Array Engineering Group](http://lorikayman.github.io/company).
