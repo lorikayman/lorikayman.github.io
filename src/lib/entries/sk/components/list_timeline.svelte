@@ -2,10 +2,12 @@
   const { children } = $props()
 </script>
 
-{@render children?.()}
+<div class="timeline">
+  {@render children?.()}
+</div>
 
 <style>
-  :global {
+  :global .timeline {
     li {
       list-style-type: none;
     }

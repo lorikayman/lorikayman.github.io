@@ -4,7 +4,7 @@
   import { goto } from '$app/navigation'
   import { page } from '$app/state'
 
-  const { children, ...props } = $props()
+  const { children } = $props()
 
   /**
    *
@@ -18,7 +18,7 @@
     }
     const targetHash = `#${e.target.parentNode.previousElementSibling.id}`
 
-    const replaceState = page.url.hash == targetHash
+    const replaceState = page.url.hash === targetHash
     goto(targetHash, { replaceState })
   }
 </script>
@@ -40,38 +40,38 @@
 
 <style>
   :global {
-  .container-align-anchor {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    .container-align-anchor {
+      display: flex;
+      align-items: center;
+      gap: 10px;
 
-    &:hover .anchor {
-      display: inline-block;
+      &:hover .anchor {
+        display: inline-block;
+      }
     }
-  }
 
-  .anchor {
-    display: none;
-    cursor: pointer;
-    border-color: transparent;
-    border-radius: 5px;
-    border-width: 0px;
+    .anchor {
+      display: none;
+      cursor: pointer;
+      border-color: transparent;
+      border-radius: 5px;
+      border-width: 0px;
 
-    line-height: 0.6;
-    width: 1.3rem;
-    height: 1.3rem;
+      line-height: 0.6;
+      width: 1.3rem;
+      height: 1.3rem;
 
-    background-size: cover;
-    background-repeat: no-repeat;
-    align-items: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      align-items: center;
 
-    /* background-color: hsl(0deg, 0%, 16%); */
-    background-color: hsla(225deg, 30%, 24%, 1);
+      /* background-color: hsl(0deg, 0%, 16%); */
+      background-color: hsla(225deg, 30%, 24%, 1);
 
-    &:hover {
-      /* background-color: hsl(0deg, 0%, 24%); */
-      background-color: hsla(225deg, 30%, 20%, 1);
+      &:hover {
+        /* background-color: hsl(0deg, 0%, 24%); */
+        background-color: hsla(225deg, 30%, 20%, 1);
+      }
     }
-  }
   }
 </style>
