@@ -253,10 +253,7 @@ li {
  * The pattern of chpater design follows
  *  <h><em>Chapter <code>XX</code></em> Plaintext heading text</h>
  */
-h2,
-h3,
-h4,
-h5 {
+h2, h3, h4, h5, h6 {
   font-family: heading;
   text-transform: uppercase;
 

@@ -39,13 +39,14 @@
 </div>
 
 <style>
+  :global {
   .container-align-anchor {
     display: flex;
     align-items: center;
     gap: 10px;
 
     &:hover .anchor {
-      display: block;
+      display: inline-block;
     }
   }
 
@@ -64,7 +65,6 @@
     background-repeat: no-repeat;
     align-items: center;
 
-    /* background-image: url("/src/lib/entries/sk/rebis-theory/assets/icon_revisit-arrow.png"); */
     /* background-color: hsl(0deg, 0%, 16%); */
     background-color: hsla(225deg, 30%, 24%, 1);
 
@@ -72,5 +72,6 @@
       /* background-color: hsl(0deg, 0%, 24%); */
       background-color: hsla(225deg, 30%, 20%, 1);
     }
+  }
   }
 </style>
