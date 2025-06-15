@@ -1,7 +1,7 @@
 <script>
   // todo: on mobile make entire heading clickable with underscore
 
-  import { goto } from '$app/navigation'
+  import { replaceState, pushState } from '$app/navigation'
   import { page } from '$app/state'
 
   const { children } = $props()
@@ -18,8 +18,14 @@
     }
     const targetHash = `#${e.target.parentNode.previousElementSibling.id}`
 
-    const replaceState = page.url.hash === targetHash
-    goto(targetHash, { replaceState })
+    // dont use goto as it breaks scrolling even with noScroll = true
+    // fkn cancer framework
+    const doReplaceState = page.url.hash === targetHash
+    if (doReplaceState) {
+      replaceState(page.url.pathname + targetHash)
+      return
+    }
+    pushState(page.url.pathname + targetHash)
   }
 </script>
 

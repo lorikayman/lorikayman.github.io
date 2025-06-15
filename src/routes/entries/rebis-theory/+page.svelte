@@ -68,6 +68,18 @@
     }
   })
 
+  function scrollToAnchor (element) {
+    const container =
+      document.getElementById('document-body')
+
+    if (container && element) {
+      window.scrollTo({
+        top: element.offsetTop,
+        behavior: 'smooth'
+      })
+    }
+  }
+
   /**
    * Logic for full-reload ToC active entry location: one-off listener
    * On page full re/load locate Toc active element
@@ -110,6 +122,7 @@
    */
   const HASH_CHANGE_SOURCE = {
     MDX: 4000,
+    MDX_ANCHOR: 4100,
     TOC: 3000,
     DOM: 2000,
     BROWSER: 1000
@@ -143,16 +156,17 @@
 
       console.log('Found href processing before hashchange event as:', $state.snapshot(hashChangeSource))
 
+      console.log('Found hrefchange from hashChangeSource.source:', hashChangeSource.source)
       switch (hashChangeSource.source) {
         // when hash change comes from mdx itself - it was caused by `a` tag click
         case HASH_CHANGE_SOURCE.MDX:
-          console.log("Found 'hrefchange' source as HASH_CHANGE_SOURCE.MDX")
           break
-        // this is sourced from Toc component - those are `a` tas,
+        // this is sourced from Toc component - those are `a` tags,
         // but this logic is delegated to MeltUI through component builder itself
         // so we stop here
         case HASH_CHANGE_SOURCE.TOC:
-          console.log("Found 'hrefchange' source as HASH_CHANGE_SOURCE.TOC")
+        case HASH_CHANGE_SOURCE.MDX_ANCHOR:
+        default:
           hashChangeSource.processing = false
           return
       }
@@ -183,9 +197,15 @@
     //
     // source is a rendered mdx document
     document.querySelector('#document-body').addEventListener('click', e => {
-      hashChangeSource.source = HASH_CHANGE_SOURCE.MDX
+      if (e.target.classList.contains('anchor')) {
+        hashChangeSource.source = HASH_CHANGE_SOURCE.MDX_ANCHOR
+        console.log('Received event from .anchor')
+        scrollToAnchor(e.target.parentElement.parentElement)
+      } else {
+        hashChangeSource.source = HASH_CHANGE_SOURCE.MDX
+        console.log('Received event from #document-body')
+      }
       hashChangeSource.started = true
-      console.log('Received event from #document-body')
     })
 
     // logic to locate toc active entry on history traversion
@@ -197,11 +217,6 @@
       hashChangeSource.started = true
       console.log('Received event from .toc-content')
     })
-
-    // change bg based on chapter's scope
-    // document.querySelector('#document-body').addEventListener('scroll', e => {
-    //   // const chapterSpan = window.
-    // })
 
     // logic to handle ToC render completion on full-reload
     // and locate active entry by page's hash
