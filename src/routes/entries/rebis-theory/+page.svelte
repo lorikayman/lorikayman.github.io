@@ -5,7 +5,7 @@
 
   import * as evToc from '$lib/events/toc.js'
 
-  import Tree from '$lib/components/toc.svelte'
+  import Tree from '$lib/entries/sk/components/toc.svelte'
   import Jumper from '$lib/entries/sk/components/scroll_to_active.svelte'
 
   import IconComm from '$lib/entries/sk/rebis-theory/assets/img/spiral_knights/next_up.png'

@@ -622,37 +622,6 @@ a {
   padding: 2px 0px;
 }
 
-/**
- * Table of Contents container
- */
-.toc {
-  display: none;
-  top: 0;
-  bottom: 0;
-  padding-top: 0.5rem;
-  padding-right: 0;
-
-  /* hide scrollbar */
-  /* chrome */
-  &::-webkit-scrollbar {
-    display: none;
-  }
-  /* edge */
-  -ms-overflow-style: none;
-  /* ff */
-  scrollbar-width: none;
-
-  & code {
-    font-weight: bold;
-    font-style: normal;
-    border-radius: 2px;
-    padding: 0px 4px;
-  }
-
-  & :not(:is(code, .button-jumper, .button-scroll-to-top)) {
-    background-color: unset;
-  }
-}
 
 /**
  * Custom styles for minimal desktop veiw
@@ -666,6 +635,32 @@ a {
     word-wrap: anywhere;
     overflow-y: scroll;
     overscroll-behavior: contain;
+    
+    top: 0;
+    bottom: 0;
+    padding-top: 0.5rem;
+    padding-right: 0;
+
+    /* hide scrollbar */
+    /* chrome */
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    /* edge */
+    -ms-overflow-style: none;
+    /* ff */
+    scrollbar-width: none;
+
+    & code {
+      font-weight: bold;
+      font-style: normal;
+      border-radius: 2px;
+      padding: 0px 4px;
+    }
+  
+    & :not(:is(code, .button-jumper, .button-scroll-to-top)) {
+      background-color: unset;
+    }
   }
 
   .toc-content {
