@@ -1,22 +1,12 @@
+.ui-button-toc-toggle {
+  display: none;
+}
 /**
  * Custom styles for mobile view
  */
 @media (max-width: 624px) {
-  body {
-    padding: 1rem;
-  }
-
-  .container p {
-    text-align: justify;
-  }
-
-  h1 {
-    /* font-size: 1.7em; */
-    padding: 14px 6px;
-
-    &::before {
-      content: none;
-    }
+  p {
+    /* text-align: justify; */
   }
 
   h2 {
@@ -26,5 +16,29 @@
   h3 {
     font-size: 2.4rem;
     letter-spacing: 3px;
+  }
+
+  .toc-container {
+    position: relative;
+  }
+     
+  /* .container {
+    padding-left: 5%;
+    max-width: 95%;
+  } */
+   
+  .toc-placeholder {
+    /* height: 50px; */
+  }
+  
+  .ui-button-toc-toggle {
+    display: block;
+    position: fixed;
+    z-index: 1;
+    cursor: pointer;
+  }
+  
+  .toc {
+    background: hsla(0deg, 0%, 0%, 0.9);
   }
 }

@@ -622,34 +622,35 @@ a {
   padding: 2px 0px;
 }
 
+.toc {
+  display: grid;
+  position: fixed;
+  height: 100vh;
+  word-wrap: anywhere;
+  overflow-y: scroll;
+  overscroll-behavior: contain;
+  
+  top: 0;
+  bottom: 0;
+  padding-right: 0;
+
+  /* hide scrollbar */
+  /* chrome */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  /* edge */
+  -ms-overflow-style: none;
+  /* ff */
+  scrollbar-width: none;
+}
 
 /**
  * Custom styles for minimal desktop veiw
  */
 @media only screen and (min-width: 624px) {
   .toc {
-    display: grid;
-    position: fixed;
     max-width: 21%;
-    height: 100vh;
-    word-wrap: anywhere;
-    overflow-y: scroll;
-    overscroll-behavior: contain;
-    
-    top: 0;
-    bottom: 0;
-    padding-top: 0.5rem;
-    padding-right: 0;
-
-    /* hide scrollbar */
-    /* chrome */
-    &::-webkit-scrollbar {
-      display: none;
-    }
-    /* edge */
-    -ms-overflow-style: none;
-    /* ff */
-    scrollbar-width: none;
 
     & code {
       font-weight: bold;
