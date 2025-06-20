@@ -1,0 +1,30 @@
+/**
+ * Custom styles for mobile view
+ */
+@media (max-width: 624px) {
+  body {
+    padding: 1rem;
+  }
+
+  .container p {
+    text-align: justify;
+  }
+
+  h1 {
+    /* font-size: 1.7em; */
+    padding: 14px 6px;
+
+    &::before {
+      content: none;
+    }
+  }
+
+  h2 {
+    letter-spacing: 3px;
+  }
+
+  h3 {
+    font-size: 2.4rem;
+    letter-spacing: 3px;
+  }
+}

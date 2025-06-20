@@ -1,0 +1,44 @@
+/**
+ * Markdown document headings-only font
+ *
+ * https://www.dafont.com/familiar-pro.font
+ */
+@font-face {
+  font-family: heading;
+  font-style: normal;
+  src: url("/fonts/familiar_pro/Familiar Pro-Bold.otf")
+    format("opentype");
+}
+
+/**
+ * Primary font for markdown document,
+ * paragraphs, etc.,
+ * excluding headings
+ */
+@font-face {
+  font-family: primary;
+  font-style: normal;
+  src: url("/fonts/Open_Sans/static/OpenSans-Regular.ttf")
+    format("truetype");
+}
+
+/* Font for Table of Contents' entries, bold, regular, etc. */
+@font-face {
+  font-family: secondary-light;
+  font-style: normal;
+  src: url("/fonts/Fira_Sans/FiraSans-Light.ttf")
+    format("truetype");
+}
+
+/**
+ * Newton Sans is for extended support of unicode characters of alchemical group
+ * https://symbl.cc/en/unicode/blocks/alchemical-symbols/
+ *
+ * https://webapp1.dlib.indiana.edu/newton/reference/font.do
+ * https://webapp1.dlib.indiana.edu/newton/fonts/Unicode-U1F700.pdf
+ */
+@font-face {
+  font-family: "newton-sans-regular";
+  src: url("$lib/entries/sk/rebis-theory/assets/fonts/newton_sans/NewtonSans-2015-11-04.ttf")
+    format("truetype");
+}

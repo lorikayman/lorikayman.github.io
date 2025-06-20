@@ -1,4 +1,5 @@
 <script context="module">
+  import './fonts.css'
   import './layout.css'
 
   import favicon from '$lib/entries/sk/rebis-theory/assets/img/spiral_knights/icon_goldlock.png'

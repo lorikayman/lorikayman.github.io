@@ -1,53 +1,11 @@
-/**
- * Markdown document headings-only font
- *
- * https://www.dafont.com/familiar-pro.font
- */
-@font-face {
-  font-family: heading;
-  font-style: normal;
-  src: url("/fonts/familiar_pro/Familiar Pro-Bold.otf")
-    format("opentype");
-}
-
-/**
- * Primary font for markdown document,
- * paragraphs, etc.,
- * excluding headings
- */
-@font-face {
-  font-family: primary;
-  font-style: normal;
-  src: url("/fonts/Open_Sans/static/OpenSans-Regular.ttf")
-    format("truetype");
-}
-
-/* Font for Table of Contents' entries, bold, regular, etc. */
-@font-face {
-  font-family: secondary-light;
-  font-style: normal;
-  src: url("/fonts/Fira_Sans/FiraSans-Light.ttf")
-    format("truetype");
-}
-
-/**
- * Newton Sans is for extended support of unicode characters of alchemical group
- * https://symbl.cc/en/unicode/blocks/alchemical-symbols/
- *
- * https://webapp1.dlib.indiana.edu/newton/reference/font.do
- * https://webapp1.dlib.indiana.edu/newton/fonts/Unicode-U1F700.pdf
- */
-@font-face {
-  font-family: "newton-sans-regular";
-  src: url("$lib/entries/sk/rebis-theory/assets/fonts/newton_sans/NewtonSans-2015-11-04.ttf")
-    format("truetype");
-}
 
 /**
  * In root register images in variables
  */
 :root {
   color-scheme: dark;
+  --color-default-background: hsl(240, 10%, 92%);
+  --color-void: #000;
   --color-unknown: #ff0055;
   --toc-active-item-icon: url("/src/lib/entries/sk/rebis-theory/assets/img/spiral_knights/icon_goldlock.png");
   --toc-active-item-icon-unknown: url("/src/lib/entries/sk/rebis-theory/assets/img/spiral_knights/icon_mobeye.png");
@@ -71,7 +29,7 @@ html {
 body {
   top: 0;
   bottom: 0;
-  color: hsl(240, 10%, 92%);
+  color: var(--color-default-background);
   font-family: primary, newton-sans-regular, sans-serif;
 }
 
@@ -98,7 +56,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgb(0, 0, 0);
+  background: var(--color-void);
   z-index: -99;
 }
 
@@ -124,11 +82,7 @@ body {
     ),
     linear-gradient(
       210deg,
-      /* rgba(59, 157, 248, 0.36),
-      rgba(42, 58, 202, 0.36) */
-        /* rgba(59, 157, 248, 0.16),
-      rgba(42, 58, 202, 0.22) */
-        rgba(59, 157, 248, 0.28),
+      rgba(59, 157, 248, 0.28),
       rgba(42, 58, 202, 0.22)
     );
   z-index: -20;
@@ -323,7 +277,7 @@ h2, h3, h4, h5, h6 {
 h3:is(
    [id="chapter-ix-part-i-gremlin-empire"]
 ) {
-  max-width: 50%;
+  max-width: 70%;
 }
 
 /**
@@ -441,36 +395,6 @@ h3:is(
   }
 }
 
-/**
- * Custom styles for mobile view
- */
-@media (max-width: 624px) {
-  body {
-    padding: 1rem;
-  }
-
-  .container p {
-    text-align: justify;
-  }
-
-  h1 {
-    /* font-size: 1.7em; */
-    padding: 14px 6px;
-
-    &::before {
-      content: none;
-    }
-  }
-
-  h2 {
-    letter-spacing: 3px;
-  }
-
-  h3 {
-    font-size: 2.4rem;
-    letter-spacing: 3px;
-  }
-}
 
 /**
  * Main code block styles common across all applications
