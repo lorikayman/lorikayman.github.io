@@ -8,11 +8,15 @@
    *    those separate selectors are evaluated
    *    sequentially in order they were given
    * @param {String} buttonClass
+   * @param {String<left, right>} alignDirection - makes corners rounded to align with a surface
+   * @param {String} imagePath - path to an image to paste within the button
    * @param {HTMLElement} children passed markup
    */
   const {
     selector = '',
     buttonClass = '',
+    alignDirection = '',
+    imagePath = '',
     children
   } = $props()
 
@@ -58,6 +62,7 @@
   class={buttonClass}
   onclick={scrollToActive}
   type="button"
+  data-align-direction={alignDirection}
 >
   {@render children?.()}
 </button>
@@ -71,5 +76,28 @@
     justify-content: center;
 
     cursor: pointer;
+
+    border: solid;
+    border-color: transparent;
+    border-width: 2px;
+    background-color: hsla(225deg, 30%, 24%, 1);
+
+    &[data-align-direction="left"] {
+      border-radius: 0px 5px 5px 0px;
+    }
+
+    &[data-align-direction="right"] {
+      border-radius: 5px 0px 0px 5px;
+    }
+
+    &:hover {
+      background-color: hsla(225deg, 30%, 18%, 1);
+
+      & img {
+        filter: drop-shadow(
+          0px 0px 4px hsla(0deg, 0%, 40%, 0.4)
+        );
+      }
+    }
   }
 </style>

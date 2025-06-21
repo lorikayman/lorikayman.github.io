@@ -236,6 +236,7 @@
     <Jumper
       selector={tocActiveSelector}
       buttonClass="ui-button-toc-scroller"
+      alignDirection="left"
     >
       <img src={IconComm} class="button-icon" alt="" />
     </Jumper>
@@ -257,6 +258,7 @@
   <Jumper
     selector={documentStart}
     buttonClass="ui-button-dom-scroller"
+    alignDirection="right"
   >
     <img src={IconHaven} alt="" class="button-icon" />
   </Jumper>

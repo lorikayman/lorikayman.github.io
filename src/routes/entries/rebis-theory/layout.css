@@ -517,34 +517,6 @@ a {
   }
 }
 
-/**
- * Common elements of buttons
- */
-.ui-button-toc-scroller,
-.ui-button-dom-scroller {
-  border: solid;
-  border-color: transparent;
-  border-width: 2px;
-  background-color: hsla(225deg, 30%, 24%, 1);
-
-  &:hover {
-    background-color: hsla(225deg, 30%, 18%, 1);
-
-    & img {
-      filter: drop-shadow(
-        0px 0px 4px hsla(0deg, 0%, 40%, 0.4)
-      );
-    }
-  }
-}
-
-.ui-button-toc-scroller {
-  border-radius: 0px 5px 5px 0px;
-}
-
-.ui-button-dom-scroller {
-  border-radius: 5px 0px 0px 5px;
-}
 
 /**
  * Chapter break which is paired with
