@@ -1,13 +1,15 @@
 <script>
   import { onMount } from 'svelte'
+  import { slide } from 'svelte/transition'
 
   import { createTableOfContents } from '@melt-ui/svelte'
 
   import * as evToc from '$lib/events/toc.js'
 
   import Tree from '$lib/entries/sk/components/toc.svelte'
-  import Jumper from '$lib/entries/sk/components/scroll_to_active.svelte'
-
+  import Button from '$lib/entries/sk/components/buttons/button.svelte'
+  import ButtonJumper from '$lib/entries/sk/components/buttons/scroll_to_active.svelte'
+  
   import IconComm from '$lib/entries/sk/rebis-theory/assets/img/spiral_knights/next_up.png'
   import IconHaven from '$lib/entries/sk/rebis-theory/assets/img/spiral_knights/over.png'
 
@@ -171,6 +173,12 @@
     hashChangeSource.processing = false
   })
 
+  let tocVisible = $state(true)
+  // Toggle TOC visibility
+  function toggleToc() {
+    tocVisible = !tocVisible
+  }
+
   /**
    * Prepare a chain of listeners, as `click` event will always precede `hashchange`
    * Here, we identify through bubbling a general area of the page,
@@ -182,7 +190,7 @@
     // from markdown document link clicks
     //
     // source is a rendered mdx document
-    document.querySelector('#document-body').addEventListener('click', e => {
+    document.querySelector('#document-body').addEventListener('click', _ => {
       hashChangeSource.source = HASH_CHANGE_SOURCE.MDX
       hashChangeSource.started = true
       console.log('Received event from #document-body')
@@ -192,7 +200,7 @@
     // from toc links' clicks
     //
     // source is mdx-derived ToC component wrapper
-    document.querySelector('.toc-content').addEventListener('click', e => {
+    document.querySelector('.toc-content').addEventListener('click', _ => {
       hashChangeSource.source = HASH_CHANGE_SOURCE.TOC
       hashChangeSource.started = true
       console.log('Received event from .toc-content')
@@ -205,6 +213,9 @@
 
     // logic to handle ToC render completion on full-reload
     // and locate active entry by page's hash
+    // We do this once specifcally for full-page reload,
+    // while other instances of this event being triggeres
+    // are the result of user's interaction w/ the page
     window.addEventListener(
       evToc.EVENT_TOC_BUILD_COMPLETE.type,
       () => {
@@ -216,24 +227,23 @@
         once: true
       }
     )
+
+    if (window.innerWidth < window.innerHeight) {
+      tocVisible = false
+    }
   })
 
-
-  import { slide } from 'svelte/transition'
-  let tocVisible = $state(false)
-
-  // Toggle TOC visibility
-  function toggleToc () {
-    tocVisible = !tocVisible
-  }
 </script>
 
 <div class="toc">
-  <button class="ui-button-toc-toggler" onclick={toggleToc}>
-    <img src={IconComm} class="button-icon"/>
-  </button>
+  <Button
+    buttonClass="ui-button-toc-toggler"
+    onclick={toggleToc}
+    inlineImageSourcePath={IconComm}
+  />
+
   {#if tocVisible}
-    <Jumper
+    <ButtonJumper
       selector={tocActiveSelector}
       buttonClass="ui-button-toc-scroller"
       alignDirection="left"
@@ -254,7 +264,7 @@
   <div id="document-body">
     <svelte:component this={data}></svelte:component>
   </div>
-  <Jumper
+  <ButtonJumper
     selector={documentStart}
     buttonClass="ui-button-dom-scroller"
     alignDirection="right"

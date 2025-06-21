@@ -1,0 +1,68 @@
+<script>
+  /**
+   * @param {String} buttonClass
+   * @param {String<left, right>} alignDirection - makes corners rounded to align with a surface
+   * @param {object} onclick - function prop for button's onclick method
+   * @param {String} inlineImageSourcePath - path to an image to paste within the button
+   */
+  const {
+    buttonClass,
+    alignDirection,
+    onclick,
+    inlineImageSourcePath
+  } = $props()
+
+</script>
+
+<button
+  class={buttonClass}
+  onclick={onclick}
+  type="button"
+  data-align-direction={alignDirection}
+>
+  <img src={inlineImageSourcePath}
+    alt="Failed to load button image"
+  >
+</button>
+
+<style>
+  button {
+    z-index: 10;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    border: solid;
+    border-color: transparent;
+    border-width: 2px;
+    background-color: hsla(225deg, 30%, 24%, 1);
+
+    border-radius: 5px;
+    &[data-align-direction="left"] {
+      border-radius: 0px 5px 5px 0px;
+    }
+    &[data-align-direction="right"] {
+      border-radius: 5px 0px 0px 5px;
+    }
+
+    & img {
+      width: 34px;
+      height: 34px;
+      scale: 1;
+      padding: 2px 0px;
+    }
+
+    &:hover {
+      background-color: hsla(225deg, 30%, 18%, 1);
+
+      & img {
+        filter: drop-shadow(
+          0px 0px 4px hsla(0deg, 0%, 40%, 0.4)
+        );
+      }
+    }
+  }
+</style>
