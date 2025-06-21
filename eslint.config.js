@@ -8,6 +8,8 @@ import { FlatCompat } from '@eslint/eslintrc'
 import { fixupConfigRules } from '@eslint/compat'
 const compat = new FlatCompat()
 
+space-before-function-paren: never
+
 // https://eslint.org/docs/latest/use/configure/ignore#ignoring-files
 export default defineConfig([
   // Standard JS config
@@ -43,6 +45,11 @@ export default defineConfig([
         // explicitly specifying it ensures better compatibility and functionality.
         svelteConfig
       }
+    }
+  },
+  {
+    rules: {
+      'space-before-function-paren': ['error', 'never']
     }
   }
 ])
