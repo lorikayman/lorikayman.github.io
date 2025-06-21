@@ -229,13 +229,13 @@
 </script>
 
 <div class="toc">
-  <button class="ui-button-toc-toggle button-jumper" onclick={toggleToc}>
+  <button class="ui-button-toc-toggler" onclick={toggleToc}>
     <img src={IconComm} class="button-icon"/>
   </button>
   {#if tocVisible}
     <Jumper
       selector={tocActiveSelector}
-      buttonClass="ui-button-container-jumper button-jumper"
+      buttonClass="ui-button-toc-scroller"
     >
       <img src={IconComm} class="button-icon" alt="" />
     </Jumper>
@@ -256,7 +256,7 @@
   </div>
   <Jumper
     selector={documentStart}
-    buttonClass="ui-button-container-scroller button-scroll-to-top"
+    buttonClass="ui-button-dom-scroller"
   >
     <img src={IconHaven} alt="" class="button-icon" />
   </Jumper>

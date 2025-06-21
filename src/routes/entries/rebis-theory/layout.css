@@ -520,8 +520,8 @@ a {
 /**
  * Common elements of buttons
  */
-.button-jumper,
-.button-scroll-to-top {
+.ui-button-toc-scroller,
+.ui-button-dom-scroller {
   border: solid;
   border-color: transparent;
   border-width: 2px;
@@ -538,11 +538,11 @@ a {
   }
 }
 
-.button-jumper {
+.ui-button-toc-scroller {
   border-radius: 0px 5px 5px 0px;
 }
 
-.button-scroll-to-top {
+.ui-button-dom-scroller {
   border-radius: 5px 0px 0px 5px;
 }
 
@@ -593,15 +593,15 @@ a {
   }
 }
 
-.ui-button-container-jumper {
+.ui-button-toc-scroller {
   left: 0rem;
   bottom: 2.2rem;
 }
-.ui-button-container-scroller {
+.ui-button-dom-scroller {
   right: 0%;
   bottom: 2.2rem;
 }
-.ui-button-toc-toggle {
+.ui-button-toc-toggler {
   right: 0%;
   top: 2.2rem;
 }
@@ -650,7 +650,7 @@ a {
       padding: 0px 4px;
     }
   
-    & :not(:is(code, .button-jumper, .button-scroll-to-top)) {
+    & :not(:is(code, button)) {
       background-color: unset;
     }
   }
@@ -759,7 +759,7 @@ a {
     }
   }
 
-  /* .ui-button-container-scroller {
+  /* .ui-button-dom-scroller {
     display: block;
     position: fixed;
     bottom: 2.2rem;
