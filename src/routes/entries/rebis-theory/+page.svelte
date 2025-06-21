@@ -237,9 +237,8 @@
       selector={tocActiveSelector}
       buttonClass="ui-button-toc-scroller"
       alignDirection="left"
-    >
-      <img src={IconComm} class="button-icon" alt="" />
-    </Jumper>
+      inlineImageSourcePath={IconComm}
+    />
 
     <div class="toc-content" transition:slide={{ duration: 300, y: -50 }}>
       <Tree
@@ -259,7 +258,6 @@
     selector={documentStart}
     buttonClass="ui-button-dom-scroller"
     alignDirection="right"
-  >
-    <img src={IconHaven} alt="" class="button-icon" />
-  </Jumper>
+    inlineImageSourcePath={IconHaven}
+  />
 </div>

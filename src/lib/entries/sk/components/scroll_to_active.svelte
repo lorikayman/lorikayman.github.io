@@ -9,15 +9,13 @@
    *    sequentially in order they were given
    * @param {String} buttonClass
    * @param {String<left, right>} alignDirection - makes corners rounded to align with a surface
-   * @param {String} imagePath - path to an image to paste within the button
-   * @param {HTMLElement} children passed markup
+   * @param {String} inlineImageSourcePath - path to an image to paste within the button
    */
   const {
-    selector = '',
-    buttonClass = '',
-    alignDirection = '',
-    imagePath = '',
-    children
+    selector,
+    buttonClass,
+    alignDirection,
+    inlineImageSourcePath
   } = $props()
 
   // delay in ms
@@ -64,7 +62,9 @@
   type="button"
   data-align-direction={alignDirection}
 >
-  {@render children?.()}
+  <img src={inlineImageSourcePath}
+    alt="Failed to load button image"
+  >
 </button>
 
 <style>
@@ -88,6 +88,13 @@
 
     &[data-align-direction="right"] {
       border-radius: 5px 0px 0px 5px;
+    }
+
+    & img {
+      width: 34px;
+      height: 34px;
+      scale: 1;
+      padding: 2px 0px;
     }
 
     &:hover {

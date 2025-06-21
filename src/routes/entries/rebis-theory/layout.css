@@ -578,13 +578,6 @@ a {
   top: 2.2rem;
 }
 
-.button-icon {
-  width: 34px;
-  height: 34px;
-  scale: 1;
-  padding: 2px 0px;
-}
-
 .toc {
   display: grid;
   position: fixed;
