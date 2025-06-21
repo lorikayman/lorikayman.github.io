@@ -594,25 +594,16 @@ a {
 }
 
 .ui-button-container-jumper {
-  display: block;
-  position: fixed;
   left: 0rem;
-  align-items: center;
-  justify-content: center;
-  width: auto;
   bottom: 2.2rem;
-  z-index: 2;
 }
-
 .ui-button-container-scroller {
-  display: block;
-  position: fixed;
-  bottom: 2.2rem;
   right: 0%;
-  align-items: center;
-  justify-content: center;
-  width: auto;
-  z-index: 2;
+  bottom: 2.2rem;
+}
+.ui-button-toc-toggle {
+  right: 0%;
+  top: 2.2rem;
 }
 
 .button-icon {
@@ -768,16 +759,15 @@ a {
     }
   }
 
-  .ui-button-container-scroller {
+  /* .ui-button-container-scroller {
     display: block;
     position: fixed;
     bottom: 2.2rem;
     right: 0%;
     align-items: center;
     justify-content: center;
-    width: auto;
     z-index: 2;
-  }
+  } */
 
   .container {
     max-width: 50%;
@@ -808,9 +798,7 @@ a {
   .ui-button-container-jumper {
     left: unset;
     justify-self: center; /* Centers horizontally */
-    & .button-jumper {
-      border-radius: 5px;
-    }
+    border-radius: 5px;
   }
 }
 

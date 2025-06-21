@@ -219,8 +219,8 @@
   })
 
 
-  import { slide } from 'svelte/transition';
-  let tocVisible = $state(true)
+  import { slide } from 'svelte/transition'
+  let tocVisible = $state(false)
 
   // Toggle TOC visibility
   function toggleToc () {
@@ -229,27 +229,24 @@
 </script>
 
 <div class="toc">
-  <button class="ui-button-toc-toggle" onclick={toggleToc}>
-    <img class="button-icon"/>
+  <button class="ui-button-toc-toggle button-jumper" onclick={toggleToc}>
+    <img src={IconComm} class="button-icon"/>
   </button>
   {#if tocVisible}
-  <div class="ui-button-container-jumper">
     <Jumper
       selector={tocActiveSelector}
-      buttonClass="button-jumper"
+      buttonClass="ui-button-container-jumper button-jumper"
     >
       <img src={IconComm} class="button-icon" alt="" />
     </Jumper>
-  </div>
-  <div class="toc-content" transition:slide={{ duration: 300, y: -50 }}>
-    <Tree
-      tree={$headingsTree}
-      activeHeadingIdxs={$activeHeadingIdxs}
-      item={item}
-    ></Tree>
-  </div>
-  {:else}
-     <!-- <div class="toc-placeholder"></div> -->
+
+    <div class="toc-content" transition:slide={{ duration: 300, y: -50 }}>
+      <Tree
+        tree={$headingsTree}
+        activeHeadingIdxs={$activeHeadingIdxs}
+        item={item}
+      ></Tree>
+    </div>
   {/if}
 </div>
 
@@ -257,12 +254,10 @@
   <div id="document-body">
     <svelte:component this={data}></svelte:component>
   </div>
-  <div class="ui-button-container-scroller">
-    <Jumper
-      selector={documentStart}
-      buttonClass="button-scroll-to-top"
-    >
-      <img src={IconHaven} alt="" class="button-icon" />
-    </Jumper>
-  </div>
+  <Jumper
+    selector={documentStart}
+    buttonClass="ui-button-container-scroller button-scroll-to-top"
+  >
+    <img src={IconHaven} alt="" class="button-icon" />
+  </Jumper>
 </div>

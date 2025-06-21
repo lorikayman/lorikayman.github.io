@@ -64,10 +64,12 @@
 
 <style>
   button {
-    cursor: pointer;
-    height: 100%;
+    z-index: 10;
+    position: fixed;
     display: flex;
     align-items: center;
     justify-content: center;
+
+    cursor: pointer;
   }
 </style>
