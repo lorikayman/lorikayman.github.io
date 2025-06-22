@@ -97,10 +97,10 @@ MDX component table of contents
   }
   
   :is(
-      .heading-level-1,
-      .heading-level-2,
-      .heading-level-3
-    ) > a > li {
+    .heading-level-1,
+    .heading-level-2,
+    .heading-level-3
+  ) > a > li {
     font-weight: bold;
     text-transform: uppercase;
   }
