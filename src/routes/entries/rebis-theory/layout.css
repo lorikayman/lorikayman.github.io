@@ -578,13 +578,15 @@ a {
   top: 1.2rem;
 }
 
-.toc {
+.sidebar {
   display: grid;
   position: fixed;
   height: 100vh;
   word-wrap: anywhere;
   overflow-y: scroll;
   overscroll-behavior: contain;
+  
+  font-family: secondary-light;
 
   top: 0;
   bottom: 0;
@@ -601,29 +603,16 @@ a {
   scrollbar-width: none;
 }
 
-.toc-content-visible {
-  /* animation: fadeIn 3s linear slide-in; */
-}
-.toc-content-hidden {
+.sidebar-hidden {
   visibility: hidden;
   max-width: 0%;
-}
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    transform: scale(0.8);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
 }
 
 /**
  * Custom styles for minimal desktop veiw
  */
 @media only screen and (min-width: 624px) {
-  .toc {
+  .sidebar {
     max-width: 21%;
 
     & code {
@@ -638,11 +627,7 @@ a {
     }
   }
 
-  .toc-content {
-    position: relative;
-
-    font-family: secondary-light;
-
+  .toc {
     /* heading 1 is always single */
     & ul.heading-level-1 {
       padding-bottom: 7rem;
@@ -753,11 +738,11 @@ a {
 }
 
 @media only screen and (min-width: 2048px) {
-  .toc {
+  .sidebar {
     max-width: 20rem;
     left: calc(((100% - 50rem) / 2) - 22rem);
 
-    & .toc-content a > li {
+    & .toc a > li {
       border-radius: 5px;
     }
   }

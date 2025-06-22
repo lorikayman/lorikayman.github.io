@@ -15,7 +15,7 @@
     letter-spacing: 3px;
   }
 
-  .toc-content-visible {
+  .sidebar {
     background: hsla(0deg, 0%, 0%, 0.9);
     max-width: 100%;
   }

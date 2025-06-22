@@ -21,10 +21,10 @@
 
   // selector for highlighting currently selected item
   const tocActiveSelector =
-    '.toc-content a[data-active] li'
+    '.toc a[data-active] li'
   /** selector for defining the start for @see Jumper */
   const documentStart =
-    "#document-body h1, .toc-content a[data-id='rebis-theory-'] li"
+    "#document-body h1, .toc a[data-id='rebis-theory-'] li"
   /**
    * create table of content by scanning a component
    */
@@ -173,10 +173,10 @@
     hashChangeSource.processing = false
   })
 
-  let tocVisible = $state(true)
-  // Toggle TOC visibility
+  let sidebarHidden = $state(true)
+  // Toggle Sidebar visibility
   function toggleToc() {
-    tocVisible = !tocVisible
+    sidebarHidden = !sidebarHidden
   }
 
   /**
@@ -200,10 +200,10 @@
     // from toc links' clicks
     //
     // source is mdx-derived ToC component wrapper
-    document.querySelector('.toc-content').addEventListener('click', _ => {
+    document.querySelector('.toc').addEventListener('click', _ => {
       hashChangeSource.source = HASH_CHANGE_SOURCE.TOC
       hashChangeSource.started = true
-      console.log('Received event from .toc-content')
+      console.log('Received event from .toc')
     })
 
     // change bg based on chapter's scope
@@ -229,37 +229,33 @@
       }
     )
 
-    if (window.innerWidth < window.innerHeight) {
-      tocVisible = false
+    if (window.innerHeight > window.innerWidth) {
+      sidebarHidden = true
     }
   })
 
 </script>
 
-<div class="toc">
-  <Button
-    buttonClass="ui-button-toc-toggler"
-    onclick={toggleToc}
-    alignDirection="left"
-    inlineImageSourcePath={IconComm}
-  />
+<Button
+  buttonClass="ui-button-toc-toggler"
+  onclick={toggleToc}
+  alignDirection="left"
+  inlineImageSourcePath={IconComm}
+/>
 
-  {#if !tocVisible}
+<div class={{
+  sidebar: true,
+  'sidebar-hidden': sidebarHidden
+}}>
+
   <ButtonJumper
     buttonClass="ui-button-toc-scroller"
     selector={tocActiveSelector}
     alignDirection="left"
     inlineImageSourcePath={IconComm}
   />
-  {/if}
 
-  <div
-    class={{
-      'toc-content': true,
-      'toc-content-visible': !tocVisible,
-      'toc-content-hidden': tocVisible,
-    }}
-  >
+  <div class="toc">
     <Tree
       tree={$headingsTree}
       activeHeadingIdxs={$activeHeadingIdxs}

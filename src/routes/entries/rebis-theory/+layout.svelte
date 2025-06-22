@@ -16,6 +16,4 @@
 <div class="background-base"></div>
 <div class="background"></div>
 <!-- <Webgl controlClasses="background-special" /> -->
-<div>
-  <slot />
-</div>
+<slot />
