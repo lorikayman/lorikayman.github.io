@@ -609,7 +609,8 @@ a {
 .sidebar {
   display: grid;
   position: fixed;
-  height: 100vh;
+  /* chrome height workaround +5vh */
+  height: 105vh;
   word-wrap: anywhere;
   
   font-family: secondary-light;
