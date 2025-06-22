@@ -10,12 +10,11 @@
   import Button from '$lib/entries/sk/components/buttons/button.svelte'
   import ButtonJumper from '$lib/entries/sk/components/buttons/scroll_to_active.svelte'
   
+  import IconKey from '$lib/entries/sk/rebis-theory/assets/img/spiral_knights/icon_goldlock.png'
   import IconComm from '$lib/entries/sk/rebis-theory/assets/img/spiral_knights/next_up.png'
   import IconHaven from '$lib/entries/sk/rebis-theory/assets/img/spiral_knights/over.png'
 
   import RebisTheory from '$lib/entries/sk/rebis-theory/rebis_theory.mdx'
-
-  const data = RebisTheory
 
   document.title = 'Rebis Theory ::'
 
@@ -236,26 +235,30 @@
 
 </script>
 
-<Button
-  buttonClass="ui-button-toc-toggler"
-  onclick={toggleToc}
-  alignDirection="left"
-  inlineImageSourcePath={IconComm}
-/>
+<div class="sidebar-container" data-sidebar-hidden={sidebarHidden}>
 
+<div class="ui-button-group-left">  
+  <Button
+    buttonClass="ui-button-toc-toggler"
+    onclick={toggleToc}
+    active={sidebarHidden}
+    alignDirection="left"
+    inlineImageSourcePath={IconComm}
+  />
+  
+  <ButtonJumper
+    buttonClass="ui-button-toc-scroller"
+    disabled={sidebarHidden}
+    selector={tocActiveSelector}
+    inlineImageSourcePath={IconKey}
+  />
+</div>
 
 <div class={{
   sidebar: true,
   'sidebar-toggle-visible': !sidebarHidden,
   'sidebar-toggle-hidden': sidebarHidden,
 }}>
-
-  <ButtonJumper
-    buttonClass="ui-button-toc-scroller"
-    selector={tocActiveSelector}
-    alignDirection="left"
-    inlineImageSourcePath={IconComm}
-  />
 
   <div class="toc">
     <Tree
@@ -265,10 +268,11 @@
     ></Tree>
   </div>
 </div>
+</div>
 
 <div class="container">
   <div id="document-body">
-    <svelte:component this={data}></svelte:component>
+    <RebisTheory/>
   </div>
   <ButtonJumper
     selector={documentStart}

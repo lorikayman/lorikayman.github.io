@@ -7,8 +7,8 @@
   --color-default-background: hsl(240, 10%, 92%);
   --color-void: #000;
   --color-unknown: #ff0055;
-  --toc-active-item-icon: url("/src/lib/entries/sk/rebis-theory/assets/img/spiral_knights/icon_goldlock.png");
-  --toc-active-item-icon-unknown: url("/src/lib/entries/sk/rebis-theory/assets/img/spiral_knights/icon_mobeye.png");
+  /* --toc-active-item-icon: url("/src/lib/entries/sk/rebis-theory/assets/img/spiral_knights/icon_goldlock.png");
+  --toc-active-item-icon-unknown: url("/src/lib/entries/sk/rebis-theory/assets/img/spiral_knights/icon_mobeye.png"); */
   --toc-active-item-color: hsl(34, 72%, 70%);
   --toc-hover-item-background: hsla(225deg, 40%, 30%, 0.1);
   --ui-selection-regular: rgba(255, 62, 41, 0.5);
@@ -537,7 +537,6 @@ a {
   font-size: 1rem;
   padding: 4rem 0rem;
   background: #000;
-  color: var(--toc-active-item-icon);
 }
 
 /**
@@ -566,23 +565,10 @@ a {
 }
 
 
-.ui-button-toc-scroller, .ui-button-dom-scroller, .ui-button-toc-toggler {
-  position: fixed;
-  z-index: 10;  
-}
-.ui-button-toc-scroller {
-  left: 0rem;
-  bottom: 2.2rem;
-}
 .ui-button-dom-scroller {
-  right: 0%;
-  bottom: 2.2rem;
+  position: fixed;
+  z-index: 10;
 }
-.ui-button-toc-toggler {
-  left: 0rem;
-  top: 1.2rem;
-}
-
 
 /** sidebar classes for toggling its visibility w/ corresponding animations
  *  Current approach dioes nort rely on `animation-direction: reverse;`
@@ -638,8 +624,8 @@ a {
 }
 
 .toc {
-  height: 74vh;
-  margin-top: 12vh;
+  height: 84vh;
+  margin-top: 2vh;
 
   /* hide scrollbar */
   overflow-y: scroll;
@@ -655,6 +641,18 @@ a {
   scrollbar-width: none;
 }
 
+.ui-button-group-left {
+  display: flex;
+  gap: 0.3rem;
+  justify-content: center;
+  left: 0;
+  bottom: 2.2rem;
+  position: fixed;
+  z-index: 1;
+  padding: 0.3rem;
+  padding-left: 0px;
+}
+
 
 /**
  * Custom styles for minimal desktop veiw
@@ -664,6 +662,19 @@ a {
     max-width: 21%;
   }
 
+  .ui-button-dom-scroller {
+    right: 0%;
+    bottom: 2.2rem;
+  }
+  .ui-button-toc-scroller {
+    /* left: 3.2rem; */
+    /* bottom: 2.2rem; */
+  }
+  .ui-button-toc-toggler {
+    /* left: 0rem; */
+    /* bottom: 2.2rem; */
+  }
+  
   .container {
     max-width: 50%;
     padding-left: 25%;

@@ -18,6 +18,7 @@
     selector,
     buttonClass,
     alignDirection,
+    disabled,
     inlineImageSourcePath
   } = $props()
 
@@ -69,5 +70,6 @@
   buttonClass={buttonClass}
   onclick={scrollToActive}
   alignDirection={alignDirection}
+  disabled={disabled}
   inlineImageSourcePath={inlineImageSourcePath}
 ></Button>
