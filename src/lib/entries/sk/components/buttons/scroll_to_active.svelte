@@ -1,6 +1,7 @@
 <script>
   import { delay } from '$lib/helpers/delay.js'
   import { isChrome } from '$lib/helpers/useragent.js'
+  import { detectOutOfBounds } from '$lib/helpers/window.js'
   
   import Button from './button.svelte'
 
@@ -44,8 +45,14 @@
       )
       if (activeElement) {
         if (isChrome && i > 0) await delay(SCROLL_DELAY)
+        
+        const outsideVeiwport = detectOutOfBounds(activeElement)
+        if (outsideVeiwport) {
+          console.log(`Detected element at index '${i}' outside of viewport, using instant scrolling`)
+        }
+
         activeElement.scrollIntoView({
-          behavior: 'smooth',
+          behavior: outsideVeiwport ? 'instant' : 'smooth',
           block: 'center'
         })
       } else {

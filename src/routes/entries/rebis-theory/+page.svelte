@@ -245,7 +245,8 @@
 
 <div class={{
   sidebar: true,
-  'sidebar-hidden': sidebarHidden
+  'sidebar-toggle-visible': !sidebarHidden,
+  'sidebar-toggle-hidden': sidebarHidden,
 }}>
 
   <ButtonJumper

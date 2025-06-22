@@ -578,6 +578,47 @@ a {
   top: 1.2rem;
 }
 
+
+/** sidebar classes for toggling its visibility w/ corresponding animations
+ *  Current approach dioes nort rely on `animation-direction: reverse;`
+ * as it requires a time gap between css rules' anomations of
+ * corresponding classes, which will complite things.
+ * Current solution requires only to duplicate and reverse animation with its keyframes
+ */
+.sidebar-toggle-visible, .sidebar-toggle-hidden {
+  animation-duration: 300ms;
+  animation-delay: 0ms;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;  
+}
+.sidebar-toggle-visible {
+  animation-name: sidebar-toggle-visible;
+}
+.sidebar-toggle-hidden {
+  animation-name: sidebar-toggle-hidden;
+}
+@keyframes sidebar-toggle-visible {
+  from {
+    transform: translateX(-50%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0rem);
+    opacity: 1;
+  }
+}
+@keyframes sidebar-toggle-hidden {
+  to {
+    transform: translateX(-50%);
+    opacity: 0;
+  }
+  from {
+    transform: translateX(0rem);
+    opacity: 1;
+  }
+}
+
+
 .sidebar {
   display: grid;
   position: fixed;
@@ -713,10 +754,6 @@ a {
   }
 }
 
-.sidebar-hidden {
-  visibility: hidden;
-  max-width: 0%;
-}
 
 /**
  * Custom styles for minimal desktop veiw
