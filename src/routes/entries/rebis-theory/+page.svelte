@@ -173,7 +173,7 @@
     hashChangeSource.processing = false
   })
 
-  let sidebarHidden = $state(true)
+  let sidebarHidden = $state(false)
   // Toggle Sidebar visibility
   function toggleToc() {
     sidebarHidden = !sidebarHidden
@@ -229,8 +229,8 @@
       }
     )
 
-    if (window.innerHeight > window.innerWidth) {
-      sidebarHidden = true
+    if (window.innerWidth > window.innerHeight) {
+      sidebarHidden = false
     }
   })
 
