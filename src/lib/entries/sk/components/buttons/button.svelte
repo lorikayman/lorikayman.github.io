@@ -27,9 +27,8 @@
 
 <style>
   button {
-    z-index: 10;
-    position: fixed;
     display: flex;
+
     align-items: center;
     justify-content: center;
 
