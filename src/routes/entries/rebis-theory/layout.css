@@ -565,10 +565,6 @@ a {
 }
 
 
-.ui-button-dom-scroller {
-  position: fixed;
-  z-index: 10;
-}
 
 /** sidebar classes for toggling its visibility w/ corresponding animations
  *  Current approach dioes nort rely on `animation-direction: reverse;`
@@ -641,16 +637,27 @@ a {
   scrollbar-width: none;
 }
 
-.ui-button-group-left {
+
+.ui-button-group {
   display: flex;
   gap: 0.3rem;
   justify-content: center;
-  left: 0;
-  bottom: 2.2rem;
   position: fixed;
   z-index: 1;
+}
+
+.group-left {
   padding: 0.3rem;
   padding-left: 0px;
+  left: 0;
+  bottom: 2.2rem;
+}
+
+.group-right {
+  padding: 0.3rem;
+  padding-right: 0px;
+  right: 0;
+  bottom: 2.2rem;
 }
 
 
@@ -664,15 +671,9 @@ a {
 
   .ui-button-dom-scroller {
     right: 0%;
-    bottom: 2.2rem;
-  }
-  .ui-button-toc-scroller {
-    /* left: 3.2rem; */
-    /* bottom: 2.2rem; */
-  }
-  .ui-button-toc-toggler {
-    /* left: 0rem; */
-    /* bottom: 2.2rem; */
+    bottom: 2.2rem;    
+    position: fixed;
+    z-index: 10;
   }
   
   .container {

@@ -177,6 +177,13 @@
   function toggleToc() {
     sidebarHidden = !sidebarHidden
   }
+  
+  // reactive window width
+  let windowReactiveWidth = $state(window.innerWidth)
+  function updateWindowWidth() {
+    windowReactiveWidth = window.innerWidth;
+    // if (window.innerWidth < 624 && sidebarHidden) sidebarHidden = false
+  }
 
   /**
    * Prepare a chain of listeners, as `click` event will always precede `hashchange`
@@ -227,8 +234,16 @@
         once: true
       }
     )
+    
+    /**
+     * Rearrange buttons in UI when window is resized
+     * @see updateWindowWidth
+     */
+    window.addEventListener('resize', () => {
+      updateWindowWidth()
+    })
 
-    if (window.innerWidth > window.innerHeight) {
+    if (window.innerWidth > window.innerHeight && window.innerWidth > 624) {
       sidebarHidden = false
     }
   })
@@ -237,21 +252,37 @@
 
 <div class="sidebar-container" data-sidebar-hidden={sidebarHidden}>
 
-<div class="ui-button-group-left">  
-  <Button
-    buttonClass="ui-button-toc-toggler"
-    onclick={toggleToc}
-    active={sidebarHidden}
-    alignDirection="left"
-    inlineImageSourcePath={IconComm}
-  />
-  
-  <ButtonJumper
-    buttonClass="ui-button-toc-scroller"
-    disabled={sidebarHidden}
-    selector={tocActiveSelector}
-    inlineImageSourcePath={IconKey}
-  />
+<div class="ui-button-group group-left">
+  {#if (windowReactiveWidth > 624)}
+    <Button
+      buttonClass="ui-button-toc-toggler"
+      onclick={toggleToc}
+      active={sidebarHidden}
+      alignDirection="left"
+      inlineImageSourcePath={IconComm}
+    />
+
+    <ButtonJumper
+      buttonClass="ui-button-toc-scroller"
+      disabled={sidebarHidden}
+      selector={tocActiveSelector}
+      inlineImageSourcePath={IconKey}
+    />
+  {:else}
+    <ButtonJumper
+      selector={documentStart}
+      buttonClass="ui-button-dom-scroller"
+      alignDirection="left"
+      inlineImageSourcePath={IconHaven}
+    />
+    {#if !sidebarHidden}
+      <ButtonJumper
+        buttonClass="ui-button-toc-scroller"
+        selector={tocActiveSelector}
+        inlineImageSourcePath={IconKey}
+      />
+    {/if}
+  {/if}
 </div>
 
 <div class={{
@@ -259,7 +290,6 @@
   'sidebar-toggle-visible': !sidebarHidden,
   'sidebar-toggle-hidden': sidebarHidden,
 }}>
-
   <div class="toc">
     <Tree
       tree={$headingsTree}
@@ -274,10 +304,22 @@
   <div id="document-body">
     <RebisTheory/>
   </div>
-  <ButtonJumper
-    selector={documentStart}
-    buttonClass="ui-button-dom-scroller"
-    alignDirection="right"
-    inlineImageSourcePath={IconHaven}
-  />
+  <div class="ui-button-group group-right">
+    {#if (windowReactiveWidth > 624)}
+      <ButtonJumper
+        selector={documentStart}
+        buttonClass="ui-button-dom-scroller"
+        alignDirection="right"
+        inlineImageSourcePath={IconHaven}
+      />
+    {:else}
+      <Button
+        buttonClass="ui-button-toc-toggler"
+        onclick={toggleToc}
+        active={!sidebarHidden}
+        alignDirection="right"
+        inlineImageSourcePath={IconComm}
+      />
+    {/if}
+  </div>
 </div>
