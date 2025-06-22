@@ -574,8 +574,8 @@ a {
   bottom: 2.2rem;
 }
 .ui-button-toc-toggler {
-  right: 0%;
-  top: 2.2rem;
+  left: 0rem;
+  top: 1.2rem;
 }
 
 .toc {
@@ -585,7 +585,7 @@ a {
   word-wrap: anywhere;
   overflow-y: scroll;
   overscroll-behavior: contain;
-  
+
   top: 0;
   bottom: 0;
   padding-right: 0;
@@ -599,6 +599,24 @@ a {
   -ms-overflow-style: none;
   /* ff */
   scrollbar-width: none;
+}
+
+.toc-content-visible {
+  /* animation: fadeIn 3s linear slide-in; */
+}
+.toc-content-hidden {
+  visibility: hidden;
+  max-width: 0%;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 /**
@@ -622,7 +640,6 @@ a {
 
   .toc-content {
     position: relative;
-    width: 100%;
 
     font-family: secondary-light;
 
@@ -723,16 +740,6 @@ a {
       }
     }
   }
-
-  /* .ui-button-dom-scroller {
-    display: block;
-    position: fixed;
-    bottom: 2.2rem;
-    right: 0%;
-    align-items: center;
-    justify-content: center;
-    z-index: 2;
-  } */
 
   .container {
     max-width: 50%;

@@ -82,7 +82,7 @@
     scrollBehavior,
     errorMsg
   }) {
-    console.log('Calling locateActiveTocItem')
+    console.log('Calling locateActiveTocItem with:', ...arguments)
 
     const activeElement = document.querySelector(
       `.toc a[data-melt-table-of-contents-item][data-id="${window.location.hash.slice(1)}"]`)
@@ -219,6 +219,7 @@
     window.addEventListener(
       evToc.EVENT_TOC_BUILD_COMPLETE.type,
       () => {
+        console.log('Received', evToc.EVENT_TOC_BUILD_COMPLETE.type)
         locateActiveTocItem({
           scrollBehavior: 'instant',
           errorMsg: 'Failed to initialize full-reload ToC scroll'
@@ -239,25 +240,32 @@
   <Button
     buttonClass="ui-button-toc-toggler"
     onclick={toggleToc}
+    alignDirection="left"
     inlineImageSourcePath={IconComm}
   />
 
-  {#if tocVisible}
-    <ButtonJumper
-      selector={tocActiveSelector}
-      buttonClass="ui-button-toc-scroller"
-      alignDirection="left"
-      inlineImageSourcePath={IconComm}
-    />
-
-    <div class="toc-content" transition:slide={{ duration: 300, y: -50 }}>
-      <Tree
-        tree={$headingsTree}
-        activeHeadingIdxs={$activeHeadingIdxs}
-        item={item}
-      ></Tree>
-    </div>
+  {#if !tocVisible}
+  <ButtonJumper
+    buttonClass="ui-button-toc-scroller"
+    selector={tocActiveSelector}
+    alignDirection="left"
+    inlineImageSourcePath={IconComm}
+  />
   {/if}
+
+  <div
+    class={{
+      'toc-content': true,
+      'toc-content-visible': !tocVisible,
+      'toc-content-hidden': tocVisible,
+    }}
+  >
+    <Tree
+      tree={$headingsTree}
+      activeHeadingIdxs={$activeHeadingIdxs}
+      item={item}
+    ></Tree>
+  </div>
 </div>
 
 <div class="container">

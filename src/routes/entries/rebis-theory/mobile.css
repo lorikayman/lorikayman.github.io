@@ -15,11 +15,13 @@
     letter-spacing: 3px;
   }
 
-  .toc {
+  .toc-content-visible {
     background: hsla(0deg, 0%, 0%, 0.9);
-    
-    & .toc-container {
-      position: relative;
-    }
+    max-width: 100%;
   }
+
+  /* .ui-button-dom-scroller {
+    left: 0%;
+    bottom: 2.2rem;
+  } */
 }
