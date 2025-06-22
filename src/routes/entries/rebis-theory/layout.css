@@ -604,7 +604,7 @@ a {
 }
 @keyframes sidebar-toggle-visible {
   from {
-    transform: translateX(-150vw);
+    transform: translateX(-150%);
     opacity: 0;
   }
   to {
@@ -614,7 +614,7 @@ a {
 }
 @keyframes sidebar-toggle-hidden {
   to {
-    transform: translateX(-150vw);
+    transform: translateX(-150%);
     opacity: 0;
   }
   from {
@@ -629,16 +629,22 @@ a {
   position: fixed;
   height: 100vh;
   word-wrap: anywhere;
-  overflow-y: scroll;
-  overscroll-behavior: contain;
   
   font-family: secondary-light;
 
   top: 0;
   bottom: 0;
   padding-right: 0;
+}
+
+.toc {
+  height: 74vh;
+  margin-top: 12vh;
 
   /* hide scrollbar */
+  overflow-y: scroll;
+  overscroll-behavior: contain;
+
   /* chrome */
   &::-webkit-scrollbar {
     display: none;
@@ -647,116 +653,6 @@ a {
   -ms-overflow-style: none;
   /* ff */
   scrollbar-width: none;
-  
-  & code {
-    font-weight: bold;
-    font-style: normal;
-    border-radius: 2px;
-    padding: 0px 4px;
-  }
-
-  & :not(:is(code, button)) {
-    background-color: unset;
-  }
-}
-
-.toc {
-  /* heading 1 is always single */
-  & ul.heading-level-1 {
-    padding-bottom: 7rem;
-  }
-
-  /* clickable area margins */
-  & a > li {
-    padding-left: 2.2rem;
-    padding-right: 0.2rem;
-    border-radius: 0px 5px 5px 0px;
-  }
-
-  & a[data-active] > li {
-    background-color: hsla(225deg, 30%, 24%, 0.2);
-  }
-  & a[data-active] > li::before {
-    content: "";
-
-    border: solid;
-    border-color: transparent;
-    border-width: 0px;
-    border-radius: 5px;
-    background-color: hsla(225deg, 30%, 24%, 1);
-
-    background-image: var(--toc-active-item-icon);
-    display: block;
-    background-size: cover;
-    background-repeat: no-repeat;
-    width: 1.2em;
-    height: 1.2em;
-    position: absolute;
-    left: 0.6em;
-    margin-top: 4px;
-  }
-
-  /**
-   * See prior instance of this selection through id's string
-   */
-  & a:is(
-      [data-id="chapter-ix-part-iiswarm"],
-      [data-id="chapter-ix-part-ii-swarm"]
-  ) {
-    & > li code {
-      background-color: var(--color-unknown);
-      color: #000;
-    }
-
-    /**
-     * Select only chapter's heading
-     */
-    &[data-active] > li::before {
-      background-image: var(--toc-active-item-icon-unknown);
-    }
-  }
-
-  & :is(
-      .heading-level-1,
-      .heading-level-2,
-      .heading-level-3
-    ) > a > li {
-    font-weight: bold;
-    text-transform: uppercase;
-  }
-
-  & .heading-level-3 > a > li::before {
-    content: "";
-
-    border: solid;
-    border-color: transparent;
-    border-width: 0px;
-    border-radius: 5px;
-    background-color: hsla(225deg, 30%, 24%, 1);
-    display: block;
-    width: 1.2em;
-    height: 1.2em;
-    position: absolute;
-    left: 0.6em;
-    margin-top: 4px;
-  }
-
-  /**
-   * Better define subsections of chapters
-   */
-  & .heading-level-4 ul a li {
-    padding-left: 3.6em;
-  }
-
-  /* Prevent custom multiline for chapter headings */
-  & em {
-    font-style: normal;
-    color: inherit;
-
-    & > code {
-      font-style: normal;
-    }
-  }
 }
 
 
@@ -799,10 +695,6 @@ a {
     justify-self: center;
     border-radius: 5px;
   } */
-}
-
-.through-curse {
-  background-color: #f72694;
 }
 
 /**

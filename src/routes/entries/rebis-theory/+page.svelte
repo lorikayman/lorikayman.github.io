@@ -243,18 +243,19 @@
   inlineImageSourcePath={IconComm}
 />
 
-<ButtonJumper
-  buttonClass="ui-button-toc-scroller { sidebarHidden ? 'sidebar-toggle-hidden' : 'sidebar-toggle-visible'}"
-  selector={tocActiveSelector}
-  alignDirection="left"
-  inlineImageSourcePath={IconComm}
-/>
 
 <div class={{
   sidebar: true,
   'sidebar-toggle-visible': !sidebarHidden,
   'sidebar-toggle-hidden': sidebarHidden,
 }}>
+
+  <ButtonJumper
+    buttonClass="ui-button-toc-scroller"
+    selector={tocActiveSelector}
+    alignDirection="left"
+    inlineImageSourcePath={IconComm}
+  />
 
   <div class="toc">
     <Tree
