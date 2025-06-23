@@ -65,6 +65,7 @@ MDX component table of contents
           event.preventDefault()
         }}
       >
+        <div class="context-identification"></div>
         <li>
           <!-- eslint-disable-next-line svelte/no-at-html-tags -->
           {@html heading.node.innerHTML}
@@ -92,10 +93,6 @@ MDX component table of contents
     padding: 4px 0px;
   }
   
-  a[data-active] > li {
-    background-color: hsla(225deg, 30%, 24%, 0.2);
-  }
-  
   :is(
     .heading-level-1,
     .heading-level-2,
@@ -105,46 +102,99 @@ MDX component table of contents
     text-transform: uppercase;
   }
 
-  a > li {
-    line-height: 1.66;
-    opacity: 0.5;
+  a {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+
+    /* gap: 0.6rem; */
+    padding-left: 0.6em;
+    padding-right: 0.2rem;
 
     /* clickable area margins */
-    padding-left: 2.2rem;
-    padding-right: 0.2rem;
     border-radius: 0px 5px 5px 0px;
+
+    & > li {
+      /* margin-left: 0.8rem; */
+
+      line-height: 1.66;
+      opacity: 0.5;
+    }
+    
+    &[data-active] {
+      background-color: hsla(225deg, 30%, 24%, 0.2);
+
+      & > li {
+        opacity: 1;
+        color: var(--toc-active-item-color, hsl(25, 73%, 78%));
+      }
+    }
   }
 
-  li:hover {
-    opacity: 0.8;
+  a:hover {
     transition: 40ms;
     background-color: var(--toc-hover-item-background);
+
+    & > li {
+      opacity: 0.8;
+    }
+    
+    & > .context-identification {
+      background-image: url('/src/lib/entries/sk/rebis-theory/assets/img/spiral_knights/icon_revisit-arrow.png');
+      background-size: 70%;
+      -webkit-transform: rotate(180deg);
+      -moz-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+    }
+  }
+  
+  .context-identification {
+    border: solid;
+    border-color: transparent;
+    border-width: 0px;
+    border-radius: 5px;
+    display: block;
+    min-width: 1.2em;
+    height: 1.2em;
+    position: relative;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    margin: 6px;
+    margin-left: unset;
+    margin-top: 0.46rem;
+    background-size: 1.2rem;
+  }
+  
+  .heading-level-3 > a > .context-identification {
+    background-color: hsla(225deg, 30%, 24%, 1);
   }
 
-  a[data-active] > li {
-    opacity: 1;
-    color: var(--toc-active-item-color, hsl(25, 73%, 78%));
-    /* font-weight: bold; */
+  a[data-active] > .context-identification {
+    background-color: hsla(225deg, 30%, 24%, 1);
+    background-image: var(--toc-active-item-icon);
   }
   
   :global {
+
     /**
     * Better define subsections of chapters
     */
     .heading-level-4 ul a li {
-      padding-left: 3.6em;
+      /* padding-left: 1.8em; */
     }
 
     .heading-level-5 ul a li {
-      padding-left: 4.8em;
+      /* padding-left: 3.0em; */
     }
 
 
     /* Prevent custom multiline for chapter headings */
     em {
-    font-style: normal;
-    color: inherit;
-  
+      font-style: normal;
+      color: inherit;
+
       & > code {
         font-style: normal;
       }
@@ -157,43 +207,6 @@ MDX component table of contents
       padding: 0px 4px;
     }
 
-    /* a[data-active] > li::before {
-      content: "";
-    
-      border: solid;
-      border-color: transparent;
-      border-width: 0px;
-      border-radius: 5px;
-      background-color: hsla(225deg, 30%, 24%, 1);
-    
-      background-image: var(--toc-active-item-icon);
-      display: block;
-      background-size: cover;
-      background-repeat: no-repeat;
-      width: 1.2em;
-      height: 1.2em;
-      position: absolute;
-      left: 0.6em;
-      margin-top: 4px;
-    } */
-    
-    
-    /* .heading-level-3 > a > li::before {
-      content: "";
-    
-      border: solid;
-      border-color: transparent;
-      border-width: 0px;
-      border-radius: 5px;
-      background-color: hsla(225deg, 30%, 24%, 1);
-      display: block;
-      width: 1.2em;
-      height: 1.2em;
-      position: absolute;
-      left: 0.6em;
-      margin-top: 4px;
-    } */
-    
     /**
     * See prior instance of this selection through id's string
     */
@@ -205,11 +218,8 @@ MDX component table of contents
         background-color: var(--color-unknown);
         color: #000;
       }
-    
-      /**
-      * Select only chapter's heading
-      */
-      &[data-active] > li::before {
+
+      &[data-active] > .context-identification {
         background-image: var(--toc-active-item-icon-unknown);
       }
     }
