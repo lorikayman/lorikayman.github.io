@@ -190,7 +190,7 @@ MDX component table of contents
 
     margin: 6px;
     margin-left: unset;
-    margin-top: 0.46rem;
+    margin-top: 0.5rem;
     background-size: 1.2rem;
   }
   
