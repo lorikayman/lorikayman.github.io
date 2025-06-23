@@ -17,36 +17,53 @@
     level = 1
   } = $props()
 
+  const headingsParity = $state([]);
+  for (let i = 0; i < tree.length; i++) {
+    const h = tree[i]
+    if (h.children && h.children.length > 0) {
+      headingsParity.push({open: true, allow: true})
+      continue
+    }
+    headingsParity.push({allow: false, open: false})
+  }
+  
+  function toggleCollapse(v) {
+    v = !v
+    console.log(v)
+  }
+  
+  async function processTocBuildCompletion() {
+    // wait for component to render
+    // since we are in 1st level heading,
+    // we encompass all of document headings
+    // due to this, as long as there is only one h1
+    // heading, we can safely tell that
+    // toc has finished rendering
+    await tick()
+
+    const tocRoot = document.querySelector(`.heading-level-${level}`)
+    if (!tocRoot) {
+      console.error(
+        'Failed to retrieve ToC root element with class:',
+        `.heading-level-${level}`
+      )
+      return
+    }
+
+    const event = evToc.EVENT_TOC_BUILD_COMPLETE
+    console.log(
+      'Finished recursive ToC render. Firing:',
+      event.type
+    )
+    tocRoot.dispatchEvent(event)
+  }
+  
   /**
    * Logic to handle ToC render completion for single-h1 documents
    * @see src/lib/events/toc.js
    */
   onMount(async () => {
-    if (level === 1) {
-      // wait for component to render
-      // since we are in 1st level heading,
-      // we encompass all of document headings
-      // due to this, as long as there is only one h1
-      // heading, we can safely tell that
-      // toc has finished rendering
-      await tick()
-
-      const tocRoot = document.querySelector(`.heading-level-${level}`)
-      if (!tocRoot) {
-        console.error(
-          'Failed to retrieve ToC root element with class:',
-          `.heading-level-${level}`
-        )
-        return
-      }
-
-      const event = evToc.EVENT_TOC_BUILD_COMPLETE
-      console.log(
-        'Finished recursive ToC render. Firing:',
-        event.type
-      )
-      tocRoot.dispatchEvent(event)
-    }
+    if (level === 1) await processTocBuildCompletion()
   })
 </script>
 
@@ -65,7 +82,8 @@ MDX component table of contents
           event.preventDefault()
         }}
       >
-        <div class="context-identification" data-allow-collapse={!!(heading.children && heading.children.length)}></div>
+        <div
+          class="context-identification"></div>
         <li>
           <!-- eslint-disable-next-line svelte/no-at-html-tags -->
           {@html heading.node.innerHTML}
@@ -140,14 +158,22 @@ MDX component table of contents
       opacity: 0.8;
     }
     
-    & > .context-identification[data-allow-collapse='true'] {
+    /* & > .context-identification[data-allow-collapse='true'][data-open='true'] {
       background-image: url('/src/lib/entries/sk/rebis-theory/assets/img/spiral_knights/icon_revisit-arrow.png');
       background-size: 70%;
-      background-color: var(--toc-hover-item-background);
+      background-color: hsla(225deg, 30%, 24%, 1);
       -webkit-transform: rotate(270deg);
       -moz-transform: rotate(270deg);
       -ms-transform: rotate(270deg);
     }
+    & > .context-identification[data-allow-collapse='true'][data-open='false'] {
+      background-image: url('/src/lib/entries/sk/rebis-theory/assets/img/spiral_knights/icon_revisit-arrow.png');
+      background-size: 70%;
+      background-color: hsla(225deg, 30%, 24%, 1);
+      -webkit-transform: rotate(180deg);
+      -moz-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+    } */
   }
   
   .context-identification {
@@ -183,11 +209,11 @@ MDX component table of contents
     * Better define subsections of chapters
     */
     .heading-level-4 ul a li {
-      /* padding-left: 1.8em; */
+      padding-left: 1.8em;
     }
 
     .heading-level-5 ul a li {
-      /* padding-left: 3.0em; */
+      padding-left: 3.2em;
     }
 
 
