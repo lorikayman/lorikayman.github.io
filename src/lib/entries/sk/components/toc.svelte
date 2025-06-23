@@ -65,7 +65,7 @@ MDX component table of contents
           event.preventDefault()
         }}
       >
-        <div class="context-identification"></div>
+        <div class="context-identification" data-allow-collapse={!!(heading.children && heading.children.length)}></div>
         <li>
           <!-- eslint-disable-next-line svelte/no-at-html-tags -->
           {@html heading.node.innerHTML}
@@ -140,12 +140,13 @@ MDX component table of contents
       opacity: 0.8;
     }
     
-    & > .context-identification {
+    & > .context-identification[data-allow-collapse='true'] {
       background-image: url('/src/lib/entries/sk/rebis-theory/assets/img/spiral_knights/icon_revisit-arrow.png');
       background-size: 70%;
-      -webkit-transform: rotate(180deg);
-      -moz-transform: rotate(180deg);
-      -ms-transform: rotate(180deg);
+      background-color: var(--toc-hover-item-background);
+      -webkit-transform: rotate(270deg);
+      -moz-transform: rotate(270deg);
+      -ms-transform: rotate(270deg);
     }
   }
   
