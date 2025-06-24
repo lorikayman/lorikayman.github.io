@@ -4,6 +4,7 @@
   import Toc from './toc.svelte'
 
   import * as evToc from '$lib/events/toc.js'
+  import {isChrome} from '$lib/helpers/useragent.js'
 
   /**
    * @description
@@ -72,7 +73,7 @@ because during listening to the mdx object, as it is replaced,
 the handler function within the default m-click continues to point onto previous
 MDX component table of contents
 -->
-<ul class="heading-level-{level}">
+<ul class="heading-level-{level}" data-client-chrome={isChrome}>
   {#if tree && tree.length}
     {#each tree as heading, i (i)}
       <a
@@ -106,8 +107,8 @@ MDX component table of contents
 <style>
   ul,
   li {
-    padding-left: 0em;
     list-style: none;
+
     padding: 4px 0px;
   }
   
@@ -128,14 +129,12 @@ MDX component table of contents
 
     /* gap: 0.6rem; */
     padding-left: 0.6em;
-    padding-right: 0.2rem;
+    padding-right: 0.3rem;
 
     /* clickable area margins */
     border-radius: 0px 5px 5px 0px;
 
     & > li {
-      /* margin-left: 0.8rem; */
-
       line-height: 1.66;
       opacity: 0.5;
     }
@@ -146,18 +145,33 @@ MDX component table of contents
       & > li {
         opacity: 1;
         color: var(--toc-active-item-color, hsl(25, 73%, 78%));
+        font-weight: bold;
       }
     }
   }
+  /**
+   * firefox specific
+   *
+   * prevent weight increase font-weight: bold; effects on line length
+   * except code blocks as those are bold by default
+   */
+  ul[data-client-chrome='false']:is(
+    .heading-level-4,
+    .heading-level-5,
+    .heading-level-6
+  ) a[data-active]
+  > li:not(:has(> code)) {
+    letter-spacing: -0.33px;
+  }
 
+  a:not([data-active]):hover > li {
+    opacity: 0.8;
+    /* text-shadow: 1px 0 black, -1px 0 black; */
+  }
   a:hover {
     transition: 40ms;
     background-color: var(--toc-hover-item-background);
 
-    & > li {
-      opacity: 0.8;
-    }
-    
     /* & > .context-identification[data-allow-collapse='true'][data-open='true'] {
       background-image: url('/src/lib/entries/sk/rebis-theory/assets/img/spiral_knights/icon_revisit-arrow.png');
       background-size: 70%;
@@ -208,10 +222,12 @@ MDX component table of contents
     /**
     * Better define subsections of chapters
     */
+    :is(.heading-level-2, .heading-level-3) ul a li {
+      padding-left: 0.2em;
+    }
     .heading-level-4 ul a li {
       padding-left: 1.8em;
     }
-
     .heading-level-5 ul a li {
       padding-left: 3.2em;
     }
