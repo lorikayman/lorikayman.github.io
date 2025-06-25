@@ -12,7 +12,7 @@
   --toc-active-item-color: hsl(34, 72%, 70%);
   --toc-hover-item-background: hsla(225deg, 40%, 30%, 0.1);
   --ui-selection-regular: rgba(255, 62, 41, 0.5);
-  /* --asset-moon: url("/src/lib/entries/sk/rebis-theory/assets/img/spiral_knights/moon.png"); */
+  --asset-moon: url("/src/lib/entries/sk/rebis-theory/assets/img/spiral_knights/moon.png");
 }
 
 /* Set initial height for document for background stability */
@@ -130,7 +130,7 @@ h1 {
   /**
    * Moon animated image for h1
    */
-  /* &::before {
+  &::before {
     background-image: var(--asset-moon);
     width: 18rem;
     height: 18rem;
@@ -140,29 +140,30 @@ h1 {
     position: absolute;
     content: "";
     background-size: cover;
-    animation: clouds-move 16s linear infinite;
+    animation: clouds-move 90s linear infinite;
     transform: scale(1);
+    rotate: -12deg;
     mix-blend-mode: screen;
-  } */
+  }
 }
 
 /**
  * Animation for moon image of h1
  */
-/* @keyframes clouds-move {
+@keyframes clouds-move {
   0% {
-    top: -2.6rem;
+    top: -4.6rem;
     filter: contrast(1.5) brightness(1);
   }
   50% {
-    top: -2rem;
+    top: -4.2rem;
     filter: contrast(1.5) brightness(1.2);
   }
   100% {
-    top: -2.6rem;
+    top: -4.6rem;
     filter: contrast(1.5) brightness(1);
   }
-} */
+}
 
 h2 {
   font-weight: 500;
