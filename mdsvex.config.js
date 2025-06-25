@@ -64,7 +64,9 @@ const config = defineConfig({
    * far from perfect, but an established and working system.
    */
   layout: {
-    entries_sk: layoutPathEntriesRebis,
+    // rebis theory
+    // internal layout name here for context of repository, mdsvex.config.js
+    spiral_study: layoutPathEntriesRebis,
     mawanet: layoutPathMawanet
   }
 })
