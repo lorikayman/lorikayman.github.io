@@ -52,9 +52,7 @@
     } */
   }
 
-  .citation-content {
-    /* background-position: -30%; */
-    /* background-color: hsl(0 0% 52%); */
+  :global(.citation-content) {
 
     & p > code,
     & p {
@@ -65,4 +63,5 @@
       text-align: justify;
     }
   }
+
 </style>
