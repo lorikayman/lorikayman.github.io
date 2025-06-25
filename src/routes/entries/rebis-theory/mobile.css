@@ -5,6 +5,10 @@
   p {
     text-align: justify;
   }
+  .container {
+    max-width: 84%;
+    padding-left: 8%;
+  }
 
   h2 {
     letter-spacing: 3px;
@@ -19,6 +23,7 @@
     background: hsla(0deg, 0%, 0%, 0.9);
     max-width: 100%;
   }
+  
 
   // only with closed toc
   /* .sidebar-container[data-sidebar-hidden='true'] .ui-button-dom-scroller {

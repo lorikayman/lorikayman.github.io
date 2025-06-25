@@ -18,12 +18,22 @@
 
   document.title = 'Rebis Theory ::'
 
+  // reactive window width
+  let windowReactiveWidth = $state(window.innerWidth)
+
   // selector for highlighting currently selected item
   const tocActiveSelector =
     '.toc a[data-active] li'
   /** selector for defining the start for @see Jumper */
-  const documentStart =
-    "#document-body h1, .toc a[data-id='rebis-theory-'] li"
+  const documentStart = $derived(
+    (windowReactiveWidth > 624) ? (
+      "#document-body h1, .toc a[data-id='rebis-theory-'] li"
+    ) : (
+      (!sidebarHidden) ? (
+        ".toc a[data-id='rebis-theory-'] li, #document-body h1"
+      ) : "#document-body h1, .toc a[data-id='rebis-theory-'] li"
+    )
+  )
   /**
    * create table of content by scanning a component
    */
@@ -172,17 +182,16 @@
     hashChangeSource.processing = false
   })
 
-  let sidebarHidden = $state(false)
+  let sidebarHidden = $state(true)
   // Toggle Sidebar visibility
   function toggleToc() {
     sidebarHidden = !sidebarHidden
   }
-  
-  // reactive window width
-  let windowReactiveWidth = $state(window.innerWidth)
+
   function updateWindowWidth() {
     windowReactiveWidth = window.innerWidth;
-    // if (window.innerWidth < 624 && sidebarHidden) sidebarHidden = false
+    if (window.innerWidth > 624 && sidebarHidden) sidebarHidden = false
+    if (window.innerWidth < 624 && !sidebarHidden) sidebarHidden = true
   }
 
   /**
