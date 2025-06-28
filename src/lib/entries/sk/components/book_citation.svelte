@@ -18,22 +18,32 @@
 <style>
 
   .citation-bg {
-    /* position: relative; */
     width: 80%;
     height: 100%;
-    padding: 1rem;
-    margin-bottom: 2rem;
-    
+
     border-radius: 10px;
-    background-color: hsl(240, 10%, 72%);
-    border-width: 4px;
-    border-style: solid;
-    border-color: hsl(197, 67%, 20%);
     box-shadow: 0 1mm 4mm hsla(197, 67%, 41%, 0.26);
-    
-    /* & .citation-source {
-      position: relative;
-    } */
+    margin-bottom: 2rem;
+  
+    & .citation-source {
+      border-radius: 10px 10px 0px 0px;
+      background-color: hsl(240, 10%, 72%);
+      border-width: 4px 4px 0px 4px;
+      border-style: solid;
+      border-color: hsl(197, 67%, 20%);
+      padding: 1rem;
+    }
+
+    & .citation-content {
+      padding: 1rem;
+      padding-bottom: 2rem;
+      
+      border-radius: 0px 0px 10px 10px;
+      background-color: hsl(240, 10%, 72%);
+      border-width: 0px 4px 4px 4px;
+      border-style: solid;
+      border-color: hsl(197, 67%, 20%);
+    }
 
     /* &::before {
       content: "";
