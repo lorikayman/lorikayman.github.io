@@ -189,6 +189,7 @@ h5,
 h6 {
   font-size: 1.3rem;
   margin-bottom: 16px;
+  letter-spacing: 0.6px;
 }
 
 p,
@@ -259,18 +260,6 @@ h2, h3, h4, h5, h6 {
       display: block;
       white-space: pre-line;
     } */
-  }
-
-  /**
-   * No padding creates impression as if
-   * the word on the first line went horizontally
-   * farther than boundaries of larger text below,
-   * - more to the left due to custom letter-spacing,
-   * so we add a few pixels to counter that
-   */
-  &::before {
-    content: "";
-    padding-left: 2px;
   }
 }
 
@@ -373,6 +362,7 @@ h3:is(
     z-index: 18;
     width: 100%;
     margin-top: -12vi;
+    margin-left: -8px;
 
     /**
      * Image itself

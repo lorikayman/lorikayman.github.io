@@ -6,7 +6,9 @@
   <div class="book-citation">
     <div class="citation-bg">
       <div class="citation-source">
-        {source}
+        <span>{source}</span>
+        <!-- <span class="name">{text}</span>
+        <span class="author">{author}</span> -->
       </div>
       <div class="citation-content">
         {@render children?.()}
@@ -24,53 +26,47 @@
     border-radius: 10px;
     box-shadow: 0 1mm 4mm hsla(197, 67%, 41%, 0.26);
     margin-bottom: 2rem;
-  
+    
+    display: flex;
+    flex-direction: column;
+
+    border-radius: 10px;
+    border-width: 4px;
+    border-style: solid;
+    border-color: transparent;
+    background-color: hsla(225deg, 30%, 24%, 1);
+    
     & .citation-source {
-      border-radius: 10px 10px 0px 0px;
-      background-color: hsl(240, 10%, 72%);
-      border-width: 4px 4px 0px 4px;
-      border-style: solid;
-      border-color: hsl(197, 67%, 20%);
-      padding: 1rem;
+      padding: 0.6rem;
+
+      font-weight: bold;
+      text-align: left;
+      line-height: 1.33;
+      text-transform: uppercase;
+      font-family: heading;
+      font-size: 1.03rem;
+      letter-spacing: 0.6px;
     }
 
     & .citation-content {
       padding: 1rem;
-      padding-bottom: 2rem;
-      
-      border-radius: 0px 0px 10px 10px;
-      background-color: hsl(240, 10%, 72%);
-      border-width: 0px 4px 4px 4px;
-      border-style: solid;
-      border-color: hsl(197, 67%, 20%);
+      border-radius: 10px;
+      background-color: #b0b0bf;
+      border-color: hsla(225deg, 30%, 24%, 1);
+      color: #161418;
     }
 
-    /* &::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border-radius: 10px;
-      background-color: hsl(240, 10%, 72%);
-      border-width: 4px;
-      border-style: solid;
-      border-color: hsl(197, 67%, 20%);
-      box-shadow: 0 1mm 4mm hsla(197, 67%, 41%, 0.26);
-      z-index: -1;
-    } */
   }
 
   :global(.citation-content) {
 
     & p > code,
     & p {
-      color: hsl(0deg, 0%, 12%);
-      padding: 1px 0px;
-      font-weight: bold;
-      background-color: transparent;
+      padding: 2px 0px;
+      /* font-size: 1.05rem; */
       text-align: justify;
+      margin-bottom: 2rem;
+      font-weight: bold;
     }
   }
 
