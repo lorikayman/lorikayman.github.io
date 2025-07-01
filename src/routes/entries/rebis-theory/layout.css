@@ -567,7 +567,7 @@ a {
   animation-duration: 300ms;
   animation-delay: 0ms;
   animation-timing-function: ease-in-out;
-  animation-fill-mode: forwards;  
+  animation-fill-mode: forwards; 
 }
 .sidebar-toggle-visible {
   animation-name: sidebar-toggle-visible;
