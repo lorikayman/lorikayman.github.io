@@ -35,14 +35,8 @@ jobs:
         # we use --force due to standard/eslint-config-standard `eslint` dependency compatibility having a stroke
         run: npm install --force
 
-      # https://taskfile.dev/installation/#github-actions
-      - uses: arduino/setup-task@v2
-        name: Set up Task runner
-        with:
-          version: 3.x
-
-      - name: Build with Task
-        run: task build
+      - name: Build production distribution
+        run: npm run build
         env:
           BASE_PATH: "/${{ github.event.repository.name }}"
 
