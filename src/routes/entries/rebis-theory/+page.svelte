@@ -1,6 +1,5 @@
 <script>
   import { onMount } from 'svelte'
-  import { slide } from 'svelte/transition'
 
   import { createTableOfContents } from '@melt-ui/svelte'
 
