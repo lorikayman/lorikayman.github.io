@@ -23,20 +23,5 @@
     background: hsla(0deg, 0%, 0%, 0.9);
     max-width: 100%;
   }
-  
 
-  // only with closed toc
-  /* .sidebar-container[data-sidebar-hidden='true'] .ui-button-dom-scroller {
-    left: 0%;
-    bottom: 2.2rem;
-  } */
-  // only in open toc
-  /* .sidebar-container[data-sidebar-hidden='false'] .ui-button-toc-scroller {
-    left: 3.2rem;
-    bottom: 2.2rem;
-  } */
-  /* .ui-button-toc-toggler {
-    right: 0rem;
-    bottom: 2.2rem;
-  } */
 }

@@ -83,8 +83,7 @@ MDX component table of contents
           event.preventDefault()
         }}
       >
-        <div
-          class="context-identification"></div>
+        <div class="context-identification"></div>
         <li>
           <!-- eslint-disable-next-line svelte/no-at-html-tags -->
           {@html heading.node.innerHTML}
@@ -164,13 +163,14 @@ MDX component table of contents
     letter-spacing: -0.33px;
   }
 
-  a:not([data-active]):hover > li {
-    opacity: 0.8;
-    /* text-shadow: 1px 0 black, -1px 0 black; */
-  }
-  a:hover {
+  a:not([data-active]):hover {
     transition: 40ms;
     background-color: var(--toc-hover-item-background);
+
+    & > li {
+      opacity: 0.8;
+      /* text-shadow: 1px 0 black, -1px 0 black; */
+    }
 
     /* & > .context-identification[data-allow-collapse='true'][data-open='true'] {
       background-image: url('/src/lib/entries/sk/rebis-theory/assets/img/spiral_knights/icon_revisit-arrow.png');
@@ -207,7 +207,7 @@ MDX component table of contents
     margin-top: 0.5rem;
     background-size: 1.2rem;
   }
-  
+
   .heading-level-3 > a > .context-identification {
     background-color: hsla(225deg, 30%, 24%, 1);
   }
@@ -216,20 +216,30 @@ MDX component table of contents
     background-color: hsla(225deg, 30%, 24%, 1);
     background-image: var(--toc-active-item-icon);
   }
-  
-  :global {
 
-    /**
-    * Better define subsections of chapters
-    */
-    :is(.heading-level-2, .heading-level-3) ul a li {
+  :global {
+    :is(
+      .heading-level-2,
+      .heading-level-3,
+      .heading-level-4,
+      .heading-level-5
+    ) ul a li {
       padding-left: 0.2em;
     }
-    .heading-level-4 ul a li {
-      padding-left: 1.8em;
-    }
-    .heading-level-5 ul a li {
-      padding-left: 3.2em;
+
+    @media (min-width: 890px) {
+      /**
+      * Define subsections of chapters
+      */
+      :is(.heading-level-2, .heading-level-3) ul a li {
+        padding-left: 0.2em;
+      }
+      .heading-level-4 ul a li {
+        padding-left: 1.8em;
+      }
+      .heading-level-5 ul a li {
+        padding-left: 3.2em;
+      }
     }
 
 
