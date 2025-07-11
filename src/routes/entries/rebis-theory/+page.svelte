@@ -188,7 +188,7 @@
     sidebarHidden = !sidebarHidden
   }
 
-  function updateWindowWidth() {
+  function updateWindowSidebarBehavior() {
     windowReactiveWidth = window.innerWidth;
     if (window.innerWidth > 624 && sidebarHidden) sidebarHidden = false
     if (window.innerWidth < 624 && !sidebarHidden) sidebarHidden = true
@@ -245,11 +245,14 @@
     )
     
     /**
-     * Rearrange buttons in UI when window is resized
-     * @see updateWindowWidth
+     * Rearrange buttons in UI when window's _width_ is resized
+     * @see updateWindowSidebarBehavior
      */
-    window.addEventListener('resize', () => {
-      updateWindowWidth()
+    window.addEventListener('resize', (e) => {
+      if (windowReactiveWidth !== e.target.innerWidth) {
+        console.log("Received width resize event, updating sidebar state")
+        updateWindowSidebarBehavior()
+      }
     })
 
     if (window.innerWidth > window.innerHeight && window.innerWidth > 624) {
