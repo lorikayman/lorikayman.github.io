@@ -2,22 +2,14 @@
   import { writable } from 'svelte/store'
 
   import { createPinInput, melt } from '@melt-ui/svelte'
-  import { onMount } from 'svelte'
-
-  const passcode = '6,4,9,8,7,1'
-  const passcodeMatch = writable(false)
-  const passcodeCurrent = writable([])
 
   const {
     elements: { root, input }
   } = createPinInput({
     placeholder: '-',
-    value: passcodeCurrent
+    value: ''
   })
 
-  passcodeCurrent.subscribe(v => {
-    passcodeMatch.set(v.toString() === passcode)
-  })
 </script>
 
 <div class="content-wrapper">
@@ -40,11 +32,6 @@
       />
       {/each}
     </div>
-    {#if $passcodeMatch}
-      <button id="passcode-check">
-        <a href="/mawanet">[ <span>Access Granted</span> ] Proceed</a>
-      </button>
-    {/if}
   </center>
 </div>
 
@@ -95,9 +82,7 @@ center {
     &::before {
       text-transform: uppercase;
       content: 'Narraphysic Isolation Environment';
-      /* z-index: 1; */
       position: absolute;
-      /* margin-right: 2rem; */
       font-family: 'familiar-pro';
       font-size: 2.6rem;
       font-weight: 300;
@@ -112,7 +97,6 @@ center {
   padding: 0.6rem;
   border-radius: 10px;
   background-color: #1e1b1e;
-  /* margin-bottom: 8rem; */
   width: fit-content;
   padding: 0.33rem 2rem;
 
@@ -137,8 +121,6 @@ center {
 .cell {
   font-weight: 800;
   font-size: 0.8rem;
-  /* border-style: solid;
-  border-color: transparent; */
   width: 3em;
   height: 3em;
   border-radius: .375rem;

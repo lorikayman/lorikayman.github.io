@@ -1,17 +1,17 @@
 <script>
   import { base } from '$app/paths'
 
-  const href = 'about'
+  const hrefAboutProvider = 'about'
 </script>
 
 <div id="footer">
   <div class="container">
     <p class="first">
-      The Array is Managed by HHGC Array Engineering Group, LLC
+      This Array is Managed by HHGC Array Engineering Group, LLC
     </p>
     <p>
       Security, Privacy, Legal |
-      <a href="{base}/{href}">About Us</a>
+      <a href="{base}/{hrefAboutProvider}">About Us</a>
     </p>
     <p class="last">© Hordholl General Communications</p>
   </div>

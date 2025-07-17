@@ -5,29 +5,14 @@
   // import { crossfade, blur } from "svelte/transition";
 
   import About from '$lib/components/profile/about.mdx'
-
-  export let data
-
   import TripleSymbol from '$lib/components/profile/triple_symbol.svelte'
 
-  document.title = 'RKHL57 : IRKM'
-
-  // const userHasScrolled = false
+  document.title = 'Lori Kayman ::'
 
   afterNavigate(() => {
     const tabElement = document.querySelector('.tabbed-content')
     window.scrollTo(0, tabElement.getBoundingClientRect().top - 180)
   })
-
-  // onMount(() => {
-  //   let tabElement = document.querySelector(".tabbed-content");
-  //   window.onscroll = function () {
-  //     if (!userHasScrolled) {
-  //       window.scrollTo(0, tabElement.getBoundingClientRect().top - 80);
-  //     }
-  //     userHasScrolled = true;
-  //   };
-  // });
 </script>
 
 <div id="menu-wrapper">
